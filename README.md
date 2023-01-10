@@ -35,7 +35,14 @@ o	Interface de Compra<br>
 o	Interface de Venda<br>
 o Interface do Úsuario<br>
 
-# Capítulo 4 - CONCLUSÕES
+# Capítulo 4 - DEFINIÇÃO DE REQUISITOS <br>
+**Descrição dos Requisitos**<br>
+Descrição de todos os requisitos que será implementado no sistema.<br><br>
+**Lista de Requisitos Funcionais:**<br>
+o Efetuar Compra<br>
+
+
+# Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
 
     o A coleta de informações detalhadas deve ser feita. Sem isso, o propósito de usar o sistema não será adequada.
