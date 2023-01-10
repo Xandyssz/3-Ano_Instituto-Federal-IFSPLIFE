@@ -24,7 +24,7 @@ o Semana Nacional de Ciência e Tecnologia -
 
 # Capítulo 3 - IMPLEMENTAÇÃO <br>
 **Descrição das Implementações**<br>
-Funções da Fármacia. <br><br>
+Funções que serão implementadas. <br><br>
 **Lista de Módulos:**<br>
 o	Interface de Login<br>
 o	Interface Home<br>
