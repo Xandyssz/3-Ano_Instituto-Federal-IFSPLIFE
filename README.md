@@ -36,9 +36,8 @@ o Doc. Semana Nacional de Ciência e Tecnologia -
 
 # Capítulo 3 - IMPLEMENTAÇÃO 
 **Descrição das Implementações:**<br>
-Funções que serão implementadas. <br>
-**Lista de Módulos:**
-o  Interface de Login
+**Lista de Módulos:**<br>
+o  Interface de Login<br>
 o  Interface Home<br>
 o  Interface das Empresas<br>
 o  Interface de Compra<br>
