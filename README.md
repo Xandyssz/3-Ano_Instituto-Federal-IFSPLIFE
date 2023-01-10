@@ -19,7 +19,7 @@ o Modelo Lógico -<br>
 o Diagrama Caso de Uso -<br>
 o Diagrama Caso de Atividade -<br> 
 o Diagrama de Classes - <br>
-o Semana Nacional de Ciência e Tecnologia - 
+o Doc. Semana Nacional de Ciência e Tecnologia - 
 
 
 # Capítulo 3 - IMPLEMENTAÇÃO <br>
