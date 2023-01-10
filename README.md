@@ -8,7 +8,7 @@ O sistema utilizado pode gerar relatórios, conforme a necessidade do usuário. 
 
 **Objetivos**<br>
 -> **Principais Objetivos**<br>
-• Desenvolver um sistema que possa ser utilizado em qualquer farmácia.
+• Desenvolver um sistema que possa ser utilizado em qualquer farmácia.<br>
 • Sistema de Gerenciamento Eficaz.
 
 # Capítulo 2 - DOCUMENTAÇÃO<br>
