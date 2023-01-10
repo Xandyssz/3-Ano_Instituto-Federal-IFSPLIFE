@@ -41,7 +41,7 @@ Todos as funções que serão implementadas no sistema.<br><br>
 **Lista de Funções:**<br>
 o Função Fundamental 1.0 - Efetuar Compra<br>
     Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento. Ademais, permite que a compra possa ser cancelada ou alterada.<br>
-    Itens de Informações » Código Fornecedor conjunto numérico<br>
+    <br>Itens de Informações » Código Fornecedor conjunto numérico<br>
     Código Usuário conjunto numérico<br>
     Nota Fiscal do Fornecedor conjunto numérico<br>
     Valor Total- conjunto numérico decimal<br>Data- dd/mm/aaaa<br><br>
