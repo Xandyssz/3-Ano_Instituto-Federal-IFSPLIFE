@@ -13,12 +13,12 @@ O sistema utilizado pode gerar relatórios, conforme a necessidade do usuário. 
 
 # Capítulo 2 - DOCUMENTAÇÃO<br>
 o Levantamento de Dados -  
-o Escopo -
-o Protótipo - 
-o Modelo Lógico -
-o Diagrama Caso de Uso -
-o Diagrama Caso de Atividade - 
-o Diagrama de Classes - 
+o Escopo -<br>
+o Protótipo -<br>
+o Modelo Lógico -<br>
+o Diagrama Caso de Uso -<br>
+o Diagrama Caso de Atividade -<br> 
+o Diagrama de Classes - <br>
 o Semana Nacional de Ciência e Tecnologia - 
 
 
