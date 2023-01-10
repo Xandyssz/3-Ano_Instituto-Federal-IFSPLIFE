@@ -18,18 +18,18 @@ O principal objetivo do sistema é melhorar a segurança e a eficiência nas red
 O sistema utilizado pode gerar relatórios, conforme a necessidade do usuário. O software pode imprimir notas fiscais, contas, recibos etc. Ele também pode manter o registro de medicamentos enviados pelo fornecedor. Aqui, o administrador que está lidando com a organização. Será responsável por gerenciar os registros dos funcionários. Cada funcionário receberá um nome de usuário e senha separados.
 
 **Objetivos**
--> **Principais Objetivos**
-• Desenvolver um sistema que possa ser utilizado em qualquer farmácia.
+-> **Principais Objetivos**<br>
+• Desenvolver um sistema que possa ser utilizado em qualquer farmácia.<br>
 • Sistema de Gerenciamento Eficaz.
 
 # Capítulo 2 - DOCUMENTAÇÃO
 o Levantamento de Dados -  
-o Escopo -<br>
-o Protótipo -<br>
-o Modelo Lógico -<br>
-o Diagrama Caso de Uso -<br>
-o Diagrama Caso de Atividade -<br> 
-o Diagrama de Classes -<br>
+o Escopo - <br>
+o Protótipo - <br>
+o Modelo Lógico - <br>
+o Diagrama Caso de Uso - <br>
+o Diagrama Caso de Atividade - <br> 
+o Diagrama de Classes - <br>
 o Doc. Semana Nacional de Ciência e Tecnologia - 
 
 
