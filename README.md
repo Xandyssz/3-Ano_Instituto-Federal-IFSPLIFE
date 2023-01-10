@@ -1,6 +1,6 @@
 # **Sistema para Gerenciamento de Farmácias**
 
-# INTRODUÇÃO: <br>
+# Capítulo 1 - INTRODUÇÃO<br>
 O principal objetivo do sistema é melhorar a segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz. Desenvolvemos este sistema para garantir um policiamento eficaz, fornecendo estatísticas dos medicamentos em estoque.
 
 **Descrição do Sistema:** <br>
