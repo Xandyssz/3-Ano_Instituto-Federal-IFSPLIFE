@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="PEP LIFE.png" alt="Guia do Desenvolvedor Back-end" width="352" height="126">
+    <img src="PEP LIFE.png" alt="Guia do Desenvolvedor Back-end">
   <h1 align="center">Guia do Desenvolvedor Back-end - IFSP</h1>
 </p>
 
