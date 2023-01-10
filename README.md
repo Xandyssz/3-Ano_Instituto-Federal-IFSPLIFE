@@ -38,12 +38,12 @@ o Doc. Semana Nacional de Ciência e Tecnologia -
 Funções que serão implementadas. 
 **Lista de Módulos:**
 o  Interface de Login
-o  Interface Home
-o  Interface das Empresas
-o  Interface de Compra
-o  Interface dos Medicamentos
-o  Interface de Compra
-o  Interface de Venda
+o  Interface Home<br>
+o  Interface das Empresas<br>
+o  Interface de Compra<br>
+o  Interface dos Medicamentos<br>
+o  Interface de Compra<br>
+o  Interface de Venda<br>
 o Interface do Úsuario
 
 # Capítulo 4 - DEFINIÇÃO DE FUNÇÕES 
