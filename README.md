@@ -41,7 +41,7 @@ Todos os requisitos que serão implementados no sistema.<br><br>
 **Lista de Requisitos Funcionais:**<br>
 o Efetuar Compra<br>
    Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento. Ademais, permite que a compra possa ser cancelada ou alterada.<br>
-   Itens de Informações » Código Fornecedor conjunto numérico; Código Usuário conjunto numérico; Nota Fiscal do Fornecedor conjunto numérico;
+   Itens de Informações » Código Fornecedor conjunto numérico<br>Código Usuário conjunto numérico<br>Nota Fiscal do Fornecedor conjunto numérico<br>Valor Total- conjunto numérico decimal<br>Data- dd/mm/aaaa<br><br>Para cada Mercadoria » Código- conjunto numérico<br>Valor- conjunto numérico<br>Valor da Compra- conjunto numérico<br>Status- texto com tamanho máximo de 15<br>Descrição- texto com tamanho máximo de 45<br>Tamanho- texto com tamanho máximo de 10<br>Marca- texto com tamanho máximo de 15<br>
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
