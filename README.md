@@ -37,10 +37,10 @@ o Interface do Úsuario<br>
 
 # Capítulo 4 - DEFINIÇÃO DE REQUISITOS <br>
 **Descrição dos Requisitos**<br>
-Descrição de todos os requisitos que será implementado no sistema.<br><br>
+Todos os requisitos que serão implementados no sistema.<br><br>
 **Lista de Requisitos Funcionais:**<br>
 o Efetuar Compra<br>
-
+   Descrição: Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento. Ademais, permite que a compra possa ser cancelada ou alterada.
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
