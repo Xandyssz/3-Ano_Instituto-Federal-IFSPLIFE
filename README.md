@@ -5,11 +5,10 @@
 
 # **IFSP LIFE** - *Sistema para Gerenciamento de Farmácias*
 
-<h3 align="left">Linguagens e Ferramentas Utilizados no Projeto:</h3>
-<p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
-
 <p align="center"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=xandyssz" alt="xandyssz" /></a> </p>
 
+<h3 align="left">Linguagens e Ferramentas Utilizados no Projeto:</h3>
+<p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
 
 # Capítulo 1 - INTRODUÇÃO
 O principal objetivo do sistema é melhorar a segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz. Desenvolvemos este sistema para garantir um policiamento eficaz, fornecendo estatísticas dos medicamentos em estoque.
