@@ -5,6 +5,10 @@
 
 # **IFSP LIFE** - *Sistema para Gerenciamento de Farmácias*
 
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
+
+
 # Capítulo 1 - INTRODUÇÃO
 O principal objetivo do sistema é melhorar a segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz. Desenvolvemos este sistema para garantir um policiamento eficaz, fornecendo estatísticas dos medicamentos em estoque.
 
@@ -70,61 +74,60 @@ o Função Fundamental 1.1 - Efetuar Venda
     - Código Usuário- conjunto numérico;
 
     Para cada Mercadoria » 
-    - Código- conjunto numérico
-    - Valor- conjunto numérico;
-    - Valor da Compra- conjunto numérico;
-    - Status- texto com tamanho máximo de 15
-    - Descrição- texto com tamanho máximo de 45;
-    - Tamanho- texto com tamanho máximo de 10;
-    - Marca- texto com tamanho máximo de 15;
-    - Número Nota Fiscal- conjunto numérico;
-    - Valor total- conjunto numérico decimal;
-    - Forma de pagamento- texto com tamanho máximo de 45;
-    - Data- dd/mm/aaaa;
+    - Código - conjunto numérico
+    - Valor - conjunto numérico;
+    - Valor da Compra - conjunto numérico;
+    - Status - texto com tamanho máximo de 15
+    - Descrição - texto com tamanho máximo de 45;
+    - Tamanho - texto com tamanho máximo de 10;
+    - Marca - texto com tamanho máximo de 15;
+    - Número Nota Fiscal - conjunto numérico;
+    - Valor total - conjunto numérico decimal;
+    - Forma de pagamento - texto com tamanho máximo de 45;
+    - Data - dd/mm/aaaa;
 
 o Função Básica 1.2 - Manter Usuario
 
     Descrição » Essa função permite a consulta dos dados de um usuário, como também, a inclusão, alteração e exclusão.
 
     Itens de Informações » 
-    - Nome do Usuário – texto com tamanho máximo de 45;
-    - Telefone– texto com tamanho máximo de 17;
-    - CPF– texto com tamanho máximo de 14;
-    - Endereço – texto com tamanho máximo de 45;
-    - Cidade- texto com tamanho máximo de 45;
-    - CEP- texto com tamanho máximo de 9;
-    - Estado- texto com tamanho máximo de 2;
-    - Tipo – texto com tamanho máximo 1;. A: administrador e F:
-    - funcionário;
-    - Senha – texto com tamanho máximo de 45;
-    - Email- texto com tamanho máximo de 45;
+    - Nome do Usuário  - texto com tamanho máximo de 45;
+    - Telefone - texto com tamanho máximo de 17;
+    - CPF - texto com tamanho máximo de 14;
+    - Endereço  - texto com tamanho máximo de 45;
+    - Cidade - texto com tamanho máximo de 45;
+    - CEP - texto com tamanho máximo de 9;
+    - Estado - texto com tamanho máximo de 2;
+    - Tipo - texto com tamanho máximo 1;. A: administrador e F: funcionário;
+    - Senha - texto com tamanho máximo de 45;
+    - Email - texto com tamanho máximo de 45;
 
 o Função Básica 1.3 - Manter Fornecedor
 
     Descrição » Essa função permite a consulta dos dados de um fornecedor como, também, a inclusão, alteração e exclusão
 
     Itens de Informações » 
-    - Nome do fornecedor – texto com tamanho máximo de 45;
-    - Telefone– texto com tamanho máximo de 17;
-    - CNPJ– texto com tamanho máximo de 14;
-    - Endereço – texto com tamanho máximo de 45;
-    - Estado- texto com tamanho máximo de 2;
-    - Cidade- texto com tamanho máximo de 45;
-    - Email- texto com tamanho máximo de 45;
-    - CEP- texto com tamanho máximo de 9;
+    - Nome do fornecedor  - texto com tamanho máximo de 45;
+    - Telefone - texto com tamanho máximo de 17;
+    - CNPJ - texto com tamanho máximo de 14;
+    - Endereço  - texto com tamanho máximo de 45;
+    - Estado - texto com tamanho máximo de 2;
+    - Cidade - texto com tamanho máximo de 45;
+    - Email - texto com tamanho máximo de 45;
+    - CEP - texto com tamanho máximo de 9;
 
 o Função Básica 1.4 - Manter Mercadoria
 
     Descrição » Essa função permite a consulta dos dados de uma peça, como também, a alteração e exclusão. A inclusão será realizada no momento da realização da compra.
 
     Itens de Informações » 
-    - Código- conjunto numérico;
-    - Valor- conjunto numérico;
-    - Valor da Compra- conjunto numérico;
-    - Status- texto com tamanho máximo de 15;
-    - Descrição- texto com tamanho máximo de 45;
-    - Tamanho- texto com tamanho máximo de 10;
-    - Marca- texto com tamanho máximo de 15;
+    - Código - conjunto numérico;
+    - Valor - conjunto numérico;
+    - Valor da Compra - conjunto numérico;
+    - Status - texto com tamanho máximo de 15;
+    - Descrição - texto com tamanho máximo de 45;
+    - Tamanho - texto com tamanho máximo de 10;
+    - Marca - texto com tamanho máximo de 15;
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
