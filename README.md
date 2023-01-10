@@ -1,9 +1,9 @@
 <p align="center">
      <a href="https://pep.ifsp.edu.br/">
-    <img src="PEP LIFE.png" alt="Guia do Desenvolvedor Back-end">
+    <img src="PEP LIFE.png" alt="IFSP_LIFE">
 </p>
 
-# **PHARMACY - IFSP LIFE** - *Sistema para Gerenciamento de Farmácias*
+# **IFSP LIFE** - *Sistema para Gerenciamento de Farmácias*
 
 # Capítulo 1 - INTRODUÇÃO
 O principal objetivo do sistema é melhorar a segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz. Desenvolvemos este sistema para garantir um policiamento eficaz, fornecendo estatísticas dos medicamentos em estoque.
