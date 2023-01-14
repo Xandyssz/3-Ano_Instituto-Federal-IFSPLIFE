@@ -29,6 +29,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         BackGroundPanel = new javax.swing.JPanel();
+        IconX = new javax.swing.JLabel();
         LogoIFSP_LIFE = new javax.swing.JLabel();
         BackGroundImage = new javax.swing.JLabel();
         Login1 = new javax.swing.JLabel();
@@ -47,6 +48,14 @@ public class Login extends javax.swing.JFrame {
         BackGroundPanel.setRequestFocusEnabled(false);
         BackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        IconX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
+        IconX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconXMouseClicked(evt);
+            }
+        });
+        BackGroundPanel.add(IconX, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
+
         LogoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/default_transparent_765x625.png"))); // NOI18N
         BackGroundPanel.add(LogoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 500));
@@ -59,7 +68,7 @@ public class Login extends javax.swing.JFrame {
         Login1.setForeground(new java.awt.Color(102, 255, 102));
         Login1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Login1.setText("LOGIN");
-        BackGroundPanel.add(Login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 350, 70));
+        BackGroundPanel.add(Login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 280, 70));
 
         Login2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Login2.setForeground(new java.awt.Color(102, 255, 102));
@@ -89,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+            .addComponent(BackGroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,6 +108,10 @@ public class Login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IconXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconXMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_IconXMouseClicked
 
     /**
      * @param args the command line arguments
@@ -137,6 +150,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton BTNlogin;
     private javax.swing.JLabel BackGroundImage;
     private javax.swing.JPanel BackGroundPanel;
+    private javax.swing.JLabel IconX;
     private javax.swing.JLabel Login1;
     private javax.swing.JLabel Login2;
     private javax.swing.JLabel LogoIFSP_LIFE;

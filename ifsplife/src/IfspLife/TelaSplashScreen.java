@@ -29,6 +29,7 @@ public class TelaSplashScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         BackGroundPanel = new javax.swing.JPanel();
+        IconX = new javax.swing.JLabel();
         LogoIFSP_LIFE = new javax.swing.JLabel();
         LoadingBar = new javax.swing.JProgressBar();
         LoadingLabel = new javax.swing.JLabel();
@@ -43,9 +44,17 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         BackGroundPanel.setRequestFocusEnabled(false);
         BackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        IconX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
+        IconX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconXMouseClicked(evt);
+            }
+        });
+        BackGroundPanel.add(IconX, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
+
         LogoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/default_transparent_765x625.png"))); // NOI18N
-        BackGroundPanel.add(LogoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 900, 480));
+        BackGroundPanel.add(LogoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 900, 490));
         BackGroundPanel.add(LoadingBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 480, 920, 20));
 
         LoadingLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,6 +83,10 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IconXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconXMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_IconXMouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,10 +143,17 @@ public class TelaSplashScreen extends javax.swing.JFrame {
                     telasplashscreen.LoadingLabel.setText("Launching Apllication");
                 }
 
+                if (i == 100) {
+                    telasplashscreen.dispose();
+
+                    Login login = new Login();
+                    login.setVisible(true);
+                }
                 telasplashscreen.LoadingBar.setValue(i);
+
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Erro ao Carregar");
         }
 
     }
@@ -141,6 +161,7 @@ public class TelaSplashScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackGroundImage;
     private javax.swing.JPanel BackGroundPanel;
+    private javax.swing.JLabel IconX;
     private javax.swing.JProgressBar LoadingBar;
     private javax.swing.JLabel LoadingLabel;
     private javax.swing.JLabel LoadingValue;
