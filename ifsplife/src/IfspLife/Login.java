@@ -80,7 +80,7 @@ public class Login extends javax.swing.JFrame {
         Password.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Password.setForeground(new java.awt.Color(102, 255, 102));
         Password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Password.setText("LOGIN");
+        Password.setText("SENHA");
         BackGroundPanel.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 130, 60));
         BackGroundPanel.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 220, 40));
 
