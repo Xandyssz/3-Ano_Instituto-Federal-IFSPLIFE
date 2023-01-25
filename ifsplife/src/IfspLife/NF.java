@@ -11,7 +11,7 @@ package IfspLife;
 public class NF extends javax.swing.JFrame {
 
     /**
-     * Creates new form BuscarProdutos
+     * Creates new form Teste
      */
     public NF() {
         initComponents();
@@ -26,53 +26,108 @@ public class NF extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BackGroundImage = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        IconX4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
         logoIFSP_LIFE = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
         JSeparador = new javax.swing.JSeparator();
+        Titulo = new javax.swing.JLabel();
+        JLabel_CodigoRemedio = new javax.swing.JLabel();
         JTextField_CodigoRemedio = new javax.swing.JTextField();
         JLabel_Quantidade = new javax.swing.JLabel();
-        JLabel_CodigoRemedio = new javax.swing.JLabel();
         JComboBox_Quantidade = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        JLabel_ValorTotal = new javax.swing.JLabel();
         JLabel_Total = new javax.swing.JLabel();
+        JLabel_ValorTotal = new javax.swing.JLabel();
         JButton_Gerar = new javax.swing.JButton();
         JButton_Cancelar = new javax.swing.JButton();
-        BackGroundImageGradient = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BackGroundImage.setMaximumSize(new java.awt.Dimension(800, 500));
-        BackGroundImage.setMinimumSize(new java.awt.Dimension(800, 500));
-        BackGroundImage.setPreferredSize(new java.awt.Dimension(900, 500));
-        BackGroundImage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8_menu_48px_1.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 70));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 20, 70));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Pharmacy Managment System");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 5, -1, 60));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
+        jLabel3.setText("Welcome Admin");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+
+        IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
+        IconX4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconX4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         logoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/default_transparent_765x625_resized.png"))); // NOI18N
-        BackGroundImage.add(logoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 140));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 451, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
 
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Emitir Nota");
-        BackGroundImage.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 910, 60));
-        BackGroundImage.add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 900, 10));
-        BackGroundImage.add(JTextField_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 187, -1));
-
-        JLabel_Quantidade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        JLabel_Quantidade.setForeground(new java.awt.Color(255, 255, 255));
-        JLabel_Quantidade.setText("Quantidade");
-        BackGroundImage.add(JLabel_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 90, 20));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
 
         JLabel_CodigoRemedio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        JLabel_CodigoRemedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_CodigoRemedio.setText("Codigo_Remedio");
-        BackGroundImage.add(JLabel_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 130, -1));
+        getContentPane().add(JLabel_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, -1));
+        getContentPane().add(JTextField_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 187, -1));
+
+        JLabel_Quantidade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        JLabel_Quantidade.setText("Quantidade");
+        getContentPane().add(JLabel_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 90, 20));
 
         JComboBox_Quantidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-        BackGroundImage.add(JComboBox_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 150, 20));
+        getContentPane().add(JComboBox_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 150, 20));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,17 +151,15 @@ public class NF extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        BackGroundImage.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 830, 140));
-
-        JLabel_ValorTotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        JLabel_ValorTotal.setForeground(new java.awt.Color(255, 255, 255));
-        JLabel_ValorTotal.setText("R$00.0");
-        BackGroundImage.add(JLabel_ValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 830, 150));
 
         JLabel_Total.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        JLabel_Total.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Total.setText("Total : ");
-        BackGroundImage.add(JLabel_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        getContentPane().add(JLabel_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+
+        JLabel_ValorTotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        JLabel_ValorTotal.setText("R$00.0");
+        getContentPane().add(JLabel_ValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
         JButton_Gerar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Gerar.setText("Gerar");
@@ -115,7 +168,7 @@ public class NF extends javax.swing.JFrame {
                 JButton_GerarActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JButton_Gerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 110, 50));
+        getContentPane().add(JButton_Gerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 110, 50));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -124,26 +177,14 @@ public class NF extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 110, 50));
-
-        BackGroundImageGradient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BackGroundImageGradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/gradient.png"))); // NOI18N
-        BackGroundImageGradient.setText("jLabel1");
-        BackGroundImage.add(BackGroundImageGradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 390));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundImage, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, 391, Short.MAX_VALUE)
-        );
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 360, 110, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_IconX4MouseClicked
 
     private void JButton_GerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_GerarActionPerformed
 
@@ -186,6 +227,126 @@ public class NF extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -196,8 +357,7 @@ public class NF extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BackGroundImage;
-    private javax.swing.JLabel BackGroundImageGradient;
+    private javax.swing.JLabel IconX4;
     private javax.swing.JButton JButton_Cancelar;
     private javax.swing.JButton JButton_Gerar;
     public javax.swing.JComboBox<String> JComboBox_Quantidade;
@@ -208,7 +368,14 @@ public class NF extends javax.swing.JFrame {
     private javax.swing.JSeparator JSeparador;
     private javax.swing.JTextField JTextField_CodigoRemedio;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel logoIFSP_LIFE;
     // End of variables declaration//GEN-END:variables

@@ -11,7 +11,7 @@ package IfspLife;
 public class ComprarProdutos extends javax.swing.JFrame {
 
     /**
-     * Creates new form BuscarProdutos
+     * Creates new form Teste
      */
     public ComprarProdutos() {
         initComponents();
@@ -26,7 +26,14 @@ public class ComprarProdutos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BackGroundImage = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        IconX4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
         logoIFSP_LIFE = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         JLabel_Codigo_Remedio = new javax.swing.JLabel();
@@ -39,16 +46,6 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JComboBox_Nome_Empresa = new javax.swing.JComboBox<>();
         JLabel_Quantidade_Remedio = new javax.swing.JLabel();
         JComboBox_Quantidade_Remedio = new javax.swing.JComboBox<>();
-        JLabel_PrecoCusto_Remedio = new javax.swing.JLabel();
-        JTextField_PrecoCusto_Remedio = new javax.swing.JTextField();
-        JLabel_Preco = new javax.swing.JLabel();
-        JTextFieldPreco = new javax.swing.JTextField();
-        JButton_Deletar = new javax.swing.JButton();
-        JButton_Atualizar = new javax.swing.JButton();
-        JButton_Comprar = new javax.swing.JButton();
-        JButton_Limpar = new javax.swing.JButton();
-        JButton_Cancelar = new javax.swing.JButton();
-        JSeparador = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         pro_day = new javax.swing.JComboBox<>();
         pro_month = new javax.swing.JComboBox<>();
@@ -57,30 +54,89 @@ public class ComprarProdutos extends javax.swing.JFrame {
         exp_day = new javax.swing.JComboBox<>();
         exp_month = new javax.swing.JComboBox<>();
         exp_year = new javax.swing.JComboBox<>();
-        BackGroundImageGradient = new javax.swing.JLabel();
+        JLabel_PrecoCusto_Remedio = new javax.swing.JLabel();
+        JTextField_PrecoCusto_Remedio = new javax.swing.JTextField();
+        JLabel_Preco = new javax.swing.JLabel();
+        JTextFieldPreco = new javax.swing.JTextField();
+        JButton_Comprar = new javax.swing.JButton();
+        JButton_Atualizar = new javax.swing.JButton();
+        JButton_Deletar = new javax.swing.JButton();
+        JButton_Limpar = new javax.swing.JButton();
+        JButton_Cancelar = new javax.swing.JButton();
+        JSeparador = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BackGroundImage.setMaximumSize(new java.awt.Dimension(800, 500));
-        BackGroundImage.setMinimumSize(new java.awt.Dimension(800, 500));
-        BackGroundImage.setPreferredSize(new java.awt.Dimension(900, 500));
-        BackGroundImage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8_menu_48px_1.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 70));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 20, 70));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Pharmacy Managment System");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 5, -1, 60));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
+        jLabel3.setText("Welcome Admin");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+
+        IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
+        IconX4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconX4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         logoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/default_transparent_765x625_resized.png"))); // NOI18N
-        BackGroundImage.add(logoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 140));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 451, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
 
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Adicionar Produtos ao Estoque");
-        BackGroundImage.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 910, 60));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 60));
 
         JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Codigo_Remedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio.setText("Código do Produto:");
-        BackGroundImage.add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 210, -1));
+        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 210, -1));
 
         JTextField_Codigo_Remedio.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -93,20 +149,18 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JTextField_Codigo_RemedioKeyPressed(evt);
             }
         });
-        BackGroundImage.add(JTextField_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 156, -1));
+        getContentPane().add(JTextField_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 156, -1));
 
         JLabel_Nome_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Nome_Remedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Nome_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Remedio.setText("Nome do Remédio:");
-        BackGroundImage.add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 200, 210, -1));
-        BackGroundImage.add(JTextField_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 156, -1));
+        getContentPane().add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, -1));
+        getContentPane().add(JTextField_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 156, -1));
 
         JLabel_Tipo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Tipo_Remedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Tipo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Tipo_Remedio.setText("Tipo do Remédio:");
-        BackGroundImage.add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 210, -1));
+        getContentPane().add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, -1));
 
         JComboBox_Tipo_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drug_Type : ", "Bills", "Injection", "Drink", "Fizzing" }));
         JComboBox_Tipo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -114,63 +168,69 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JComboBox_Tipo_RemedioActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JComboBox_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 156, -1));
+        getContentPane().add(JComboBox_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 156, -1));
 
         JLabel_Nome_Empresa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Nome_Empresa.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Nome_Empresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Empresa.setText("Nome da Empresa:");
-        BackGroundImage.add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 210, -1));
+        getContentPane().add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 210, -1));
 
         JComboBox_Nome_Empresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Company_Name : " }));
-        BackGroundImage.add(JComboBox_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 156, -1));
+        getContentPane().add(JComboBox_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 156, -1));
 
         JLabel_Quantidade_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Quantidade_Remedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Quantidade_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Quantidade_Remedio.setText("Quantidade:");
-        BackGroundImage.add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, -1));
+        getContentPane().add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 210, -1));
 
         JComboBox_Quantidade_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-        BackGroundImage.add(JComboBox_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 156, -1));
+        getContentPane().add(JComboBox_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 156, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Data de Produção:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 200, -1));
+
+        pro_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        getContentPane().add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
+
+        pro_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        getContentPane().add(pro_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, -1, -1));
+
+        pro_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        getContentPane().add(pro_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Data de Vencimento:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 200, -1));
+
+        exp_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        getContentPane().add(exp_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
+
+        exp_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        getContentPane().add(exp_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, -1, -1));
+
+        exp_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        getContentPane().add(exp_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 230, -1, -1));
 
         JLabel_PrecoCusto_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_PrecoCusto_Remedio.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_PrecoCusto_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_PrecoCusto_Remedio.setText("Preco de Custo:");
-        BackGroundImage.add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 240, 200, -1));
+        getContentPane().add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 200, -1));
 
         JTextField_PrecoCusto_Remedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTextField_PrecoCusto_RemedioActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JTextField_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 156, -1));
+        getContentPane().add(JTextField_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 156, -1));
 
         JLabel_Preco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Preco.setForeground(new java.awt.Color(255, 255, 255));
         JLabel_Preco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Preco.setText("Preco de Venda:");
-        BackGroundImage.add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 280, 200, -1));
-        BackGroundImage.add(JTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 156, -1));
-
-        JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Deletar.setText("Deletar");
-        JButton_Deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_DeletarActionPerformed(evt);
-            }
-        });
-        BackGroundImage.add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 111, -1));
-
-        JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Atualizar.setText("Atualizar");
-        JButton_Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_AtualizarActionPerformed(evt);
-            }
-        });
-        BackGroundImage.add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 115, -1));
+        getContentPane().add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 200, -1));
+        getContentPane().add(JTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 310, 156, -1));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Comprar.setText("Comprar");
@@ -179,7 +239,25 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JButton_ComprarActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 115, -1));
+        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 115, -1));
+
+        JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JButton_Atualizar.setText("Atualizar");
+        JButton_Atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButton_AtualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 115, -1));
+
+        JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JButton_Deletar.setText("Deletar");
+        JButton_Deletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButton_DeletarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, 111, -1));
 
         JButton_Limpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Limpar.setText("Limpar");
@@ -188,7 +266,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JButton_LimparActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 94, -1));
+        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 94, -1));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -197,56 +275,19 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        BackGroundImage.add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 94, -1));
-        BackGroundImage.add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 880, 10));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Data de Produção:");
-        BackGroundImage.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 200, -1));
-
-        pro_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        BackGroundImage.add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, -1, -1));
-
-        pro_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        BackGroundImage.add(pro_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
-
-        pro_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        BackGroundImage.add(pro_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Data de Vencimento:");
-        BackGroundImage.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 200, -1));
-
-        exp_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        BackGroundImage.add(exp_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, -1, -1));
-
-        exp_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        BackGroundImage.add(exp_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
-
-        exp_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        BackGroundImage.add(exp_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
-
-        BackGroundImageGradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/gradient.png"))); // NOI18N
-        BackGroundImageGradient.setText("jLabel1");
-        BackGroundImage.add(BackGroundImageGradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 430));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundImage, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, 94, -1));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_IconX4MouseClicked
+
+    private void JTextField_Codigo_RemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Codigo_RemedioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField_Codigo_RemedioActionPerformed
 
     private void JTextField_Codigo_RemedioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField_Codigo_RemedioKeyPressed
 
@@ -255,6 +296,10 @@ public class ComprarProdutos extends javax.swing.JFrame {
     private void JComboBox_Tipo_RemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBox_Tipo_RemedioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JComboBox_Tipo_RemedioActionPerformed
+
+    private void JTextField_PrecoCusto_RemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_PrecoCusto_RemedioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField_PrecoCusto_RemedioActionPerformed
 
     private void JButton_ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_ComprarActionPerformed
 
@@ -269,19 +314,12 @@ public class ComprarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_JButton_DeletarActionPerformed
 
     private void JButton_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_LimparActionPerformed
+
     }//GEN-LAST:event_JButton_LimparActionPerformed
 
     private void JButton_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_CancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JButton_CancelarActionPerformed
-
-    private void JTextField_Codigo_RemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Codigo_RemedioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField_Codigo_RemedioActionPerformed
-
-    private void JTextField_PrecoCusto_RemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_PrecoCusto_RemedioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField_PrecoCusto_RemedioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +350,18 @@ public class ComprarProdutos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -322,8 +372,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BackGroundImage;
-    private javax.swing.JLabel BackGroundImageGradient;
+    private javax.swing.JLabel IconX4;
     public javax.swing.JButton JButton_Atualizar;
     private javax.swing.JButton JButton_Cancelar;
     public javax.swing.JButton JButton_Comprar;
@@ -348,8 +397,15 @@ public class ComprarProdutos extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> exp_day;
     public javax.swing.JComboBox<String> exp_month;
     public javax.swing.JComboBox<String> exp_year;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logoIFSP_LIFE;
     public javax.swing.JComboBox<String> pro_day;
     public javax.swing.JComboBox<String> pro_month;

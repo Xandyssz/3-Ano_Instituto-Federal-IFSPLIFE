@@ -34,12 +34,11 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         LoadingBar = new javax.swing.JProgressBar();
         LoadingLabel = new javax.swing.JLabel();
         LoadingValue = new javax.swing.JLabel();
-        BackGroundImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        BackGroundPanel.setBackground(new java.awt.Color(102, 255, 255));
+        BackGroundPanel.setBackground(new java.awt.Color(102, 102, 102));
         BackGroundPanel.setPreferredSize(new java.awt.Dimension(900, 500));
         BackGroundPanel.setRequestFocusEnabled(false);
         BackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,10 +63,6 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         LoadingValue.setForeground(new java.awt.Color(255, 255, 255));
         LoadingValue.setText("0 %");
         BackGroundPanel.add(LoadingValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 460, -1, -1));
-
-        BackGroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/gradient.png"))); // NOI18N
-        BackGroundImage.setText("jLabel1");
-        BackGroundPanel.add(BackGroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,7 +154,6 @@ public class TelaSplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackGroundImage;
     private javax.swing.JPanel BackGroundPanel;
     private javax.swing.JLabel IconX;
     private javax.swing.JProgressBar LoadingBar;
