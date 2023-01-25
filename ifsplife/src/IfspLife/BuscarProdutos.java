@@ -125,21 +125,21 @@ public class BuscarProdutos extends javax.swing.JFrame {
 
         JLabel_ProcurarCodigoProduto.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         JLabel_ProcurarCodigoProduto.setText("Procurar por Codigo_Remédio");
-        getContentPane().add(JLabel_ProcurarCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
+        getContentPane().add(JLabel_ProcurarCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
 
         JLabel_ProcurarNomeProduto.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         JLabel_ProcurarNomeProduto.setText("Procurar por Nome_Remédio");
-        getContentPane().add(JLabel_ProcurarNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, -1, -1));
-        getContentPane().add(JTextField_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 170, 20));
+        getContentPane().add(JLabel_ProcurarNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
+        getContentPane().add(JTextField_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 150, 170, 20));
 
         JLabel_NomeDoProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JLabel_NomeDoProduto.setText("Nome do Produto:");
-        getContentPane().add(JLabel_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
-        getContentPane().add(JTextField_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 170, 20));
+        getContentPane().add(JLabel_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, -1));
+        getContentPane().add(JTextField_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 170, 20));
 
         JLabel_CodigoDoProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JLabel_CodigoDoProduto.setText("Codigo do Produto:");
-        getContentPane().add(JLabel_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
+        getContentPane().add(JLabel_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         JLabel_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

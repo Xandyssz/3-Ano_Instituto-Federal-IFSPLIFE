@@ -8,12 +8,12 @@ package IfspLife;
  *
  * @author xandy
  */
-public class Fabricantes extends javax.swing.JFrame {
+public class Convenios extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public Fabricantes() {
+    public Convenios() {
         initComponents();
     }
 
@@ -41,9 +41,6 @@ public class Fabricantes extends javax.swing.JFrame {
         JTextField_Codigo_Remedio3 = new javax.swing.JTextField();
         JLabel_Codigo_Remedio1 = new javax.swing.JLabel();
         JTextField_Codigo_Remedio2 = new javax.swing.JTextField();
-        JLabel_Codigo_Remedio = new javax.swing.JLabel();
-        JScrollPane_FornecedorEndereco = new javax.swing.JScrollPane();
-        JTextArea_FornecedorEndereco = new javax.swing.JTextArea();
         JScrollPane_Fornecedores = new javax.swing.JScrollPane();
         JTable_Fornecedores = new javax.swing.JTable();
         JButton_Comprar = new javax.swing.JButton();
@@ -51,6 +48,8 @@ public class Fabricantes extends javax.swing.JFrame {
         JButton_Deletar = new javax.swing.JButton();
         JButton_Limpar = new javax.swing.JButton();
         JButton_Cancelar = new javax.swing.JButton();
+        JLabel_Codigo_Remedio3 = new javax.swing.JLabel();
+        JTextField_Codigo_Remedio4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,12 +117,12 @@ public class Fabricantes extends javax.swing.JFrame {
 
         JLabel_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Titulo.setText("Contato - Fabricantes");
+        JLabel_Titulo.setText("Convênios");
         getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
 
         JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio2.setText("Nome da Fabricante:");
+        JLabel_Codigo_Remedio2.setText("Nome do Convênio");
         getContentPane().add(JLabel_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 230, -1));
 
         JTextField_Codigo_Remedio3.setToolTipText("Enter Barcode and Press Enter for Updating");
@@ -141,7 +140,7 @@ public class Fabricantes extends javax.swing.JFrame {
 
         JLabel_Codigo_Remedio1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio1.setText("Telefone da Fabricante:");
+        JLabel_Codigo_Remedio1.setText("Telefone de Contato");
         getContentPane().add(JLabel_Codigo_Remedio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 230, -1));
 
         JTextField_Codigo_Remedio2.setToolTipText("Enter Barcode and Press Enter for Updating");
@@ -157,17 +156,6 @@ public class Fabricantes extends javax.swing.JFrame {
         });
         getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 220, -1));
 
-        JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio.setText("Endereco Fabricante: ");
-        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 230, -1));
-
-        JTextArea_FornecedorEndereco.setColumns(20);
-        JTextArea_FornecedorEndereco.setRows(5);
-        JScrollPane_FornecedorEndereco.setViewportView(JTextArea_FornecedorEndereco);
-
-        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 220, -1));
-
         JTable_Fornecedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JTable_Fornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +165,7 @@ public class Fabricantes extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "        Name", "        Address", "        Phone"
+                "Nome", "Telefone", "Porcentagem"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -237,6 +225,24 @@ public class Fabricantes extends javax.swing.JFrame {
         });
         getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 94, -1));
 
+        JLabel_Codigo_Remedio3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JLabel_Codigo_Remedio3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabel_Codigo_Remedio3.setText("Porcentagem de Desconto");
+        getContentPane().add(JLabel_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 250, 20));
+
+        JTextField_Codigo_Remedio4.setToolTipText("Enter Barcode and Press Enter for Updating");
+        JTextField_Codigo_Remedio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextField_Codigo_Remedio4ActionPerformed(evt);
+            }
+        });
+        JTextField_Codigo_Remedio4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JTextField_Codigo_Remedio4KeyPressed(evt);
+            }
+        });
+        getContentPane().add(JTextField_Codigo_Remedio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 220, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -280,6 +286,14 @@ public class Fabricantes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JButton_CancelarActionPerformed
 
+    private void JTextField_Codigo_Remedio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField_Codigo_Remedio4ActionPerformed
+
+    private void JTextField_Codigo_Remedio4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField_Codigo_Remedio4KeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -297,14 +311,46 @@ public class Fabricantes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fabricantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fabricantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fabricantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fabricantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -341,7 +387,7 @@ public class Fabricantes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fabricantes().setVisible(true);
+                new Convenios().setVisible(true);
             }
         });
     }
@@ -353,17 +399,16 @@ public class Fabricantes extends javax.swing.JFrame {
     public javax.swing.JButton JButton_Comprar;
     public javax.swing.JButton JButton_Deletar;
     private javax.swing.JButton JButton_Limpar;
-    private javax.swing.JLabel JLabel_Codigo_Remedio;
     private javax.swing.JLabel JLabel_Codigo_Remedio1;
     private javax.swing.JLabel JLabel_Codigo_Remedio2;
+    private javax.swing.JLabel JLabel_Codigo_Remedio3;
     private javax.swing.JLabel JLabel_Titulo;
-    private javax.swing.JScrollPane JScrollPane_FornecedorEndereco;
     private javax.swing.JScrollPane JScrollPane_Fornecedores;
     private javax.swing.JSeparator JSeparador;
     private javax.swing.JTable JTable_Fornecedores;
-    private javax.swing.JTextArea JTextArea_FornecedorEndereco;
     private javax.swing.JTextField JTextField_Codigo_Remedio2;
     private javax.swing.JTextField JTextField_Codigo_Remedio3;
+    private javax.swing.JTextField JTextField_Codigo_Remedio4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

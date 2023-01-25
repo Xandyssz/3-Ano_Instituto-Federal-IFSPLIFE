@@ -31,7 +31,6 @@ public class Login extends javax.swing.JFrame {
         BackGroundPanel = new javax.swing.JPanel();
         IconX = new javax.swing.JLabel();
         LogoIFSP_LIFE = new javax.swing.JLabel();
-        BackGroundImage = new javax.swing.JLabel();
         Login1 = new javax.swing.JLabel();
         Login2 = new javax.swing.JLabel();
         jTextFieldLogin = new javax.swing.JTextField();
@@ -39,11 +38,11 @@ public class Login extends javax.swing.JFrame {
         jTextFieldPassword = new javax.swing.JTextField();
         BTNlogin = new javax.swing.JButton();
         BTNclear = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        BackGroundPanel.setBackground(new java.awt.Color(204, 204, 204));
         BackGroundPanel.setPreferredSize(new java.awt.Dimension(900, 500));
         BackGroundPanel.setRequestFocusEnabled(false);
         BackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,43 +55,39 @@ public class Login extends javax.swing.JFrame {
         });
         BackGroundPanel.add(IconX, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
+        LogoIFSP_LIFE.setBackground(new java.awt.Color(204, 0, 153));
         LogoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/default_transparent_765x625.png"))); // NOI18N
         BackGroundPanel.add(LogoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 500));
 
-        BackGroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/gradient.png"))); // NOI18N
-        BackGroundImage.setText("jLabel1");
-        BackGroundPanel.add(BackGroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 500));
-
         Login1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Login1.setForeground(new java.awt.Color(102, 255, 102));
         Login1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Login1.setText("LOGIN");
         BackGroundPanel.add(Login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 280, 70));
 
         Login2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Login2.setForeground(new java.awt.Color(102, 255, 102));
         Login2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Login2.setText("LOGIN");
         BackGroundPanel.add(Login2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 130, 40));
         BackGroundPanel.add(jTextFieldLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 220, 40));
 
         Password.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Password.setForeground(new java.awt.Color(102, 255, 102));
         Password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Password.setText("SENHA");
         BackGroundPanel.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 130, 60));
         BackGroundPanel.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 220, 40));
 
         BTNlogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BTNlogin.setForeground(new java.awt.Color(102, 255, 102));
         BTNlogin.setText("LOGIN");
         BackGroundPanel.add(BTNlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 120, 50));
 
         BTNclear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BTNclear.setForeground(new java.awt.Color(102, 255, 102));
         BTNclear.setText("CLEAR");
         BackGroundPanel.add(BTNclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 120, 50));
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        BackGroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,13 +143,13 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNclear;
     private javax.swing.JButton BTNlogin;
-    private javax.swing.JLabel BackGroundImage;
     private javax.swing.JPanel BackGroundPanel;
     private javax.swing.JLabel IconX;
     private javax.swing.JLabel Login1;
     private javax.swing.JLabel Login2;
     private javax.swing.JLabel LogoIFSP_LIFE;
     private javax.swing.JLabel Password;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldLogin;
     private javax.swing.JTextField jTextFieldPassword;
     // End of variables declaration//GEN-END:variables
