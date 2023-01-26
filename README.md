@@ -52,83 +52,71 @@ Todos as funções que serão implementadas no sistema.
 
 o Função Fundamental 1.0 - Efetuar Compra
 
-    Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento. Ademais, permite que a compra possa ser cancelada ou alterada.
+    Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento.
     Itens de Informações » 
-    - Código Fornecedor - conjunto numérico
-    - Código Usuário - conjunto numérico
-    - Nota Fiscal do Fornecedor - conjunto numérico
-    - Valor Total - conjunto numérico - dd/mm/aaaa
+    - Código do Produto - conjunto numérico;
 
     Para cada Mercadoria » 
-    - Código - conjunto numérico
-    - Valor - conjunto numérico
-    - Valor da Compra - conjunto numérico
-    - Status - texto com tamanho máximo de 15
-    - Descrição - texto com tamanho máximo de 45
-    - Tamanho - texto com tamanho máximo de 10
-    - Marca - texto com tamanho máximo de 15
+    - Nome do Produto - texto com tamanho máximo de 45;
+    - Tipo do Produto - texto com tamanho máximo de 45;
+    - Nome da Empresa - texto com tamanho máximo de 45;
+    - Quantidade do Produto - conjunto númerico;
+    - Data de Produção - DD/MM/AAAA;
+    - Data de Vencimento - DD/MM/AAAA;
+    - Preço de Custo - conjunto númerico;
+    - Preço de Venda - conjunto númerico
 
 o Função Fundamental 1.1 - Efetuar Venda
 
-    Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente. Além de, permite que a venda possa ser alterada ou cancelada.
+    Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente.
     Itens de Informações » 
-    - Código Usuário- conjunto numérico;
+    - Código Usuário - conjunto numérico;
 
-    Para cada Mercadoria » 
-    - Código - conjunto numérico
-    - Valor - conjunto numérico;
-    - Valor da Compra - conjunto numérico;
-    - Status - texto com tamanho máximo de 15
-    - Descrição - texto com tamanho máximo de 45;
-    - Tamanho - texto com tamanho máximo de 10;
-    - Marca - texto com tamanho máximo de 15;
-    - Número Nota Fiscal - conjunto numérico;
-    - Valor total - conjunto numérico decimal;
-    - Forma de pagamento - texto com tamanho máximo de 45;
-    - Data - dd/mm/aaaa;
+    Para cada Produto » 
+    - Código do produto - conjunto numérico
+    - Valor do produto - conjunto numérico;
+    - Valor da Compra dos produtos - conjunto numérico;
+    - Número Nota Fiscal do produto - conjunto numérico;
+    - Valor total do produto - conjunto numérico decimal;
+    - Forma de pagamento do produto - texto com tamanho máximo de 45;
+    - Data da compra - dd/mm/aaaa;
 
 o Função Básica 1.2 - Manter Usuario
 
     Descrição » Essa função permite a consulta dos dados de um usuário, como também, a inclusão, alteração e exclusão.
 
     Itens de Informações » 
-    - Nome do Usuário  - texto com tamanho máximo de 45;
-    - Telefone - texto com tamanho máximo de 17;
+    - Id do Usuário - texto com tamanho máximo de 1;
     - CPF - texto com tamanho máximo de 14;
-    - Endereço  - texto com tamanho máximo de 45;
-    - Cidade - texto com tamanho máximo de 45;
-    - CEP - texto com tamanho máximo de 9;
-    - Estado - texto com tamanho máximo de 2;
-    - Tipo - texto com tamanho máximo 1;. A: administrador e F: funcionário;
+    - Nome do Usuário  - texto com tamanho máximo de 45;
+    - Data de Nascimento do Usuário - texto com tamanho máximo de 8;
+    - Telefone do Usuário - texto com tamanho máximo de 17;
+    - Salário  - texto com tamanho máximo de 45;
     - Senha - texto com tamanho máximo de 45;
+    - Tipo - texto com tamanho máximo 1;. A: administrador e F: funcionário;
+    - Endereço  - texto com tamanho máximo de 45;
+
+o Função Básica 1.3 - Manter Fabricantes
+
+    Descrição » Essa função permite a consulta dos dados de uma Fabricante como, também, a inclusão, alteração e exclusão
+
+    Itens de Informações » 
+    - Nome do Fabricante  - texto com tamanho máximo de 45;
+    - Telefone - texto com tamanho máximo de 17;
+    - CNPJ - texto com tamanho máximo de 14;
+    - Endereço  - texto com tamanho máximo de 45;
     - Email - texto com tamanho máximo de 45;
 
-o Função Básica 1.3 - Manter Empresa
+o Função Básica 1.3 - Manter Convênio
 
     Descrição » Essa função permite a consulta dos dados de um fornecedor como, também, a inclusão, alteração e exclusão
 
     Itens de Informações » 
-    - Nome do fornecedor  - texto com tamanho máximo de 45;
+    - Nome do Convênio  - texto com tamanho máximo de 45;
     - Telefone - texto com tamanho máximo de 17;
     - CNPJ - texto com tamanho máximo de 14;
     - Endereço  - texto com tamanho máximo de 45;
-    - Estado - texto com tamanho máximo de 2;
-    - Cidade - texto com tamanho máximo de 45;
-    - Email - texto com tamanho máximo de 45;
-    - CEP - texto com tamanho máximo de 9;
-
-o Função Básica 1.4 - Manter Mercadoria
-
-    Descrição » Essa função permite a consulta dos dados de uma peça, como também, a alteração e exclusão. A inclusão será realizada no momento da realização da compra.
-
-    Itens de Informações » 
-    - Código - conjunto numérico;
-    - Valor - conjunto numérico;
-    - Valor da Compra - conjunto numérico;
-    - Status - texto com tamanho máximo de 15;
-    - Descrição - texto com tamanho máximo de 45;
-    - Tamanho - texto com tamanho máximo de 10;
-    - Marca - texto com tamanho máximo de 15;
+    - Porcentagem de Desconto - conjunto númerico;
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
