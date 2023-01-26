@@ -103,7 +103,7 @@ o Função Básica 1.2 - Manter Usuario
     - Senha - texto com tamanho máximo de 45;
     - Email - texto com tamanho máximo de 45;
 
-o Função Básica 1.3 - Manter Fornecedor
+o Função Básica 1.3 - Manter Empresa
 
     Descrição » Essa função permite a consulta dos dados de um fornecedor como, também, a inclusão, alteração e exclusão
 
