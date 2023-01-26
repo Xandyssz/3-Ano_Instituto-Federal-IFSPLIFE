@@ -42,9 +42,8 @@ o  Interface Home<br>
 o  Interface das Empresas<br>
 o  Interface de Compra<br>
 o  Interface dos Medicamentos<br>
-o  Interface de Compra<br>
 o  Interface de Venda<br>
-o Interface do Úsuario
+o  Interface de Úsuarios
 
 # Capítulo 4 - DEFINIÇÃO DE FUNÇÕES 
 **Descrição das Funções**
