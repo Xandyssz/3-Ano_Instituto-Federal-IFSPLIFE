@@ -1,0 +1,43 @@
+Preencha a tabela "Medicamentos" com 3 dados diferentes
+INSERT INTO Medicamentos (nome, dosagem, quantidade, preco)
+VALUES ("Dorflex", "20mg", 100, 12.50),
+("Aspirina", "500mg", 500, 8.90),
+("Cloridrato de Ciprofloxacino", "500mg", 200, 15.40);
+
+
+Preencha a tabela "Fornecedores" com 3 dados diferentes
+INSERT INTO Fornecedores (nome, cnpj, endereco)
+VALUES ("Farmácias São Paulo S.A.", "00.000.000/0000-00", "Av. Paulista, São Paulo"),
+("FarmaVida Ltda", "11.111.111/1111-11", "Rua das Flores, Belo Horizonte"),
+("MediFarma Comércio de Medicamentos Ltda", "22.222.222/2222-22", "Rua dos Remédios, Rio de Janeiro");
+
+
+Preencha a tabela "Funcionários " com 3 dados diferentes
+INSERT INTO Funcionarios (nome, cpf, cargo)
+VALUES ("João Silva", "000.000.000-00", "Gerente"),
+("Maria Souza", "111.111.111-11", "Farmacêutico"),
+("Carlos Rodrigues", "222.222.222-22", "Atendente");
+
+
+Preencha a tabela "Convênios " com 3 dados diferentes
+INSERT INTO Convenios (nome, telefone, endereco)
+VALUES ("Unimed", "11 2222-3333", "Rua das Oliveiras, São Paulo"),
+("Amil", "11 3333-4444", "Avenida Brasil, Rio de Janeiro"),
+("Bradesco Saúde", "11 4444-5555", "Rua das Flores, Belo Horizonte");
+
+
+Preencha a tabela "Compras" com 3 dados diferentes
+INSERT INTO Compras (id_fornecedor, id_medicamento, quantidade, preco, data_compra)
+VALUES (1, 1, 100, 10.00, "2022-01-01"),
+(2, 2, 50, 20.00, "2022-02-01"),
+(3, 3, 75, 15.00, "2022-03-01");
+
+
+Preencha a tabela "Vendas" com 3 dados diferentes
+INSERT INTO Vendas (id_funcionario, id_medicamento, quantidade, preco, data_venda, id_convenio)
+VALUES (1, 1, 10, 12.50, "2022-01-01", 1),
+(2, 2, 15, 18.00, "2022-02-01", 2),
+(3, 3, 20, 15.00, "2022-03-01", 3);
+
+
+
