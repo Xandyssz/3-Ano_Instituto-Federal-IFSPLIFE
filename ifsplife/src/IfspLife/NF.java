@@ -49,6 +49,10 @@ public class NF extends javax.swing.JFrame {
         JButton_Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1080, 450));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1080, 450));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -118,16 +122,16 @@ public class NF extends javax.swing.JFrame {
         getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
 
         JLabel_CodigoRemedio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        JLabel_CodigoRemedio.setText("Codigo_Remedio");
-        getContentPane().add(JLabel_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, -1));
-        getContentPane().add(JTextField_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 187, -1));
+        JLabel_CodigoRemedio.setText("Codigo_Produto");
+        getContentPane().add(JLabel_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 30));
+        getContentPane().add(JTextField_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 187, 30));
 
         JLabel_Quantidade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JLabel_Quantidade.setText("Quantidade");
-        getContentPane().add(JLabel_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 90, 20));
+        getContentPane().add(JLabel_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 90, 30));
 
         JComboBox_Quantidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-        getContentPane().add(JComboBox_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 150, 20));
+        getContentPane().add(JComboBox_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 150, 30));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -180,6 +184,7 @@ public class NF extends javax.swing.JFrame {
         getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 360, 110, 50));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked

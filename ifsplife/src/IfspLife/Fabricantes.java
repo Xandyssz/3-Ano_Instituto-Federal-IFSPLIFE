@@ -53,6 +53,9 @@ public class Fabricantes extends javax.swing.JFrame {
         JButton_Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1079, 405));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1079, 405));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -137,7 +140,7 @@ public class Fabricantes extends javax.swing.JFrame {
                 JTextField_Codigo_Remedio3KeyPressed(evt);
             }
         });
-        getContentPane().add(JTextField_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 220, -1));
+        getContentPane().add(JTextField_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 240, -1));
 
         JLabel_Codigo_Remedio1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -155,7 +158,7 @@ public class Fabricantes extends javax.swing.JFrame {
                 JTextField_Codigo_Remedio2KeyPressed(evt);
             }
         });
-        getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 220, -1));
+        getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 240, -1));
 
         JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,7 +169,7 @@ public class Fabricantes extends javax.swing.JFrame {
         JTextArea_FornecedorEndereco.setRows(5);
         JScrollPane_FornecedorEndereco.setViewportView(JTextArea_FornecedorEndereco);
 
-        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 220, -1));
+        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 240, -1));
 
         JTable_Fornecedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JTable_Fornecedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -190,7 +193,7 @@ public class Fabricantes extends javax.swing.JFrame {
         });
         JScrollPane_Fornecedores.setViewportView(JTable_Fornecedores);
 
-        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 390, 180));
+        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 390, 190));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Comprar.setText("Comprar");
@@ -238,6 +241,7 @@ public class Fabricantes extends javax.swing.JFrame {
         getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 94, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked

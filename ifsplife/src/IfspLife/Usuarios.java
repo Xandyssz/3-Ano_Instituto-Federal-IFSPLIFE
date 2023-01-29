@@ -8,12 +8,12 @@ package IfspLife;
  *
  * @author xandy
  */
-public class UsuariosAtt extends javax.swing.JFrame {
+public class Usuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public UsuariosAtt() {
+    public Usuarios() {
         initComponents();
     }
 
@@ -65,7 +65,9 @@ public class UsuariosAtt extends javax.swing.JFrame {
         adduser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1210, 600));
+        setMinimumSize(new java.awt.Dimension(1300, 548));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 548));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -89,7 +91,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, -1, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -98,9 +100,9 @@ public class UsuariosAtt extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 50, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -131,8 +133,8 @@ public class UsuariosAtt extends javax.swing.JFrame {
         JLabel_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Titulo.setText("Usuarios");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 60));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 1030, 10));
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 1110, 70));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 1110, 10));
 
         JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -233,6 +235,11 @@ public class UsuariosAtt extends javax.swing.JFrame {
         getContentPane().add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, -1, -1));
 
         pro_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        pro_month.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pro_monthActionPerformed(evt);
+            }
+        });
         getContentPane().add(pro_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, -1, -1));
 
         pro_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
@@ -242,7 +249,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
         JTextArea_FornecedorEndereco.setRows(5);
         JScrollPane_FornecedorEndereco.setViewportView(JTextArea_FornecedorEndereco);
 
-        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 250, -1));
+        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 240, -1));
 
         JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -258,7 +265,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "DMA", "Telefone", "Salario", "Senha", "NivelAcesso", "Endereco"
+                "Id", "Nome", "DMA", "Telefone", "Salario", "Senha", "Acesso", "Endereco"
             }
         ));
         users.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,7 +275,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(users);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 450, 390));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 560, 360));
 
         JLabel_Codigo_Remedio7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,13 +286,13 @@ public class UsuariosAtt extends javax.swing.JFrame {
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 240, -1));
 
         updateuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        updateuser.setText("Update User");
+        updateuser.setText("Atualizar");
         updateuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateuserActionPerformed(evt);
             }
         });
-        getContentPane().add(updateuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, -1, -1));
+        getContentPane().add(updateuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setText("Cancel");
@@ -294,7 +301,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 80, -1));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Clear");
@@ -303,27 +310,28 @@ public class UsuariosAtt extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 90, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, 90, -1));
 
         deleteuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        deleteuser.setText("Delete User");
+        deleteuser.setText("Deletar");
         deleteuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteuserActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+        getContentPane().add(deleteuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, -1, -1));
 
         adduser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        adduser.setText("Add User");
+        adduser.setText("Adicionar");
         adduser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adduserActionPerformed(evt);
             }
         });
-        getContentPane().add(adduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 89, -1));
+        getContentPane().add(adduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 90, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked
@@ -394,6 +402,10 @@ public class UsuariosAtt extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void pro_monthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pro_monthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pro_monthActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -411,14 +423,22 @@ public class UsuariosAtt extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuariosAtt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuariosAtt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuariosAtt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuariosAtt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -431,7 +451,7 @@ public class UsuariosAtt extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UsuariosAtt().setVisible(true);
+                new Usuarios().setVisible(true);
             }
         });
     }

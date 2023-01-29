@@ -66,6 +66,9 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JSeparador = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1080, 500));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1080, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -131,12 +134,12 @@ public class ComprarProdutos extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Adicionar Produtos ao Estoque");
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 60));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
 
         JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio.setText("Código do Produto:");
-        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 210, -1));
+        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 230, -1));
 
         JTextField_Codigo_Remedio.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -154,13 +157,13 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_Nome_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Nome_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Remedio.setText("Nome do Remédio:");
-        getContentPane().add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, -1));
+        getContentPane().add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 230, -1));
         getContentPane().add(JTextField_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 156, -1));
 
         JLabel_Tipo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Tipo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Tipo_Remedio.setText("Tipo do Remédio:");
-        getContentPane().add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, -1));
+        getContentPane().add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, -1));
 
         JComboBox_Tipo_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drug_Type : ", "Bills", "Injection", "Drink", "Fizzing" }));
         JComboBox_Tipo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +176,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_Nome_Empresa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Nome_Empresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Empresa.setText("Nome da Empresa:");
-        getContentPane().add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 210, -1));
+        getContentPane().add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 230, -1));
 
         JComboBox_Nome_Empresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Company_Name : " }));
         getContentPane().add(JComboBox_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 156, -1));
@@ -181,7 +184,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_Quantidade_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Quantidade_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Quantidade_Remedio.setText("Quantidade:");
-        getContentPane().add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 210, -1));
+        getContentPane().add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 230, -1));
 
         JComboBox_Quantidade_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
         getContentPane().add(JComboBox_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 156, -1));
@@ -189,7 +192,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Data de Produção:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 200, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 250, -1));
 
         pro_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         getContentPane().add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
@@ -203,7 +206,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Data de Vencimento:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 200, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 240, -1));
 
         exp_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         getContentPane().add(exp_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
@@ -217,7 +220,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_PrecoCusto_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_PrecoCusto_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_PrecoCusto_Remedio.setText("Preco de Custo:");
-        getContentPane().add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 200, -1));
+        getContentPane().add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 250, -1));
 
         JTextField_PrecoCusto_Remedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +232,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_Preco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Preco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Preco.setText("Preco de Venda:");
-        getContentPane().add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 200, -1));
+        getContentPane().add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 240, -1));
         getContentPane().add(JTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 310, 156, -1));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -279,6 +282,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked

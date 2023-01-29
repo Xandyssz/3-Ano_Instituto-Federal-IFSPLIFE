@@ -46,6 +46,9 @@ public class BuscarProdutos extends javax.swing.JFrame {
         JLabel_Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1095, 575));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1095, 575));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -80,7 +83,7 @@ public class BuscarProdutos extends javax.swing.JFrame {
         });
         jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, -1));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -124,18 +127,18 @@ public class BuscarProdutos extends javax.swing.JFrame {
         getContentPane().add(JscrollPane_DadosProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 880, 340));
 
         JLabel_ProcurarCodigoProduto.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        JLabel_ProcurarCodigoProduto.setText("Procurar por Codigo_Remédio");
+        JLabel_ProcurarCodigoProduto.setText("Procurar por Codigo_Produto");
         getContentPane().add(JLabel_ProcurarCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
 
         JLabel_ProcurarNomeProduto.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        JLabel_ProcurarNomeProduto.setText("Procurar por Nome_Remédio");
+        JLabel_ProcurarNomeProduto.setText("Procurar por Nome_Produto");
         getContentPane().add(JLabel_ProcurarNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
-        getContentPane().add(JTextField_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 150, 170, 20));
+        getContentPane().add(JTextField_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 150, 170, 30));
 
         JLabel_NomeDoProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JLabel_NomeDoProduto.setText("Nome do Produto:");
         getContentPane().add(JLabel_NomeDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, -1));
-        getContentPane().add(JTextField_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 170, 20));
+        getContentPane().add(JTextField_CodigoDoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 170, 30));
 
         JLabel_CodigoDoProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JLabel_CodigoDoProduto.setText("Codigo do Produto:");
@@ -144,9 +147,10 @@ public class BuscarProdutos extends javax.swing.JFrame {
         JLabel_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Titulo.setText("Buscar Produtos");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 60));
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 910, 60));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked

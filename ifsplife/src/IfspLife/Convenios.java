@@ -52,6 +52,9 @@ public class Convenios extends javax.swing.JFrame {
         JTextField_Codigo_Remedio4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1174, 409));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1174, 409));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -75,7 +78,7 @@ public class Convenios extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, -1, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -84,9 +87,9 @@ public class Convenios extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 0, 50, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, -1));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -113,17 +116,17 @@ public class Convenios extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 990, 10));
 
         JLabel_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Titulo.setText("Convênios");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 990, 70));
 
         JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio2.setText("Nome do Convênio");
-        getContentPane().add(JLabel_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 230, -1));
+        getContentPane().add(JLabel_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 270, -1));
 
         JTextField_Codigo_Remedio3.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio3.addActionListener(new java.awt.event.ActionListener() {
@@ -136,12 +139,12 @@ public class Convenios extends javax.swing.JFrame {
                 JTextField_Codigo_Remedio3KeyPressed(evt);
             }
         });
-        getContentPane().add(JTextField_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 220, -1));
+        getContentPane().add(JTextField_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 220, -1));
 
         JLabel_Codigo_Remedio1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio1.setText("Telefone de Contato");
-        getContentPane().add(JLabel_Codigo_Remedio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 230, -1));
+        getContentPane().add(JLabel_Codigo_Remedio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 270, -1));
 
         JTextField_Codigo_Remedio2.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +157,7 @@ public class Convenios extends javax.swing.JFrame {
                 JTextField_Codigo_Remedio2KeyPressed(evt);
             }
         });
-        getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 220, -1));
+        getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 220, -1));
 
         JTable_Fornecedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JTable_Fornecedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -178,7 +181,7 @@ public class Convenios extends javax.swing.JFrame {
         });
         JScrollPane_Fornecedores.setViewportView(JTable_Fornecedores);
 
-        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 390, 180));
+        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 480, 220));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Comprar.setText("Comprar");
@@ -187,7 +190,7 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 115, -1));
+        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 90, -1));
 
         JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Atualizar.setText("Atualizar");
@@ -196,7 +199,7 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_AtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 115, -1));
+        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 90, -1));
 
         JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Deletar.setText("Deletar");
@@ -205,7 +208,7 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_DeletarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 111, -1));
+        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 80, -1));
 
         JButton_Limpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Limpar.setText("Limpar");
@@ -214,7 +217,7 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_LimparActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 94, -1));
+        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -223,12 +226,12 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 94, -1));
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 90, -1));
 
         JLabel_Codigo_Remedio3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio3.setText("Porcentagem de Desconto");
-        getContentPane().add(JLabel_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 250, 20));
+        getContentPane().add(JLabel_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 270, 20));
 
         JTextField_Codigo_Remedio4.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio4.addActionListener(new java.awt.event.ActionListener() {
@@ -244,6 +247,7 @@ public class Convenios extends javax.swing.JFrame {
         getContentPane().add(JTextField_Codigo_Remedio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 220, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconX4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconX4MouseClicked
