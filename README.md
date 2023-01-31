@@ -28,7 +28,7 @@ o Levantamento de Dados -
 o Escopo | ✅<br> 
 o Protótipo - <br>
 o Modelo Lógico | ✅<br>
-o Modelo Fisico - <br>
+o Modelo Fisico | ✅<br>
 o Diagrama Caso de Uso - <br>
 o Diagrama Caso de Atividade - <br> 
 o Diagrama de Classes - <br>
