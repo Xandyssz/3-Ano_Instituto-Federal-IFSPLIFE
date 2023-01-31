@@ -51,6 +51,7 @@ Todos as funções que serão implementadas no sistema.
 **Lista de Funções:**<p>
 
 o Função Fundamental 1.0 - Efetuar Compra
+
     Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento.
     Itens de Informações » 
     - Código de Compra - conjunto númerico;
@@ -61,6 +62,7 @@ o Função Fundamental 1.0 - Efetuar Compra
     - Data da Compra - dd/mm/aaaa;
 
 o Função Fundamental 1.1 - Efetuar Venda
+
     Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente.
     Itens de Informações » 
     - Código da Venda - conjunto númerico;
@@ -71,7 +73,9 @@ o Função Fundamental 1.1 - Efetuar Venda
     - Data da venda - dd/mm/aaaa;
 
 o Função Básica 1.0 - Manter Produtos
+
     Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, alteração e exclusão
+
     Itens de Informações » 
     - Código do Produto - conjunto númerico;
     - Nome do Produto - texto com tamanho máximo de 45;
@@ -79,8 +83,10 @@ o Função Básica 1.0 - Manter Produtos
     - Quantidade do Produto - conjunto númerico;
     - Preco do Produto - conjunto númerico;
 
-o Função Básica 1.1 - Manter Fornecedores
+o Função Básica 1.1 - Manter Fornecedor
+
     Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, a inclusão, alteração e exclusão
+
     Itens de Informações » 
     - Código do Produto - conjunto númerico;
     - Nome do Produto - texto com tamanho máximo de 45;
@@ -88,8 +94,11 @@ o Função Básica 1.1 - Manter Fornecedores
     - Quantidade do Produto - conjunto númerico;
     - Preco do Produto - conjunto númerico;
 
-o Função Básica 1.2 - Manter Funcionarios
+
+o Função Básica 1.2 - Manter Funcionario
+
     Descrição » Essa função permite a consulta dos dados de um usuário, como também, a inclusão, alteração e exclusão.
+
     Itens de Informações » 
     - Código do Funcionario - conjunto númerico;
     - Nome do Funcionario - texto com tamanho máximo de 45;
@@ -99,7 +108,9 @@ o Função Básica 1.2 - Manter Funcionarios
     - Cargo do Funcionario - texto com tamanho máximo de 45;
 
 o Função Básica 1.3 - Manter Convênios
-    Descrição »  Essa função permite a consulta dos dados de um dos convênios, como, também, a inclusão, alteração e exclusão
+
+    Descrição » Essa função permite a consulta dos dados de um dos convênios, como, também, a inclusão, alteração e exclusão
+
     Itens de Informações » 
     - Código do Convênio - conjunto númerico;
     - Nome do Convênio - texto com tamanho máximo de 45;
