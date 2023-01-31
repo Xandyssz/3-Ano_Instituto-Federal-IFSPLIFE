@@ -52,12 +52,11 @@ Todos as funções que serão implementadas no sistema.
 
 o Função Fundamental 1.0 - Efetuar Compra
 
-    Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento.
+    Descrição » Essa função permite que o administrador inclua os produtos comprados, que estarão a venda no estabelecimento.
 
     Itens de Informações » 
     - Código de Compra - conjunto númerico;
     - Código do Fornecedor - conjunto númerico;
-    - Código do Funcionario - conjunto númerico;
     - Código do Produto - conjunto númerico;
     - Quantidade do Produto - conjunto númerico;
     - Data da Compra - dd/mm/aaaa;
@@ -76,7 +75,7 @@ o Função Fundamental 1.1 - Efetuar Venda
 
 o Função Básica 1.0 - Manter Produtos
 
-    Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, alteração e exclusão
+    Descrição » Essa função permite a consulta dos produtos do estabelecimento como, também, alteração e exclusão
 
     Itens de Informações » 
     - Código do Produto - conjunto númerico;
@@ -90,16 +89,16 @@ o Função Básica 1.1 - Manter Fornecedor
     Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, a inclusão, alteração e exclusão
 
     Itens de Informações » 
-    - Código do Produto - conjunto númerico;
-    - Nome do Produto - texto com tamanho máximo de 45;
-    - Dosagem do Produto (se tiver) - conjunto númerico;
-    - Quantidade do Produto - conjunto númerico;
-    - Preco do Produto - conjunto númerico;
+    - Código do Fornecedor - conjunto númerico;
+    - Nome do Fornecedor - texto com tamanho máximo de 45;
+    - CNPJ do Fornecedor - conjunto númerico;
+    - Endereco do Fornecedor - conjunto númerico;
+    - Contato do Fornecedor - conjunto númerico;
 
 
 o Função Básica 1.2 - Manter Funcionario
 
-    Descrição » Essa função permite a consulta dos dados de um usuário, como também, a inclusão, alteração e exclusão.
+    Descrição » Essa função permite a consulta dos dados de um funcionario, como também, a inclusão, alteração e exclusão.
 
     Itens de Informações » 
     - Código do Funcionario - conjunto númerico;
