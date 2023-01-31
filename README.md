@@ -37,13 +37,14 @@ o Doc. Semana Nacional de Ciência e Tecnologia -
 # Capítulo 3 - IMPLEMENTAÇÃO 
 **Descrição das Implementações:**<br>
 **Lista de Módulos:**<br>
-o  Interface de Login<br>
-o  Interface Home<br>
-o  Interface das Empresas<br>
-o  Interface de Compra<br>
-o  Interface dos Medicamentos<br>
-o  Interface de Venda<br>
-o  Interface de Úsuarios
+o Interface de Login - [LOGIN] & [SPLASHSCREEN] | ✅<br>
+o Interface Home - | ❎<br>
+o Interface dos Fornecedores  - [Fornecedores] |  ✅<br>
+o Interface de Compra - [ComprarProdutos] | ✅<br>
+o Interface dos Medicamentos - [BuscarProdutos] | ✅<br>
+o Interface de Venda - [NF] | ✅<br>
+o Interface de Úsuarios - [Usuarios] | ✅<br>
+o Interface Convênios - [Convênios] | ✅
 
 # Capítulo 4 - DEFINIÇÃO DE FUNÇÕES 
 **Descrição das Funções**
