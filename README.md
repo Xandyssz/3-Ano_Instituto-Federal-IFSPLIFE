@@ -12,7 +12,7 @@
 
 
 # Capítulo 1 - INTRODUÇÃO
-**Descrição do Sistema:** 
+**Descrição do Sistema:**<br>
      O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos.
 além de buscar a melhora de segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz do sistema.<br>
      Durante o atendimento ao cliente, esse escolhe o(s) produto(s) disponível(is) na farmacia e em
