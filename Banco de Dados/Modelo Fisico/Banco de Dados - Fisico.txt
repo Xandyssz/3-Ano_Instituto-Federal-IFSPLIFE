@@ -1,0 +1,55 @@
+CREATE DATABASE ifsplife;
+USE ifsplife;
+
+CREATE TABLE Produtos (
+codigo_produto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome_produto VARCHAR(255) NOT NULL,
+dosagem_produto VARCHAR(255) NOT NULL,
+quantidade_produto INT NOT NULL,
+preco_produto FLOAT NOT NULL
+);
+
+CREATE TABLE Fornecedores (
+codigo_fornecedor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome_fornecedor VARCHAR(255) NOT NULL,
+cnpj_fornecedor VARCHAR(255) NOT NULL,
+endereco_fornecedor VARCHAR(255) NOT NULL,
+contato_fornecedor VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Funcionarios (
+codigo_funcionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome_funcionario VARCHAR(255) NOT NULL,
+cpf_funcionario VARCHAR(255) NOT NULL,
+endereco_funcionario VARCHAR(255) NOT NULL,
+telefone_funcionario VARCHAR(255) NOT NULL,
+cargo_funcionario VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Convenios (
+codigo_convenio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome_convenio VARCHAR(255) NOT NULL,
+desconto_convenio FLOAT NOT NULL,
+telefone_convenio VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Compras (
+codigo_compra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+codigo_fornecedor INT NOT NULL,
+codigo_funcionario INT NOT NULL,
+data_compra DATE NOT NULL,
+FOREIGN KEY (codigo_fornecedor) REFERENCES Fornecedores(codigo_fornecedor),
+FOREIGN KEY (codigo_funcionario) REFERENCES Funcionarios(codigo_funcionario)
+);
+
+CREATE TABLE Vendas (
+codigo_venda INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+codigo_produto INT NOT NULL,
+codigo_funcionario INT NOT NULL,
+codigo_convenio INT NOT NULL,
+data_venda DATE NOT NULL,
+valor_venda FLOAT NOT NULL,
+FOREIGN KEY (codigo_produto) REFERENCES Produtos(codigo_produto),
+FOREIGN KEY (codigo_funcionario) REFERENCES Funcionarios(codigo_funcionario),
+FOREIGN KEY (codigo_convenio) REFERENCES Convenios(codigo_convenio)
+);
