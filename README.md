@@ -12,10 +12,19 @@
 
 
 # Capítulo 1 - INTRODUÇÃO
-O principal objetivo do sistema é melhorar a segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz. Desenvolvemos este sistema para garantir um policiamento eficaz, fornecendo estatísticas dos medicamentos em estoque.
-
 **Descrição do Sistema:** 
-O sistema utilizado pode gerar relatórios, conforme a necessidade do usuário. O software pode imprimir notas fiscais, contas, recibos etc. Ele também pode manter o registro de medicamentos enviados pelo fornecedor. Aqui, o administrador que está lidando com a organização. Será responsável por gerenciar os registros dos funcionários. Cada funcionário receberá um nome de usuário e senha separados.
+     O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos.
+além de buscar a melhora de segurança e a eficiência nas redes farmacêuticas. 
+O projeto visa desenvolver uma gestão eficaz do sistema. 
+     Durante o atendimento ao cliente, esse escolhe o(s) produto(s) disponível(is) na farmacia e em
+seguida, o funcionario localiza o valor dos produtos previamente cadastrados no sistema. 
+     Quando a venda ao cliente é finalizada, o valor total da venda é
+calculado. Após a totalização do pedido, o funcionário solicita ao cliente a forma de pagamento. Caso
+seja cartão, o total da venda é registrado. Em contrapartida, se for dinheiro, o sistema 
+calcula o troco que será devolvido ao cliente. 
+     O sistema tem dois níveis de acesso, Administrador e Funcionario. O nível de acesso Funcionario
+tem permissão para atender ao cliente realizando seus pedidos no estabelecimento. Já o nível de acesso Administrador tem o controle de todo o sistema, visto que, manter os dados de usuários, convênios, fornecedores e produtos, além de, realizar a compra de novos produtos são
+exclusivos do Administrador.
 
 **Objetivos:**<br>
 -> **Principais Objetivos**<br>
