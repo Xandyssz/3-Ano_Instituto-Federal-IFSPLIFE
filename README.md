@@ -51,72 +51,60 @@ Todos as funções que serão implementadas no sistema.
 **Lista de Funções:**<p>
 
 o Função Fundamental 1.0 - Efetuar Compra
-
     Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento.
     Itens de Informações » 
-    - Código do Produto - conjunto numérico;
-
-    Para cada Mercadoria » 
-    - Nome do Produto - texto com tamanho máximo de 45;
-    - Tipo do Produto - texto com tamanho máximo de 45;
-    - Nome da Empresa - texto com tamanho máximo de 45;
+    - Código de Compra - conjunto númerico;
+    - Código do Fornecedor - conjunto númerico;
+    - Código do Funcionario - conjunto númerico;
+    - Código do Produto - conjunto númerico;
     - Quantidade do Produto - conjunto númerico;
-    - Data de Produção - DD/MM/AAAA;
-    - Data de Vencimento - DD/MM/AAAA;
-    - Preço de Custo - conjunto númerico;
-    - Preço de Venda - conjunto númerico
+    - Data da Compra - dd/mm/aaaa;
 
 o Função Fundamental 1.1 - Efetuar Venda
-
     Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente.
     Itens de Informações » 
-    - Código Usuário - conjunto numérico;
+    - Código da Venda - conjunto númerico;
+    - Código do Produto - conjunto númerico;
+    - Código do Funcionario - conjunto númerico;
+    - Código do Convênio - conjunto númerico;
+    - Valor da venda - conjunto númerico;
+    - Data da venda - dd/mm/aaaa;
 
-    Para cada Produto » 
-    - Código do produto - conjunto numérico
-    - Valor do produto - conjunto numérico;
-    - Valor da Compra dos produtos - conjunto numérico;
-    - Número Nota Fiscal do produto - conjunto numérico;
-    - Valor total do produto - conjunto numérico decimal;
-    - Forma de pagamento do produto - texto com tamanho máximo de 45;
-    - Data da compra - dd/mm/aaaa;
+o Função Básica 1.0 - Manter Produtos
+    Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, alteração e exclusão
+    Itens de Informações » 
+    - Código do Produto - conjunto númerico;
+    - Nome do Produto - texto com tamanho máximo de 45;
+    - Dosagem do Produto (se tiver) - conjunto númerico;
+    - Quantidade do Produto - conjunto númerico;
+    - Preco do Produto - conjunto númerico;
 
-o Função Básica 1.2 - Manter Usuario
+o Função Básica 1.1 - Manter Fornecedores
+    Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, a inclusão, alteração e exclusão
+    Itens de Informações » 
+    - Código do Produto - conjunto númerico;
+    - Nome do Produto - texto com tamanho máximo de 45;
+    - Dosagem do Produto (se tiver) - conjunto númerico;
+    - Quantidade do Produto - conjunto númerico;
+    - Preco do Produto - conjunto númerico;
 
+o Função Básica 1.2 - Manter Funcionarios
     Descrição » Essa função permite a consulta dos dados de um usuário, como também, a inclusão, alteração e exclusão.
-
     Itens de Informações » 
-    - Id do Usuário - texto com tamanho máximo de 1;
-    - CPF - texto com tamanho máximo de 14;
-    - Nome do Usuário  - texto com tamanho máximo de 45;
-    - Data de Nascimento do Usuário - texto com tamanho máximo de 8;
-    - Telefone do Usuário - texto com tamanho máximo de 17;
-    - Salário  - texto com tamanho máximo de 45;
-    - Senha - texto com tamanho máximo de 45;
-    - Tipo - texto com tamanho máximo 1;. A: administrador e F: funcionário;
-    - Endereço  - texto com tamanho máximo de 45;
+    - Código do Funcionario - conjunto númerico;
+    - Nome do Funcionario - texto com tamanho máximo de 45;
+    - CPF do Funcionario - conjunto númerico;
+    - Endereco do Funcionario - texto com tamanho máximo de 45;
+    - Telefone do Funcionario - conjunto númerico;
+    - Cargo do Funcionario - texto com tamanho máximo de 45;
 
-o Função Básica 1.3 - Manter Fabricantes
-
-    Descrição » Essa função permite a consulta dos dados de uma Fabricante como, também, a inclusão, alteração e exclusão
-
+o Função Básica 1.3 - Manter Convênios
+    Descrição »  Essa função permite a consulta dos dados de um dos convênios, como, também, a inclusão, alteração e exclusão
     Itens de Informações » 
-    - Nome do Fabricante  - texto com tamanho máximo de 45;
-    - Telefone - texto com tamanho máximo de 17;
-    - CNPJ - texto com tamanho máximo de 14;
-    - Endereço  - texto com tamanho máximo de 45;
-    - Email - texto com tamanho máximo de 45;
-
-o Função Básica 1.3 - Manter Convênio
-
-    Descrição » Essa função permite a consulta dos dados de um fornecedor como, também, a inclusão, alteração e exclusão
-
-    Itens de Informações » 
-    - Nome do Convênio  - texto com tamanho máximo de 45;
-    - Telefone - texto com tamanho máximo de 17;
-    - CNPJ - texto com tamanho máximo de 14;
-    - Endereço  - texto com tamanho máximo de 45;
-    - Porcentagem de Desconto - conjunto númerico;
+    - Código do Convênio - conjunto númerico;
+    - Nome do Convênio - texto com tamanho máximo de 45;
+    - Telefone do Convênio - conjunto númerico;
+    - Desconto(%) - conjunto númerico;
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
