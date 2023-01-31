@@ -13,15 +13,11 @@
 
 # Capítulo 1 - INTRODUÇÃO
 **Descrição do Sistema:**<br>
-     O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos.
-além de buscar a melhora de segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz do sistema.<br>
-     Durante o atendimento ao cliente, esse escolhe o(s) produto(s) disponível(is) na farmacia e em
-seguida, o funcionario localiza o valor dos produtos previamente cadastrados no sistema.<br>
-     Quando a venda ao cliente é finalizada, o valor total da venda é
-calculado. Após a totalização do pedido, o funcionário solicita ao cliente a forma de pagamento. Caso seja cartão, o total da venda é registrado. Em contrapartida, se for dinheiro, o sistema calcula o troco que será devolvido ao cliente.<br>
-     O sistema tem dois níveis de acesso, Administrador e Funcionario. O nível de acesso Funcionario
-tem permissão para atender ao cliente realizando seus pedidos no estabelecimento. Já o nível de acesso Administrador tem o controle de todo o sistema, visto que, manter os dados de usuários, convênios, fornecedores e produtos, além de, realizar a compra de novos produtos são
-exclusivos do Administrador.
+O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos. além de buscar a melhora de segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz do sistema.<p>
+
+Durante o atendimento ao cliente, esse escolhe o(s) produto(s) disponível(is) na farmácia e em seguida, o funcionário localiza o valor dos produtos previamente cadastrados no sistema. Quando a venda ao cliente é finalizada, o valor total da venda  é calculado. Após a totalização do pedido, o funcionário solicita ao cliente a forma de pagamento. Caso seja cartão, o total da venda é registrado. Em contrapartida, se for dinheiro, o sistema calcula o troco que será devolvido ao cliente. <p>
+
+O sistema tem dois níveis de acesso, Administrador e Funcionário. O nível de acesso Funcionário tem permissão para atender ao cliente realizando seus pedidos no estabelecimento. Já o nível de acesso Administrador tem o controle de todo o sistema, visto que, manter os dados de usuários, convênios, fornecedores e produtos, além de, realizar a compra de novos produtos são exclusivos do Administrador.
 
 **Objetivos:**<br>
 -> **Principais Objetivos**<br>
