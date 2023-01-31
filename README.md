@@ -53,6 +53,7 @@ Todos as funções que serão implementadas no sistema.
 o Função Fundamental 1.0 - Efetuar Compra
 
     Descrição » Essa função permite que o administrador inclua as mercadorias compradas, que estarão a venda no estabelecimento.
+
     Itens de Informações » 
     - Código de Compra - conjunto númerico;
     - Código do Fornecedor - conjunto númerico;
@@ -64,6 +65,7 @@ o Função Fundamental 1.0 - Efetuar Compra
 o Função Fundamental 1.1 - Efetuar Venda
 
     Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente.
+
     Itens de Informações » 
     - Código da Venda - conjunto númerico;
     - Código do Produto - conjunto númerico;
