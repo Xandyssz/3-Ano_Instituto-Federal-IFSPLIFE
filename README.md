@@ -25,9 +25,10 @@ O sistema utilizado pode gerar relatórios, conforme a necessidade do usuário. 
 # Capítulo 2 - DOCUMENTAÇÃO
 **Descrição das Documentações:**<br>
 o Levantamento de Dados -  
-o Escopo - <br>
+o Escopo | ✅<br> 
 o Protótipo - <br>
-o Modelo Lógico - <br>
+o Modelo Lógico | ✅<br>
+o Modelo Fisico - <br>
 o Diagrama Caso de Uso - <br>
 o Diagrama Caso de Atividade - <br> 
 o Diagrama de Classes - <br>
