@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package IfspLife;
+package ifsplife_visao;
 
 /**
  *
  * @author xandy
  */
-public class ComprarProdutos extends javax.swing.JFrame {
+public class TelaDadosProduto extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public ComprarProdutos() {
+    public TelaDadosProduto() {
         initComponents();
     }
 
@@ -59,16 +59,14 @@ public class ComprarProdutos extends javax.swing.JFrame {
         JLabel_Preco = new javax.swing.JLabel();
         JTextFieldPreco = new javax.swing.JTextField();
         JButton_Comprar = new javax.swing.JButton();
-        JButton_Atualizar = new javax.swing.JButton();
-        JButton_Deletar = new javax.swing.JButton();
         JButton_Limpar = new javax.swing.JButton();
         JButton_Cancelar = new javax.swing.JButton();
         JSeparador = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1080, 500));
+        setMinimumSize(new java.awt.Dimension(731, 566));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1080, 500));
+        setPreferredSize(new java.awt.Dimension(731, 566));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -92,7 +90,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -101,7 +99,7 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 50, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
@@ -134,12 +132,12 @@ public class ComprarProdutos extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Adicionar Produtos ao Estoque");
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 550, 70));
 
         JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio.setText("Código do Produto:");
-        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 230, -1));
+        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 230, -1));
 
         JTextField_Codigo_Remedio.setToolTipText("Enter Barcode and Press Enter for Updating");
         JTextField_Codigo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -152,18 +150,18 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JTextField_Codigo_RemedioKeyPressed(evt);
             }
         });
-        getContentPane().add(JTextField_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 156, -1));
+        getContentPane().add(JTextField_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 156, -1));
 
         JLabel_Nome_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Nome_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Remedio.setText("Nome do Remédio:");
-        getContentPane().add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 230, -1));
-        getContentPane().add(JTextField_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 156, -1));
+        getContentPane().add(JLabel_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 230, -1));
+        getContentPane().add(JTextField_Nome_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 156, -1));
 
         JLabel_Tipo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Tipo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Tipo_Remedio.setText("Tipo do Remédio:");
-        getContentPane().add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, -1));
+        getContentPane().add(JLabel_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, -1));
 
         JComboBox_Tipo_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drug_Type : ", "Bills", "Injection", "Drink", "Fizzing" }));
         JComboBox_Tipo_Remedio.addActionListener(new java.awt.event.ActionListener() {
@@ -171,105 +169,87 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JComboBox_Tipo_RemedioActionPerformed(evt);
             }
         });
-        getContentPane().add(JComboBox_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 156, -1));
+        getContentPane().add(JComboBox_Tipo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 156, -1));
 
         JLabel_Nome_Empresa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Nome_Empresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Nome_Empresa.setText("Nome da Empresa:");
-        getContentPane().add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 230, -1));
+        getContentPane().add(JLabel_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 230, -1));
 
         JComboBox_Nome_Empresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Company_Name : " }));
-        getContentPane().add(JComboBox_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 156, -1));
+        getContentPane().add(JComboBox_Nome_Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 156, -1));
 
         JLabel_Quantidade_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Quantidade_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Quantidade_Remedio.setText("Quantidade:");
-        getContentPane().add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 230, -1));
+        getContentPane().add(JLabel_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 230, -1));
 
         JComboBox_Quantidade_Remedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-        getContentPane().add(JComboBox_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 156, -1));
+        getContentPane().add(JComboBox_Quantidade_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 156, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Data de Produção:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 250, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 230, -1));
 
         pro_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        getContentPane().add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
+        getContentPane().add(pro_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
 
         pro_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        getContentPane().add(pro_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, -1, -1));
+        getContentPane().add(pro_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
 
         pro_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        getContentPane().add(pro_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, -1));
+        getContentPane().add(pro_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Data de Vencimento:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 240, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 230, -1));
 
         exp_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        getContentPane().add(exp_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
+        getContentPane().add(exp_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, -1, -1));
 
         exp_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month : ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        getContentPane().add(exp_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, -1, -1));
+        getContentPane().add(exp_month, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
 
         exp_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year : ", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        getContentPane().add(exp_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 230, -1, -1));
+        getContentPane().add(exp_year, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, -1, -1));
 
         JLabel_PrecoCusto_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_PrecoCusto_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_PrecoCusto_Remedio.setText("Preco de Custo:");
-        getContentPane().add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 250, -1));
+        getContentPane().add(JLabel_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 230, -1));
 
         JTextField_PrecoCusto_Remedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTextField_PrecoCusto_RemedioActionPerformed(evt);
             }
         });
-        getContentPane().add(JTextField_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 156, -1));
+        getContentPane().add(JTextField_PrecoCusto_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 156, -1));
 
         JLabel_Preco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Preco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Preco.setText("Preco de Venda:");
-        getContentPane().add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 240, -1));
-        getContentPane().add(JTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 310, 156, -1));
+        getContentPane().add(JLabel_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 230, -1));
+        getContentPane().add(JTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 156, -1));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Comprar.setText("Comprar");
+        JButton_Comprar.setText("Confirmar");
         JButton_Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButton_ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 115, -1));
-
-        JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Atualizar.setText("Atualizar");
-        JButton_Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_AtualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 115, -1));
-
-        JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Deletar.setText("Deletar");
-        JButton_Deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_DeletarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, 111, -1));
+        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 115, -1));
 
         JButton_Limpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Limpar.setText("Limpar");
+        JButton_Limpar.setText("Cancelar");
         JButton_Limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButton_LimparActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 94, -1));
+        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 94, -1));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -278,8 +258,8 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, 94, -1));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 94, -1));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 550, 10));
 
         pack();
         setLocationRelativeTo(null);
@@ -309,14 +289,6 @@ public class ComprarProdutos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JButton_ComprarActionPerformed
 
-    private void JButton_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_AtualizarActionPerformed
-
-    }//GEN-LAST:event_JButton_AtualizarActionPerformed
-
-    private void JButton_DeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_DeletarActionPerformed
-
-    }//GEN-LAST:event_JButton_DeletarActionPerformed
-
     private void JButton_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_LimparActionPerformed
 
     }//GEN-LAST:event_JButton_LimparActionPerformed
@@ -342,14 +314,62 @@ public class ComprarProdutos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ComprarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ComprarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ComprarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ComprarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -370,17 +390,15 @@ public class ComprarProdutos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ComprarProdutos().setVisible(true);
+                new TelaDadosProduto().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconX4;
-    public javax.swing.JButton JButton_Atualizar;
     private javax.swing.JButton JButton_Cancelar;
     public javax.swing.JButton JButton_Comprar;
-    public javax.swing.JButton JButton_Deletar;
     private javax.swing.JButton JButton_Limpar;
     public javax.swing.JComboBox<String> JComboBox_Nome_Empresa;
     public javax.swing.JComboBox<String> JComboBox_Quantidade_Remedio;

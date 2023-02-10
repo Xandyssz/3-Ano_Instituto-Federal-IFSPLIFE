@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package IfspLife;
+package ifsplife_visao;
 
 /**
  *
  * @author xandy
  */
-public class NF extends javax.swing.JFrame {
+public class TelaManutencaoUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public NF() {
+    public TelaManutencaoUsuario() {
         initComponents();
     }
 
@@ -35,24 +35,20 @@ public class NF extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         logoIFSP_LIFE = new javax.swing.JLabel();
+        JLabel_Titulo = new javax.swing.JLabel();
         JSeparador = new javax.swing.JSeparator();
-        Titulo = new javax.swing.JLabel();
-        JLabel_CodigoRemedio = new javax.swing.JLabel();
-        JTextField_CodigoRemedio = new javax.swing.JTextField();
-        JLabel_Quantidade = new javax.swing.JLabel();
-        JComboBox_Quantidade = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        JLabel_Total = new javax.swing.JLabel();
-        JLabel_ValorTotal = new javax.swing.JLabel();
-        JButton_Gerar = new javax.swing.JButton();
-        JButton_Cancelar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        users = new javax.swing.JTable();
+        updateuser = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        deleteuser = new javax.swing.JButton();
+        adduser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1080, 450));
+        setMinimumSize(new java.awt.Dimension(1230, 560));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1080, 450));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1230, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -76,7 +72,7 @@ public class NF extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 190, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -85,9 +81,9 @@ public class NF extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 50, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -110,78 +106,82 @@ public class NF extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 451, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 490));
 
-        Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo.setText("Emitir Nota");
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
+        JLabel_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabel_Titulo.setText("Usuarios");
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 1110, 70));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 1050, 10));
 
-        JLabel_CodigoRemedio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        JLabel_CodigoRemedio.setText("Codigo_Produto");
-        getContentPane().add(JLabel_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 30));
-        getContentPane().add(JTextField_CodigoRemedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 187, 30));
-
-        JLabel_Quantidade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        JLabel_Quantidade.setText("Quantidade");
-        getContentPane().add(JLabel_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 90, 30));
-
-        JComboBox_Quantidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quantity : ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-        getContentPane().add(JComboBox_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 150, 30));
-
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        users.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        users.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nome", "Valor", "Vencimento", "Tipo", "Quantidade"
+                "Id", "Nome", "DMA", "Telefone", "Salario", "Senha", "Acesso", "Endereco"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(users);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 830, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 1010, 360));
 
-        JLabel_Total.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        JLabel_Total.setText("Total : ");
-        getContentPane().add(JLabel_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
-
-        JLabel_ValorTotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        JLabel_ValorTotal.setText("R$00.0");
-        getContentPane().add(JLabel_ValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
-
-        JButton_Gerar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Gerar.setText("Gerar");
-        JButton_Gerar.addActionListener(new java.awt.event.ActionListener() {
+        updateuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        updateuser.setText("Atualizar");
+        updateuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_GerarActionPerformed(evt);
+                updateuserActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Gerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 110, 50));
+        getContentPane().add(updateuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, -1));
 
-        JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JButton_Cancelar.setText("Cancelar");
-        JButton_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton6.setText("Cancel");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_CancelarActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 360, 110, 50));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 80, -1));
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setText("Visualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, 90, -1));
+
+        deleteuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        deleteuser.setText("Deletar");
+        deleteuser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteuserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(deleteuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, -1, -1));
+
+        adduser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        adduser.setText("Adicionar");
+        adduser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adduserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(adduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 90, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -191,13 +191,30 @@ public class NF extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_IconX4MouseClicked
 
-    private void JButton_GerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_GerarActionPerformed
+    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
 
-    }//GEN-LAST:event_JButton_GerarActionPerformed
+    }//GEN-LAST:event_usersMouseClicked
 
-    private void JButton_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_CancelarActionPerformed
+    private void adduserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adduserActionPerformed
+        TelaDadosUsuario teladadosusuario = new TelaDadosUsuario();
+        teladadosusuario.setVisible(true);
+    }//GEN-LAST:event_adduserActionPerformed
 
-    }//GEN-LAST:event_JButton_CancelarActionPerformed
+    private void updateuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateuserActionPerformed
+
+    }//GEN-LAST:event_updateuserActionPerformed
+
+    private void deleteuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteuserActionPerformed
+
+    }//GEN-LAST:event_deleteuserActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,78 +233,14 @@ public class NF extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -356,32 +309,29 @@ public class NF extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NF().setVisible(true);
+                new TelaManutencaoUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconX4;
-    private javax.swing.JButton JButton_Cancelar;
-    private javax.swing.JButton JButton_Gerar;
-    public javax.swing.JComboBox<String> JComboBox_Quantidade;
-    private javax.swing.JLabel JLabel_CodigoRemedio;
-    private javax.swing.JLabel JLabel_Quantidade;
-    private javax.swing.JLabel JLabel_Total;
-    private javax.swing.JLabel JLabel_ValorTotal;
+    private javax.swing.JLabel JLabel_Titulo;
     private javax.swing.JSeparator JSeparador;
-    private javax.swing.JTextField JTextField_CodigoRemedio;
-    private javax.swing.JLabel Titulo;
+    public javax.swing.JButton adduser;
+    public javax.swing.JButton deleteuser;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel logoIFSP_LIFE;
+    public javax.swing.JButton updateuser;
+    private javax.swing.JTable users;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package IfspLife;
+package ifsplife_visao;
 
 /**
  *
  * @author xandy
  */
-public class Convenios extends javax.swing.JFrame {
+public class TelaDadosConvenio extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public Convenios() {
+    public TelaDadosConvenio() {
         initComponents();
     }
 
@@ -41,20 +41,15 @@ public class Convenios extends javax.swing.JFrame {
         JTextField_Codigo_Remedio3 = new javax.swing.JTextField();
         JLabel_Codigo_Remedio1 = new javax.swing.JLabel();
         JTextField_Codigo_Remedio2 = new javax.swing.JTextField();
-        JScrollPane_Fornecedores = new javax.swing.JScrollPane();
-        JTable_Fornecedores = new javax.swing.JTable();
         JButton_Comprar = new javax.swing.JButton();
-        JButton_Atualizar = new javax.swing.JButton();
-        JButton_Deletar = new javax.swing.JButton();
-        JButton_Limpar = new javax.swing.JButton();
         JButton_Cancelar = new javax.swing.JButton();
         JLabel_Codigo_Remedio3 = new javax.swing.JLabel();
         JTextField_Codigo_Remedio4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1174, 409));
+        setMinimumSize(new java.awt.Dimension(751, 356));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1174, 409));
+        setPreferredSize(new java.awt.Dimension(751, 356));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -78,7 +73,7 @@ public class Convenios extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 190, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -87,7 +82,7 @@ public class Convenios extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, -1));
 
@@ -112,16 +107,16 @@ public class Convenios extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 451, Short.MAX_VALUE))
+                .addGap(0, 191, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 990, 10));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 340));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 570, 10));
 
         JLabel_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Titulo.setText("Convênios");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 990, 70));
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 570, 70));
 
         JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -159,65 +154,14 @@ public class Convenios extends javax.swing.JFrame {
         });
         getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 220, -1));
 
-        JTable_Fornecedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JTable_Fornecedores.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "Telefone", "Porcentagem"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        JScrollPane_Fornecedores.setViewportView(JTable_Fornecedores);
-
-        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 480, 220));
-
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Comprar.setText("Comprar");
+        JButton_Comprar.setText("Confirmar");
         JButton_Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButton_ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 90, -1));
-
-        JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Atualizar.setText("Atualizar");
-        JButton_Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_AtualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 90, -1));
-
-        JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Deletar.setText("Deletar");
-        JButton_Deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_DeletarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 80, -1));
-
-        JButton_Limpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Limpar.setText("Limpar");
-        JButton_Limpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton_LimparActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
+        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 90, -1));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -226,7 +170,7 @@ public class Convenios extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 90, -1));
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 90, -1));
 
         JLabel_Codigo_Remedio3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -274,18 +218,6 @@ public class Convenios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JButton_ComprarActionPerformed
 
-    private void JButton_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_AtualizarActionPerformed
-
-    }//GEN-LAST:event_JButton_AtualizarActionPerformed
-
-    private void JButton_DeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_DeletarActionPerformed
-
-    }//GEN-LAST:event_JButton_DeletarActionPerformed
-
-    private void JButton_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_LimparActionPerformed
-
-    }//GEN-LAST:event_JButton_LimparActionPerformed
-
     private void JButton_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_CancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JButton_CancelarActionPerformed
@@ -315,14 +247,206 @@ public class Convenios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Convenios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -391,25 +515,20 @@ public class Convenios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Convenios().setVisible(true);
+                new TelaDadosConvenio().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconX4;
-    public javax.swing.JButton JButton_Atualizar;
     private javax.swing.JButton JButton_Cancelar;
     public javax.swing.JButton JButton_Comprar;
-    public javax.swing.JButton JButton_Deletar;
-    private javax.swing.JButton JButton_Limpar;
     private javax.swing.JLabel JLabel_Codigo_Remedio1;
     private javax.swing.JLabel JLabel_Codigo_Remedio2;
     private javax.swing.JLabel JLabel_Codigo_Remedio3;
     private javax.swing.JLabel JLabel_Titulo;
-    private javax.swing.JScrollPane JScrollPane_Fornecedores;
     private javax.swing.JSeparator JSeparador;
-    private javax.swing.JTable JTable_Fornecedores;
     private javax.swing.JTextField JTextField_Codigo_Remedio2;
     private javax.swing.JTextField JTextField_Codigo_Remedio3;
     private javax.swing.JTextField JTextField_Codigo_Remedio4;

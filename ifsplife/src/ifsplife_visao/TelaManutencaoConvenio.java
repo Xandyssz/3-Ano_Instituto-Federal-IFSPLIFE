@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package IfspLife;
+package ifsplife_visao;
 
 /**
  *
  * @author xandy
  */
-public class Fornecedores extends javax.swing.JFrame {
+public class TelaManutencaoConvenio extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public Fornecedores() {
+    public TelaManutencaoConvenio() {
         initComponents();
     }
 
@@ -37,13 +37,6 @@ public class Fornecedores extends javax.swing.JFrame {
         logoIFSP_LIFE = new javax.swing.JLabel();
         JSeparador = new javax.swing.JSeparator();
         JLabel_Titulo = new javax.swing.JLabel();
-        JLabel_Codigo_Remedio2 = new javax.swing.JLabel();
-        JTextField_Codigo_Remedio3 = new javax.swing.JTextField();
-        JLabel_Codigo_Remedio1 = new javax.swing.JLabel();
-        JTextField_Codigo_Remedio2 = new javax.swing.JTextField();
-        JLabel_Codigo_Remedio = new javax.swing.JLabel();
-        JScrollPane_FornecedorEndereco = new javax.swing.JScrollPane();
-        JTextArea_FornecedorEndereco = new javax.swing.JTextArea();
         JScrollPane_Fornecedores = new javax.swing.JScrollPane();
         JTable_Fornecedores = new javax.swing.JTable();
         JButton_Comprar = new javax.swing.JButton();
@@ -53,8 +46,9 @@ public class Fornecedores extends javax.swing.JFrame {
         JButton_Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1079, 405));
+        setMinimumSize(new java.awt.Dimension(1230, 560));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1230, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -78,7 +72,7 @@ public class Fornecedores extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 180, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -87,9 +81,9 @@ public class Fornecedores extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 50, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, -1));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -112,63 +106,16 @@ public class Fornecedores extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 451, Short.MAX_VALUE))
+                .addGap(0, 351, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 900, 10));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 500));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 1050, 10));
 
         JLabel_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Titulo.setText("Contato - Fabricantes");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 900, 70));
-
-        JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio2.setText("Nome da Fabricante:");
-        getContentPane().add(JLabel_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 230, -1));
-
-        JTextField_Codigo_Remedio3.setToolTipText("Enter Barcode and Press Enter for Updating");
-        JTextField_Codigo_Remedio3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextField_Codigo_Remedio3ActionPerformed(evt);
-            }
-        });
-        JTextField_Codigo_Remedio3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTextField_Codigo_Remedio3KeyPressed(evt);
-            }
-        });
-        getContentPane().add(JTextField_Codigo_Remedio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 240, -1));
-
-        JLabel_Codigo_Remedio1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Codigo_Remedio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio1.setText("Telefone da Fabricante:");
-        getContentPane().add(JLabel_Codigo_Remedio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 230, -1));
-
-        JTextField_Codigo_Remedio2.setToolTipText("Enter Barcode and Press Enter for Updating");
-        JTextField_Codigo_Remedio2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextField_Codigo_Remedio2ActionPerformed(evt);
-            }
-        });
-        JTextField_Codigo_Remedio2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTextField_Codigo_Remedio2KeyPressed(evt);
-            }
-        });
-        getContentPane().add(JTextField_Codigo_Remedio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 240, -1));
-
-        JLabel_Codigo_Remedio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        JLabel_Codigo_Remedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabel_Codigo_Remedio.setText("Endereco Fabricante: ");
-        getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 230, -1));
-
-        JTextArea_FornecedorEndereco.setColumns(20);
-        JTextArea_FornecedorEndereco.setRows(5);
-        JScrollPane_FornecedorEndereco.setViewportView(JTextArea_FornecedorEndereco);
-
-        getContentPane().add(JScrollPane_FornecedorEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 240, -1));
+        JLabel_Titulo.setText("Convênios");
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 990, 70));
 
         JTable_Fornecedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JTable_Fornecedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -179,7 +126,7 @@ public class Fornecedores extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "        Name", "        Address", "        Phone"
+                "Nome", "Telefone", "Porcentagem"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -192,16 +139,16 @@ public class Fornecedores extends javax.swing.JFrame {
         });
         JScrollPane_Fornecedores.setViewportView(JTable_Fornecedores);
 
-        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 390, 190));
+        getContentPane().add(JScrollPane_Fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 1000, 350));
 
         JButton_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Comprar.setText("Comprar");
+        JButton_Comprar.setText("Adicionar");
         JButton_Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButton_ComprarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 115, -1));
+        getContentPane().add(JButton_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 90, -1));
 
         JButton_Atualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Atualizar.setText("Atualizar");
@@ -210,7 +157,7 @@ public class Fornecedores extends javax.swing.JFrame {
                 JButton_AtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 115, -1));
+        getContentPane().add(JButton_Atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 90, -1));
 
         JButton_Deletar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Deletar.setText("Deletar");
@@ -219,16 +166,16 @@ public class Fornecedores extends javax.swing.JFrame {
                 JButton_DeletarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 111, -1));
+        getContentPane().add(JButton_Deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 80, -1));
 
         JButton_Limpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        JButton_Limpar.setText("Limpar");
+        JButton_Limpar.setText("Visualizar");
         JButton_Limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButton_LimparActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 94, -1));
+        getContentPane().add(JButton_Limpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, -1, -1));
 
         JButton_Cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JButton_Cancelar.setText("Cancelar");
@@ -237,7 +184,7 @@ public class Fornecedores extends javax.swing.JFrame {
                 JButton_CancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 94, -1));
+        getContentPane().add(JButton_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, 90, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -247,24 +194,9 @@ public class Fornecedores extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_IconX4MouseClicked
 
-    private void JTextField_Codigo_Remedio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField_Codigo_Remedio3ActionPerformed
-
-    private void JTextField_Codigo_Remedio3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio3KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField_Codigo_Remedio3KeyPressed
-
-    private void JTextField_Codigo_Remedio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextField_Codigo_Remedio2ActionPerformed
-
-    private void JTextField_Codigo_Remedio2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField_Codigo_Remedio2KeyPressed
-
-    }//GEN-LAST:event_JTextField_Codigo_Remedio2KeyPressed
-
     private void JButton_ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_ComprarActionPerformed
-
+        TelaDadosConvenio teladadosconvenio = new TelaDadosConvenio();
+        teladadosconvenio.setVisible(true);
     }//GEN-LAST:event_JButton_ComprarActionPerformed
 
     private void JButton_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_AtualizarActionPerformed
@@ -300,14 +232,78 @@ public class Fornecedores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManutencaoConvenio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -376,7 +372,7 @@ public class Fornecedores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fornecedores().setVisible(true);
+                new TelaManutencaoConvenio().setVisible(true);
             }
         });
     }
@@ -388,17 +384,10 @@ public class Fornecedores extends javax.swing.JFrame {
     public javax.swing.JButton JButton_Comprar;
     public javax.swing.JButton JButton_Deletar;
     private javax.swing.JButton JButton_Limpar;
-    private javax.swing.JLabel JLabel_Codigo_Remedio;
-    private javax.swing.JLabel JLabel_Codigo_Remedio1;
-    private javax.swing.JLabel JLabel_Codigo_Remedio2;
     private javax.swing.JLabel JLabel_Titulo;
-    private javax.swing.JScrollPane JScrollPane_FornecedorEndereco;
     private javax.swing.JScrollPane JScrollPane_Fornecedores;
     private javax.swing.JSeparator JSeparador;
     private javax.swing.JTable JTable_Fornecedores;
-    private javax.swing.JTextArea JTextArea_FornecedorEndereco;
-    private javax.swing.JTextField JTextField_Codigo_Remedio2;
-    private javax.swing.JTextField JTextField_Codigo_Remedio3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

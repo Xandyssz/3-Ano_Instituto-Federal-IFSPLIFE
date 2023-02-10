@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package IfspLife;
+package ifsplife_visao;
 
 /**
  *
  * @author xandy
  */
-public class Usuarios extends javax.swing.JFrame {
+public class TelaDadosUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form Teste
      */
-    public Usuarios() {
+    public TelaDadosUsuario() {
         initComponents();
     }
 
@@ -54,20 +54,15 @@ public class Usuarios extends javax.swing.JFrame {
         JScrollPane_FornecedorEndereco = new javax.swing.JScrollPane();
         JTextArea_FornecedorEndereco = new javax.swing.JTextArea();
         JLabel_Codigo_Remedio = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        users = new javax.swing.JTable();
         JLabel_Codigo_Remedio7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        updateuser = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        deleteuser = new javax.swing.JButton();
         adduser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1300, 548));
+        setMinimumSize(new java.awt.Dimension(751, 518));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1300, 548));
+        setPreferredSize(new java.awt.Dimension(751, 518));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -91,7 +86,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/male_user_50px.png"))); // NOI18N
         jLabel3.setText("Welcome Admin");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, -1, 70));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 190, 70));
 
         IconX4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SplashScreen/Assets/icons8-excluir-30.png"))); // NOI18N
@@ -100,7 +95,7 @@ public class Usuarios extends javax.swing.JFrame {
                 IconX4MouseClicked(evt);
             }
         });
-        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 50, 70));
+        jPanel1.add(IconX4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
@@ -125,16 +120,16 @@ public class Usuarios extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 600));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 450));
 
         JLabel_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         JLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Titulo.setText("Usuarios");
-        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 1110, 70));
-        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 1110, 10));
+        getContentPane().add(JLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 590, 70));
+        getContentPane().add(JSeparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 690, 10));
 
         JLabel_Codigo_Remedio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -256,27 +251,6 @@ public class Usuarios extends javax.swing.JFrame {
         JLabel_Codigo_Remedio.setText("Endereco do Usuario:");
         getContentPane().add(JLabel_Codigo_Remedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 230, -1));
 
-        users.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        users.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Id", "Nome", "DMA", "Telefone", "Salario", "Senha", "Acesso", "Endereco"
-            }
-        ));
-        users.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usersMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(users);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 560, 360));
-
         JLabel_Codigo_Remedio7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabel_Codigo_Remedio7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel_Codigo_Remedio7.setText("Senha do Usuario:");
@@ -285,50 +259,23 @@ public class Usuarios extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 240, -1));
 
-        updateuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        updateuser.setText("Atualizar");
-        updateuser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateuserActionPerformed(evt);
-            }
-        });
-        getContentPane().add(updateuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
-
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setText("Cancel");
+        jButton6.setText("Cancelar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 80, -1));
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setText("Clear");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, 90, -1));
-
-        deleteuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        deleteuser.setText("Deletar");
-        deleteuser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteuserActionPerformed(evt);
-            }
-        });
-        getContentPane().add(deleteuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 80, -1));
 
         adduser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        adduser.setText("Adicionar");
+        adduser.setText("Confirmar");
         adduser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adduserActionPerformed(evt);
             }
         });
-        getContentPane().add(adduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 90, -1));
+        getContentPane().add(adduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 90, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -378,29 +325,13 @@ public class Usuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextField_Codigo_Remedio7KeyPressed
 
-    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-
-    }//GEN-LAST:event_usersMouseClicked
-
     private void adduserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adduserActionPerformed
     
     }//GEN-LAST:event_adduserActionPerformed
 
-    private void updateuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateuserActionPerformed
-  
-    }//GEN-LAST:event_updateuserActionPerformed
-
-    private void deleteuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteuserActionPerformed
-     
-    }//GEN-LAST:event_deleteuserActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-     
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void pro_monthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pro_monthActionPerformed
         // TODO add your handling code here:
@@ -423,14 +354,62 @@ public class Usuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDadosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -451,7 +430,7 @@ public class Usuarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Usuarios().setVisible(true);
+                new TelaDadosUsuario().setVisible(true);
             }
         });
     }
@@ -475,8 +454,6 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JTextField JTextField_Codigo_Remedio6;
     private javax.swing.JTextField JTextField_Codigo_Remedio7;
     public javax.swing.JButton adduser;
-    public javax.swing.JButton deleteuser;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -485,14 +462,11 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logoIFSP_LIFE;
     public javax.swing.JComboBox<String> pro_day;
     public javax.swing.JComboBox<String> pro_month;
     public javax.swing.JComboBox<String> pro_year;
-    public javax.swing.JButton updateuser;
-    private javax.swing.JTable users;
     // End of variables declaration//GEN-END:variables
 }
