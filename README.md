@@ -99,6 +99,7 @@ o Função Básica 1.1 - Manter Fornecedor
     Itens de Informações » 
     - Código do Fornecedor - conjunto númerico;
     - Nome do Fornecedor - texto com tamanho máximo de 45;
+    - Email do Fornecedor - texto com tamanho máximo de 45;
     - CNPJ do Fornecedor - conjunto númerico;
     - Endereco do Fornecedor - conjunto númerico;
     - Contato do Fornecedor - conjunto númerico;
