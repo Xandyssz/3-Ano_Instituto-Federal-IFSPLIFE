@@ -65,9 +65,12 @@ o Função Fundamental 1.0 - Efetuar Compra
     Itens de Informações » 
     - Código de Compra - conjunto númerico;
     - Código do Fornecedor - conjunto númerico;
+      data
+     valor total
+     Para cada Item de Compra
     - Código do Produto - conjunto númerico;
     - Quantidade do Produto - conjunto númerico;
-    - Data da Compra - dd/mm/aaaa;
+    - preco unitario
 
 o Função Fundamental 1.1 - Efetuar Venda
 
