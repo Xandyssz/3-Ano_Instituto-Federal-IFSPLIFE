@@ -154,8 +154,7 @@ o Função Básica 1.3 - Manter Convênios
     
 o Função Saída 1.0 - Gerar Relatório de Produtos
 
-        Descrição » Essa função emite um relatório que permite a visualização de todos
-Os produtos com o estoque abaixo do mínimo.
+        Descrição » Essa função emite um relatório que permite a visualização de todos os produtos com o estoque abaixo do mínimo.
 
     Itens de Informações » 
     - Código do Produto - conjunto numérico;
@@ -166,8 +165,7 @@ Os produtos com o estoque abaixo do mínimo.
 
 o Função Saída 1.1 - Gerar Relatório de Venda
 
-        Descrição » Essa função emite um relatório de todas as vendas feitas dentro de
-Um determinado período de tempo.
+        Descrição » Essa função emite um relatório de todas as vendas feitas dentro de um determinado período de tempo.
 
     Itens de Informações » 
     - Número da nota fiscal - conjunto numérico;
@@ -182,8 +180,7 @@ Para cada Venda:
 
 o Função Saída 1.2 - Gerar Relatório de Compra
 
-        Descrição » Essa função emite um relatório de todas as compras feitas dentro de
-Um determinado período de tempo.
+        Descrição » Essa função emite um relatório de todas as compras feitas dentro de um determinado período de tempo.
         
     Itens de Informações » 
     - Nome do fornecedor – texto com tamanho máximo de 50;
