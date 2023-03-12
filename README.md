@@ -13,11 +13,15 @@
 
 # Capítulo 1 - INTRODUÇÃO
 **Descrição do Sistema:**<br>
-O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos. além de buscar a melhora de segurança e a eficiência nas redes farmacêuticas. O projeto visa desenvolver uma gestão eficaz do sistema.<p>
+O sistema IFSP-LIFE será utilizado em uma farmácia com o principal objetivo de realizar a venda dos produtos. O projeto visa desenvolver uma gestão eficaz do sistema.<p>
 
 Durante o atendimento ao cliente, esse escolhe o(s) produto(s) disponível(is) na farmácia e em seguida, o funcionário localiza o valor dos produtos previamente cadastrados no sistema. Quando a venda ao cliente é finalizada, o valor total da venda  é calculado. Após a totalização do pedido, o funcionário solicita ao cliente a forma de pagamento. Caso seja cartão, o total da venda é registrado. Em contrapartida, se for dinheiro, o sistema calcula o troco que será devolvido ao cliente. <p>
 
-O sistema tem dois níveis de acesso, Administrador e Funcionário. O nível de acesso Funcionário tem permissão para atender ao cliente realizando seus pedidos no estabelecimento. Já o nível de acesso Administrador tem o controle de todo o sistema, visto que, manter os dados de usuários, convênios, fornecedores e produtos, além de, realizar a compra de novos produtos são exclusivos do Administrador.
+O sistema também possui funcionalidades para gerenciar convênios e fornecedores. O Administrador pode cadastrar novos convênios e fornecedores e atualizar as informações dos já existentes, como dados de contato e informações de pagamento. O sistema permite que os convênios tenham descontos especiais nos produtos e serviços da farmácia, e que os fornecedores possam enviar pedidos de compra de produtos de forma automatizada.
+
+O sistema conta também com recursos para gerar relatórios gerenciais, que permitem ao Administrador analisar o desempenho da farmácia em diversos aspectos, como vendas, estoque, convênios, fornecedores e desempenho dos funcionários. Esses relatórios são gerados de forma automática a partir dos dados armazenados no sistema e podem ser acessados por meio de uma interface amigável e intuitiva. Com essas informações em mãos, o Administrador pode tomar decisões estratégicas e implementar melhorias para otimizar o desempenho da farmácia e garantir a satisfação dos clientes.
+
+Por fim, o sistema tem dois níveis de acesso, o Administrador e o Funcionário. O nível de acesso Funcionário tem permissão para atender aos clientes e realizar pedidos no estabelecimento, enquanto o nível de acesso Administrador tem controle total do sistema, incluindo a manutenção dos dados de usuários, convênios, fornecedores e produtos, além de realizar a compra de novos produtos. Em resumo, o IFSP-LIFE é um software completo que visa melhorar a eficiência e a segurança nas redes farmacêuticas.
 
 **Objetivos:**<br>
 -> **Principais Objetivos**<br>
@@ -61,9 +65,12 @@ o Função Fundamental 1.0 - Efetuar Compra
     Itens de Informações » 
     - Código de Compra - conjunto númerico;
     - Código do Fornecedor - conjunto númerico;
+      data
+     valor total
+     Para cada Item de Compra
     - Código do Produto - conjunto númerico;
     - Quantidade do Produto - conjunto númerico;
-    - Data da Compra - dd/mm/aaaa;
+    - preco unitario
 
 o Função Fundamental 1.1 - Efetuar Venda
 
@@ -95,6 +102,7 @@ o Função Básica 1.1 - Manter Fornecedor
     Itens de Informações » 
     - Código do Fornecedor - conjunto númerico;
     - Nome do Fornecedor - texto com tamanho máximo de 45;
+    - Email do Fornecedor - texto com tamanho máximo de 45;
     - CNPJ do Fornecedor - conjunto númerico;
     - Endereco do Fornecedor - conjunto númerico;
     - Contato do Fornecedor - conjunto númerico;
