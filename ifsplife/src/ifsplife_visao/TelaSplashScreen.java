@@ -114,8 +114,8 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         telasplashscreen.setVisible(true);
 
         try {
-            for (int i = 0; i <= 100; i++) {
-                Thread.sleep(100);
+            for (int i = 0; i <= 30; i++) {
+                Thread.sleep(30);
                 telasplashscreen.LoadingValue.setText(i + "%");
 
                 if (i == 10) {
@@ -138,7 +138,7 @@ public class TelaSplashScreen extends javax.swing.JFrame {
                     telasplashscreen.LoadingLabel.setText("Launching Apllication");
                 }
 
-                if (i == 100) {
+                if (i == 30) {
                     telasplashscreen.dispose();
 
                     Login login = new Login();
