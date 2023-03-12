@@ -60,65 +60,87 @@ Todos as funções que serão implementadas no sistema.
 
 o Função Fundamental 1.0 - Efetuar Compra
 
-    Descrição » Essa função permite que o administrador inclua os produtos comprados, que estarão a venda no estabelecimento.
-
+    Descrição » Essa função permite ao administrador incluir um novo pedido para
+     um determinado fornecedor. Quando é efetuado uma nova compra, é gerado informações sobre o pedido dos produtos comprados, como também é realizado a atualização do estoque. Essa função também permite que a compra possa ser alterada.
+     
     Itens de Informações » 
-    - Código de Compra - conjunto númerico;
-    - Código do Fornecedor - conjunto númerico;
-      data
-     valor total
-     Para cada Item de Compra
-    - Código do Produto - conjunto númerico;
-    - Quantidade do Produto - conjunto númerico;
-    - preco unitario
+    - Identificação da Compra - Código numérico com no máximo 4 casas
+    - Identificação do Fornecedor - Código numérico com no máximo 4 casas
+    - Identificação do Produto – Código numérico com no máximo 4 casas
+    - Quantidade do Produto – Valor numérico inteiro
+    - Valor da compra - conjunto numérico;
+    - Forma de Pagamento – 1 letra – V – Vista, P – Prazo, C – Cartão
 
 o Função Fundamental 1.1 - Efetuar Venda
 
-    Descrição » Essa função permite que o usuário inclua uma nova venda no sistema, após realizar o atendimento ao cliente.
+    Descrição » Essa função permite ao funcionário incluir uma nova venda para um determinado cliente. Quando é efetuada uma nova venda, é gerada informação sobre o pagamento dos produtos comprados, como também é realizada a atualização do estoque. Essa função também permite que a venda possa ser excluída ou alterada.
 
     Itens de Informações » 
-    - Código da Venda - conjunto númerico;
-    - Código do Produto - conjunto númerico;
-    - Código do Funcionario - conjunto númerico;
-    - Código do Convênio - conjunto númerico;
-    - Valor da venda - conjunto númerico;
-    - Data da venda - dd/mm/aaaa;
+    - Identificação do Produto – Código numérico com no máximo 9 casas
+    - Descrição do Produto – Texto com tamanho máximo de 50
+    - Quantidade do Produto – Valor numérico inteiro
+    - Valor da venda - conjunto numérico;
+    - Convênio – 1 letra – S – Possui, N – Não Possui
+    - Forma de Pagamento – 1 letra – V – Vista, P – Prazo, C – Cartão
 
+o Função Fundamental 1.2 - Gerenciar Caixa
+    Descrição » Essa função permite ao funcionário abrir e fechar o caixa
+    
+    Itens de Informações » 
+    - Código do Caixa – dd/mm/aaaa;
+    - Código do Usuário – conjunto numérico;
+    - Status – texto com tamanho máximo de 1 – A – Aberto, - F – Fechado;
+    - Horário de abertura - hh;mm:ss
+    - Valor de abertura – conjunto numérico;
+    - Total de entradas – conjunto numérico;
+    - Horário de fechamento - hh;mm:ss
+    - Total de saídas – conjunto numérico;
+    - Saldo – conjunto numérico;
+    
 o Função Básica 1.0 - Manter Produtos
 
     Descrição » Essa função permite a consulta dos produtos do estabelecimento como, também, alteração e exclusão
 
     Itens de Informações » 
-    - Código do Produto - conjunto númerico;
+    - Código do Produto - conjunto numérico;
     - Nome do Produto - texto com tamanho máximo de 45;
-    - Dosagem do Produto (se tiver) - conjunto númerico;
-    - Quantidade do Produto - conjunto númerico;
-    - Preco do Produto - conjunto númerico;
+    - Dosagem do Produto (se tiver) - conjunto numérico;
+    - Quantidade do Produto - conjunto numérico;
+    - Valor unitário do Produto - conjunto numérico;
 
-o Função Básica 1.1 - Manter Fornecedor
+o Função Básica 1.1 - Manter Fornecedores
 
     Descrição » Essa função permite a consulta dos dados dos fornecedores como, também, a inclusão, alteração e exclusão
 
     Itens de Informações » 
-    - Código do Fornecedor - conjunto númerico;
-    - Nome do Fornecedor - texto com tamanho máximo de 45;
-    - Email do Fornecedor - texto com tamanho máximo de 45;
-    - CNPJ do Fornecedor - conjunto númerico;
-    - Endereco do Fornecedor - conjunto númerico;
-    - Contato do Fornecedor - conjunto númerico;
+    - Código Fornecedor – conjunto numérico;
+    - Nome – texto com tamanho máximo de 45;
+    - CNPJ – texto com tamanho máximo de 25;
+    - Telefone – texto com tamanho máximo de 20;
+    - E-mail – texto com tamanho máximo de 40;
+    - Endereço – texto com tamanho máximo de 60;
+    - Cidade – texto com tamanho máximo de 40;
+    - CEP – texto com tamanho máximo de 9;
+    - UF – texto com tamanho máximo de 2;
 
 
-o Função Básica 1.2 - Manter Funcionario
+o Função Básica 1.2 - Manter Funcionários
 
     Descrição » Essa função permite a consulta dos dados de um funcionario, como também, a inclusão, alteração e exclusão.
 
     Itens de Informações » 
-    - Código do Funcionario - conjunto númerico;
-    - Nome do Funcionario - texto com tamanho máximo de 45;
-    - CPF do Funcionario - conjunto númerico;
-    - Endereco do Funcionario - texto com tamanho máximo de 45;
-    - Telefone do Funcionario - conjunto númerico;
-    - Cargo do Funcionario - texto com tamanho máximo de 45;
+    - Código Funcionário – conjunto numérico;
+    - Nome – texto com tamanho máximo de 45;
+    - Cargo – texto com tamanho máximo de 20;
+    - Telefone – texto com tamanho máximo de 20;
+    - Endereço – texto com tamanho máximo de 60;
+    - Cidade – texto com tamanho máximo de 40;
+    - CEP – texto com tamanho máximo de 9;
+    - UF – texto com tamanho máximo de 2;
+    - Salário – conjunto numérico;
+    - Nível (Funcionário ou Administrador) – texto com tamanho máximo de 30;
+    - Login – texto com tamanho máximo de 45;
+    - Senha – texto com tamanho máximo de 15;
 
 o Função Básica 1.3 - Manter Convênios
 
@@ -129,6 +151,50 @@ o Função Básica 1.3 - Manter Convênios
     - Nome do Convênio - texto com tamanho máximo de 45;
     - Telefone do Convênio - conjunto númerico;
     - Desconto(%) - conjunto númerico;
+    
+o Função Saída 1.0 - Gerar Relatório de Produtos
+
+        Descrição » Essa função emite um relatório que permite a visualização de todos
+Os produtos com o estoque abaixo do mínimo.
+
+    Itens de Informações » 
+    - Código do Produto - conjunto numérico;
+    - Nome do Produto - texto com tamanho máximo de 45;
+    - Dosagem do Produto (se tiver) - conjunto numérico;
+    - Quantidade do Produto - conjunto numérico;
+    - Valor unitário do Produto - conjunto numérico;
+
+o Função Saída 1.1 - Gerar Relatório de Venda
+
+        Descrição » Essa função emite um relatório de todas as vendas feitas dentro de
+Um determinado período de tempo.
+
+    Itens de Informações » 
+    - Número da nota fiscal - conjunto numérico;
+Para cada Venda:
+    - Código da Venda - conjunto numérico;
+    - Valor da venda- conjunto numérico;
+    - Valor da compra - conjunto numérico;
+    - Quantidade - conjunto numérico;
+    - Valor total - conjunto numérico;
+    - Data - dd/mm/aaaa;
+
+
+o Função Saída 1.2 - Gerar Relatório de Compra
+
+        Descrição » Essa função emite um relatório de todas as compras feitas dentro de
+Um determinado período de tempo.
+        
+    Itens de Informações » 
+    - Nome do fornecedor – texto com tamanho máximo de 50;
+Para cada Compra:
+    - Código da Compra - conjunto numérico;
+    - Valor - conjunto numérico;
+    - Valor da compra - conjunto numérico;
+    - Marca - texto com tamanho máximo de 50;
+    - Descrição - texto com tamanho máximo de 50;
+    - Quantidade - conjunto numérico;
+    - Data - dd/mm/aaaa;
 
 # Capítulo 5 - CONCLUSÕES
  Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
