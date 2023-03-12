@@ -169,7 +169,6 @@ o Função Saída 1.1 - Gerar Relatório de Venda
 
     Itens de Informações » 
     - Número da nota fiscal - conjunto numérico;
-Para cada Venda:
     - Código da Venda - conjunto numérico;
     - Valor da venda- conjunto numérico;
     - Valor da compra - conjunto numérico;
@@ -184,7 +183,6 @@ o Função Saída 1.2 - Gerar Relatório de Compra
         
     Itens de Informações » 
     - Nome do fornecedor – texto com tamanho máximo de 50;
-Para cada Compra:
     - Código da Compra - conjunto numérico;
     - Valor - conjunto numérico;
     - Valor da compra - conjunto numérico;
