@@ -3,6 +3,7 @@ package javaswingdev.main;
 import java.awt.Component;
 import javaswingdev.form.Form_Dashboard;
 import javaswingdev.form.Form_Empty;
+import javaswingdev.form.Form_Usuarios;
 import javaswingdev.menu.EventMenuSelected;
 
 public class Main extends javax.swing.JFrame {
@@ -22,7 +23,7 @@ public class Main extends javax.swing.JFrame {
             public void menuSelected(int index, int indexSubMenu) {
                 System.out.println("" + index + " " + indexSubMenu);
                 if (index == 0 && indexSubMenu == 0) {
-                    showForm(new Form_Dashboard());
+                    showForm(new Form_Usuarios());
                 } else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }
