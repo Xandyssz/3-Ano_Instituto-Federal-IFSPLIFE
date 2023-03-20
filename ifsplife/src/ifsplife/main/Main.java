@@ -1,5 +1,6 @@
 package ifsplife.main;
 
+import ifsplife.form.Form_CaixaRegistradora;
 import ifsplife.form.Form_Compras;
 import ifsplife.form.Form_Convenios;
 import java.awt.Component;
@@ -8,6 +9,7 @@ import ifsplife.form.Form_Empty;
 import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;
 import ifsplife.form.Form_Usuarios;
+import ifsplife.form.Form_Vendas;
 import ifsplife.menu.EventMenuSelected;
 
 public class Main extends javax.swing.JFrame {
@@ -29,26 +31,20 @@ public class Main extends javax.swing.JFrame {
                 if (index == 0 && indexSubMenu == 0) {
                     showForm(new Form_Compras());
                 } else if (index == 1 && indexSubMenu == 0) {
-                    showForm(new Form_Empty(index + " " + indexSubMenu));
-
+                    showForm(new Form_Vendas());
                 } else if (index == 2 && indexSubMenu == 0) {
-                    showForm(new Form_Empty(index + " " + indexSubMenu));
-
+                    showForm(new Form_CaixaRegistradora());
                 } else if (index == 3 && indexSubMenu == 0) {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
-
                 } else if (index == 4 && indexSubMenu == 0) {
-                    showForm(new Form_Empty(index + " " + indexSubMenu));
-
-                } else if (index == 5 && indexSubMenu == 0) {
                     showForm(new Form_Fornecedores());
-                } else if (index == 6 && indexSubMenu == 0) {
+                } else if (index == 5 && indexSubMenu == 0) {
                     showForm(new Form_Convenios());
-                } else if (index == 7 && indexSubMenu == 0) {
+                } else if (index == 6 && indexSubMenu == 0) {
                     showForm(new Form_Usuarios());
-                } else if (index == 8 && indexSubMenu == 0) {
+                } else if (index == 7 && indexSubMenu == 0) {
                     showForm(new Form_Profile());
-                } else {
+                }else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }
             }

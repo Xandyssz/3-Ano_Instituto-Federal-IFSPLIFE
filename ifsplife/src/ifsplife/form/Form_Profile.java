@@ -84,11 +84,6 @@ public class Form_Profile extends javax.swing.JPanel {
         jLabelEstado.setText("Estado");
 
         JComboBoxEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        JComboBoxEstados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JComboBoxEstadosActionPerformed(evt);
-            }
-        });
 
         JButtonAlterarDados.setPreferredSize(new java.awt.Dimension(112, 35));
 
@@ -256,10 +251,6 @@ public class Form_Profile extends javax.swing.JPanel {
 
         add(panelBorder2);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxEstadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JComboBoxEstadosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonAlterarDados;
