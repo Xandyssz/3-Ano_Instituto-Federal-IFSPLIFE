@@ -7,10 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 public class ControleFuncionario {
-    
-        private static final ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
 
-    // adiciona um materiaprima
+    private static final ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
+
     public void adicionar(Funcionario funcionario) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
@@ -24,8 +23,8 @@ public class ControleFuncionario {
         gerente.close();
     }
 
-        public void remover(Funcionario Funcionario) {
-     
+    public void remover(Funcionario Funcionario) {
+
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         Funcionario funcionarioExcluir = gerente.find(Funcionario.class,
@@ -39,10 +38,9 @@ public class ControleFuncionario {
 
         gerente.close();
     }
-    
 
     public void alterar(Funcionario funcionario) {
-      
+
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
@@ -54,7 +52,7 @@ public class ControleFuncionario {
         gerente.close();
     }
 
-        public List<Funcionario> getTodos() {
+    public List<Funcionario> getTodos() {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
@@ -64,7 +62,7 @@ public class ControleFuncionario {
         return consulta.getResultList();
 
     }
-        
+
     public List<Funcionario> getPorNome(String nomePesquisar) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();

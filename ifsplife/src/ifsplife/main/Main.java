@@ -8,7 +8,7 @@ import ifsplife.form.Form_Dashboard;
 import ifsplife.form.Form_Empty;
 import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;
-import ifsplife.form.Form_Usuarios;
+import ifsplife.form.Form_Funcionarios;
 import ifsplife.form.Form_Vendas;
 import ifsplife.menu.EventMenuSelected;
 
@@ -41,7 +41,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 5 && indexSubMenu == 0) {
                     showForm(new Form_Convenios());
                 } else if (index == 6 && indexSubMenu == 0) {
-                    showForm(new Form_Usuarios());
+                    showForm(new Form_Funcionarios());
                 } else if (index == 7 && indexSubMenu == 0) {
                     showForm(new Form_Profile());
                 }else {

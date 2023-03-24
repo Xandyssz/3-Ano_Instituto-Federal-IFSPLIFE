@@ -13,33 +13,29 @@ import javax.persistence.Table;
 @Entity
 
 @NamedQueries({
-    @NamedQuery(name = "Funcionario.todos",
-            query = "SELECT func FROM Funcionario func"),
-    @NamedQuery(name = "Fornecedor.porNome",
-            query = "SELECT func FROM Funcionario func WHERE func.nome LIKE :nomequalquer")
+    @NamedQuery(name = "Funcionario.todos", query = "SELECT func FROM Funcionario func"),
+    @NamedQuery(name = "Funcionario.porNome", query = "SELECT func FROM Funcionario func WHERE func.nome LIKE :nomequalquer")
 })
 
-// indicando ao JPA qual a tabela será utilizada
-// para armazenar os objetos dessa classe
 @Table(name = "funcionarios")
-// 01. Definição dos Atributos da Classe
 
 public class Funcionario implements Serializable {
+// 01. Definição dos Atributos da Classe
 
-    // Definição dos Atributos da Classe [Funcionario];
-    @Id   // indica ao JPA que codigo será a chave primária
-    // @Column - name -> indica o nome do campo da tabela
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // Definição dos Atributos da Classe [Fornecedor];
     private int codigo_funcionario;
 
     @Column(name = "nome", length = 255, nullable = false)
     private String nome;
 
+    @Column(name = "cpf", length = 15, nullable = false)
+    private String cpf;
+
     @Column(name = "cargo", length = 45, nullable = false)
     private String cargo;
 
-    @Column(name = "telefone", length = 11, nullable = false)
+    @Column(name = "telefone", length = 20, nullable = false)
     private String telefone;
 
     @Column(name = "endereco", length = 45, nullable = false)
@@ -48,13 +44,13 @@ public class Funcionario implements Serializable {
     @Column(name = "cidade", length = 45, nullable = false)
     private String cidade;
 
-    @Column(name = "cep", length = 8, nullable = false)
+    @Column(name = "cep", length = 12, nullable = false)
     private String cep;
 
     @Column(name = "uf", length = 2, nullable = false)
     private String uf;
 
-    @Column(name = "salario", length = 45, nullable = false)
+    @Column(name = "salario", nullable = false)
     private double salario;
 
     @Column(name = "nivelacesso", length = 45, nullable = false)
@@ -62,7 +58,7 @@ public class Funcionario implements Serializable {
 
     @Column(name = "login", length = 45, nullable = false)
     private String login;
-    
+
     @Column(name = "senha", length = 45, nullable = false)
     private String senha;
 
@@ -71,9 +67,10 @@ public class Funcionario implements Serializable {
     }
 
     // Definição do construtor preenchido da Classe [Funcionario];
-    public Funcionario(int codigo_funcionario, String nome, String cargo, String telefone, String endereco, String cidade, String cep, String uf, double salario, String nivelacesso, String login, String senha) {
+    public Funcionario(int codigo_funcionario, String nome, String cpf, String cargo, String telefone, String endereco, String cidade, String cep, String uf, double salario, String nivelacesso, String login, String senha) {
         this.codigo_funcionario = codigo_funcionario;
         this.nome = nome;
+        this.cpf = cpf;
         this.cargo = cargo;
         this.telefone = telefone;
         this.endereco = endereco;
@@ -93,6 +90,10 @@ public class Funcionario implements Serializable {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public String getCargo() {
@@ -136,12 +137,12 @@ public class Funcionario implements Serializable {
     }
 
     // Definição dos Setters da Classe [Funcionario];
-    public void setCodigo_funcionario(int codigo_funcionario) {
-        this.codigo_funcionario = codigo_funcionario;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public void setCargo(String cargo) {
@@ -172,7 +173,7 @@ public class Funcionario implements Serializable {
         this.salario = salario;
     }
 
-    public void setNivelacesso(String nivelacesso) {
+    public void setnivelacesso(String nivelacesso) {
         this.nivelacesso = nivelacesso;
     }
 
@@ -211,6 +212,14 @@ public class Funcionario implements Serializable {
     @Override
     public String toString() {
         return "Funcionarios{" + "codigo_funcionario=" + codigo_funcionario + ", nome=" + nome + ", cargo=" + cargo + '}';
+    }
+
+    public void setCodigo_funcionario(int codigo_funcionario) {
+        this.codigo_funcionario = codigo_funcionario;
+    }
+
+    public int getCodigo_funcionario() {
+        return codigo_funcionario;
     }
 
 }

@@ -27,7 +27,7 @@ public class GerenciadorConexao {
         if(emf == null)
         {
             // cria uma EntityManagerFactory e associa a emf
-            emf = Persistence.createEntityManagerFactory("");
+            emf = Persistence.createEntityManagerFactory("ifsplife_projetoPU");
         }
         return emf;
     }
