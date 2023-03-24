@@ -16,6 +16,11 @@ public class Form_Funcionarios extends javax.swing.JPanel {
 
     public Form_Funcionarios() {
         initComponents();
+
+        tableFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tableFuncionarios.getColumnModel().getColumn(1).setPreferredWidth(250);
+        tableFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(100);
+
         atualizarTabela();
 
     }
@@ -323,47 +328,15 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         }    }//GEN-LAST:event_JButtonEditarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        int linha = tableFuncionarios.getSelectedRow();
-
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum funcionario. Selecione.");
-        } else {
-            int resposta = JOptionPane.showConfirmDialog(null,
-                    "Deseja excluir esse funcionario?",
-                    "Exclusão de Funcionario",
-                    JOptionPane.YES_NO_OPTION);
-
-            if (resposta == JOptionPane.YES_OPTION) {
-                try {
-                    controle.remover(listaFuncionarios.get(linha));
-                    atualizarTabela();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "não foi possivel excluir o funcionario");
-                }
-            }
-        }
+        search1.setText("");
     }//GEN-LAST:event_JButtonExcluirMouseClicked
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
-        int linha = tableFuncionarios.getSelectedRow();
 
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum colaborador. Selecione.");
-        } else {
-            CrudFuncionario crudfuncionario = new CrudFuncionario(null, true);
-
-            crudfuncionario.setFuncionario(listaFuncionarios.get(linha));
-            crudfuncionario.desabilitarEdicao();
-
-            crudfuncionario.setVisible(true);
-
-        }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
-        atualizarTabela();
+
     }//GEN-LAST:event_search1KeyTyped
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

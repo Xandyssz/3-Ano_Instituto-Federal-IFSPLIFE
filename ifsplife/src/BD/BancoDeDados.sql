@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `ifsplife`.`funcionarios` (
   `endereco` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `cep` VARCHAR(12) NOT NULL,
-  `uf` VARCHAR(2) NOT NULL,
+  `uf` VARCHAR(15) NOT NULL,
   `salario` DOUBLE NOT NULL,
   `nivelacesso` VARCHAR(45) NOT NULL,
   `login` VARCHAR(45) NOT NULL,

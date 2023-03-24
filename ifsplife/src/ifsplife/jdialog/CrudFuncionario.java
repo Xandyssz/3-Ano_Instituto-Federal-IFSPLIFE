@@ -4,10 +4,10 @@ import ifsplife.model.Funcionario;
 import javax.swing.JOptionPane;
 
 public class CrudFuncionario extends javax.swing.JDialog {
-    
+
     private boolean confirmou = false;
     private int codigo = 0;
-    
+
     public CrudFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -15,7 +15,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
 
     public Funcionario getFuncionario() {
         Funcionario f = new Funcionario();
-        
+
         f.setCodigo_funcionario(codigo);
         f.setNome(JTextFieldNome.getText());
         f.setCpf(JFormatedTextCPF.getText());
@@ -25,7 +25,11 @@ public class CrudFuncionario extends javax.swing.JDialog {
         f.setCidade(JTextFieldCidade.getText());
         f.setCep(JFormatedTextCEP.getText());
         f.setUf((String) JComboBoxEstado.getSelectedItem());
-        f.setSalario(((Number) JFormatedTextSalario.getValue()).doubleValue());
+        // formatação 
+String salarioStr = JFormatedTextSalario.getValue().toString().replace(".", "").replace(",", ".");
+double salario = Double.parseDouble(salarioStr);
+f.setSalario(salario);
+        //
         f.setnivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
         f.setLogin(JTextFieldLogin.getText());
         f.setSenha(JTextFieldSenha.getText());
@@ -45,14 +49,14 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JComboBoxNivelAcesso.setSelectedItem(funcionario.getNivelacesso());
         JTextFieldLogin.setText(funcionario.getLogin());
         JTextFieldSenha.setText(funcionario.getSenha());
-        
+
         this.codigo = funcionario.getCodigo();
     }
-    
+
     public boolean isConfirmou() {
         return confirmou;
     }
-    
+
     public void desabilitarEdicao() {
         JTextFieldNome.setVisible(false);
         JFormatedTextCPF.setVisible(false);
@@ -67,7 +71,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JTextFieldLogin.setVisible(false);
         JTextFieldSenha.setVisible(false);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

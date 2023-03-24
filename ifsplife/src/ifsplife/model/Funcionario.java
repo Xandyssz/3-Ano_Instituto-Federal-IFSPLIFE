@@ -13,8 +13,10 @@ import javax.persistence.Table;
 @Entity
 
 @NamedQueries({
-    @NamedQuery(name = "Funcionario.todos", query = "SELECT func FROM Funcionario func"),
-    @NamedQuery(name = "Funcionario.porNome", query = "SELECT func FROM Funcionario func WHERE func.nome LIKE :nomequalquer")
+    @NamedQuery(name = "Funcionario.todos", 
+            query = "SELECT fu FROM Funcionario fu"),
+    @NamedQuery(name = "Funcionario.porNome", 
+            query = "SELECT fu FROM Funcionario fu WHERE fu.nome LIKE :nomequalquer")
 })
 
 @Table(name = "funcionarios")
@@ -47,7 +49,7 @@ public class Funcionario implements Serializable {
     @Column(name = "cep", length = 12, nullable = false)
     private String cep;
 
-    @Column(name = "uf", length = 2, nullable = false)
+    @Column(name = "uf", length = 15, nullable = false)
     private String uf;
 
     @Column(name = "salario", nullable = false)
