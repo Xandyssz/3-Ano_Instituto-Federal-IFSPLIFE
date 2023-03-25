@@ -43,8 +43,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ifsplife`.`convenios` (
   `codigo_convenio` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  `desconto` FLOAT NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `endereco` VARCHAR(255) NOT NULL,
   `telefone` VARCHAR(255) NOT NULL,
+  `desconto` FLOAT NOT NULL,
   PRIMARY KEY (`codigo_convenio`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4

@@ -3,12 +3,12 @@ package ifsplife.jdialog;
 import ifsplife.model.Funcionario;
 import javax.swing.JOptionPane;
 
-public class CrudFuncionario extends javax.swing.JDialog {
+public class CrudProduto extends javax.swing.JDialog {
 
     private boolean confirmou = false;
     private int codigo = 0;
 
-    public CrudFuncionario(java.awt.Frame parent, boolean modal) {
+    public CrudProduto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -17,37 +17,12 @@ public class CrudFuncionario extends javax.swing.JDialog {
         Funcionario f = new Funcionario();
 
         f.setCodigo_funcionario(codigo);
-        f.setNome(JTextFieldNome.getText());
-        f.setCpf(JFormatedTextCPF.getText());
-        f.setCargo((String) JComboBoxCargo.getSelectedItem());
-        f.setTelefone(JFormatedTextContato.getText());
-        f.setEndereco(JTextFieldEndereco.getText());
-        f.setCidade(JTextFieldCidade.getText());
-        f.setCep(JFormatedTextCEP.getText());
-        f.setUf((String) JComboBoxEstado.getSelectedItem());
-        // formatação 
-String salarioStr = JFormatedTextSalario.getValue().toString().replace(".", "").replace(",", ".");
-double salario = Double.parseDouble(salarioStr);
-f.setSalario(salario);
-        //
-        f.setnivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
-        f.setLogin(JTextFieldLogin.getText());
-        f.setSenha(JTextFieldSenha.getText());
+       
         return f;
     }
 
     public void setFuncionario(Funcionario funcionario) {
-        JTextFieldNome.setText(funcionario.getNome());
-        JFormatedTextCPF.setText(funcionario.getCpf());
-        JComboBoxCargo.setSelectedItem(funcionario.getCargo());
-        JFormatedTextContato.setText(funcionario.getTelefone());
-        JTextFieldEndereco.setText(funcionario.getEndereco());
-        JTextFieldCidade.setText(funcionario.getCidade());
-        JFormatedTextCEP.setText(funcionario.getCep());
-        JComboBoxEstado.setSelectedItem(funcionario.getUf());
-        JFormatedTextSalario.setValue(funcionario.getSalario());
-        JComboBoxNivelAcesso.setSelectedItem(funcionario.getNivelacesso());
-        JTextFieldLogin.setText(funcionario.getLogin());
+    
         JTextFieldSenha.setText(funcionario.getSenha());
 
         this.codigo = funcionario.getCodigo();

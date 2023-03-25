@@ -221,7 +221,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel3.setText("Usuários");
+        jLabel3.setText("Funcionarios");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -309,7 +309,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum funcionario. Selecione.");
+                    "Não foi selecionado nenhum Funcionário. Selecione.");
         } else {
             CrudFuncionario crudfuncionario = new CrudFuncionario(null, true);
 
@@ -328,11 +328,45 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         }    }//GEN-LAST:event_JButtonEditarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        search1.setText("");
+        // pega a linha selecionada da tabela se não estiver selecionada
+        // retornará -1
+        int linha = tableFuncionarios.getSelectedRow();
+
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null,
+                    "Não foi selecionado nenhum Funcionário. Selecione.");
+        } else {
+            // cria o dialog de confirmação
+            int resposta = JOptionPane.showConfirmDialog(null,
+                    "Deseja excluir esse Funcionário?",
+                    "Exclusão de Funcionário",
+                    JOptionPane.YES_NO_OPTION);
+
+            // verifica o que foi clicado
+            if (resposta == JOptionPane.YES_OPTION) {
+                controle.remover(listaFuncionarios.get(linha));
+                atualizarTabela();
+            }
+        }
     }//GEN-LAST:event_JButtonExcluirMouseClicked
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
+        // pega a linha selecionada da tabela se não estiver selecionada
+        // retornará -1
+        int linha = tableFuncionarios.getSelectedRow();
 
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null,
+                    "Não foi selecionado nenhum Funcionário. Selecione.");
+        } else {
+            CrudFuncionario tela = new CrudFuncionario(null, true);
+
+            tela.setFuncionario(listaFuncionarios.get(linha));
+            tela.desabilitarEdicao();
+
+            tela.setVisible(true);
+
+        }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
