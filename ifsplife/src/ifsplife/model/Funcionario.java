@@ -49,7 +49,7 @@ public class Funcionario implements Serializable {
     @Column(name = "cep", length = 12, nullable = false)
     private String cep;
 
-    @Column(name = "uf", length = 15, nullable = false)
+    @Column(name = "uf", length = 20, nullable = false)
     private String uf;
 
     @Column(name = "salario", nullable = false)

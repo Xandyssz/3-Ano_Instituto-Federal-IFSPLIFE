@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ifsplife.control;
 
 import java.util.ArrayList;
@@ -10,15 +7,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-/**
- *
- * @author xandy
- */
+
 public class ControleFornecedor {
     
         private static final ArrayList<Fornecedor> listaFornecedor = new ArrayList<>();
 
-    // adiciona um materiaprima
     public void adicionar(Fornecedor fornecedor) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();

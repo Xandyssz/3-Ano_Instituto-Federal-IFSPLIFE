@@ -328,21 +328,18 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         }    }//GEN-LAST:event_JButtonEditarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
+
         int linha = tableFuncionarios.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Funcionário. Selecione.");
         } else {
-            // cria o dialog de confirmação
             int resposta = JOptionPane.showConfirmDialog(null,
                     "Deseja excluir esse Funcionário?",
                     "Exclusão de Funcionário",
                     JOptionPane.YES_NO_OPTION);
 
-            // verifica o que foi clicado
             if (resposta == JOptionPane.YES_OPTION) {
                 controle.remover(listaFuncionarios.get(linha));
                 atualizarTabela();
@@ -351,8 +348,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonExcluirMouseClicked
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
+     
         int linha = tableFuncionarios.getSelectedRow();
 
         if (linha == -1) {
