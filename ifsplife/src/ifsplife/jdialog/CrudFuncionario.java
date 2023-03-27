@@ -19,18 +19,17 @@ public class CrudFuncionario extends javax.swing.JDialog {
         f.setCodigo_funcionario(codigo);
         f.setNome(JTextFieldNome.getText());
         f.setCpf(JFormatedTextCPF.getText());
-        f.setCargo((String) JComboBoxCargo.getSelectedItem());
+        f.setnivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
         f.setTelefone(JFormatedTextContato.getText());
         f.setEndereco(JTextFieldEndereco.getText());
         f.setCidade(JTextFieldCidade.getText());
         f.setCep(JFormatedTextCEP.getText());
         f.setUf((String) JComboBoxEstado.getSelectedItem());
         // formatação 
-String salarioStr = JFormatedTextSalario.getValue().toString().replace(".", "").replace(",", ".");
-double salario = Double.parseDouble(salarioStr);
-f.setSalario(salario);
+        String salarioStr = JFormatedTextSalario.getValue().toString().replace(".", "").replace(",", ".");
+        double salario = Double.parseDouble(salarioStr);
+        f.setSalario(salario);
         //
-        f.setnivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
         f.setLogin(JTextFieldLogin.getText());
         f.setSenha(JTextFieldSenha.getText());
         return f;
@@ -39,14 +38,13 @@ f.setSalario(salario);
     public void setFuncionario(Funcionario funcionario) {
         JTextFieldNome.setText(funcionario.getNome());
         JFormatedTextCPF.setText(funcionario.getCpf());
-        JComboBoxCargo.setSelectedItem(funcionario.getCargo());
+        JComboBoxNivelAcesso.setSelectedItem(funcionario.getNivelacesso());
         JFormatedTextContato.setText(funcionario.getTelefone());
         JTextFieldEndereco.setText(funcionario.getEndereco());
         JTextFieldCidade.setText(funcionario.getCidade());
         JFormatedTextCEP.setText(funcionario.getCep());
         JComboBoxEstado.setSelectedItem(funcionario.getUf());
         JFormatedTextSalario.setValue(funcionario.getSalario());
-        JComboBoxNivelAcesso.setSelectedItem(funcionario.getNivelacesso());
         JTextFieldLogin.setText(funcionario.getLogin());
         JTextFieldSenha.setText(funcionario.getSenha());
 
@@ -60,14 +58,13 @@ f.setSalario(salario);
     public void desabilitarEdicao() {
         JTextFieldNome.setVisible(false);
         JFormatedTextCPF.setVisible(false);
-        JComboBoxCargo.setVisible(false);
+        JComboBoxNivelAcesso.setVisible(false);
         JFormatedTextContato.setVisible(false);
         JTextFieldEndereco.setVisible(false);
         JTextFieldCidade.setVisible(false);
         JFormatedTextCEP.setVisible(false);
         JComboBoxEstado.setVisible(false);
         JFormatedTextSalario.setVisible(false);
-        JComboBoxNivelAcesso.setVisible(false);
         JTextFieldLogin.setVisible(false);
         JTextFieldSenha.setVisible(false);
     }
@@ -87,7 +84,6 @@ f.setSalario(salario);
         JFormatedTextCPF = new javax.swing.JFormattedTextField();
         JSeparatorCPF = new javax.swing.JSeparator();
         JLabelCargo = new javax.swing.JLabel();
-        JComboBoxCargo = new javax.swing.JComboBox<>();
         JSeparatorCargo = new javax.swing.JSeparator();
         JLabelContato = new javax.swing.JLabel();
         JSeparatorContato = new javax.swing.JSeparator();
@@ -106,9 +102,7 @@ f.setSalario(salario);
         JLabelSalario = new javax.swing.JLabel();
         JFormatedTextSalario = new javax.swing.JFormattedTextField();
         JSeparatorSalario = new javax.swing.JSeparator();
-        JLabelNivelAcesso = new javax.swing.JLabel();
         JComboBoxNivelAcesso = new javax.swing.JComboBox<>();
-        JSeparatorNivelAcesso = new javax.swing.JSeparator();
         JLabeLogin = new javax.swing.JLabel();
         JTextFieldLogin = new javax.swing.JTextField();
         JSeparatorLogin = new javax.swing.JSeparator();
@@ -149,14 +143,6 @@ f.setSalario(salario);
 
         JLabelCargo.setText("Cargo");
 
-        JComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Atendente", "Farmacêutico", "Gerente", "Supervisor", "Diretor" }));
-        JComboBoxCargo.setToolTipText("");
-        JComboBoxCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JComboBoxCargoActionPerformed(evt);
-            }
-        });
-
         JLabelContato.setText("Contato");
 
         JLabelEndereco.setText("Endereco");
@@ -192,8 +178,6 @@ f.setSalario(salario);
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-
-        JLabelNivelAcesso.setText("Nivel Acesso");
 
         JComboBoxNivelAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Atendente" }));
         JComboBoxNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
@@ -291,13 +275,15 @@ f.setSalario(salario);
                                     .addComponent(JSeparatorCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JSeparatorCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLabelCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
-                                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLabelContato, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JSeparatorContato, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JSeparatorCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLabelCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(45, 45, 45)
+                                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JLabelContato, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JSeparatorContato, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JComboBoxNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JSeparatorEndereco)
@@ -325,28 +311,18 @@ f.setSalario(salario);
                                     .addComponent(JLabelSalario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                                     .addComponent(JFormatedTextSalario))
-                                .addGap(34, 34, 34)
+                                .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(JSeparatorNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(JComboBoxNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(25, 25, 25)
-                                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(JLabeLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(JTextFieldSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(JLabelNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 21, Short.MAX_VALUE)))
+                                    .addComponent(JLabeLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(JTextFieldSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 58, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -378,7 +354,7 @@ f.setSalario(salario);
                                 .addGap(3, 3, 3)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JFormatedTextCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JComboBoxNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,45 +392,46 @@ f.setSalario(salario);
                         .addComponent(JFormatedTextCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JSeparatorCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(JFormatedTextSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                            .addGap(74, 74, 74)
+                            .addComponent(JSeparatorSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addComponent(JLabelEstado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JComboBoxEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JSeparatorEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelBorder1Layout.createSequentialGroup()
-                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(panelBorder1Layout.createSequentialGroup()
-                                    .addComponent(JLabeLogin)
-                                    .addGap(25, 25, 25))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(JComboBoxNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(JFormatedTextSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelBorder1Layout.createSequentialGroup()
-                            .addGap(41, 41, 41)
-                            .addComponent(JSeparatorSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelBorder1Layout.createSequentialGroup()
-                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLabelEstado)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(JComboBoxEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(JSeparatorEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelBorder1Layout.createSequentialGroup()
-                                    .addComponent(JLabelSenha)
-                                    .addGap(25, 25, 25))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                                    .addComponent(JTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JLabelNivelAcesso)
-                            .addComponent(JLabelSalario))
-                        .addGap(34, 34, 34)
-                        .addComponent(JSeparatorNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JLabelSalario)
+                                    .addGap(45, 45, 45)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                                            .addComponent(JLabeLogin)
+                                            .addGap(25, 25, 25))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
+                                            .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                                            .addComponent(JLabelSenha)
+                                            .addGap(25, 25, 25))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
+                                            .addComponent(JTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(18, 18, 18)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -499,10 +476,6 @@ f.setSalario(salario);
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JComboBoxCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxCargoActionPerformed
-
-    }//GEN-LAST:event_JComboBoxCargoActionPerformed
-
     private void JComboBoxNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxNivelAcessoActionPerformed
 
     }//GEN-LAST:event_JComboBoxNivelAcessoActionPerformed
@@ -520,10 +493,10 @@ f.setSalario(salario);
             JOptionPane.showMessageDialog(null,
                     "O CPF deve ser preenchido.");
             JFormatedTextCPF.requestFocus();
-        } else if (JComboBoxCargo.getSelectedItem() == null) {
+        } else if (JComboBoxNivelAcesso.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
-                    "Algum Item deve ser selecionado.");
-            JComboBoxCargo.requestFocus();
+                    "Algum item deve ser selecionado.");
+            JComboBoxNivelAcesso.requestFocus();
         } else if (JFormatedTextContato.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Contato deve ser preenchido.");
@@ -548,10 +521,6 @@ f.setSalario(salario);
             JOptionPane.showMessageDialog(null,
                     "O Salário deve ser preenchido.");
             JFormatedTextSalario.requestFocus();
-        } else if (JComboBoxNivelAcesso.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null,
-                    "Algum item deve ser selecionado.");
-            JComboBoxNivelAcesso.requestFocus();
         } else if (JTextFieldLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Login deve ser preenchido.");
@@ -569,7 +538,6 @@ f.setSalario(salario);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;
-    private javax.swing.JComboBox<String> JComboBoxCargo;
     private javax.swing.JComboBox<String> JComboBoxEstado;
     private javax.swing.JComboBox<String> JComboBoxNivelAcesso;
     private javax.swing.JFormattedTextField JFormatedTextCEP;
@@ -587,7 +555,6 @@ f.setSalario(salario);
     private javax.swing.JLabel JLabelContato;
     private javax.swing.JLabel JLabelEndereco;
     private javax.swing.JLabel JLabelEstado;
-    private javax.swing.JLabel JLabelNivelAcesso;
     private javax.swing.JLabel JLabelNome;
     private javax.swing.JLabel JLabelSalario;
     private javax.swing.JLabel JLabelSenha;
@@ -600,7 +567,6 @@ f.setSalario(salario);
     private javax.swing.JSeparator JSeparatorEndereco;
     private javax.swing.JSeparator JSeparatorEstado;
     private javax.swing.JSeparator JSeparatorLogin;
-    private javax.swing.JSeparator JSeparatorNivelAcesso;
     private javax.swing.JSeparator JSeparatorNome;
     private javax.swing.JSeparator JSeparatorSalario;
     private javax.swing.JSeparator JSeparatorSenha;

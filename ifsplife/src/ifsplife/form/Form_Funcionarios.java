@@ -34,7 +34,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         listaFuncionarios.addAll(controle.getPorNome(search1.getText()));
 
         for (Funcionario f : listaFuncionarios) {
-            modelo.addRow(new Object[]{f.getNome(), f.getCpf(), f.getCargo()}
+            modelo.addRow(new Object[]{f.getNome(), f.getCpf(), f.getNivelacesso()}
             );
         }
     }

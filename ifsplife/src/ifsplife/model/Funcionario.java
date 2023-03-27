@@ -13,9 +13,9 @@ import javax.persistence.Table;
 @Entity
 
 @NamedQueries({
-    @NamedQuery(name = "Funcionario.todos", 
+    @NamedQuery(name = "Funcionario.todos",
             query = "SELECT fu FROM Funcionario fu"),
-    @NamedQuery(name = "Funcionario.porNome", 
+    @NamedQuery(name = "Funcionario.porNome",
             query = "SELECT fu FROM Funcionario fu WHERE fu.nome LIKE :nomequalquer")
 })
 
@@ -34,8 +34,8 @@ public class Funcionario implements Serializable {
     @Column(name = "cpf", length = 15, nullable = false)
     private String cpf;
 
-    @Column(name = "cargo", length = 45, nullable = false)
-    private String cargo;
+    @Column(name = "nivelacesso", length = 45, nullable = false)
+    private String nivelacesso;
 
     @Column(name = "telefone", length = 20, nullable = false)
     private String telefone;
@@ -55,9 +55,6 @@ public class Funcionario implements Serializable {
     @Column(name = "salario", nullable = false)
     private double salario;
 
-    @Column(name = "nivelacesso", length = 45, nullable = false)
-    private String nivelacesso;
-
     @Column(name = "login", length = 45, nullable = false)
     private String login;
 
@@ -69,18 +66,17 @@ public class Funcionario implements Serializable {
     }
 
     // Definição do construtor preenchido da Classe [Funcionario];
-    public Funcionario(int codigo_funcionario, String nome, String cpf, String cargo, String telefone, String endereco, String cidade, String cep, String uf, double salario, String nivelacesso, String login, String senha) {
+    public Funcionario(int codigo_funcionario, String nome, String cpf, String nivelacesso, String telefone, String endereco, String cidade, String cep, String uf, double salario, String login, String senha) {
         this.codigo_funcionario = codigo_funcionario;
         this.nome = nome;
         this.cpf = cpf;
-        this.cargo = cargo;
+        this.nivelacesso = nivelacesso;
         this.telefone = telefone;
         this.endereco = endereco;
         this.cidade = cidade;
         this.cep = cep;
         this.uf = uf;
         this.salario = salario;
-        this.nivelacesso = nivelacesso;
         this.login = login;
         this.senha = senha;
     }
@@ -98,8 +94,8 @@ public class Funcionario implements Serializable {
         return cpf;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getNivelacesso() {
+        return nivelacesso;
     }
 
     public String getTelefone() {
@@ -126,10 +122,6 @@ public class Funcionario implements Serializable {
         return salario;
     }
 
-    public String getNivelacesso() {
-        return nivelacesso;
-    }
-
     public String getLogin() {
         return login;
     }
@@ -147,8 +139,8 @@ public class Funcionario implements Serializable {
         this.cpf = cpf;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setnivelacesso(String nivelacesso) {
+        this.nivelacesso = nivelacesso;
     }
 
     public void setTelefone(String telefone) {
@@ -173,10 +165,6 @@ public class Funcionario implements Serializable {
 
     public void setSalario(double salario) {
         this.salario = salario;
-    }
-
-    public void setnivelacesso(String nivelacesso) {
-        this.nivelacesso = nivelacesso;
     }
 
     public void setLogin(String login) {
@@ -213,7 +201,7 @@ public class Funcionario implements Serializable {
     // Definição do TOSTRING da Classe [Funcionario];
     @Override
     public String toString() {
-        return "Funcionarios{" + "codigo_funcionario=" + codigo_funcionario + ", nome=" + nome + ", cargo=" + cargo + '}';
+        return "Funcionarios{" + "codigo_funcionario=" + codigo_funcionario + ", nome=" + nome + ", cargo=" + nivelacesso + '}';
     }
 
     public void setCodigo_funcionario(int codigo_funcionario) {

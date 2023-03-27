@@ -91,14 +91,18 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="JComboBoxCargo" min="-2" pref="151" max="-2" attributes="0"/>
-                                          <Component id="JSeparatorCargo" min="-2" pref="151" max="-2" attributes="0"/>
-                                          <Component id="JLabelCargo" min="-2" pref="58" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="JLabelContato" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="JSeparatorContato" min="-2" pref="126" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="JSeparatorCargo" min="-2" pref="151" max="-2" attributes="0"/>
+                                                  <Component id="JLabelCargo" min="-2" pref="58" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="JLabelContato" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <Component id="JSeparatorContato" min="-2" pref="126" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="JComboBoxNivelAcesso" min="-2" pref="126" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -135,37 +139,23 @@
                                           <Component id="JSeparatorSalario" pref="110" max="32767" attributes="0"/>
                                           <Component id="JFormatedTextSalario" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="JSeparatorNivelAcesso" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="JComboBoxNivelAcesso" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="JLabeLogin" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                                                  <Component id="JSeparatorLogin" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                                  <Component id="JTextFieldLogin" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="JSeparatorSenha" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="JTextFieldSenha" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="JLabelNivelAcesso" min="-2" pref="81" max="-2" attributes="0"/>
+                                          <Component id="JLabeLogin" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                          <Component id="JSeparatorLogin" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Component id="JTextFieldLogin" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="JSeparatorSenha" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="JTextFieldSenha" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -205,7 +195,7 @@
                                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="JFormatedTextCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JComboBoxCargo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JComboBoxNivelAcesso" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -261,58 +251,62 @@
                               <Component id="JSeparatorCEP" min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="JLabelEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="JComboBoxEstado" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JSeparatorEstado" min="-2" pref="11" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="JLabeLogin" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="JTextFieldLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="JComboBoxNivelAcesso" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="JFormatedTextSalario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="JSeparatorLogin" min="-2" pref="11" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="JFormatedTextSalario" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   <Component id="JSeparatorSalario" min="-2" pref="11" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="JLabelSenha" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="JLabelEstado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="JComboBoxEstado" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="JSeparatorEstado" min="-2" pref="11" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="JTextFieldSenha" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="JLabelSalario" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="JSeparatorSenha" min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="JLabeLogin" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="JTextFieldLogin" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="JSeparatorLogin" min="-2" pref="11" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="JLabelSenha" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="JTextFieldSenha" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="JSeparatorSenha" min="-2" pref="11" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="JLabelNivelAcesso" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLabelSalario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="JSeparatorNivelAcesso" min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -388,26 +382,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargo"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="JComboBoxCargo">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Atendente"/>
-                    <StringItem index="1" value="Farmac&#xea;utico"/>
-                    <StringItem index="2" value="Gerente"/>
-                    <StringItem index="3" value="Supervisor"/>
-                    <StringItem index="4" value="Diretor"/>
-                  </StringArray>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JComboBoxCargoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorCargo">
             </Component>
@@ -535,11 +509,6 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorSalario">
             </Component>
-            <Component class="javax.swing.JLabel" name="JLabelNivelAcesso">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nivel Acesso"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JComboBox" name="JComboBoxNivelAcesso">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -555,8 +524,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
-            </Component>
-            <Component class="javax.swing.JSeparator" name="JSeparatorNivelAcesso">
             </Component>
             <Component class="javax.swing.JLabel" name="JLabeLogin">
               <Properties>
