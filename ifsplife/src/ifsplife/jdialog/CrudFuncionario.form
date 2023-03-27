@@ -332,7 +332,7 @@
                   <Color blue="92" green="4e" red="0" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Cadastro de Usuarios"/>
+                <Property name="text" type="java.lang.String" value="Cadastro de Funcion&#xe1;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorCRUD">

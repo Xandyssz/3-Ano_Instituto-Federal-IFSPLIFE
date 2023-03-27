@@ -124,7 +124,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JLabelCRUD.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         JLabelCRUD.setForeground(new java.awt.Color(0, 78, 146));
         JLabelCRUD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCRUD.setText("Cadastro de Usuarios");
+        JLabelCRUD.setText("Cadastro de Funcionários");
 
         JLabelNome.setText("Nome");
 
