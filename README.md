@@ -202,17 +202,20 @@ o Função Saída 1.2 - Gerar Relatório de Compra
 
 **Back-end:** MySQL
 
-
 ## Quais Melhorias foram feitas
+Tarefas:
+→ Ajustar "Salário" | Funcionário;
+→ Verificar necessidade de adicionar "Cidade, CEP, Estado" | *Convênio;
+→ Pegar o código físico do | SQL;
+→ Alterar dados das funções |"fundamentais", "básicas";
+→ Adicionar Funcionamento às telas pendentes;
 
-»
+PENDENTE:
+→ Registrar JPA | Compra, Venda, Perfil & Caixa; 
+→ Dar funcionamento as funções  Editar, Visualizar & Excluir | Produtos, Funcionários, Convênios e Fornecedores;
 
-»
+ERROS:
+→ Não está atualizando a tabela de acordo com os dados registrados no | MYSQL;
 
-
-»
-
-»
-
-
-
+TELAS:
+→ Fazer as Telas de | Login, Notificação, Despesas, Movimentação do Caixa
