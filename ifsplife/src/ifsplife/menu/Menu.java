@@ -41,7 +41,7 @@ public class Menu extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Fornecedor"));
         addTitle("INTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Usuários"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Produtos"));
 
         addTitle("MEUS DADOS");
