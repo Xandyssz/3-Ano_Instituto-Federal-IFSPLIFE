@@ -50,7 +50,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelBorder1" min="-2" pref="371" max="-2" attributes="0"/>
+                  <Component id="panelBorder1" min="-2" pref="294" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -77,62 +77,59 @@
                           <Component id="JLabelCRUD" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JLabelEndereco" alignment="0" min="-2" pref="399" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="591" max="-2" attributes="0"/>
-                                      <Component id="JButtonCadastrar" min="-2" pref="112" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="JButtonCancelar" min="-2" pref="112" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="JLabelEndereco" alignment="0" min="-2" pref="399" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="JTextFieldNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                                  <Component id="JSeparatorNome" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="JLabelNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="JLabelEmail" min="-2" pref="182" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="JSeparatorEmail" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="JTextFieldEmail" alignment="0" pref="161" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="JSeparatorEndereco" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="JTextFieldEndereco" alignment="0" pref="409" max="32767" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="JTextFieldNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                          <Component id="JSeparatorNome" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="JLabelNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="JLabelCNPJ" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                                  <Component id="JSeparatorCNPJ" pref="151" max="32767" attributes="0"/>
-                                                  <Component id="JFormatedTextCNPJ" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="JLabelContato" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="JSeparatorContato" pref="126" max="32767" attributes="0"/>
-                                                  <Component id="JFormatedTextContato" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="JLabelDesconto" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                          <Component id="JLabelEmail" min="-2" pref="182" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="JSeparatorDesconto" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="JFormatedTextDesconto" alignment="0" pref="150" max="32767" attributes="0"/>
+                                              <Component id="JSeparatorEmail" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="JTextFieldEmail" alignment="0" pref="161" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="JSeparatorEndereco" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JTextFieldEndereco" alignment="0" pref="409" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="JLabelCNPJ" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="JSeparatorCNPJ" pref="151" max="32767" attributes="0"/>
+                                          <Component id="JFormatedTextCNPJ" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="JLabelContato" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="JSeparatorContato" pref="126" max="32767" attributes="0"/>
+                                          <Component id="JFormatedTextContato" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="JLabelDesconto" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="JSeparatorDesconto" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JFormatedTextDesconto" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="JButtonCadastrar" min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="JButtonCancelar" min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -205,12 +202,12 @@
                               <Component id="JSeparatorDesconto" min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="JButtonCadastrar" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="JButtonCancelar" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -278,7 +275,7 @@
                   <Border info="null"/>
                 </Property>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="###.###.###-##" subtype="-1" type="5"/>
+                  <Format format="##.###.###/####.##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
             </Component>
@@ -334,9 +331,10 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#,##0.00" subtype="-1" type="0"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="##.##" subtype="-1" type="5"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorDesconto">

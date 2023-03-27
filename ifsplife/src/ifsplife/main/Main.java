@@ -9,6 +9,7 @@ import ifsplife.form.Form_Empty;
 import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;
 import ifsplife.form.Form_Funcionarios;
+import ifsplife.form.Form_Produtos;
 import ifsplife.form.Form_Vendas;
 import ifsplife.menu.EventMenuSelected;
 
@@ -27,7 +28,7 @@ public class Main extends javax.swing.JFrame {
         menu.addEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
-                System.out.println("" + index + " " + indexSubMenu);
+//                System.out.println("" + index + " " + indexSubMenu);
                 if (index == 0 && indexSubMenu == 0) {
                     showForm(new Form_Compras());
                 } else if (index == 1 && indexSubMenu == 0) {
@@ -43,8 +44,10 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 6 && indexSubMenu == 0) {
                     showForm(new Form_Funcionarios());
                 } else if (index == 7 && indexSubMenu == 0) {
+                    showForm(new Form_Produtos());
+                } else if (index == 8 && indexSubMenu == 0) {
                     showForm(new Form_Profile());
-                }else {
+                } else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }
             }
