@@ -5,10 +5,35 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema ifsplife
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
 -- Schema ifsplife
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `ifsplife` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `ifsplife` ;
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`caixa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`caixa` (
+  `codigo_caixa` INT NOT NULL,
+  `status` CHAR(1) NOT NULL,
+  `abertura` TIME NOT NULL,
+  `valorabertura` DOUBLE NOT NULL,
+  `totalentradas` DOUBLE NOT NULL,
+  `fechamento` TIME NOT NULL,
+  `totalsaidas` DOUBLE NOT NULL,
+  `saldo` DOUBLE NOT NULL,
+  PRIMARY KEY (`codigo_caixa`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `ifsplife`.`fornecedores`
@@ -16,15 +41,16 @@ USE `ifsplife` ;
 CREATE TABLE IF NOT EXISTS `ifsplife`.`fornecedores` (
   `codigo_fornecedor` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  `cnpj` VARCHAR(14) NOT NULL,
-  `telefone` VARCHAR(11) NOT NULL,
+  `cnpj` VARCHAR(20) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `endereco` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
-  `cep` VARCHAR(8) NOT NULL,
-  `uf` VARCHAR(2) NOT NULL,
+  `cep` VARCHAR(12) NOT NULL,
+  `uf` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`codigo_fornecedor`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -54,10 +80,14 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ifsplife`.`convenios` (
   `codigo_convenio` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  `desconto` FLOAT NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `cnpj` VARCHAR(20) NOT NULL,
+  `endereco` VARCHAR(255) NOT NULL,
   `telefone` VARCHAR(255) NOT NULL,
+  `desconto` FLOAT NOT NULL,
   PRIMARY KEY (`codigo_convenio`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -68,17 +98,19 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ifsplife`.`funcionarios` (
   `codigo_funcionario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  `cargo` VARCHAR(45) NOT NULL,
-  `telefone` VARCHAR(11) NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `nivelacesso` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
   `endereco` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
-  `cep` VARCHAR(8) NOT NULL,
-  `uf` VARCHAR(2) NOT NULL,
-  `salario` VARCHAR(45) NOT NULL,
+  `cep` VARCHAR(12) NOT NULL,
+  `uf` VARCHAR(20) NOT NULL,
+  `salario` DOUBLE NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codigo_funcionario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -89,30 +121,39 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ifsplife`.`produtos` (
   `codigo_produto` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  `dosagem` VARCHAR(255) NULL,
-  `descricao` VARCHAR(45) NOT NULL,
+  `dosagem` VARCHAR(255) NULL DEFAULT NULL,
+  `descricao` VARCHAR(255) NOT NULL,
+  `lote` INT NOT NULL,
+  `data_fabricacao` VARCHAR(45) NOT NULL,
+  `data_validade` DATE NOT NULL,
   `quantidade` INT NOT NULL,
   `valor` FLOAT NOT NULL,
   PRIMARY KEY (`codigo_produto`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ifsplife`.`caixa`
+-- Table `ifsplife`.`itemcompra`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ifsplife`.`caixa` (
-  `codigo_caixa` INT NOT NULL,
-  `status` CHAR(1) NOT NULL,
-  `abertura` TIME NOT NULL,
-  `valorabertura` DOUBLE NOT NULL,
-  `totalentradas` DOUBLE NOT NULL,
-  `fechamento` TIME NOT NULL,
-  `totalsaidas` DOUBLE NOT NULL,
-  `saldo` DOUBLE NOT NULL,
-  PRIMARY KEY (`codigo_caixa`))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `ifsplife`.`itemcompra` (
+  `codigo_compra` INT NOT NULL,
+  `codigo_produto` INT NOT NULL,
+  `quantidade` INT NOT NULL,
+  `preco` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo_compra`, `codigo_produto`),
+  INDEX `fk_table2_produtos1_idx` (`codigo_produto` ASC) VISIBLE,
+  CONSTRAINT `fk_table2_compras1`
+    FOREIGN KEY (`codigo_compra`)
+    REFERENCES `ifsplife`.`compras` (`codigo_compra`),
+  CONSTRAINT `fk_table2_produtos1`
+    FOREIGN KEY (`codigo_produto`)
+    REFERENCES `ifsplife`.`produtos` (`codigo_produto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -128,14 +169,12 @@ CREATE TABLE IF NOT EXISTS `ifsplife`.`vendas` (
   PRIMARY KEY (`codigo_venda`),
   INDEX `codigo_convenio` (`codigo_convenio` ASC) VISIBLE,
   INDEX `fk_vendas_caixa1_idx` (`caixa_idcaixa` ASC) VISIBLE,
-  CONSTRAINT `vendas_ibfk_3`
-    FOREIGN KEY (`codigo_convenio`)
-    REFERENCES `ifsplife`.`convenios` (`codigo_convenio`),
   CONSTRAINT `fk_vendas_caixa1`
     FOREIGN KEY (`caixa_idcaixa`)
-    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`),
+  CONSTRAINT `vendas_ibfk_3`
+    FOREIGN KEY (`codigo_convenio`)
+    REFERENCES `ifsplife`.`convenios` (`codigo_convenio`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -151,40 +190,15 @@ CREATE TABLE IF NOT EXISTS `ifsplife`.`itemvenda` (
   `preco` FLOAT NOT NULL,
   PRIMARY KEY (`codigo_venda`, `codigo_produto`),
   INDEX `fk_table1_produtos1_idx` (`codigo_produto` ASC) VISIBLE,
-  CONSTRAINT `fk_table1_vendas1`
-    FOREIGN KEY (`codigo_venda`)
-    REFERENCES `ifsplife`.`vendas` (`codigo_venda`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_produtos1`
     FOREIGN KEY (`codigo_produto`)
-    REFERENCES `ifsplife`.`produtos` (`codigo_produto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `ifsplife`.`itemcompra`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ifsplife`.`itemcompra` (
-  `codigo_compra` INT NOT NULL,
-  `codigo_produto` INT NOT NULL,
-  `quantidade` INT NOT NULL,
-  `preco` FLOAT NOT NULL,
-  PRIMARY KEY (`codigo_compra`, `codigo_produto`),
-  INDEX `fk_table2_produtos1_idx` (`codigo_produto` ASC) VISIBLE,
-  CONSTRAINT `fk_table2_compras1`
-    FOREIGN KEY (`codigo_compra`)
-    REFERENCES `ifsplife`.`compras` (`codigo_compra`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_table2_produtos1`
-    FOREIGN KEY (`codigo_produto`)
-    REFERENCES `ifsplife`.`produtos` (`codigo_produto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ifsplife`.`produtos` (`codigo_produto`),
+  CONSTRAINT `fk_table1_vendas1`
+    FOREIGN KEY (`codigo_venda`)
+    REFERENCES `ifsplife`.`vendas` (`codigo_venda`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -198,17 +212,15 @@ CREATE TABLE IF NOT EXISTS `ifsplife`.`pagamentocompra` (
   `caixa_idcaixa` INT NOT NULL,
   PRIMARY KEY (`codigo_compra`),
   INDEX `fk_table3_caixa1_idx` (`caixa_idcaixa` ASC) VISIBLE,
-  CONSTRAINT `fk_table3_compras1`
-    FOREIGN KEY (`codigo_compra`)
-    REFERENCES `ifsplife`.`compras` (`codigo_compra`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_table3_caixa1`
     FOREIGN KEY (`caixa_idcaixa`)
-    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`),
+  CONSTRAINT `fk_table3_compras1`
+    FOREIGN KEY (`codigo_compra`)
+    REFERENCES `ifsplife`.`compras` (`codigo_compra`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
