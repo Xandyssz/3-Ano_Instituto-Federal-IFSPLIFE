@@ -213,8 +213,6 @@ o Função Saída 1.2 - Gerar Relatório de Compra
 Tarefas:
 → Ajustar "Salário" | Funcionário;<br>
 → Verificar necessidade de adicionar "Cidade, CEP, Estado" | *Convênio;<br>
-→ Pegar o código físico do | SQL;<br>
-→ Alterar dados das funções |"fundamentais", "básicas";<br>
 → Adicionar Funcionamento às telas pendentes;<br>
 
 PENDENTE:
