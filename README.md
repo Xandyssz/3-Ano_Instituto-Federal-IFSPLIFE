@@ -88,7 +88,6 @@ o Função Fundamental 1.2 - Gerenciar Caixa
     
     Itens de Informações » 
     - Código do Caixa – dd/mm/aaaa;
-    - Código do Usuário – conjunto numérico;
     - Status – texto com tamanho máximo de 1 – A – Aberto, - F – Fechado;
     - Horário de abertura - hh;mm:ss
     - Valor de abertura – conjunto numérico;
@@ -103,8 +102,12 @@ o Função Básica 1.0 - Manter Produtos
 
     Itens de Informações » 
     - Código do Produto - conjunto numérico;
-    - Nome do Produto - texto com tamanho máximo de 45;
-    - Dosagem do Produto (se tiver) - conjunto numérico;
+    - Nome do Produto - texto com tamanho máximo de 255;
+    - Dosagem do Produto (se tiver) - texto com tamanho máximo de 255;
+    - Descrição do Produto - texto com tamanho máximo de 255;
+    - Lote do Produto - conjunto númerico;
+    - Data de Fabricação - DATE;
+    - Data de Validade - DATE;
     - Quantidade do Produto - conjunto numérico;
     - Valor unitário do Produto - conjunto numérico;
 
@@ -115,13 +118,13 @@ o Função Básica 1.1 - Manter Fornecedores
     Itens de Informações » 
     - Código Fornecedor – conjunto numérico;
     - Nome – texto com tamanho máximo de 45;
-    - CNPJ – texto com tamanho máximo de 25;
+    - CNPJ – texto com tamanho máximo de 20;
     - Telefone – texto com tamanho máximo de 20;
-    - E-mail – texto com tamanho máximo de 40;
-    - Endereço – texto com tamanho máximo de 60;
-    - Cidade – texto com tamanho máximo de 40;
-    - CEP – texto com tamanho máximo de 9;
-    - UF – texto com tamanho máximo de 2;
+    - E-mail – texto com tamanho máximo de 45;
+    - Endereço – texto com tamanho máximo de 45;
+    - Cidade – texto com tamanho máximo de 45;
+    - CEP – texto com tamanho máximo de 12
+    - UF – texto com tamanho máximo de 20;
 
 
 o Função Básica 1.2 - Manter Funcionários
@@ -130,17 +133,17 @@ o Função Básica 1.2 - Manter Funcionários
 
     Itens de Informações » 
     - Código Funcionário – conjunto numérico;
-    - Nome – texto com tamanho máximo de 45;
-    - Cargo – texto com tamanho máximo de 20;
+    - Nome – texto com tamanho máximo de 255;
+    - CPF - texto com tamanho máximo de 15;
+    - Nivel Acesso – texto com tamanho máximo de 45;
     - Telefone – texto com tamanho máximo de 20;
-    - Endereço – texto com tamanho máximo de 60;
-    - Cidade – texto com tamanho máximo de 40;
-    - CEP – texto com tamanho máximo de 9;
-    - UF – texto com tamanho máximo de 2;
-    - Salário – conjunto numérico;
-    - Nível (Funcionário ou Administrador) – texto com tamanho máximo de 30;
+    - Endereço – texto com tamanho máximo de 45;
+    - Cidade – texto com tamanho máximo de 45;
+    - CEP – texto com tamanho máximo de 12;
+    - UF – texto com tamanho máximo de 20;
+    - Salário – conjunto numérico (double); 
     - Login – texto com tamanho máximo de 45;
-    - Senha – texto com tamanho máximo de 15;
+    - Senha – texto com tamanho máximo de 45;
 
 o Função Básica 1.3 - Manter Convênios
 
@@ -148,8 +151,12 @@ o Função Básica 1.3 - Manter Convênios
 
     Itens de Informações » 
     - Código do Convênio - conjunto númerico;
-    - Nome do Convênio - texto com tamanho máximo de 45;
-    - Telefone do Convênio - conjunto númerico;
+    - Nome do Convênio - texto com tamanho máximo de 255;
+    - E-mail – texto com tamanho máximo de 255;
+    - CNPJ - conjunto númerico;
+    - Endereco - texto com tamanho máximo de 255;
+    - Telefone - texto com tamanho máximo de 255;
+    - Desconto - conjunto númerico (float);
     - Desconto(%) - conjunto númerico;
     
 o Função Saída 1.0 - Gerar Relatório de Produtos
