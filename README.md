@@ -141,7 +141,7 @@ o Função Básica 1.2 - Manter Funcionários
     - Cidade – texto com tamanho máximo de 45;
     - CEP – texto com tamanho máximo de 12;
     - UF – texto com tamanho máximo de 20;
-    - Salário – conjunto numérico (double); 
+    - Salário – texto com tamanho máximo de 45; 
     - Login – texto com tamanho máximo de 45;
     - Senha – texto com tamanho máximo de 45;
 
