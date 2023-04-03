@@ -2,7 +2,7 @@ package ifsplife.form;
 
 import ifsplife.control.ControleFuncionario;
 import ifsplife.jdialog.CrudFuncionario;
-import ifsplife.model.Funcionario;
+import ifsplife.model.Funcionarios;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,7 +12,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
 
     ControleFuncionario controle = new ControleFuncionario();
 
-    List<Funcionario> listaFuncionarios = new ArrayList<>();
+    List<Funcionarios> listaFuncionarios = new ArrayList<>();
 
     public Form_Funcionarios() {
         initComponents();
@@ -31,10 +31,10 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaFuncionarios.clear();
-        listaFuncionarios.addAll(controle.getPorNome(search1.getText()));
+        listaFuncionarios.addAll(controle.getTodos());
 
-        for (Funcionario f : listaFuncionarios) {
-            modelo.addRow(new Object[]{f.getNome(), f.getCpf(), f.getNivelacesso()}
+        for (Funcionarios funcionarios : listaFuncionarios) {
+            modelo.addRow(new Object[]{funcionarios.getNome(), funcionarios.getCpf(), funcionarios.getNivelacesso()}
             );
         }
     }
@@ -66,7 +66,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
-        search1.setText("Pesquise usuário por nome ...");
         search1.setBorder(null);
         search1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -296,9 +295,9 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         crudfuncionario.setVisible(true);
 
         if (crudfuncionario.isConfirmou()) {
-            Funcionario f = crudfuncionario.getFuncionario();
+            Funcionarios funcionarios = crudfuncionario.getFuncionario();
 
-            controle.adicionar(f);
+            controle.adicionar(funcionarios);
 
             atualizarTabela();
         }
@@ -318,9 +317,9 @@ public class Form_Funcionarios extends javax.swing.JPanel {
             crudfuncionario.setVisible(true);
 
             if (crudfuncionario.isConfirmou()) {
-                Funcionario f = crudfuncionario.getFuncionario();
+                Funcionarios funcionarios = crudfuncionario.getFuncionario();
 
-                controle.alterar(f);
+                controle.alterar(funcionarios);
 
                 atualizarTabela();
             }
@@ -348,7 +347,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonExcluirMouseClicked
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
-     
+
         int linha = tableFuncionarios.getSelectedRow();
 
         if (linha == -1) {

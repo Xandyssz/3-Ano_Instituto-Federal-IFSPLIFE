@@ -2,7 +2,7 @@ package ifsplife.form;
 
 import ifsplife.control.ControleFornecedor;
 import ifsplife.jdialog.CrudFornecedor;
-import ifsplife.model.Fornecedor;
+import ifsplife.model.Fornecedores;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,7 +12,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
 
     ControleFornecedor controle = new ControleFornecedor();
 
-    List<Fornecedor> listaFornecedores = new ArrayList<>();
+    List<Fornecedores> listaFornecedores = new ArrayList<>();
 
     public Form_Fornecedores() {
         initComponents();
@@ -30,9 +30,9 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaFornecedores.clear();
-        listaFornecedores.addAll(controle.getPorNome(search1.getText()));
+        listaFornecedores.addAll(controle.getTodos());
 
-        for (Fornecedor fornecedor : listaFornecedores) {
+        for (Fornecedores fornecedor : listaFornecedores) {
             modelo.addRow(new Object[]{fornecedor.getNome(), fornecedor.getCnpj(), fornecedor.getTelefone()}
             );
         }
@@ -65,7 +65,6 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
-        search1.setText("Pesquise usuário por nome ...");
         search1.setBorder(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
@@ -284,9 +283,9 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         crudfornecedor.setVisible(true);
 
         if (crudfornecedor.isConfirmou()) {
-            Fornecedor fornecedor = crudfornecedor.getFornecedor();
+            Fornecedores fornecedores = crudfornecedor.getFornecedores();
 
-            controle.adicionar(fornecedor);
+            controle.adicionar(fornecedores);
 
             atualizarTabela();
         }
@@ -306,9 +305,9 @@ public class Form_Fornecedores extends javax.swing.JPanel {
             crudfornecedor.setVisible(true);
 
             if (crudfornecedor.isConfirmou()) {
-                Fornecedor fornecedor = crudfornecedor.getFornecedor();
+                Fornecedores fornecedores = crudfornecedor.getFornecedores();
 
-                controle.alterar(fornecedor);
+                controle.alterar(fornecedores);
 
                 atualizarTabela();
             }

@@ -2,8 +2,7 @@ package ifsplife.form;
 
 import ifsplife.control.ControleConvenio;
 import ifsplife.jdialog.CrudConvenio;
-import ifsplife.model.Convenio;
-import ifsplife.model.Funcionario;
+import ifsplife.model.Convenios;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -13,7 +12,7 @@ public class Form_Convenios extends javax.swing.JPanel {
 
     ControleConvenio controle = new ControleConvenio();
 
-    List<Convenio> listaConvenios = new ArrayList<>();
+    List<Convenios> listaConvenios = new ArrayList<>();
 
     public Form_Convenios() {
         initComponents();
@@ -31,9 +30,9 @@ public class Form_Convenios extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaConvenios.clear();
-        listaConvenios.addAll(controle.getPorNome(search1.getText()));
+        listaConvenios.addAll(controle.getTodos());
 
-        for (Convenio c : listaConvenios) {
+        for (Convenios c : listaConvenios) {
             modelo.addRow(new Object[]{c.getNome(), c.getTelefone(), c.getDesconto()}
             );
         }
@@ -66,7 +65,6 @@ public class Form_Convenios extends javax.swing.JPanel {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
-        search1.setText("Pesquise usuário por nome ...");
         search1.setBorder(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
@@ -286,7 +284,7 @@ public class Form_Convenios extends javax.swing.JPanel {
         crudconvenio.setVisible(true);
 
         if (crudconvenio.isConfirmou()) {
-            Convenio c = crudconvenio.getConvenio();
+            Convenios c = crudconvenio.getConvenio();
 
             controle.adicionar(c);
 
@@ -308,7 +306,7 @@ public class Form_Convenios extends javax.swing.JPanel {
             crudconvenio.setVisible(true);
 
             if (crudconvenio.isConfirmou()) {
-                Convenio c = crudconvenio.getConvenio();
+                Convenios c = crudconvenio.getConvenio();
 
                 controle.alterar(c);
 

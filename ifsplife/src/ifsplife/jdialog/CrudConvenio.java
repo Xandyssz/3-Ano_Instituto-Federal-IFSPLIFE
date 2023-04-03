@@ -1,6 +1,6 @@
 package ifsplife.jdialog;
 
-import ifsplife.model.Convenio;
+import ifsplife.model.Convenios;
 import javax.swing.JOptionPane;
 
 public class CrudConvenio extends javax.swing.JDialog {
@@ -13,10 +13,10 @@ public class CrudConvenio extends javax.swing.JDialog {
         initComponents();
     }
 
-    public Convenio getConvenio() {
-        Convenio c = new Convenio();
+    public Convenios getConvenio() {
+        Convenios c = new Convenios();
 
-        c.setCodigo_convenio(codigo);
+        c.setCodigoConvenio(codigo);
         c.setNome(JTextFieldNome.getText());
         c.setEmail(JTextFieldEmail.getText());
         c.setCnpj(JFormatedTextCNPJ.getText());
@@ -24,13 +24,14 @@ public class CrudConvenio extends javax.swing.JDialog {
         c.setEndereco(JTextFieldEndereco.getText());
         // formatação 
         String descontoStr = JFormatedTextDesconto.getText();
-        double desconto = Double.parseDouble(descontoStr);
+        float desconto = Float.parseFloat(descontoStr);
         c.setDesconto(desconto);
         //    
         return c;
     }
 
-    public void setConvenio(Convenio convenio) {
+    public void setConvenio(Convenios convenio) {
+        this.codigo = convenio.getCodigoConvenio();
         JTextFieldNome.setText(convenio.getNome());
         JTextFieldEmail.setText(convenio.getEmail());
         JFormatedTextCNPJ.setText(convenio.getCnpj());
@@ -47,12 +48,12 @@ public class CrudConvenio extends javax.swing.JDialog {
     }
 
     public void desabilitarEdicao() {
-        JTextFieldNome.setVisible(false);
-        JFormatedTextCNPJ.setVisible(false);
-        JFormatedTextContato.setVisible(false);
-        JTextFieldEndereco.setVisible(false);
-        JTextFieldEmail.setVisible(false);
-        JFormatedTextDesconto.setVisible(false);
+        JTextFieldNome.setEditable(false);
+        JFormatedTextCNPJ.setEditable(false);
+        JFormatedTextContato.setEditable(false);
+        JTextFieldEndereco.setEditable(false);
+        JTextFieldEmail.setEditable(false);
+        JFormatedTextDesconto.setEditable(false);
 
     }
 

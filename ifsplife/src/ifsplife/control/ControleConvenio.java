@@ -5,7 +5,7 @@
 package ifsplife.control;
 
 import java.util.ArrayList;
-import ifsplife.model.Convenio;
+import ifsplife.model.Convenios;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -16,28 +16,26 @@ import javax.persistence.TypedQuery;
  */
 public class ControleConvenio {
 
-    private static final ArrayList<Convenio> listaConvenio = new ArrayList<>();
-
     // adiciona um materiaprima
-    public void adicionar(Convenio convenio) {
+    public void adicionar(Convenios convenios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.persist(convenio);
+        gerente.persist(convenios);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public void remover(Convenio Convenio) {
-     
+    public void remover(Convenios Convenios) {
+
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Convenio convenioExcluir = gerente.find(Convenio.class,
-                Convenio.getCodigo());
+        Convenios convenioExcluir = gerente.find(Convenios.class,
+                Convenios.getCodigoConvenio());
 
         gerente.getTransaction().begin();
 
@@ -48,38 +46,38 @@ public class ControleConvenio {
         gerente.close();
     }
 
-    public void alterar(Convenio convenio) {
-      
+    public void alterar(Convenios convenios) {
+
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.merge(convenio);
+        gerente.merge(convenios);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-        public List<Convenio> getTodos() {
+    public List<Convenios> getTodos() {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Convenio> consulta
-                = gerente.createNamedQuery("Convenio.todos", Convenio.class);
+        TypedQuery<Convenios> consulta
+                = gerente.createNamedQuery("Convenios.findAll", Convenios.class);
 
         return consulta.getResultList();
 
     }
-        
-    public List<Convenio> getPorNome(String nomePesquisar) {
+
+    public List<Convenios> getPorNome(String nomePesquisar) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Convenio> consulta
-                = gerente.createNamedQuery("Convenio.porNome", Convenio.class);
+        TypedQuery<Convenios> consulta
+                = gerente.createNamedQuery("Convenios.findByNome", Convenios.class);
 
-        consulta.setParameter("nomequalquer", "%" + nomePesquisar + "%");
+        consulta.setParameter("nome", "%" + nomePesquisar + "%");
 
         return consulta.getResultList();
 

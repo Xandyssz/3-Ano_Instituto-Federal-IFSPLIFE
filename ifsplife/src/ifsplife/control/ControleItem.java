@@ -1,77 +1,77 @@
 package ifsplife.control;
 
-import ifsplife.model.Produto;
+import ifsplife.model.Item;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-public class ControleProduto {
+public class ControleItem {
 
-    private static final ArrayList<Produto> listaProduto = new ArrayList<>();
+    private static final ArrayList<Item> listaItem = new ArrayList<>();
 
     // adiciona um materiaprima
-    public void adicionar(Produto produto) {
+    public void adicionar(Item item) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.persist(produto);
+        gerente.persist(item);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public void remover(Produto Produto) {
+    public void remover(Item Item) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Produto produtoExcluir = gerente.find(Produto.class,
-                Produto.getCodigo());
+        Item itemExcluir = gerente.find(Item.class,
+                Item.getCodigoItem());
 
         gerente.getTransaction().begin();
 
-        gerente.remove(produtoExcluir);
+        gerente.remove(itemExcluir);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public void alterar(Produto produto) {
+    public void alterar(Item item) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.merge(produto);
+        gerente.merge(item);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public List<Produto> getTodos() {
+    public List<Item> getTodos() {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Produto> consulta
-                = gerente.createNamedQuery("Produto.todos", Produto.class);
+        TypedQuery<Item> consulta
+                = gerente.createNamedQuery("Item.findAll", Item.class);
 
         return consulta.getResultList();
 
     }
 
-    public List<Produto> getPorNome(String nomePesquisar) {
+    public List<Item> getPorNome(String nomePesquisar) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Produto> consulta
-                = gerente.createNamedQuery("Produto.porNome", Produto.class);
+        TypedQuery<Item> consulta
+                = gerente.createNamedQuery("Item.findByNomeEspecifico", Item.class);
 
-        consulta.setParameter("nomequalquer", "%" + nomePesquisar + "%");
+        consulta.setParameter("nome", "%" + nomePesquisar + "%");
 
         return consulta.getResultList();
 

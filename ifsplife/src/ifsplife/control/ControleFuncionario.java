@@ -1,6 +1,6 @@
 package ifsplife.control;
 
-import ifsplife.model.Funcionario;
+import ifsplife.model.Funcionarios;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -8,27 +8,27 @@ import javax.persistence.TypedQuery;
 
 public class ControleFuncionario {
 
-    private static final ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
+    private static final ArrayList<Funcionarios> listaFuncionario = new ArrayList<>();
 
-    public void adicionar(Funcionario funcionario) {
+    public void adicionar(Funcionarios funcionarios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.persist(funcionario);
+        gerente.persist(funcionarios);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public void remover(Funcionario Funcionario) {
+    public void remover(Funcionarios Funcionarios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Funcionario funcionarioExcluir = gerente.find(Funcionario.class,
-                Funcionario.getCodigo());
+        Funcionarios funcionarioExcluir = gerente.find(Funcionarios.class,
+                Funcionarios.getCodigoFuncionario());
 
         gerente.getTransaction().begin();
 
@@ -39,38 +39,38 @@ public class ControleFuncionario {
         gerente.close();
     }
 
-    public void alterar(Funcionario funcionario) {
+    public void alterar(Funcionarios funcionarios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         gerente.getTransaction().begin();
 
-        gerente.merge(funcionario);
+        gerente.merge(funcionarios);
 
         gerente.getTransaction().commit();
 
         gerente.close();
     }
 
-    public List<Funcionario> getTodos() {
+    public List<Funcionarios> getTodos() {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Funcionario> consulta
-                = gerente.createNamedQuery("Funcionario.todos", Funcionario.class);
+        TypedQuery<Funcionarios> consulta
+                = gerente.createNamedQuery("Funcionarios.findAll", Funcionarios.class);
 
         return consulta.getResultList();
 
     }
 
-    public List<Funcionario> getPorNome(String nomePesquisar) {
+    public List<Funcionarios> getPorNome(String nomePesquisar) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        TypedQuery<Funcionario> consulta
-                = gerente.createNamedQuery("Funcionario.porNome", Funcionario.class);
+        TypedQuery<Funcionarios> consulta
+                = gerente.createNamedQuery("Funcionarios.findByNome", Funcionarios.class);
 
-        consulta.setParameter("nomequalquer", "%" + nomePesquisar + "%");
+        consulta.setParameter("nome", "%" + nomePesquisar + "%");
 
         return consulta.getResultList();
 

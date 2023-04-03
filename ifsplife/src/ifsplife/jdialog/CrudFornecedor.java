@@ -1,6 +1,6 @@
 package ifsplife.jdialog;
 
-import ifsplife.model.Fornecedor;
+import ifsplife.model.Fornecedores;
 import javax.swing.JOptionPane;
 
 public class CrudFornecedor extends javax.swing.JDialog {
@@ -13,32 +13,31 @@ public class CrudFornecedor extends javax.swing.JDialog {
         initComponents();
     }
 
-    public Fornecedor getFornecedor() {
-        Fornecedor fornecedor = new Fornecedor();
+    public Fornecedores getFornecedores() {
+        Fornecedores fornecedores = new Fornecedores();
 
-        fornecedor.setCodigo_fornecedor(codigo);
-        fornecedor.setNome(JTextFieldNome.getText());
-        fornecedor.setCnpj(JFormatedTextCNPJ.getText());
-        fornecedor.setTelefone(JFormatedTextContato.getText());
-        fornecedor.setEmail(JTextFieldEmail.getText());
-        fornecedor.setEndereco(JTextFieldEndereco.getText());
-        fornecedor.setCidade(JTextFieldCidade.getText());
-        fornecedor.setCep(JFormatedTextCEP.getText());
-        fornecedor.setUf((String) JComboBoxEstado.getSelectedItem());
-        return fornecedor;
+        fornecedores.setCodigoFornecedor(codigo);
+        fornecedores.setNome(JTextFieldNome.getText());
+        fornecedores.setCnpj(JFormatedTextCNPJ.getText());
+        fornecedores.setTelefone(JFormatedTextContato.getText());
+        fornecedores.setEmail(JTextFieldEmail.getText());
+        fornecedores.setEndereco(JTextFieldEndereco.getText());
+        fornecedores.setCidade(JTextFieldCidade.getText());
+        fornecedores.setCep(JFormatedTextCEP.getText());
+        fornecedores.setUf((String) JComboBoxEstado.getSelectedItem());
+        return fornecedores;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
-
-        JTextFieldNome.setText(fornecedor.getNome());
-        JFormatedTextCNPJ.setText(fornecedor.getCnpj());
-        JFormatedTextContato.setText(fornecedor.getTelefone());
-        JTextFieldEmail.setText(fornecedor.getEmail());
-        JTextFieldEndereco.setText(fornecedor.getEndereco());
-        JTextFieldCidade.setText((fornecedor.getCidade()));
-        JFormatedTextCEP.setText(fornecedor.getCep());
-        JComboBoxEstado.setSelectedItem(fornecedor.getUf());
-        this.codigo = fornecedor.getCodigo();
+    public void setFornecedor(Fornecedores fornecedores) {
+        this.codigo = fornecedores.getCodigoFornecedor();
+        JTextFieldNome.setText(fornecedores.getNome());
+        JFormatedTextCNPJ.setText(fornecedores.getCnpj());
+        JFormatedTextContato.setText(fornecedores.getTelefone());
+        JTextFieldEmail.setText(fornecedores.getEmail());
+        JTextFieldEndereco.setText(fornecedores.getEndereco());
+        JTextFieldCidade.setText((fornecedores.getCidade()));
+        JFormatedTextCEP.setText(fornecedores.getCep());
+        JComboBoxEstado.setSelectedItem(fornecedores.getUf());
     }
 
     public boolean isConfirmou() {
@@ -47,14 +46,14 @@ public class CrudFornecedor extends javax.swing.JDialog {
 
     public void desabilitarEdicao() {
 
-        JTextFieldNome.setVisible(false);
-        JFormatedTextCNPJ.setVisible(false);
-        JFormatedTextContato.setVisible(false);
-        JTextFieldEmail.setVisible(false);
-        JTextFieldEndereco.setVisible(false);
-        JTextFieldCidade.setVisible(false);
-        JFormatedTextCEP.setVisible(false);
-        JComboBoxEstado.setVisible(false);
+        JTextFieldNome.setEditable(false);
+        JFormatedTextCNPJ.setEditable(false);
+        JFormatedTextContato.setEditable(false);
+        JTextFieldEmail.setEditable(false);
+        JTextFieldEndereco.setEditable(false);
+        JTextFieldCidade.setEditable(false);
+        JFormatedTextCEP.setEditable(false);
+        JComboBoxEstado.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")

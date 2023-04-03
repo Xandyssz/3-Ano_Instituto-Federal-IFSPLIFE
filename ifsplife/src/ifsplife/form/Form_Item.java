@@ -1,39 +1,39 @@
 package ifsplife.form;
 
-import ifsplife.control.ControleProduto;
-import ifsplife.jdialog.CrudProduto;
-import ifsplife.model.Produto;
+import ifsplife.control.ControleItem;
+import ifsplife.jdialog.CrudItem;
+import ifsplife.model.Item;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Form_Produtos extends javax.swing.JPanel {
+public class Form_Item extends javax.swing.JPanel {
 
-    ControleProduto controle = new ControleProduto();
+    ControleItem controle = new ControleItem();
 
-    List<Produto> listaProduto = new ArrayList<>();
+    List<Item> listaItems = new ArrayList<>();
 
-    public Form_Produtos() {
+    public Form_Item() {
         initComponents();
-        tableProdutos.getColumnModel().getColumn(0).setPreferredWidth(30);
-        tableProdutos.getColumnModel().getColumn(1).setPreferredWidth(250);
-        tableProdutos.getColumnModel().getColumn(0).setPreferredWidth(100);
-
+        tableItens.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tableItens.getColumnModel().getColumn(1).setPreferredWidth(250);
+        tableItens.getColumnModel().getColumn(0).setPreferredWidth(100);
+        
         atualizarTabela();
 
     }
 
     private void atualizarTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) tableProdutos.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tableItens.getModel();
 
         modelo.setRowCount(0);
 
-        listaProduto.clear();
-        listaProduto.addAll(controle.getPorNome(search1.getText()));
+        listaItems.clear();
+        listaItems.addAll(controle.getTodos());
 
-        for (Produto p : listaProduto) {
-            modelo.addRow(new Object[]{p.getNome(), p.getDescricao(), p.getValor()}
+        for (Item item : listaItems) {
+            modelo.addRow(new Object[]{item.getNome(), item.getDescricao(), item.getValor()}
             );
         }
     }
@@ -56,7 +56,7 @@ public class Form_Produtos extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         panelBorder1 = new ifsplife.dev.swing.PanelBorder();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableProdutos = new ifsplife.dev.swing.Table();
+        tableItens = new ifsplife.dev.swing.Table();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 239, 239));
@@ -65,7 +65,6 @@ public class Form_Produtos extends javax.swing.JPanel {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
-        search1.setText("Pesquise usuário por nome ...");
         search1.setBorder(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
@@ -195,7 +194,7 @@ public class Form_Produtos extends javax.swing.JPanel {
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
 
-        tableProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        tableItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -203,14 +202,14 @@ public class Form_Produtos extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Desconto"
+                "Nome", "Descrição", "Desconto"
             }
         ));
-        jScrollPane1.setViewportView(tableProdutos);
+        jScrollPane1.setViewportView(tableItens);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel3.setText("Produtos");
+        jLabel3.setText("Item");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -280,78 +279,78 @@ public class Form_Produtos extends javax.swing.JPanel {
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
-        CrudProduto crudproduto = new CrudProduto(null, true);
+        CrudItem cruditem = new CrudItem(null, true);
 
-        crudproduto.setVisible(true);
+        cruditem.setVisible(true);
 
-        if (crudproduto.isConfirmou()) {
-            Produto p = crudproduto.getProduto();
+        if (cruditem.isConfirmou()) {
+            Item item = cruditem.getItem();
 
-            controle.adicionar(p);
+            controle.adicionar(item);
 
             atualizarTabela();
         }
+
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
-        int linha = tableProdutos.getSelectedRow();
+
+        int linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Produto. Selecione.");
+                    "Não foi selecionado nenhum Item. Selecione.");
         } else {
-            CrudProduto crudproduto = new CrudProduto(null, true);
+            CrudItem cruditem = new CrudItem(null, true);
 
-            crudproduto.setProduto(listaProduto.get(linha));
+            cruditem.setItem(listaItems.get(linha));
 
-            crudproduto.setVisible(true);
+            cruditem.setVisible(true);
 
-            if (crudproduto.isConfirmou()) {
-                Produto p = crudproduto.getProduto();
+            if (cruditem.isConfirmou()) {
+                Item item = cruditem.getItem();
 
-                controle.alterar(p);
+                controle.alterar(item);
 
                 atualizarTabela();
             }
+
+        }
+
     }//GEN-LAST:event_JButtonEditarMouseClicked
-    }
+
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
-        int linha = tableProdutos.getSelectedRow();
+
+        int linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Produto. Selecione.");
+                    "Não foi selecionado nenhum Item. Selecione.");
         } else {
-            CrudProduto crudproduto = new CrudProduto(null, true);
+            CrudItem cruditem = new CrudItem(null, true);
 
-            crudproduto.setProduto(listaProduto.get(linha));
-            crudproduto.desabilitarEdicao();
+            cruditem.setItem(listaItems.get(linha));
+            cruditem.desabilitarEdicao();
 
-            crudproduto.setVisible(true);
+            cruditem.setVisible(true);
 
         }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
-        int linha = tableProdutos.getSelectedRow();
+        int linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Produto. Selecione.");
+                    "Não foi selecionado nenhum Item. Selecione.");
         } else {
-            // cria o dialog de confirmação
             int resposta = JOptionPane.showConfirmDialog(null,
-                    "Deseja excluir esse Produto?",
-                    "Exclusão de Produto",
+                    "Deseja excluir esse Item?",
+                    "Exclusão de Item",
                     JOptionPane.YES_NO_OPTION);
 
-            // verifica o que foi clicado
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaProduto.get(linha));
+                controle.remover(listaItems.get(linha));
                 atualizarTabela();
             }
         }
@@ -373,6 +372,6 @@ public class Form_Produtos extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private javax.swing.JTextField search1;
-    private ifsplife.dev.swing.Table tableProdutos;
+    private ifsplife.dev.swing.Table tableItens;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,51 +1,50 @@
 package ifsplife.jdialog;
 
-import ifsplife.model.Produto;
+import ifsplife.model.Item;
 import javax.swing.JOptionPane;
 
-public class CrudProduto extends javax.swing.JDialog {
+public class CrudItem extends javax.swing.JDialog {
 
     private boolean confirmou = false;
     private int codigo = 0;
 
-    public CrudProduto(java.awt.Frame parent, boolean modal) {
+    public CrudItem(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-    public Produto getProduto() {
-        Produto p = new Produto();
+    public Item getItem() {
+        Item item = new Item();
 
-        p.setCodigo_produto(codigo);
-        p.setNome(JTextFieldNome.getText());
-        p.setDosagem(JTextFieldDosagem.getText());
-        p.setDescricao(JTextFieldDescricao.getText());
-        p.setLote(Integer.parseInt(JFormatedTextLote.getText()));
-        p.setData_fabricacao(jDateChooserDataFabricacao.getDate());
-        p.setData_validade(jDateChooserDataValidade.getDate());
-        p.setQuantidade(Integer.parseInt(JFormatedTextQuantidade.getText()));
+        item.setCodigoItem(codigo);
+        item.setNome(JTextFieldNome.getText());
+        item.setDosagem(JTextFieldDosagem.getText());
+        item.setDescricao(JTextFieldDescricao.getText());
+        item.setLote(Integer.parseInt(JFormatedTextLote.getText()));
+        item.setDataFabricacao(jDateChooserDataValidade.getDate());
+        item.setDataValidade(jDateChooserDataValidade.getDate());
+        item.setQuantidade(Integer.parseInt(JFormatedTextQuantidade.getText()));
         // inicio da formatação
         // formatação 
         String valorStr = JFormatedTextValor.getValue().toString();
-        double valor = Double.parseDouble(valorStr);
-        p.setValor(valor);
+        float valor = Float.parseFloat(valorStr);
+        item.setValor(valor);
         //     
         // fim da formatação
 
-        return p;
+        return item;
     }
 
-    public void setProduto(Produto produto) {
-
-        JTextFieldNome.setText(produto.getNome());
-        JTextFieldDosagem.setText(produto.getDosagem());
-        JTextFieldDescricao.setText(produto.getDescricao());
-        JFormatedTextLote.setValue(produto.getLote());
-        jDateChooserDataFabricacao.setDate(produto.getData_fabricacao());
-        jDateChooserDataValidade.setDate(produto.getData_validade());
-        JFormatedTextQuantidade.setValue(produto.getQuantidade());
-        JFormatedTextValor.setValue(produto.getValor());
-        this.codigo = produto.getCodigo();
+    public void setItem(Item item) {
+        this.codigo = item.getCodigoItem();
+        JTextFieldNome.setText(item.getNome());
+        JTextFieldDosagem.setText(item.getDosagem());
+        JTextFieldDescricao.setText(item.getDescricao());
+        JFormatedTextLote.setValue(item.getLote());
+        jDateChooserDataFabricacao.setDate(item.getDataFabricacao());
+        jDateChooserDataValidade.setDate(item.getDataValidade());
+        JFormatedTextQuantidade.setValue(item.getQuantidade());
+        JFormatedTextValor.setValue(item.getValor());
     }
 
     public boolean isConfirmou() {
@@ -53,14 +52,14 @@ public class CrudProduto extends javax.swing.JDialog {
     }
 
     public void desabilitarEdicao() {
-        JTextFieldNome.setVisible(false);
-        JTextFieldDosagem.setVisible(false);
-        JTextFieldDescricao.setVisible(false);
-        JFormatedTextLote.setVisible(false);
-        jDateChooserDataFabricacao.setVisible(false);
-        jDateChooserDataValidade.setVisible(false);
-        JFormatedTextQuantidade.setVisible(false);
-        JFormatedTextValor.setVisible(false);
+        JTextFieldNome.setEditable(false);
+        JTextFieldDosagem.setEditable(false);
+        JTextFieldDescricao.setEditable(false);
+        JFormatedTextLote.setEditable(false);
+        jDateChooserDataFabricacao.setEnabled(false);
+        jDateChooserDataValidade.setEnabled(false);
+        JFormatedTextQuantidade.setEditable(false);
+        JFormatedTextValor.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -109,7 +108,7 @@ public class CrudProduto extends javax.swing.JDialog {
         JLabelCRUD.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         JLabelCRUD.setForeground(new java.awt.Color(0, 78, 146));
         JLabelCRUD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCRUD.setText("Cadastro de Produtos");
+        JLabelCRUD.setText("Cadastro de Itens");
 
         JLabelNome.setText("Nome");
 

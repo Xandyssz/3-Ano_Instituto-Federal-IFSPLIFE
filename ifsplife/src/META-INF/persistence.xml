@@ -6,6 +6,28 @@
     <class>ifsplife.model.Fornecedor</class>
     <class>ifsplife.model.Funcionario</class>
     <class>ifsplife.model.Produto</class>
+    <class>ifsplife.model.teste.CaixaHasDespesas</class>
+    <class>ifsplife.model.teste.Pagamento</class>
+    <class>ifsplife.model.teste.Itemcompra</class>
+    <class>ifsplife.model.teste.Item</class>
+    <class>ifsplife.model.teste.Pagamentocompra</class>
+    <class>ifsplife.model.teste.Vendas</class>
+    <class>ifsplife.model.teste.Itemvenda</class>
+    <class>ifsplife.model.Itemvenda</class>
+    <class>ifsplife.model.Item</class>
+    <class>ifsplife.model.Pagamento</class>
+    <class>ifsplife.model.Itemcompra</class>
+    <class>ifsplife.model.Movimentacao</class>
+    <class>ifsplife.model.Despesas</class>
+    <class>ifsplife.model.Vendas</class>
+    <class>ifsplife.model.Pagamentocompra</class>
+    <class>ifsplife.model.CaixaHasDespesas</class>
+    <class>ifsplife.model.Compras</class>
+    <class>ifsplife.model.Caixa</class>
+    <class>ifsplife.model.Produtos</class>
+    <class>ifsplife.model.Convenios</class>
+    <class>ifsplife.model.Fornecedores</class>
+    <class>ifsplife.model.Funcionarios</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>NONE</validation-mode>
     <properties>
