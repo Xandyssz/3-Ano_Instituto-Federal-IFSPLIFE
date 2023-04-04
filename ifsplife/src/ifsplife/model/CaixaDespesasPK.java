@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ifsplife.model;
 
 import java.io.Serializable;
@@ -9,12 +5,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-/**
- *
- * @author xandy
- */
 @Embeddable
-public class CaixaHasDespesasPK implements Serializable {
+public class CaixaDespesasPK implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "codigo_caixa", nullable = false)
@@ -23,10 +15,10 @@ public class CaixaHasDespesasPK implements Serializable {
     @Column(name = "codigo_despesa", nullable = false)
     private int codigoDespesa;
 
-    public CaixaHasDespesasPK() {
+    public CaixaDespesasPK() {
     }
 
-    public CaixaHasDespesasPK(int codigoCaixa, int codigoDespesa) {
+    public CaixaDespesasPK(int codigoCaixa, int codigoDespesa) {
         this.codigoCaixa = codigoCaixa;
         this.codigoDespesa = codigoDespesa;
     }
@@ -57,11 +49,10 @@ public class CaixaHasDespesasPK implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CaixaHasDespesasPK)) {
+        if (!(object instanceof CaixaDespesasPK)) {
             return false;
         }
-        CaixaHasDespesasPK other = (CaixaHasDespesasPK) object;
+        CaixaDespesasPK other = (CaixaDespesasPK) object;
         if (this.codigoCaixa != other.codigoCaixa) {
             return false;
         }
@@ -73,7 +64,7 @@ public class CaixaHasDespesasPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ifsplife.model.CaixaHasDespesasPK[ codigoCaixa=" + codigoCaixa + ", codigoDespesa=" + codigoDespesa + " ]";
+        return "ifsplife.model.CaixaDespesasPK[ codigoCaixa=" + codigoCaixa + ", codigoDespesa=" + codigoDespesa + " ]";
     }
     
 }

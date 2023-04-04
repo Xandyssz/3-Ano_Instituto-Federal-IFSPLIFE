@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ifsplife.model;
 
 import java.io.Serializable;
@@ -15,10 +11,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-/**
- *
- * @author xandy
- */
 @Entity
 @Table(name = "itemcompra", catalog = "ifsplife", schema = "")
 @NamedQueries({
@@ -111,7 +103,6 @@ public class Itemcompra implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Itemcompra)) {
             return false;
         }

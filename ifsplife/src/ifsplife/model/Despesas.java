@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ifsplife.model;
 
 import java.io.Serializable;
@@ -19,10 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author xandy
- */
 @Entity
 @Table(name = "despesas", catalog = "ifsplife", schema = "")
 @NamedQueries({
@@ -57,7 +49,7 @@ public class Despesas implements Serializable {
     @Column(name = "status", nullable = false, length = 20)
     private String status;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "despesas")
-    private Collection<CaixaHasDespesas> caixaHasDespesasCollection;
+    private Collection<CaixaDespesas> caixaHasDespesasCollection;
 
     public Despesas() {
     }
@@ -123,11 +115,11 @@ public class Despesas implements Serializable {
         this.status = status;
     }
 
-    public Collection<CaixaHasDespesas> getCaixaHasDespesasCollection() {
+    public Collection<CaixaDespesas> getCaixaHasDespesasCollection() {
         return caixaHasDespesasCollection;
     }
 
-    public void setCaixaHasDespesasCollection(Collection<CaixaHasDespesas> caixaHasDespesasCollection) {
+    public void setCaixaHasDespesasCollection(Collection<CaixaDespesas> caixaHasDespesasCollection) {
         this.caixaHasDespesasCollection = caixaHasDespesasCollection;
     }
 
@@ -140,7 +132,6 @@ public class Despesas implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Despesas)) {
             return false;
         }

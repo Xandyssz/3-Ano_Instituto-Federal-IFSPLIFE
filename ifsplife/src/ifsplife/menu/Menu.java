@@ -19,15 +19,19 @@ public class Menu extends JPanel {
     private int index = -1;
     private final List<EventMenuSelected> events = new ArrayList<>();
 
+//    private Color firstColor = Color.decode("#004e92");
+//    private Color secondColor = Color.decode("#000428")
     public Menu() {
         init();
     }
 
     private void init() {
         setBackground(Color.WHITE);
+//        setBackground(firstColor);
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
+//      panelMenu.setBackground(secondColor);
         scroll.setViewportView(panelMenu);
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);

@@ -12,11 +12,11 @@ import javax.swing.JOptionPane;
  */
 public class TelaSplashScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaSplashScreen
-     */
+    
     public TelaSplashScreen() {
+
         initComponents();
+
     }
 
     /**
@@ -28,8 +28,7 @@ public class TelaSplashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BackGroundPanel = new javax.swing.JPanel();
-        IconX = new javax.swing.JLabel();
+        panelBorderGradient1 = new ifsplife.dev.swing.PanelBorderGradient();
         LogoIFSP_LIFE = new javax.swing.JLabel();
         LoadingBar = new javax.swing.JProgressBar();
         LoadingLabel = new javax.swing.JLabel();
@@ -38,50 +37,80 @@ public class TelaSplashScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        BackGroundPanel.setBackground(new java.awt.Color(102, 102, 102));
-        BackGroundPanel.setPreferredSize(new java.awt.Dimension(900, 500));
-        BackGroundPanel.setRequestFocusEnabled(false);
-        BackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        IconX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/x.png"))); // NOI18N
-        IconX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                IconXMouseClicked(evt);
-            }
-        });
-        BackGroundPanel.add(IconX, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
-
         LogoIFSP_LIFE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoIFSP_LIFE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/ifsplife.png"))); // NOI18N
-        BackGroundPanel.add(LogoIFSP_LIFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 900, 490));
-        BackGroundPanel.add(LoadingBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 480, 920, 20));
+
+        LoadingBar.setForeground(new java.awt.Color(102, 102, 102));
 
         LoadingLabel.setForeground(new java.awt.Color(255, 255, 255));
         LoadingLabel.setText("Loading...");
-        BackGroundPanel.add(LoadingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
         LoadingValue.setForeground(new java.awt.Color(255, 255, 255));
         LoadingValue.setText("0 %");
-        BackGroundPanel.add(LoadingValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 460, -1, -1));
+
+        javax.swing.GroupLayout panelBorderGradient1Layout = new javax.swing.GroupLayout(panelBorderGradient1);
+        panelBorderGradient1.setLayout(panelBorderGradient1Layout);
+        panelBorderGradient1Layout.setHorizontalGroup(
+            panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                        .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                                .addGap(876, 876, 876)
+                                .addComponent(LoadingValue))
+                            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(LoadingLabel)))
+                        .addGap(0, 54, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorderGradient1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LoadingBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorderGradient1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LogoIFSP_LIFE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelBorderGradient1Layout.setVerticalGroup(
+            panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(LoadingValue))
+                    .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(LoadingLabel))
+                    .addComponent(LogoIFSP_LIFE, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(LoadingBar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 955, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackGroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void IconXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconXMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_IconXMouseClicked
 
     /**
      * @param args the command line arguments
@@ -141,7 +170,6 @@ public class TelaSplashScreen extends javax.swing.JFrame {
 
                 if (i == 30) {
                     telasplashscreen.dispose();
-
                     Main main = new Main();
                     main.setVisible(true);
                 }
@@ -155,11 +183,10 @@ public class TelaSplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BackGroundPanel;
-    private javax.swing.JLabel IconX;
     private javax.swing.JProgressBar LoadingBar;
     private javax.swing.JLabel LoadingLabel;
     private javax.swing.JLabel LoadingValue;
     private javax.swing.JLabel LogoIFSP_LIFE;
+    private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
     // End of variables declaration//GEN-END:variables
 }
