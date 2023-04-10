@@ -213,13 +213,13 @@ o Função Saída 1.2 - Gerar Relatório de Compra
 Tarefas:
 → Verificar necessidade de adicionar "Cidade, CEP, Estado" | *Convênio;<br>
 → - Acertar alinhamento do sumário
-"O projeto visa desenvolver uma gestão eficaz do sistema." sem sentido<br>
-"e que os fornecedores possam enviar pedidos de compra de produtos" Os fornecedores nao tem acesso ao seu sistema eles nao enviam nada<br>
-"o IFSP-LIFE é um software completo que visa melhorar a eficiência e a segurança nas redes farmacêuticas." VOCE NAO PODE AFIRMAR ISSO<br>
-MELHORAS AS FUNÇÕES DE SAIDA<br>
-Legenda de todas as figuras deve ser acima acima da Imagem<br>
-Remover do projeto o que nao foi solicitado ainda<br>
-PENDENTE:
+→ "O projeto visa desenvolver uma gestão eficaz do sistema." sem sentido<br>
+→ "e que os fornecedores possam enviar pedidos de compra de produtos" Os fornecedores nao tem acesso ao seu sistema eles nao enviam nada<br>
+→ "o IFSP-LIFE é um software completo que visa melhorar a eficiência e a segurança nas redes farmacêuticas." VOCE NAO PODE AFIRMAR ISSO<br>
+→ MELHORAR AS FUNÇÕES DE SAIDA<br>
+→ Legenda de todas as figuras deve ser acima acima da Imagem<br>
+→ Remover do projeto o que nao foi solicitado ainda | (Caso de Uso - Diagrama de classe e outros)<br>
+<BR>PENDENTE:
 → Registrar JPA | Compra, Venda, Perfil & Caixa;<br> 
 
 TELAS:
