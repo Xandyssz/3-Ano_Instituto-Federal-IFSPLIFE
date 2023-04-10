@@ -3,7 +3,6 @@ package ifsplife.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,20 +28,18 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Vendas.findByFormaPagamento", query = "SELECT v FROM Vendas v WHERE v.formaPagamento = :formaPagamento")})
 public class Vendas implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "codigo_venda", nullable = false)
     private Integer codigoVenda;
-    @Basic(optional = false)
+
     @Column(name = "data_venda", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataVenda;
-    @Basic(optional = false)
+
     @Column(name = "valor_venda", nullable = false)
     private float valorVenda;
-    @Basic(optional = false)
+
     @Column(name = "forma_pagamento", nullable = false)
     private Character formaPagamento;
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)
@@ -143,7 +140,6 @@ public class Vendas implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Vendas)) {
             return false;
         }
@@ -158,5 +154,5 @@ public class Vendas implements Serializable {
     public String toString() {
         return "ifsplife.model.Vendas[ codigoVenda=" + codigoVenda + " ]";
     }
-    
+
 }

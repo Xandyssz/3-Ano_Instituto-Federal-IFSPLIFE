@@ -36,7 +36,7 @@ public class Item extends JButton {
     private void init() {
         setContentAreaFilled(false);
         setHorizontalAlignment(JButton.LEFT);
-        setForeground(new Color(50, 50, 50));
+        setForeground(new Color(150, 50, 50));
         if (mainMenu) {
             setBorder(new EmptyBorder(0, 20, 0, 0));
         } else {

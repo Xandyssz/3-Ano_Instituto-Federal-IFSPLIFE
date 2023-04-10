@@ -3,7 +3,6 @@ package ifsplife.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,20 +29,20 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Compras.findByValortotal", query = "SELECT c FROM Compras c WHERE c.valortotal = :valortotal")})
 public class Compras implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    
     @Column(name = "codigo_compra", nullable = false)
     private Integer codigoCompra;
-    @Basic(optional = false)
+    
     @Column(name = "data_compra", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataCompra;
-    @Basic(optional = false)
+    
     @Column(name = "forma_pagamento", nullable = false)
     private Character formaPagamento;
-    @Basic(optional = false)
+    
     @Column(name = "valortotal", nullable = false)
     private double valortotal;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "compras")

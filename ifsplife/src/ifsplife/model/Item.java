@@ -2,7 +2,6 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,35 +31,35 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Item.findByValor", query = "SELECT i FROM Item i WHERE i.valor = :valor")})
 public class Item implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    
     @Column(name = "codigo_item", nullable = false)
     private Integer codigoItem;
-    @Basic(optional = false)
+    
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
     @Column(name = "dosagem", length = 255)
     private String dosagem;
-    @Basic(optional = false)
+    
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
-    @Basic(optional = false)
+    
     @Column(name = "lote", nullable = false)
     private int lote;
-    @Basic(optional = false)
+    
     @Column(name = "data_fabricacao", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataFabricacao;
-    @Basic(optional = false)
+    
     @Column(name = "data_validade", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
-    @Basic(optional = false)
+    
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
-    @Basic(optional = false)
+    
     @Column(name = "valor", nullable = false)
     private float valor;
 

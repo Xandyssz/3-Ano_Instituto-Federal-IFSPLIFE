@@ -1,7 +1,6 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,43 +29,43 @@ import javax.persistence.Table;
     @NamedQuery(name = "Funcionarios.findBySenha", query = "SELECT f FROM Funcionarios f WHERE f.senha = :senha")})
 public class Funcionarios implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    
     @Column(name = "codigo_funcionario", nullable = false)
     private Integer codigoFuncionario;
-    @Basic(optional = false)
+    
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    @Basic(optional = false)
+    
     @Column(name = "cpf", nullable = false, length = 15)
     private String cpf;
-    @Basic(optional = false)
+    
     @Column(name = "nivelacesso", nullable = false, length = 45)
     private String nivelacesso;
-    @Basic(optional = false)
+    
     @Column(name = "telefone", nullable = false, length = 20)
     private String telefone;
-    @Basic(optional = false)
+    
     @Column(name = "endereco", nullable = false, length = 45)
     private String endereco;
-    @Basic(optional = false)
+    
     @Column(name = "cidade", nullable = false, length = 45)
     private String cidade;
-    @Basic(optional = false)
+    
     @Column(name = "cep", nullable = false, length = 12)
     private String cep;
-    @Basic(optional = false)
+    
     @Column(name = "uf", nullable = false, length = 20)
     private String uf;
-    @Basic(optional = false)
+    
     @Column(name = "salario", nullable = false, length = 50)
     private String salario;
-    @Basic(optional = false)
+    
     @Column(name = "login", nullable = false, length = 45)
     private String login;
-    @Basic(optional = false)
+    
     @Column(name = "senha", nullable = false, length = 45)
     private String senha;
 

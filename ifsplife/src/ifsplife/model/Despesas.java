@@ -3,7 +3,6 @@ package ifsplife.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,29 +26,29 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Despesas.findByStatus", query = "SELECT d FROM Despesas d WHERE d.status = :status")})
 public class Despesas implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
+    
     @Column(name = "codigo_despesa", nullable = false)
     private Integer codigoDespesa;
-    @Basic(optional = false)
+    
     @Column(name = "nome", nullable = false, length = 45)
     private String nome;
-    @Basic(optional = false)
+    
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
-    @Basic(optional = false)
+    
     @Column(name = "valor", nullable = false)
     private double valor;
-    @Basic(optional = false)
+    
     @Column(name = "data_vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataVencimento;
-    @Basic(optional = false)
+    
     @Column(name = "status", nullable = false, length = 20)
     private String status;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "despesas")
-    private Collection<CaixaDespesas> caixaHasDespesasCollection;
+    private Collection<CaixaDespesas> caixaDespesasCollection;
 
     public Despesas() {
     }
@@ -115,12 +114,12 @@ public class Despesas implements Serializable {
         this.status = status;
     }
 
-    public Collection<CaixaDespesas> getCaixaHasDespesasCollection() {
-        return caixaHasDespesasCollection;
+    public Collection<CaixaDespesas> getCaixaDespesasCollection() {
+        return caixaDespesasCollection;
     }
 
-    public void setCaixaHasDespesasCollection(Collection<CaixaDespesas> caixaHasDespesasCollection) {
-        this.caixaHasDespesasCollection = caixaHasDespesasCollection;
+    public void setCaixaDespesasCollection(Collection<CaixaDespesas> caixaDespesasCollection) {
+        this.caixaDespesasCollection = caixaDespesasCollection;
     }
 
     @Override

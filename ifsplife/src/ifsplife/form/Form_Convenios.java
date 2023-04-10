@@ -202,7 +202,7 @@ public class Form_Convenios extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Desconto"
+                "Nome", "Telefone", "Desconto (%)"
             }
         ));
         jScrollPane1.setViewportView(tableConvenios);

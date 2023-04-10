@@ -1,7 +1,6 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -21,13 +20,13 @@ import javax.persistence.Table;
     @NamedQuery(name = "Pagamento.findByForma", query = "SELECT p FROM Pagamento p WHERE p.forma = :forma")})
 public class Pagamento implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
     protected PagamentoPK pagamentoPK;
-    @Basic(optional = false)
+    
     @Column(name = "valor", nullable = false)
     private double valor;
-    @Basic(optional = false)
+    
     @Column(name = "forma", nullable = false, length = 10)
     private String forma;
     @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", nullable = false, insertable = false, updatable = false)

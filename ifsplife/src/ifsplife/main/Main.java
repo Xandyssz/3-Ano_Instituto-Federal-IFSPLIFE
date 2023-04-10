@@ -4,7 +4,6 @@ import ifsplife.form.Form_CaixaRegistradora;
 import ifsplife.form.Form_Compras;
 import ifsplife.form.Form_Convenios;
 import java.awt.Component;
-import ifsplife.form.Form_Dashboard;
 import ifsplife.form.Form_Empty;
 import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;

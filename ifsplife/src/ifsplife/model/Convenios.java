@@ -2,7 +2,6 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +19,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Convenios.findAll", query = "SELECT c FROM Convenios c"),
     @NamedQuery(name = "Convenios.findByCodigoConvenio", query = "SELECT c FROM Convenios c WHERE c.codigoConvenio = :codigoConvenio"),
     @NamedQuery(name = "Convenios.findByNome", query = "SELECT c FROM Convenios c WHERE c.nome = :nome"),
-    @NamedQuery(name = "Convenios.findByNomeQualquer", query = "SELECT c FROM Convenios c WHERE c.nome like :nome"),
+    @NamedQuery(name = "Convenios.findByNomeQualquer", query = "SELECT c FROM Convenios c WHERE c.nome like :nomeeuqla"),
     @NamedQuery(name = "Convenios.findByEmail", query = "SELECT c FROM Convenios c WHERE c.email = :email"),
     @NamedQuery(name = "Convenios.findByCnpj", query = "SELECT c FROM Convenios c WHERE c.cnpj = :cnpj"),
     @NamedQuery(name = "Convenios.findByEndereco", query = "SELECT c FROM Convenios c WHERE c.endereco = :endereco"),
@@ -28,28 +27,28 @@ import javax.persistence.Table;
     @NamedQuery(name = "Convenios.findByDesconto", query = "SELECT c FROM Convenios c WHERE c.desconto = :desconto")})
 public class Convenios implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    
     @Column(name = "codigo_convenio", nullable = false)
     private Integer codigoConvenio;
-    @Basic(optional = false)
+    
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    @Basic(optional = false)
+    
     @Column(name = "email", nullable = false, length = 255)
     private String email;
-    @Basic(optional = false)
+    
     @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
-    @Basic(optional = false)
+    
     @Column(name = "endereco", nullable = false, length = 255)
     private String endereco;
-    @Basic(optional = false)
+    
     @Column(name = "telefone", nullable = false, length = 255)
     private String telefone;
-    @Basic(optional = false)
+    
     @Column(name = "desconto", nullable = false)
     private float desconto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoConvenio")

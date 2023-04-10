@@ -202,7 +202,7 @@ public class Form_Item extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nome", "Descrição", "Desconto"
+                "Nome", "Descrição", "Valor"
             }
         ));
         jScrollPane1.setViewportView(tableItens);

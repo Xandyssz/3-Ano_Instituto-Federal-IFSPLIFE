@@ -2,7 +2,6 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -23,10 +22,10 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "CaixaDespesas.findByDataPagamento", query = "SELECT c FROM CaixaDespesas c WHERE c.dataPagamento = :dataPagamento")})
 public class CaixaDespesas implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
     protected CaixaDespesasPK caixaDespesasPK;
-    @Basic(optional = false)
+    
     @Column(name = "data_pagamento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;

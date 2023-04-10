@@ -213,7 +213,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nome", "Email", "Cargo"
+                "Nome", "CPF", "Cargo"
             }
         ));
         jScrollPane1.setViewportView(tableFuncionarios);

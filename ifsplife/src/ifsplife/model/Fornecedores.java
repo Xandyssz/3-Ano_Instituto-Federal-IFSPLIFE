@@ -2,7 +2,6 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,34 +29,34 @@ import javax.persistence.Table;
     @NamedQuery(name = "Fornecedores.findByUf", query = "SELECT f FROM Fornecedores f WHERE f.uf = :uf")})
 public class Fornecedores implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    
     @Column(name = "codigo_fornecedor", nullable = false)
     private Integer codigoFornecedor;
-    @Basic(optional = false)
+    
     @Column(name = "nome", nullable = false, length = 45)
     private String nome;
-    @Basic(optional = false)
+    
     @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
-    @Basic(optional = false)
+    
     @Column(name = "telefone", nullable = false, length = 20)
     private String telefone;
-    @Basic(optional = false)
+    
     @Column(name = "email", nullable = false, length = 45)
     private String email;
-    @Basic(optional = false)
+    
     @Column(name = "endereco", nullable = false, length = 45)
     private String endereco;
-    @Basic(optional = false)
+    
     @Column(name = "cidade", nullable = false, length = 45)
     private String cidade;
-    @Basic(optional = false)
+    
     @Column(name = "cep", nullable = false, length = 12)
     private String cep;
-    @Basic(optional = false)
+    
     @Column(name = "uf", nullable = false, length = 20)
     private String uf;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoFornecedor")

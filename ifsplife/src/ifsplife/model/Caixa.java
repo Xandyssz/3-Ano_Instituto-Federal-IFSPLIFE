@@ -3,7 +3,6 @@ package ifsplife.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,42 +28,45 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Caixa.findBySaldo", query = "SELECT c FROM Caixa c WHERE c.saldo = :saldo")})
 public class Caixa implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+
     @Column(name = "codigo_caixa", nullable = false)
     private Integer codigoCaixa;
-    @Basic(optional = false)
+
     @Column(name = "status", nullable = false)
     private Character status;
-    @Basic(optional = false)
+
     @Column(name = "abertura", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date abertura;
-    @Basic(optional = false)
+
     @Column(name = "valorabertura", nullable = false)
     private double valorabertura;
-    @Basic(optional = false)
+
     @Column(name = "totalentradas", nullable = false)
     private double totalentradas;
-    @Basic(optional = false)
+
     @Column(name = "fechamento", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date fechamento;
-    @Basic(optional = false)
+
     @Column(name = "totalsaidas", nullable = false)
     private double totalsaidas;
-    @Basic(optional = false)
+
     @Column(name = "saldo", nullable = false)
     private double saldo;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
     private Collection<Vendas> vendasCollection;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
     private Collection<Pagamentocompra> pagamentocompraCollection;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
     private Collection<Movimentacao> movimentacaoCollection;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private Collection<CaixaDespesas> caixaHasDespesasCollection;
+    private Collection<CaixaDespesas> caixaDespesasCollection;
 
     public Caixa() {
     }
@@ -172,12 +174,12 @@ public class Caixa implements Serializable {
         this.movimentacaoCollection = movimentacaoCollection;
     }
 
-    public Collection<CaixaDespesas> getCaixaHasDespesasCollection() {
-        return caixaHasDespesasCollection;
+    public Collection<CaixaDespesas> getCaixaDespesasCollection() {
+        return caixaDespesasCollection;
     }
 
-    public void setCaixaHasDespesasCollection(Collection<CaixaDespesas> caixaHasDespesasCollection) {
-        this.caixaHasDespesasCollection = caixaHasDespesasCollection;
+    public void setCaixaDespesasCollection(Collection<CaixaDespesas> caixaDespesasCollection) {
+        this.caixaDespesasCollection = caixaDespesasCollection;
     }
 
     @Override
@@ -203,5 +205,5 @@ public class Caixa implements Serializable {
     public String toString() {
         return "ifsplife.model.Caixa[ codigoCaixa=" + codigoCaixa + " ]";
     }
-    
+
 }

@@ -1,18 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package ifsplife.form;
 
-/**
- *
- * @author xandy
- */
 public class Form_Vendas extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Form_Compras
-     */
     public Form_Vendas() {
         initComponents();
     }
@@ -55,7 +44,6 @@ public class Form_Vendas extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         desconto = new javax.swing.JFormattedTextField();
         jSeparator10 = new javax.swing.JSeparator();
-        typeDiscount = new javax.swing.JComboBox<>();
         jSeparator11 = new javax.swing.JSeparator();
         totalDesconto = new javax.swing.JFormattedTextField();
         jLabel20 = new javax.swing.JLabel();
@@ -177,6 +165,7 @@ public class Form_Vendas extends javax.swing.JPanel {
 
         JLabelValorFinal.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         JLabelValorFinal.setForeground(new java.awt.Color(127, 127, 127));
+        JLabelValorFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelValorFinal.setText("Valor Final");
 
         JLabelR$.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -222,9 +211,6 @@ public class Form_Vendas extends javax.swing.JPanel {
         desconto.setBorder(null);
         desconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        typeDiscount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porcentagem", "Dinheiro" }));
-        typeDiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         totalDesconto.setBorder(null);
         totalDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
@@ -240,9 +226,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabelDetalhesDaCompra)
-                            .addComponent(typeDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JLabelDetalhesDaCompra)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelBorder2Layout.createSequentialGroup()
                         .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +244,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                                         .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jSeparator11)
                                     .addGroup(panelBorder2Layout.createSequentialGroup()
@@ -270,13 +254,18 @@ public class Form_Vendas extends javax.swing.JPanel {
                                     .addComponent(jLabel21))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabelValorFinal)
-                            .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelBorder2Layout.createSequentialGroup()
-                                .addComponent(JLabelR$)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLabelTotalCompra)))
-                        .addGap(123, 123, 123))))
+                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLabelValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelBorder2Layout.createSequentialGroup()
+                                        .addGap(60, 60, 60)
+                                        .addComponent(JLabelR$)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLabelTotalCompra)))
+                                .addGap(123, 123, 123))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
+                                .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107))))))
         );
         panelBorder2Layout.setVerticalGroup(
             panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +301,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JLabelValorFinal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -320,8 +309,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                             .addComponent(JLabelR$)
                             .addComponent(JLabelTotalCompra))
                         .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(typeDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
@@ -409,6 +397,5 @@ public class Form_Vendas extends javax.swing.JPanel {
     private ifsplife.dev.swing.Table table2;
     private javax.swing.JFormattedTextField total;
     private javax.swing.JFormattedTextField totalDesconto;
-    private javax.swing.JComboBox<String> typeDiscount;
     // End of variables declaration//GEN-END:variables
 }

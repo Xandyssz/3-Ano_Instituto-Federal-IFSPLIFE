@@ -19,8 +19,10 @@ public class Menu extends JPanel {
     private int index = -1;
     private final List<EventMenuSelected> events = new ArrayList<>();
 
-//    private Color firstColor = Color.decode("#004e92");
-//    private Color secondColor = Color.decode("#000428")
+    private Color firstColor = Color.decode("#004e92");
+    private Color secondColor = Color.decode("#000428");
+    private Color textColor = Color.decode("#4EF92F");
+
     public Menu() {
         init();
     }
@@ -31,7 +33,7 @@ public class Menu extends JPanel {
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
-//      panelMenu.setBackground(secondColor);
+//        panelMenu.setBackground(secondColor);
         scroll.setViewportView(panelMenu);
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
@@ -47,7 +49,6 @@ public class Menu extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Item"));
-
         addTitle("MEUS DADOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Perfil"));
     }
@@ -99,7 +100,7 @@ public class Menu extends JPanel {
         JLabel label = new JLabel(title);
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
         label.setFont(label.getFont().deriveFont(Font.BOLD));
-        label.setForeground(new Color(170, 170, 170));
+        label.setForeground(textColor);
         panelMenu.add(label);
     }
 

@@ -2,7 +2,6 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,19 +24,19 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Pagamentocompra.findByValor", query = "SELECT p FROM Pagamentocompra p WHERE p.valor = :valor")})
 public class Pagamentocompra implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
+    
     @Column(name = "codigo_compra", nullable = false)
     private Integer codigoCompra;
-    @Basic(optional = false)
+    
     @Column(name = "parcela", nullable = false)
     private int parcela;
-    @Basic(optional = false)
+    
     @Column(name = "vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date vencimento;
-    @Basic(optional = false)
+    
     @Column(name = "valor", nullable = false)
     private float valor;
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)

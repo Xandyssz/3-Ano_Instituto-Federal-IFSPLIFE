@@ -1,17 +1,16 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class MovimentacaoPK implements Serializable {
 
-    @Basic(optional = false)
+    
     @Column(name = "codigo_movimentacao", nullable = false)
     private int codigoMovimentacao;
-    @Basic(optional = false)
+    
     @Column(name = "caixa_codigo_caixa", nullable = false)
     private int caixaCodigoCaixa;
 
