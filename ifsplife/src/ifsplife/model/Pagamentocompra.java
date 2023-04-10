@@ -24,19 +24,18 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Pagamentocompra.findByValor", query = "SELECT p FROM Pagamentocompra p WHERE p.valor = :valor")})
 public class Pagamentocompra implements Serializable {
 
-    
     @Id
-    
+
     @Column(name = "codigo_compra", nullable = false)
     private Integer codigoCompra;
-    
+
     @Column(name = "parcela", nullable = false)
     private int parcela;
-    
+
     @Column(name = "vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date vencimento;
-    
+
     @Column(name = "valor", nullable = false)
     private float valor;
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)
@@ -117,7 +116,6 @@ public class Pagamentocompra implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Pagamentocompra)) {
             return false;
         }
@@ -132,5 +130,5 @@ public class Pagamentocompra implements Serializable {
     public String toString() {
         return "ifsplife.model.Pagamentocompra[ codigoCompra=" + codigoCompra + " ]";
     }
-    
+
 }

@@ -19,9 +19,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
     @NamedQuery(name = "Item.findByCodigoItem", query = "SELECT i FROM Item i WHERE i.codigoItem = :codigoItem"),
     @NamedQuery(name = "Item.findByNomeEspecifico", query = "SELECT i FROM Item i WHERE i.nome = :nome"),
-    
+
     @NamedQuery(name = "Item.findByNomeQualquer", query = "SELECT i FROM Item i WHERE i.nome like :nome"),
-    
+
     @NamedQuery(name = "Item.findByDosagem", query = "SELECT i FROM Item i WHERE i.dosagem = :dosagem"),
     @NamedQuery(name = "Item.findByDescricao", query = "SELECT i FROM Item i WHERE i.descricao = :descricao"),
     @NamedQuery(name = "Item.findByLote", query = "SELECT i FROM Item i WHERE i.lote = :lote"),
@@ -31,35 +31,34 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Item.findByValor", query = "SELECT i FROM Item i WHERE i.valor = :valor")})
 public class Item implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_item", nullable = false)
     private Integer codigoItem;
-    
+
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
     @Column(name = "dosagem", length = 255)
     private String dosagem;
-    
+
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
-    
+
     @Column(name = "lote", nullable = false)
     private int lote;
-    
+
     @Column(name = "data_fabricacao", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataFabricacao;
-    
+
     @Column(name = "data_validade", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
-    
+
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
-    
+
     @Column(name = "valor", nullable = false)
     private float valor;
 
@@ -176,5 +175,5 @@ public class Item implements Serializable {
     public String toString() {
         return "ifsplife.model.Item[ codigoItem=" + codigoItem + " ]";
     }
-    
+
 }

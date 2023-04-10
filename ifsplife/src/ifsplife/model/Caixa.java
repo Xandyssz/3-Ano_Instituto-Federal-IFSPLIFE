@@ -56,18 +56,6 @@ public class Caixa implements Serializable {
     @Column(name = "saldo", nullable = false)
     private double saldo;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
-    private Collection<Vendas> vendasCollection;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
-    private Collection<Pagamentocompra> pagamentocompraCollection;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private Collection<Movimentacao> movimentacaoCollection;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private Collection<CaixaDespesas> caixaDespesasCollection;
-
     public Caixa() {
     }
 
@@ -148,38 +136,6 @@ public class Caixa implements Serializable {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
-    }
-
-    public Collection<Vendas> getVendasCollection() {
-        return vendasCollection;
-    }
-
-    public void setVendasCollection(Collection<Vendas> vendasCollection) {
-        this.vendasCollection = vendasCollection;
-    }
-
-    public Collection<Pagamentocompra> getPagamentocompraCollection() {
-        return pagamentocompraCollection;
-    }
-
-    public void setPagamentocompraCollection(Collection<Pagamentocompra> pagamentocompraCollection) {
-        this.pagamentocompraCollection = pagamentocompraCollection;
-    }
-
-    public Collection<Movimentacao> getMovimentacaoCollection() {
-        return movimentacaoCollection;
-    }
-
-    public void setMovimentacaoCollection(Collection<Movimentacao> movimentacaoCollection) {
-        this.movimentacaoCollection = movimentacaoCollection;
-    }
-
-    public Collection<CaixaDespesas> getCaixaDespesasCollection() {
-        return caixaDespesasCollection;
-    }
-
-    public void setCaixaDespesasCollection(Collection<CaixaDespesas> caixaDespesasCollection) {
-        this.caixaDespesasCollection = caixaDespesasCollection;
     }
 
     @Override

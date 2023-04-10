@@ -27,32 +27,29 @@ import javax.persistence.Table;
     @NamedQuery(name = "Convenios.findByDesconto", query = "SELECT c FROM Convenios c WHERE c.desconto = :desconto")})
 public class Convenios implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_convenio", nullable = false)
     private Integer codigoConvenio;
-    
+
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    
+
     @Column(name = "email", nullable = false, length = 255)
     private String email;
-    
+
     @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
-    
+
     @Column(name = "endereco", nullable = false, length = 255)
     private String endereco;
-    
+
     @Column(name = "telefone", nullable = false, length = 255)
     private String telefone;
-    
+
     @Column(name = "desconto", nullable = false)
     private float desconto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoConvenio")
-    private Collection<Vendas> vendasCollection;
 
     public Convenios() {
     }
@@ -125,14 +122,6 @@ public class Convenios implements Serializable {
 
     public void setDesconto(float desconto) {
         this.desconto = desconto;
-    }
-
-    public Collection<Vendas> getVendasCollection() {
-        return vendasCollection;
-    }
-
-    public void setVendasCollection(Collection<Vendas> vendasCollection) {
-        this.vendasCollection = vendasCollection;
     }
 
     @Override

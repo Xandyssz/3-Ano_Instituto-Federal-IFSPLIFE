@@ -29,28 +29,22 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Compras.findByValortotal", query = "SELECT c FROM Compras c WHERE c.valortotal = :valortotal")})
 public class Compras implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_compra", nullable = false)
     private Integer codigoCompra;
-    
+
     @Column(name = "data_compra", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataCompra;
-    
+
     @Column(name = "forma_pagamento", nullable = false)
     private Character formaPagamento;
-    
+
     @Column(name = "valortotal", nullable = false)
     private double valortotal;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "compras")
-    private Collection<Itemcompra> itemcompraCollection;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "compras")
-    private Pagamentocompra pagamentocompra;
-    @JoinColumn(name = "codigo_fornecedor", referencedColumnName = "codigo_fornecedor", nullable = false)
-    @ManyToOne(optional = false)
+
     private Fornecedores codigoFornecedor;
 
     public Compras() {
@@ -99,22 +93,6 @@ public class Compras implements Serializable {
         this.valortotal = valortotal;
     }
 
-    public Collection<Itemcompra> getItemcompraCollection() {
-        return itemcompraCollection;
-    }
-
-    public void setItemcompraCollection(Collection<Itemcompra> itemcompraCollection) {
-        this.itemcompraCollection = itemcompraCollection;
-    }
-
-    public Pagamentocompra getPagamentocompra() {
-        return pagamentocompra;
-    }
-
-    public void setPagamentocompra(Pagamentocompra pagamentocompra) {
-        this.pagamentocompra = pagamentocompra;
-    }
-
     public Fornecedores getCodigoFornecedor() {
         return codigoFornecedor;
     }
@@ -146,5 +124,5 @@ public class Compras implements Serializable {
     public String toString() {
         return "ifsplife.model.Compras[ codigoCompra=" + codigoCompra + " ]";
     }
-    
+
 }

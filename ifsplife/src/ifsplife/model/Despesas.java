@@ -1,15 +1,12 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,29 +23,26 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Despesas.findByStatus", query = "SELECT d FROM Despesas d WHERE d.status = :status")})
 public class Despesas implements Serializable {
 
-    
     @Id
-    
+
     @Column(name = "codigo_despesa", nullable = false)
     private Integer codigoDespesa;
-    
+
     @Column(name = "nome", nullable = false, length = 45)
     private String nome;
-    
+
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
-    
+
     @Column(name = "valor", nullable = false)
     private double valor;
-    
+
     @Column(name = "data_vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataVencimento;
-    
+
     @Column(name = "status", nullable = false, length = 20)
     private String status;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "despesas")
-    private Collection<CaixaDespesas> caixaDespesasCollection;
 
     public Despesas() {
     }
@@ -114,14 +108,6 @@ public class Despesas implements Serializable {
         this.status = status;
     }
 
-    public Collection<CaixaDespesas> getCaixaDespesasCollection() {
-        return caixaDespesasCollection;
-    }
-
-    public void setCaixaDespesasCollection(Collection<CaixaDespesas> caixaDespesasCollection) {
-        this.caixaDespesasCollection = caixaDespesasCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -145,5 +131,5 @@ public class Despesas implements Serializable {
     public String toString() {
         return "ifsplife.model.Despesas[ codigoDespesa=" + codigoDespesa + " ]";
     }
-    
+
 }

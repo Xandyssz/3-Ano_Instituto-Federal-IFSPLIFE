@@ -1,9 +1,7 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,10 +45,6 @@ public class Vendas implements Serializable {
     @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio", nullable = false)
     @ManyToOne(optional = false)
     private Convenios codigoConvenio;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
-    private Collection<Itemvenda> itemvendaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
-    private Collection<Pagamento> pagamentoCollection;
 
     public Vendas() {
     }
@@ -113,22 +106,6 @@ public class Vendas implements Serializable {
 
     public void setCodigoConvenio(Convenios codigoConvenio) {
         this.codigoConvenio = codigoConvenio;
-    }
-
-    public Collection<Itemvenda> getItemvendaCollection() {
-        return itemvendaCollection;
-    }
-
-    public void setItemvendaCollection(Collection<Itemvenda> itemvendaCollection) {
-        this.itemvendaCollection = itemvendaCollection;
-    }
-
-    public Collection<Pagamento> getPagamentoCollection() {
-        return pagamentoCollection;
-    }
-
-    public void setPagamentoCollection(Collection<Pagamento> pagamentoCollection) {
-        this.pagamentoCollection = pagamentoCollection;
     }
 
     @Override
