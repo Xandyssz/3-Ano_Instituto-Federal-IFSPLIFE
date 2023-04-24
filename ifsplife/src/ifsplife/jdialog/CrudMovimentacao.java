@@ -1,13 +1,18 @@
 package ifsplife.jdialog;
 
+import ifsplife.model.Movimentacao;
+import ifsplife.model.MovimentacaoId;
 import javax.swing.JOptionPane;
 
-public class Movimentacao extends javax.swing.JDialog {
+public class CrudMovimentacao extends javax.swing.JDialog {
 
-    public Movimentacao(java.awt.Frame parent, boolean modal) {
+
+
+    public CrudMovimentacao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-    } 
+    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -69,6 +74,11 @@ public class Movimentacao extends javax.swing.JDialog {
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
+        JButtonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonCadastrarMouseClicked(evt);
+            }
+        });
 
         JLabelCadastrar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         JLabelCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -234,6 +244,10 @@ public class Movimentacao extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_ConfirmarValorMouseClicked
+
+    private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
+ 
+    }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

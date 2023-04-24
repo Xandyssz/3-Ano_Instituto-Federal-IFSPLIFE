@@ -263,6 +263,9 @@
                   <Dimension value="[90, 22]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonCadastrarMouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

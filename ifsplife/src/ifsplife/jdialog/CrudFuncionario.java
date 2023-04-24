@@ -41,7 +41,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JTextFieldCidade.setText(funcionarios.getCidade());
         JFormatedTextCEP.setText(funcionarios.getCep());
         JComboBoxEstado.setSelectedItem(funcionarios.getUf());
-        JFormatedTextSalario.setValue(funcionarios.getSalario());
+        JFormatedTextSalario.setText(funcionarios.getSalario());
         JTextFieldLogin.setText(funcionarios.getLogin());
         JTextFieldSenha.setText(funcionarios.getSenha());
     }

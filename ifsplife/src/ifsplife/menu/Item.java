@@ -36,7 +36,7 @@ public class Item extends JButton {
     private void init() {
         setContentAreaFilled(false);
         setHorizontalAlignment(JButton.LEFT);
-        setForeground(new Color(150, 50, 50));
+        setForeground(new Color(0, 0, 0));
         if (mainMenu) {
             setBorder(new EmptyBorder(0, 20, 0, 0));
         } else {
@@ -56,7 +56,7 @@ public class Item extends JButton {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (!isSelected()) {
-                    setForeground(new Color(50, 50, 50));
+                    setForeground(new Color(0, 0, 0));
                     setGoogleIcon(icon);
                 }
                 if (!mainMenu) {
@@ -133,7 +133,7 @@ public class Item extends JButton {
             setForeground(mainColor);
         } else {
             alpha = 0;
-            setForeground(new Color(50, 50, 50));
+            setForeground(new Color(0, 0, 0));
         }
         setGoogleIcon(icon);
     }

@@ -6,32 +6,26 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "itemvenda", catalog = "ifsplife", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i"),
-    @NamedQuery(name = "Itemvenda.findByCodigoVenda", query = "SELECT i FROM Itemvenda i WHERE i.itemvendaPK.codigoVenda = :codigoVenda"),
-    @NamedQuery(name = "Itemvenda.findByCodigoProduto", query = "SELECT i FROM Itemvenda i WHERE i.itemvendaPK.codigoProduto = :codigoProduto"),
-    @NamedQuery(name = "Itemvenda.findByQuantidade", query = "SELECT i FROM Itemvenda i WHERE i.quantidade = :quantidade"),
-    @NamedQuery(name = "Itemvenda.findByPreco", query = "SELECT i FROM Itemvenda i WHERE i.preco = :preco")})
 public class Itemvenda implements Serializable {
 
     
     @EmbeddedId
-    protected ItemvendaPK itemvendaPK;
+    protected ItemvendaId itemvendaPK;
     
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
     
     @Column(name = "preco", nullable = false)
     private float preco;
+    
     @JoinColumn(name = "codigo_produto", referencedColumnName = "codigo_produto", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Item item;
+    
     @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Vendas vendas;
@@ -39,25 +33,25 @@ public class Itemvenda implements Serializable {
     public Itemvenda() {
     }
 
-    public Itemvenda(ItemvendaPK itemvendaPK) {
+    public Itemvenda(ItemvendaId itemvendaPK) {
         this.itemvendaPK = itemvendaPK;
     }
 
-    public Itemvenda(ItemvendaPK itemvendaPK, int quantidade, float preco) {
+    public Itemvenda(ItemvendaId itemvendaPK, int quantidade, float preco) {
         this.itemvendaPK = itemvendaPK;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
     public Itemvenda(int codigoVenda, int codigoProduto) {
-        this.itemvendaPK = new ItemvendaPK(codigoVenda, codigoProduto);
+        this.itemvendaPK = new ItemvendaId(codigoVenda, codigoProduto);
     }
 
-    public ItemvendaPK getItemvendaPK() {
+    public ItemvendaId getItemvendaPK() {
         return itemvendaPK;
     }
 
-    public void setItemvendaPK(ItemvendaPK itemvendaPK) {
+    public void setItemvendaPK(ItemvendaId itemvendaPK) {
         this.itemvendaPK = itemvendaPK;
     }
 

@@ -22,7 +22,7 @@ public class Pagamento implements Serializable {
 
     
     @EmbeddedId
-    protected PagamentoPK pagamentoPK;
+    protected PagamentoId pagamentoPK;
     
     @Column(name = "valor", nullable = false)
     private double valor;
@@ -36,25 +36,25 @@ public class Pagamento implements Serializable {
     public Pagamento() {
     }
 
-    public Pagamento(PagamentoPK pagamentoPK) {
+    public Pagamento(PagamentoId pagamentoPK) {
         this.pagamentoPK = pagamentoPK;
     }
 
-    public Pagamento(PagamentoPK pagamentoPK, double valor, String forma) {
+    public Pagamento(PagamentoId pagamentoPK, double valor, String forma) {
         this.pagamentoPK = pagamentoPK;
         this.valor = valor;
         this.forma = forma;
     }
 
     public Pagamento(int codigoPagamento, int codigoVenda) {
-        this.pagamentoPK = new PagamentoPK(codigoPagamento, codigoVenda);
+        this.pagamentoPK = new PagamentoId(codigoPagamento, codigoVenda);
     }
 
-    public PagamentoPK getPagamentoPK() {
+    public PagamentoId getPagamentoPK() {
         return pagamentoPK;
     }
 
-    public void setPagamentoPK(PagamentoPK pagamentoPK) {
+    public void setPagamentoPK(PagamentoId pagamentoPK) {
         this.pagamentoPK = pagamentoPK;
     }
 

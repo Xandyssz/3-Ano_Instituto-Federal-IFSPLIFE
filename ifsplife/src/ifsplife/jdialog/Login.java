@@ -35,6 +35,7 @@ public class Login extends javax.swing.JDialog {
         JLabelNome.setForeground(new java.awt.Color(255, 255, 255));
         JLabelNome.setText("Nome");
 
+        JTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         JTextFieldNome.setText(" Login...");
         JTextFieldNome.setBorder(null);
         JTextFieldNome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -46,6 +47,7 @@ public class Login extends javax.swing.JDialog {
         JLabelSenha.setForeground(new java.awt.Color(255, 255, 255));
         JLabelSenha.setText("Senha");
 
+        JTextFieldSenha.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         JTextFieldSenha.setText(" Senha...");
         JTextFieldSenha.setBorder(null);
         JTextFieldSenha.addMouseListener(new java.awt.event.MouseAdapter() {

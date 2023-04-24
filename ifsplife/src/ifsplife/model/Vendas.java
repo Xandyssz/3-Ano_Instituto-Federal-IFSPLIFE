@@ -39,9 +39,11 @@ public class Vendas implements Serializable {
 
     @Column(name = "forma_pagamento", nullable = false)
     private Character formaPagamento;
+    
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)
     @ManyToOne(optional = false)
     private Caixa caixaIdcaixa;
+    
     @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio", nullable = false)
     @ManyToOne(optional = false)
     private Convenios codigoConvenio;

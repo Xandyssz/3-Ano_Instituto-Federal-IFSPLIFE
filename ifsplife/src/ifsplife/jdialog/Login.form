@@ -135,6 +135,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="JTextFieldNome">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value=" Login..."/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -156,6 +157,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="JTextFieldSenha">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value=" Senha..."/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

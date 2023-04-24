@@ -23,7 +23,7 @@ public class Movimentacao implements Serializable {
 
     
     @EmbeddedId
-    protected MovimentacaoPK movimentacaoPK;
+    protected MovimentacaoId movimentacaoPK;
     
     @Column(name = "valor", nullable = false)
     private double valor;
@@ -32,7 +32,7 @@ public class Movimentacao implements Serializable {
     private String motivo;
     
     @Column(name = "tipo", nullable = false)
-    private int tipo;
+    private String tipo;
     @JoinColumn(name = "caixa_codigo_caixa", referencedColumnName = "codigo_caixa", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Caixa caixa;
@@ -40,11 +40,11 @@ public class Movimentacao implements Serializable {
     public Movimentacao() {
     }
 
-    public Movimentacao(MovimentacaoPK movimentacaoPK) {
+    public Movimentacao(MovimentacaoId movimentacaoPK) {
         this.movimentacaoPK = movimentacaoPK;
     }
 
-    public Movimentacao(MovimentacaoPK movimentacaoPK, double valor, String motivo, int tipo) {
+    public Movimentacao(MovimentacaoId movimentacaoPK, double valor, String motivo, String tipo) {
         this.movimentacaoPK = movimentacaoPK;
         this.valor = valor;
         this.motivo = motivo;
@@ -52,14 +52,14 @@ public class Movimentacao implements Serializable {
     }
 
     public Movimentacao(int codigoMovimentacao, int caixaCodigoCaixa) {
-        this.movimentacaoPK = new MovimentacaoPK(codigoMovimentacao, caixaCodigoCaixa);
+        this.movimentacaoPK = new MovimentacaoId(codigoMovimentacao, caixaCodigoCaixa);
     }
 
-    public MovimentacaoPK getMovimentacaoPK() {
+    public MovimentacaoId getMovimentacaoPK() {
         return movimentacaoPK;
     }
 
-    public void setMovimentacaoPK(MovimentacaoPK movimentacaoPK) {
+    public void setMovimentacaoPK(MovimentacaoId movimentacaoPK) {
         this.movimentacaoPK = movimentacaoPK;
     }
 
@@ -79,11 +79,11 @@ public class Movimentacao implements Serializable {
         this.motivo = motivo;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

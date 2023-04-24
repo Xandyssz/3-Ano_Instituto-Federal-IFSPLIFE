@@ -22,7 +22,7 @@ public class Itemcompra implements Serializable {
 
     
     @EmbeddedId
-    protected ItemcompraPK itemcompraPK;
+    protected ItemcompraId itemcompraPK;
     
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
@@ -40,25 +40,25 @@ public class Itemcompra implements Serializable {
     public Itemcompra() {
     }
 
-    public Itemcompra(ItemcompraPK itemcompraPK) {
+    public Itemcompra(ItemcompraId itemcompraPK) {
         this.itemcompraPK = itemcompraPK;
     }
 
-    public Itemcompra(ItemcompraPK itemcompraPK, int quantidade, float preco) {
+    public Itemcompra(ItemcompraId itemcompraPK, int quantidade, float preco) {
         this.itemcompraPK = itemcompraPK;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
     public Itemcompra(int codigoCompra, int codigoProduto) {
-        this.itemcompraPK = new ItemcompraPK(codigoCompra, codigoProduto);
+        this.itemcompraPK = new ItemcompraId(codigoCompra, codigoProduto);
     }
 
-    public ItemcompraPK getItemcompraPK() {
+    public ItemcompraId getItemcompraPK() {
         return itemcompraPK;
     }
 
-    public void setItemcompraPK(ItemcompraPK itemcompraPK) {
+    public void setItemcompraPK(ItemcompraId itemcompraPK) {
         this.itemcompraPK = itemcompraPK;
     }
 

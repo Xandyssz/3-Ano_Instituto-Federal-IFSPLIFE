@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class CaixaDespesasPK implements Serializable {
+public class CaixaDespesasId implements Serializable {
 
     
     @Column(name = "codigo_caixa", nullable = false)
@@ -14,10 +14,10 @@ public class CaixaDespesasPK implements Serializable {
     @Column(name = "codigo_despesa", nullable = false)
     private int codigoDespesa;
 
-    public CaixaDespesasPK() {
+    public CaixaDespesasId() {
     }
 
-    public CaixaDespesasPK(int codigoCaixa, int codigoDespesa) {
+    public CaixaDespesasId(int codigoCaixa, int codigoDespesa) {
         this.codigoCaixa = codigoCaixa;
         this.codigoDespesa = codigoDespesa;
     }
@@ -48,10 +48,10 @@ public class CaixaDespesasPK implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof CaixaDespesasPK)) {
+        if (!(object instanceof CaixaDespesasId)) {
             return false;
         }
-        CaixaDespesasPK other = (CaixaDespesasPK) object;
+        CaixaDespesasId other = (CaixaDespesasId) object;
         if (this.codigoCaixa != other.codigoCaixa) {
             return false;
         }

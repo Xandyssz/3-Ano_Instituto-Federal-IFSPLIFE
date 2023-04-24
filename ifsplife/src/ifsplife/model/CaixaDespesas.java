@@ -24,7 +24,7 @@ public class CaixaDespesas implements Serializable {
 
     
     @EmbeddedId
-    protected CaixaDespesasPK caixaDespesasPK;
+    protected CaixaDespesasId caixaDespesasPK;
     
     @Column(name = "data_pagamento", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -39,24 +39,24 @@ public class CaixaDespesas implements Serializable {
     public CaixaDespesas() {
     }
 
-    public CaixaDespesas(CaixaDespesasPK caixaDespesasPK) {
+    public CaixaDespesas(CaixaDespesasId caixaDespesasPK) {
         this.caixaDespesasPK = caixaDespesasPK;
     }
 
-    public CaixaDespesas(CaixaDespesasPK caixaDespesasPK, Date dataPagamento) {
+    public CaixaDespesas(CaixaDespesasId caixaDespesasPK, Date dataPagamento) {
         this.caixaDespesasPK = caixaDespesasPK;
         this.dataPagamento = dataPagamento;
     }
 
     public CaixaDespesas(int codigoCaixa, int codigoDespesa) {
-        this.caixaDespesasPK = new CaixaDespesasPK(codigoCaixa, codigoDespesa);
+        this.caixaDespesasPK = new CaixaDespesasId(codigoCaixa, codigoDespesa);
     }
 
-    public CaixaDespesasPK getCaixaDespesasPK() {
+    public CaixaDespesasId getCaixaDespesasPK() {
         return caixaDespesasPK;
     }
 
-    public void setCaixaDespesasPK(CaixaDespesasPK caixaDespesasPK) {
+    public void setCaixaDespesasPK(CaixaDespesasId caixaDespesasPK) {
         this.caixaDespesasPK = caixaDespesasPK;
     }
 
