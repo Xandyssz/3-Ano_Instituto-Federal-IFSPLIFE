@@ -2,6 +2,8 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "vendas", catalog = "ifsplife", schema = "")
+@Table(name = "vendas")
 @NamedQueries({
     @NamedQuery(name = "Vendas.findAll", query = "SELECT v FROM Vendas v"),
     @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigoVenda = :codigoVenda"),
@@ -27,26 +30,29 @@ public class Vendas implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_venda", nullable = false)
+
+    @Column(name = "codigo_venda")
     private Integer codigoVenda;
 
-    @Column(name = "data_venda", nullable = false)
+    @Column(name = "data_venda")
     @Temporal(TemporalType.DATE)
     private Date dataVenda;
 
-    @Column(name = "valor_venda", nullable = false)
+    @Column(name = "valor_venda")
     private float valorVenda;
 
-    @Column(name = "forma_pagamento", nullable = false)
+    @Column(name = "forma_pagamento")
     private Character formaPagamento;
-    
-    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)
+    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
     @ManyToOne(optional = false)
     private Caixa caixaIdcaixa;
-    
-    @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio", nullable = false)
+    @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio")
     @ManyToOne(optional = false)
     private Convenios codigoConvenio;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
+    private List<Itemvenda> itemvendaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
+    private List<Pagamento> pagamentoList;
 
     public Vendas() {
     }
@@ -108,6 +114,22 @@ public class Vendas implements Serializable {
 
     public void setCodigoConvenio(Convenios codigoConvenio) {
         this.codigoConvenio = codigoConvenio;
+    }
+
+    public List<Itemvenda> getItemvendaList() {
+        return itemvendaList;
+    }
+
+    public void setItemvendaList(List<Itemvenda> itemvendaList) {
+        this.itemvendaList = itemvendaList;
+    }
+
+    public List<Pagamento> getPagamentoList() {
+        return pagamentoList;
+    }
+
+    public void setPagamentoList(List<Pagamento> pagamentoList) {
+        this.pagamentoList = pagamentoList;
     }
 
     @Override

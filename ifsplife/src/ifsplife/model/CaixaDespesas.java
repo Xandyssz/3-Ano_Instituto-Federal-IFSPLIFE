@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "caixa_despesas", catalog = "ifsplife", schema = "")
+@Table(name = "caixa_despesas")
 @NamedQueries({
     @NamedQuery(name = "CaixaDespesas.findAll", query = "SELECT c FROM CaixaDespesas c"),
     @NamedQuery(name = "CaixaDespesas.findByCodigoCaixa", query = "SELECT c FROM CaixaDespesas c WHERE c.caixaDespesasPK.codigoCaixa = :codigoCaixa"),
@@ -22,41 +22,40 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "CaixaDespesas.findByDataPagamento", query = "SELECT c FROM CaixaDespesas c WHERE c.dataPagamento = :dataPagamento")})
 public class CaixaDespesas implements Serializable {
 
-    
     @EmbeddedId
-    protected CaixaDespesasId caixaDespesasPK;
-    
-    @Column(name = "data_pagamento", nullable = false)
+    protected CaixaDespesasID caixaDespesasPK;
+
+    @Column(name = "data_pagamento")
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;
-    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Caixa caixa;
-    @JoinColumn(name = "codigo_despesa", referencedColumnName = "codigo_despesa", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_despesa", referencedColumnName = "codigo_despesa", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Despesas despesas;
 
     public CaixaDespesas() {
     }
 
-    public CaixaDespesas(CaixaDespesasId caixaDespesasPK) {
+    public CaixaDespesas(CaixaDespesasID caixaDespesasPK) {
         this.caixaDespesasPK = caixaDespesasPK;
     }
 
-    public CaixaDespesas(CaixaDespesasId caixaDespesasPK, Date dataPagamento) {
+    public CaixaDespesas(CaixaDespesasID caixaDespesasPK, Date dataPagamento) {
         this.caixaDespesasPK = caixaDespesasPK;
         this.dataPagamento = dataPagamento;
     }
 
     public CaixaDespesas(int codigoCaixa, int codigoDespesa) {
-        this.caixaDespesasPK = new CaixaDespesasId(codigoCaixa, codigoDespesa);
+        this.caixaDespesasPK = new CaixaDespesasID(codigoCaixa, codigoDespesa);
     }
 
-    public CaixaDespesasId getCaixaDespesasPK() {
+    public CaixaDespesasID getCaixaDespesasPK() {
         return caixaDespesasPK;
     }
 
-    public void setCaixaDespesasPK(CaixaDespesasId caixaDespesasPK) {
+    public void setCaixaDespesasPK(CaixaDespesasID caixaDespesasPK) {
         this.caixaDespesasPK = caixaDespesasPK;
     }
 
@@ -107,5 +106,5 @@ public class CaixaDespesas implements Serializable {
     public String toString() {
         return "ifsplife.model.CaixaDespesas[ caixaDespesasPK=" + caixaDespesasPK + " ]";
     }
-    
+
 }

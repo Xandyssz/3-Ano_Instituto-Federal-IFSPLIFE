@@ -2,17 +2,20 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "despesas", catalog = "ifsplife", schema = "")
+@Table(name = "despesas")
 @NamedQueries({
     @NamedQuery(name = "Despesas.findAll", query = "SELECT d FROM Despesas d"),
     @NamedQuery(name = "Despesas.findByCodigoDespesa", query = "SELECT d FROM Despesas d WHERE d.codigoDespesa = :codigoDespesa"),
@@ -24,25 +27,26 @@ import javax.persistence.TemporalType;
 public class Despesas implements Serializable {
 
     @Id
-
-    @Column(name = "codigo_despesa", nullable = false)
+    @Column(name = "codigo_despesa")
     private Integer codigoDespesa;
 
-    @Column(name = "nome", nullable = false, length = 45)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "descricao", nullable = false, length = 255)
+    @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor")
     private double valor;
 
-    @Column(name = "data_vencimento", nullable = false)
+    @Column(name = "data_vencimento")
     @Temporal(TemporalType.DATE)
     private Date dataVencimento;
 
-    @Column(name = "status", nullable = false, length = 20)
+    @Column(name = "status")
     private String status;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "despesas")
+    private List<CaixaDespesas> caixaDespesasList;
 
     public Despesas() {
     }
@@ -106,6 +110,14 @@ public class Despesas implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<CaixaDespesas> getCaixaDespesasList() {
+        return caixaDespesasList;
+    }
+
+    public void setCaixaDespesasList(List<CaixaDespesas> caixaDespesasList) {
+        this.caixaDespesasList = caixaDespesasList;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,15 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "fornecedores", catalog = "ifsplife", schema = "")
+@Table(name = "fornecedores")
 @NamedQueries({
     @NamedQuery(name = "Fornecedores.findAll", query = "SELECT f FROM Fornecedores f"),
     @NamedQuery(name = "Fornecedores.findByCodigoFornecedor", query = "SELECT f FROM Fornecedores f WHERE f.codigoFornecedor = :codigoFornecedor"),
     @NamedQuery(name = "Fornecedores.findByNome", query = "SELECT f FROM Fornecedores f WHERE f.nome = :nome"),
-    @NamedQuery(name = "Fornecedores.findByNomeQualquer", query = "SELECT f FROM Fornecedores f WHERE f.nome like :nome"),
     @NamedQuery(name = "Fornecedores.findByCnpj", query = "SELECT f FROM Fornecedores f WHERE f.cnpj = :cnpj"),
     @NamedQuery(name = "Fornecedores.findByTelefone", query = "SELECT f FROM Fornecedores f WHERE f.telefone = :telefone"),
     @NamedQuery(name = "Fornecedores.findByEmail", query = "SELECT f FROM Fornecedores f WHERE f.email = :email"),
@@ -29,32 +31,34 @@ public class Fornecedores implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "codigo_fornecedor", nullable = false)
+    @Column(name = "codigo_fornecedor")
     private Integer codigoFornecedor;
 
-    @Column(name = "nome", nullable = false, length = 45)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "cnpj", nullable = false, length = 20)
+    @Column(name = "cnpj")
     private String cnpj;
 
-    @Column(name = "telefone", nullable = false, length = 20)
+    @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "email", nullable = false, length = 45)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "endereco", nullable = false, length = 45)
+    @Column(name = "endereco")
     private String endereco;
 
-    @Column(name = "cidade", nullable = false, length = 45)
+    @Column(name = "cidade")
     private String cidade;
 
-    @Column(name = "cep", nullable = false, length = 12)
+    @Column(name = "cep")
     private String cep;
 
-    @Column(name = "uf", nullable = false, length = 20)
+    @Column(name = "uf")
     private String uf;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoFornecedor")
+    private List<Compras> comprasList;
 
     public Fornecedores() {
     }
@@ -145,6 +149,14 @@ public class Fornecedores implements Serializable {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public List<Compras> getComprasList() {
+        return comprasList;
+    }
+
+    public void setComprasList(List<Compras> comprasList) {
+        this.comprasList = comprasList;
     }
 
     @Override

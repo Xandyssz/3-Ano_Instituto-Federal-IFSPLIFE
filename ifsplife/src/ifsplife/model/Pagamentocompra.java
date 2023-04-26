@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "pagamentocompra", catalog = "ifsplife", schema = "")
+@Table(name = "pagamentocompra")
 @NamedQueries({
     @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p"),
     @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigoCompra = :codigoCompra"),
@@ -26,22 +26,22 @@ public class Pagamentocompra implements Serializable {
 
     @Id
 
-    @Column(name = "codigo_compra", nullable = false)
+    @Column(name = "codigo_compra")
     private Integer codigoCompra;
 
-    @Column(name = "parcela", nullable = false)
+    @Column(name = "parcela")
     private int parcela;
 
-    @Column(name = "vencimento", nullable = false)
+    @Column(name = "vencimento")
     @Temporal(TemporalType.DATE)
     private Date vencimento;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor")
     private float valor;
-    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa", nullable = false)
+    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
     @ManyToOne(optional = false)
     private Caixa caixaIdcaixa;
-    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Compras compras;
 

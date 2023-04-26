@@ -1,9 +1,29 @@
 package ifsplife.form;
 
+import ifsplife.control.ControleConvenio;
+import ifsplife.jdialog.PesquisaItens;
+import ifsplife.model.Convenios;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Form_Vendas extends javax.swing.JPanel {
+
+    private boolean confirmou = false;
+    private int codigo = 0;
+
+    private ControleConvenio controle = new ControleConvenio();
 
     public Form_Vendas() {
         initComponents();
+
+        txtItem.setEditable(false);
+        jFormattedTextFieldValorTotal.setEditable(false);
+        jFormattedTextFieldPorcentagem.setEditable(false);
+        jFormattedTextFieldTotalcomDesconto.setEditable(false);
+
+        for (Convenios c : controle.getTodos()) {
+            jComboBoxConvenios.addItem(c);
+        }
     }
 
     /**
@@ -22,32 +42,40 @@ public class Form_Vendas extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         JButtonRemoverItem = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel19 = new javax.swing.JLabel();
-        panelBorderTabelas = new ifsplife.dev.swing.PanelBorder();
         jScrollPane1 = new javax.swing.JScrollPane();
         table1 = new ifsplife.dev.swing.Table();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table2 = new ifsplife.dev.swing.Table();
-        panelBorder2 = new ifsplife.dev.swing.PanelBorder();
-        JLabelDetalhesDaCompra = new javax.swing.JLabel();
-        JLabelValorFinal = new javax.swing.JLabel();
-        JLabelR$ = new javax.swing.JLabel();
-        JLabelTotalCompra = new javax.swing.JLabel();
-        JButtonFinalizarPedido = new ifsplife.dev.swing.PanelBorderGradient();
-        JLabelFinalizarPedido = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        total = new javax.swing.JFormattedTextField();
-        jSeparator8 = new javax.swing.JSeparator();
-        jLabel16 = new javax.swing.JLabel();
+        panelBorder4 = new ifsplife.dev.swing.PanelBorder();
+        panelBorder5 = new ifsplife.dev.swing.PanelBorder();
+        JLabelDetalhesDaCompra1 = new javax.swing.JLabel();
+        jLabelItem = new javax.swing.JLabel();
+        txtItem = new javax.swing.JTextField();
+        jSeparatorItem = new javax.swing.JSeparator();
+        jLabelValorItem = new javax.swing.JLabel();
+        jFormattedTextFieldValorItem = new javax.swing.JFormattedTextField();
+        jSeparatorValorItem = new javax.swing.JSeparator();
+        jLabelQtdItem = new javax.swing.JLabel();
+        jFormattedTextFieldQtdItem = new javax.swing.JFormattedTextField();
+        jSeparatorQtdItem = new javax.swing.JSeparator();
+        jLabelValorTotal = new javax.swing.JLabel();
+        RSTotal = new javax.swing.JLabel();
+        jFormattedTextFieldValorTotal = new javax.swing.JFormattedTextField();
+        jSeparatorValorTotal = new javax.swing.JSeparator();
+        jLabelSelecioneConvenio = new javax.swing.JLabel();
+        jComboBoxConvenios = new javax.swing.JComboBox<>();
+        jSeparatorConvenios = new javax.swing.JSeparator();
+        jLabelDescontoConvenios = new javax.swing.JLabel();
+        jLabelPorcentagem = new javax.swing.JLabel();
+        jFormattedTextFieldPorcentagem = new javax.swing.JFormattedTextField();
+        jSeparatorPorcentagem = new javax.swing.JSeparator();
+        jLabelTotalcomDesconto = new javax.swing.JLabel();
+        jLabelRSSTotalDesconto = new javax.swing.JLabel();
+        jSeparatorTotalDesconto = new javax.swing.JSeparator();
+        jFormattedTextFieldTotalcomDesconto = new javax.swing.JFormattedTextField();
+        JLabelValorFinal1 = new javax.swing.JLabel();
+        JLabelR$1 = new javax.swing.JLabel();
+        JLabelTotalCompra1 = new javax.swing.JLabel();
+        JButtonAdicionarItem1 = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
-        desconto = new javax.swing.JFormattedTextField();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
-        totalDesconto = new javax.swing.JFormattedTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        JLabelProdutos = new javax.swing.JLabel();
-        JLabelRemedios = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -66,7 +94,12 @@ public class Form_Vendas extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("Adicionar Item");
+        jLabel17.setText("Pesquisar Item");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JButtonAdicionarItemLayout = new javax.swing.GroupLayout(JButtonAdicionarItem);
         JButtonAdicionarItem.setLayout(JButtonAdicionarItemLayout);
@@ -98,9 +131,6 @@ public class Form_Vendas extends javax.swing.JPanel {
             .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
-        panelBorderTabelas.setBackground(new java.awt.Color(255, 255, 255));
-        panelBorderTabelas.setPreferredSize(new java.awt.Dimension(939, 385));
-
         table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -114,215 +144,223 @@ public class Form_Vendas extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(table1);
 
-        table2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Preço", "Quantidade", "SubTotal"
-            }
-        ));
-        jScrollPane2.setViewportView(table2);
+        panelBorder5.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout panelBorderTabelasLayout = new javax.swing.GroupLayout(panelBorderTabelas);
-        panelBorderTabelas.setLayout(panelBorderTabelasLayout);
-        panelBorderTabelasLayout.setHorizontalGroup(
-            panelBorderTabelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorderTabelasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addGap(121, 121, 121)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelBorderTabelasLayout.setVerticalGroup(
-            panelBorderTabelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorderTabelasLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-                .addGap(2, 2, 2))
-            .addGroup(panelBorderTabelasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-        );
+        JLabelDetalhesDaCompra1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        JLabelDetalhesDaCompra1.setForeground(new java.awt.Color(127, 127, 127));
+        JLabelDetalhesDaCompra1.setText("Detalhes da Compra");
 
-        panelBorder2.setBackground(new java.awt.Color(255, 255, 255));
-        panelBorder2.setPreferredSize(new java.awt.Dimension(853, 178));
+        jLabelItem.setText("Item:");
 
-        JLabelDetalhesDaCompra.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        JLabelDetalhesDaCompra.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelDetalhesDaCompra.setText("Detalhes da Compra");
+        jLabelValorItem.setText("Valor do Item:");
 
-        JLabelValorFinal.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        JLabelValorFinal.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelValorFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelValorFinal.setText("Valor Final");
+        jLabelQtdItem.setText("Quantidade do Item:");
 
-        JLabelR$.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        JLabelR$.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelR$.setText("R$");
+        jLabelValorTotal.setText("Valor Total dos Itens:");
 
-        JLabelTotalCompra.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        JLabelTotalCompra.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelTotalCompra.setText("0.00");
+        RSTotal.setText("R$");
 
-        JButtonFinalizarPedido.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonFinalizarPedido.setPreferredSize(new java.awt.Dimension(90, 22));
+        jLabelSelecioneConvenio.setText("Selecione o Convênio:");
 
-        JLabelFinalizarPedido.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        JLabelFinalizarPedido.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelFinalizarPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelFinalizarPedido.setText("Finalizar Pedido");
+        jLabelDescontoConvenios.setText("Desconto do Convênio:");
 
-        javax.swing.GroupLayout JButtonFinalizarPedidoLayout = new javax.swing.GroupLayout(JButtonFinalizarPedido);
-        JButtonFinalizarPedido.setLayout(JButtonFinalizarPedidoLayout);
-        JButtonFinalizarPedidoLayout.setHorizontalGroup(
-            JButtonFinalizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JButtonFinalizarPedidoLayout.createSequentialGroup()
-                .addComponent(JLabelFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jLabelPorcentagem.setText("%");
+
+        jLabelTotalcomDesconto.setText("Valor Total dos Itens com Desconto:");
+
+        jLabelRSSTotalDesconto.setText("R$");
+
+        JLabelValorFinal1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        JLabelValorFinal1.setForeground(new java.awt.Color(127, 127, 127));
+        JLabelValorFinal1.setText("Valor Final");
+
+        JLabelR$1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        JLabelR$1.setForeground(new java.awt.Color(127, 127, 127));
+        JLabelR$1.setText("R$");
+
+        JLabelTotalCompra1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        JLabelTotalCompra1.setForeground(new java.awt.Color(127, 127, 127));
+        JLabelTotalCompra1.setText("0.00");
+
+        JButtonAdicionarItem1.setFirstColor(new java.awt.Color(153, 153, 153));
+        JButtonAdicionarItem1.setPreferredSize(new java.awt.Dimension(90, 22));
+
+        jLabel18.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Finalizar Pedido");
+
+        javax.swing.GroupLayout JButtonAdicionarItem1Layout = new javax.swing.GroupLayout(JButtonAdicionarItem1);
+        JButtonAdicionarItem1.setLayout(JButtonAdicionarItem1Layout);
+        JButtonAdicionarItem1Layout.setHorizontalGroup(
+            JButtonAdicionarItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JButtonAdicionarItem1Layout.createSequentialGroup()
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        JButtonFinalizarPedidoLayout.setVerticalGroup(
-            JButtonFinalizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JLabelFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        JButtonAdicionarItem1Layout.setVerticalGroup(
+            JButtonAdicionarItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jLabel11.setText("Valor Total dos ITENS");
-
-        jLabel13.setText("R$");
-
-        total.setBorder(null);
-        total.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        jLabel16.setText("Desconto");
-
-        jLabel18.setText("%");
-
-        desconto.setBorder(null);
-        desconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        totalDesconto.setBorder(null);
-        totalDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        jLabel20.setText("R$");
-
-        jLabel21.setText("Valor dos Itens com Desconto");
-
-        javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
-        panelBorder2.setLayout(panelBorder2Layout);
-        panelBorder2Layout.setHorizontalGroup(
-            panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBorder5Layout = new javax.swing.GroupLayout(panelBorder5);
+        panelBorder5.setLayout(panelBorder5Layout);
+        panelBorder5Layout.setHorizontalGroup(
+            panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addComponent(JLabelDetalhesDaCompra)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addGroup(panelBorder2Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
+                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLabelDetalhesDaCompra1)
+                    .addGroup(panelBorder5Layout.createSequentialGroup()
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparatorQtdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jSeparatorValorItem)
+                                        .addComponent(jLabelItem, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelValorItem, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtItem, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                        .addComponent(jFormattedTextFieldValorItem)
+                                        .addComponent(jSeparatorItem))
+                                    .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabelQtdItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                        .addComponent(jFormattedTextFieldQtdItem, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPorcentagem)
+                                    .addComponent(RSTotal))))
+                        .addGap(3, 3, 3)
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxConvenios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSeparatorConvenios, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparatorValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                    .addComponent(jLabelValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelSelecioneConvenio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelDescontoConvenios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jFormattedTextFieldPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldValorTotal))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelRSSTotalDesconto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelBorder2Layout.createSequentialGroup()
-                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator11)
-                                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                                        .addComponent(jLabel20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(totalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel21))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelBorder2Layout.createSequentialGroup()
-                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLabelValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                                        .addGap(60, 60, 60)
-                                        .addComponent(JLabelR$)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JLabelTotalCompra)))
-                                .addGap(123, 123, 123))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
-                                .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107))))))
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabelTotalcomDesconto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jFormattedTextFieldTotalcomDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparatorTotalDesconto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparatorPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
+                        .addComponent(JLabelR$1)
+                        .addGap(18, 18, 18)
+                        .addComponent(JLabelTotalCompra1)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
+                        .addComponent(JButtonAdicionarItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
+                    .addGroup(panelBorder5Layout.createSequentialGroup()
+                        .addComponent(JLabelValorFinal1)
+                        .addContainerGap())))
         );
-        panelBorder2Layout.setVerticalGroup(
-            panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder2Layout.createSequentialGroup()
-                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JLabelDetalhesDaCompra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11)
+        panelBorder5Layout.setVerticalGroup(
+            panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(JLabelDetalhesDaCompra1)
+                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addComponent(jLabelItem)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparatorItem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelValorItem)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jFormattedTextFieldValorItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addComponent(jLabelTotalcomDesconto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelRSSTotalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldTotalcomDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparatorTotalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(6, 6, 6)))
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 9, Short.MAX_VALUE)
+                        .addComponent(jSeparatorValorItem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)
+                        .addComponent(jLabelQtdItem)
+                        .addGap(0, 0, 0)
+                        .addComponent(jFormattedTextFieldQtdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(totalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JLabelValorFinal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JLabelR$)
-                            .addComponent(JLabelTotalCompra))
-                        .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30))
+                        .addComponent(jSeparatorQtdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBorder5Layout.createSequentialGroup()
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabelValorTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RSTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparatorValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelSelecioneConvenio)
+                                .addGap(34, 34, 34)
+                                .addComponent(jSeparatorConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelDescontoConvenios)
+                                .addGap(0, 0, 0)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jFormattedTextFieldPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPorcentagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(JLabelValorFinal1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(JLabelR$1)
+                                    .addComponent(JLabelTotalCompra1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JButtonAdicionarItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jSeparatorPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        JLabelProdutos.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLabelProdutos.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelProdutos.setText("Produtos");
-
-        JLabelRemedios.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLabelRemedios.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelRemedios.setText("Remédios");
+        javax.swing.GroupLayout panelBorder4Layout = new javax.swing.GroupLayout(panelBorder4);
+        panelBorder4.setLayout(panelBorder4Layout);
+        panelBorder4Layout.setHorizontalGroup(
+            panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelBorder5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelBorder4Layout.setVerticalGroup(
+            panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelBorder5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                .addComponent(panelBorderTabelas, javax.swing.GroupLayout.DEFAULT_SIZE, 1017, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelBorder2, javax.swing.GroupLayout.DEFAULT_SIZE, 1017, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -330,11 +368,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addComponent(JLabelRemedios, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JLabelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
+                    .addComponent(panelBorder4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
@@ -345,15 +379,11 @@ public class Form_Vendas extends javax.swing.JPanel {
                     .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLabelRemedios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLabelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(panelBorderTabelas, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelBorder2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBorder4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
 
         jPanel1.add(panelBorder1);
@@ -361,40 +391,54 @@ public class Form_Vendas extends javax.swing.JPanel {
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        PesquisaItens pesquisa = new PesquisaItens(null, true);
+
+        pesquisa.setVisible(true);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonFinalizarPedido;
+    private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem1;
     private ifsplife.dev.swing.PanelBorderGradient JButtonRemoverItem;
-    private javax.swing.JLabel JLabelDetalhesDaCompra;
-    private javax.swing.JLabel JLabelFinalizarPedido;
-    private javax.swing.JLabel JLabelProdutos;
-    private javax.swing.JLabel JLabelR$;
-    private javax.swing.JLabel JLabelRemedios;
-    private javax.swing.JLabel JLabelTotalCompra;
-    private javax.swing.JLabel JLabelValorFinal;
-    private javax.swing.JFormattedTextField desconto;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel JLabelDetalhesDaCompra1;
+    private javax.swing.JLabel JLabelR$1;
+    private javax.swing.JLabel JLabelTotalCompra1;
+    private javax.swing.JLabel JLabelValorFinal1;
+    private javax.swing.JLabel RSTotal;
+    private javax.swing.JComboBox<Convenios> jComboBoxConvenios;
+    private javax.swing.JFormattedTextField jFormattedTextFieldPorcentagem;
+    private javax.swing.JFormattedTextField jFormattedTextFieldQtdItem;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTotalcomDesconto;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValorItem;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValorTotal;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabelDescontoConvenios;
+    private javax.swing.JLabel jLabelItem;
+    private javax.swing.JLabel jLabelPorcentagem;
+    private javax.swing.JLabel jLabelQtdItem;
+    private javax.swing.JLabel jLabelRSSTotalDesconto;
+    private javax.swing.JLabel jLabelSelecioneConvenio;
+    private javax.swing.JLabel jLabelTotalcomDesconto;
+    private javax.swing.JLabel jLabelValorItem;
+    private javax.swing.JLabel jLabelValorTotal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparatorConvenios;
+    private javax.swing.JSeparator jSeparatorItem;
+    private javax.swing.JSeparator jSeparatorPorcentagem;
+    private javax.swing.JSeparator jSeparatorQtdItem;
+    private javax.swing.JSeparator jSeparatorTotalDesconto;
+    private javax.swing.JSeparator jSeparatorValorItem;
+    private javax.swing.JSeparator jSeparatorValorTotal;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
-    private ifsplife.dev.swing.PanelBorder panelBorder2;
-    private ifsplife.dev.swing.PanelBorder panelBorderTabelas;
+    private ifsplife.dev.swing.PanelBorder panelBorder4;
+    private ifsplife.dev.swing.PanelBorder panelBorder5;
     private ifsplife.dev.swing.Table table1;
-    private ifsplife.dev.swing.Table table2;
-    private javax.swing.JFormattedTextField total;
-    private javax.swing.JFormattedTextField totalDesconto;
+    private javax.swing.JTextField txtItem;
     // End of variables declaration//GEN-END:variables
 }

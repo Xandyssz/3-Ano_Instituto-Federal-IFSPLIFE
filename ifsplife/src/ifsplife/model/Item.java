@@ -2,6 +2,7 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,16 +15,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "item", catalog = "ifsplife", schema = "")
+@Table(name = "item")
 @NamedQueries({
     @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
     @NamedQuery(name = "Item.findByCodigoItem", query = "SELECT i FROM Item i WHERE i.codigoItem = :codigoItem"),
-    @NamedQuery(name = "Item.findByNomeEspecifico", query = "SELECT i FROM Item i WHERE i.nome = :nome"),
-
-    @NamedQuery(name = "Item.findByNomeQualquer", query = "SELECT i FROM Item i WHERE i.nome like :nome"),
-
+    @NamedQuery(name = "Item.findByNome", query = "SELECT i FROM Item i WHERE i.nome = :nome"),
     @NamedQuery(name = "Item.findByDosagem", query = "SELECT i FROM Item i WHERE i.dosagem = :dosagem"),
     @NamedQuery(name = "Item.findByDescricao", query = "SELECT i FROM Item i WHERE i.descricao = :descricao"),
+    @NamedQuery(name = "Item.findByCategoria", query = "SELECT i FROM Item i WHERE i.categoria = :categoria"),
     @NamedQuery(name = "Item.findByLote", query = "SELECT i FROM Item i WHERE i.lote = :lote"),
     @NamedQuery(name = "Item.findByDataFabricacao", query = "SELECT i FROM Item i WHERE i.dataFabricacao = :dataFabricacao"),
     @NamedQuery(name = "Item.findByDataValidade", query = "SELECT i FROM Item i WHERE i.dataValidade = :dataValidade"),
@@ -34,32 +33,35 @@ public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "codigo_item", nullable = false)
+    @Column(name = "codigo_item")
     private Integer codigoItem;
 
-    @Column(name = "nome", nullable = false, length = 255)
+    @Column(name = "nome")
     private String nome;
-    @Column(name = "dosagem", length = 255)
+    @Column(name = "dosagem")
     private String dosagem;
 
-    @Column(name = "descricao", nullable = false, length = 255)
+    @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "lote", nullable = false)
+    @Column(name = "categoria")
+    private String categoria;
+
+    @Column(name = "lote")
     private int lote;
 
-    @Column(name = "data_fabricacao", nullable = false)
+    @Column(name = "data_fabricacao")
     @Temporal(TemporalType.DATE)
     private Date dataFabricacao;
 
-    @Column(name = "data_validade", nullable = false)
+    @Column(name = "data_validade")
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
 
-    @Column(name = "quantidade", nullable = false)
+    @Column(name = "quantidade")
     private int quantidade;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor")
     private float valor;
 
     public Item() {
@@ -69,10 +71,11 @@ public class Item implements Serializable {
         this.codigoItem = codigoItem;
     }
 
-    public Item(Integer codigoItem, String nome, String descricao, int lote, Date dataFabricacao, Date dataValidade, int quantidade, float valor) {
+    public Item(Integer codigoItem, String nome, String descricao, String categoria, int lote, Date dataFabricacao, Date dataValidade, int quantidade, float valor) {
         this.codigoItem = codigoItem;
         this.nome = nome;
         this.descricao = descricao;
+        this.categoria = categoria;
         this.lote = lote;
         this.dataFabricacao = dataFabricacao;
         this.dataValidade = dataValidade;
@@ -110,6 +113,14 @@ public class Item implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public int getLote() {

@@ -292,7 +292,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
-        int linha = tableFornecedores.getSelectedRow();
+        Integer linha = tableFornecedores.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -317,7 +317,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
 
-        int linha = tableFornecedores.getSelectedRow();
+        Integer linha = tableFornecedores.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -334,13 +334,13 @@ public class Form_Fornecedores extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        int linha = tableFornecedores.getSelectedRow();
+        Integer linha = tableFornecedores.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Fornecedor. Selecione.");
         } else {
-            int resposta = JOptionPane.showConfirmDialog(null,
+            Integer resposta = JOptionPane.showConfirmDialog(null,
                     "Deseja excluir esse Fornecedor?",
                     "Exclusão de Fornecedor",
                     JOptionPane.YES_NO_OPTION);

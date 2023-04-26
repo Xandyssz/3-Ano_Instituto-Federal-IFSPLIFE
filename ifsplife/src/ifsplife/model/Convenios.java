@@ -1,6 +1,8 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,15 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "convenios", catalog = "ifsplife", schema = "")
+@Table(name = "convenios")
 @NamedQueries({
     @NamedQuery(name = "Convenios.findAll", query = "SELECT c FROM Convenios c"),
     @NamedQuery(name = "Convenios.findByCodigoConvenio", query = "SELECT c FROM Convenios c WHERE c.codigoConvenio = :codigoConvenio"),
     @NamedQuery(name = "Convenios.findByNome", query = "SELECT c FROM Convenios c WHERE c.nome = :nome"),
-    @NamedQuery(name = "Convenios.findByNomeQualquer", query = "SELECT c FROM Convenios c WHERE c.nome like :nomeeuqla"),
     @NamedQuery(name = "Convenios.findByEmail", query = "SELECT c FROM Convenios c WHERE c.email = :email"),
     @NamedQuery(name = "Convenios.findByCnpj", query = "SELECT c FROM Convenios c WHERE c.cnpj = :cnpj"),
     @NamedQuery(name = "Convenios.findByEndereco", query = "SELECT c FROM Convenios c WHERE c.endereco = :endereco"),
@@ -27,26 +29,28 @@ public class Convenios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "codigo_convenio", nullable = false)
+    @Column(name = "codigo_convenio")
     private Integer codigoConvenio;
 
-    @Column(name = "nome", nullable = false, length = 255)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "email", nullable = false, length = 255)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "cnpj", nullable = false, length = 20)
+    @Column(name = "cnpj")
     private String cnpj;
 
-    @Column(name = "endereco", nullable = false, length = 255)
+    @Column(name = "endereco")
     private String endereco;
 
-    @Column(name = "telefone", nullable = false, length = 255)
+    @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "desconto", nullable = false)
+    @Column(name = "desconto")
     private float desconto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoConvenio")
+    private List<Vendas> vendasList;
 
     public Convenios() {
     }
@@ -121,6 +125,14 @@ public class Convenios implements Serializable {
         this.desconto = desconto;
     }
 
+    public List<Vendas> getVendasList() {
+        return vendasList;
+    }
+
+    public void setVendasList(List<Vendas> vendasList) {
+        this.vendasList = vendasList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -142,7 +154,7 @@ public class Convenios implements Serializable {
 
     @Override
     public String toString() {
-        return "ifsplife.model.Convenios[ codigoConvenio=" + codigoConvenio + " ]";
+        return this.nome;
     }
 
 }

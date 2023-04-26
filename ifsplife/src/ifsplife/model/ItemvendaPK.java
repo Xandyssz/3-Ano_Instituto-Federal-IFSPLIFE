@@ -1,23 +1,23 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ItemvendaId implements Serializable {
+public class ItemvendaPK implements Serializable {
 
-    
-    @Column(name = "codigo_venda", nullable = false)
+    @Column(name = "codigo_venda")
     private int codigoVenda;
-    
-    @Column(name = "codigo_produto", nullable = false)
+
+    @Column(name = "codigo_produto")
     private int codigoProduto;
 
-    public ItemvendaId() {
+    public ItemvendaPK() {
     }
 
-    public ItemvendaId(int codigoVenda, int codigoProduto) {
+    public ItemvendaPK(int codigoVenda, int codigoProduto) {
         this.codigoVenda = codigoVenda;
         this.codigoProduto = codigoProduto;
     }
@@ -48,10 +48,10 @@ public class ItemvendaId implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof ItemvendaId)) {
+        if (!(object instanceof ItemvendaPK)) {
             return false;
         }
-        ItemvendaId other = (ItemvendaId) object;
+        ItemvendaPK other = (ItemvendaPK) object;
         if (this.codigoVenda != other.codigoVenda) {
             return false;
         }
@@ -65,5 +65,5 @@ public class ItemvendaId implements Serializable {
     public String toString() {
         return "ifsplife.model.ItemvendaPK[ codigoVenda=" + codigoVenda + ", codigoProduto=" + codigoProduto + " ]";
     }
-    
+
 }

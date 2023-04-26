@@ -27,6 +27,7 @@
     <class>ifsplife.model.Fornecedores</class>
     <class>ifsplife.model.Funcionarios</class>
     <class>ifsplife.model.CaixaDespesas</class>
+    <class>ifsplife.model.Sangria</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>NONE</validation-mode>
     <properties>

@@ -2,17 +2,20 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "caixa", catalog = "ifsplife", schema = "")
+@Table(name = "caixa")
 @NamedQueries({
     @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
     @NamedQuery(name = "Caixa.findByCodigoCaixa", query = "SELECT c FROM Caixa c WHERE c.codigoCaixa = :codigoCaixa"),
@@ -26,32 +29,41 @@ import javax.persistence.TemporalType;
 public class Caixa implements Serializable {
 
     @Id
-
-    @Column(name = "codigo_caixa", nullable = false)
+    @Column(name = "codigo_caixa")
     private Integer codigoCaixa;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private Character status;
 
-    @Column(name = "abertura", nullable = false)
+    @Column(name = "abertura")
     @Temporal(TemporalType.TIME)
     private Date abertura;
 
-    @Column(name = "valorabertura", nullable = false)
+    @Column(name = "valorabertura")
     private double valorabertura;
 
-    @Column(name = "totalentradas", nullable = false)
+    @Column(name = "totalentradas")
     private double totalentradas;
 
-    @Column(name = "fechamento", nullable = false)
+    @Column(name = "fechamento")
     @Temporal(TemporalType.TIME)
     private Date fechamento;
 
-    @Column(name = "totalsaidas", nullable = false)
+    @Column(name = "totalsaidas")
     private double totalsaidas;
 
-    @Column(name = "saldo", nullable = false)
+    @Column(name = "saldo")
     private double saldo;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
+    private List<Vendas> vendasList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
+    private List<Pagamentocompra> pagamentocompraList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
+    private List<Movimentacao> movimentacaoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
+    private List<Sangria> sangriaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
+    private List<CaixaDespesas> caixaDespesasList;
 
     public Caixa() {
     }
@@ -133,6 +145,46 @@ public class Caixa implements Serializable {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public List<Vendas> getVendasList() {
+        return vendasList;
+    }
+
+    public void setVendasList(List<Vendas> vendasList) {
+        this.vendasList = vendasList;
+    }
+
+    public List<Pagamentocompra> getPagamentocompraList() {
+        return pagamentocompraList;
+    }
+
+    public void setPagamentocompraList(List<Pagamentocompra> pagamentocompraList) {
+        this.pagamentocompraList = pagamentocompraList;
+    }
+
+    public List<Movimentacao> getMovimentacaoList() {
+        return movimentacaoList;
+    }
+
+    public void setMovimentacaoList(List<Movimentacao> movimentacaoList) {
+        this.movimentacaoList = movimentacaoList;
+    }
+
+    public List<Sangria> getSangriaList() {
+        return sangriaList;
+    }
+
+    public void setSangriaList(List<Sangria> sangriaList) {
+        this.sangriaList = sangriaList;
+    }
+
+    public List<CaixaDespesas> getCaixaDespesasList() {
+        return caixaDespesasList;
+    }
+
+    public void setCaixaDespesasList(List<CaixaDespesas> caixaDespesasList) {
+        this.caixaDespesasList = caixaDespesasList;
     }
 
     @Override

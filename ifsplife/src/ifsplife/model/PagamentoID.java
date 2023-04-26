@@ -5,19 +5,18 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PagamentoId implements Serializable {
+public class PagamentoID implements Serializable {
 
-    
-    @Column(name = "codigo_pagamento", nullable = false)
+    @Column(name = "codigo_pagamento")
     private int codigoPagamento;
-    
-    @Column(name = "codigo_venda", nullable = false)
+
+    @Column(name = "codigo_venda")
     private int codigoVenda;
 
-    public PagamentoId() {
+    public PagamentoID() {
     }
 
-    public PagamentoId(int codigoPagamento, int codigoVenda) {
+    public PagamentoID(int codigoPagamento, int codigoVenda) {
         this.codigoPagamento = codigoPagamento;
         this.codigoVenda = codigoVenda;
     }
@@ -48,10 +47,10 @@ public class PagamentoId implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof PagamentoId)) {
+        if (!(object instanceof PagamentoID)) {
             return false;
         }
-        PagamentoId other = (PagamentoId) object;
+        PagamentoID other = (PagamentoID) object;
         if (this.codigoPagamento != other.codigoPagamento) {
             return false;
         }
@@ -65,5 +64,5 @@ public class PagamentoId implements Serializable {
     public String toString() {
         return "ifsplife.model.PagamentoPK[ codigoPagamento=" + codigoPagamento + ", codigoVenda=" + codigoVenda + " ]";
     }
-    
+
 }

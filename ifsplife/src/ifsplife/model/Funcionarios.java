@@ -11,12 +11,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcionarios", catalog = "ifsplife", schema = "")
+@Table(name = "funcionarios")
 @NamedQueries({
     @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f"),
     @NamedQuery(name = "Funcionarios.findByCodigoFuncionario", query = "SELECT f FROM Funcionarios f WHERE f.codigoFuncionario = :codigoFuncionario"),
     @NamedQuery(name = "Funcionarios.findByNome", query = "SELECT f FROM Funcionarios f WHERE f.nome = :nome"),
-    @NamedQuery(name = "Funcionarios.findByNomeQualquer", query = "SELECT f FROM Funcionarios f WHERE f.nome like :nome"),
     @NamedQuery(name = "Funcionarios.findByCpf", query = "SELECT f FROM Funcionarios f WHERE f.cpf = :cpf"),
     @NamedQuery(name = "Funcionarios.findByNivelacesso", query = "SELECT f FROM Funcionarios f WHERE f.nivelacesso = :nivelacesso"),
     @NamedQuery(name = "Funcionarios.findByTelefone", query = "SELECT f FROM Funcionarios f WHERE f.telefone = :telefone"),
@@ -29,44 +28,43 @@ import javax.persistence.Table;
     @NamedQuery(name = "Funcionarios.findBySenha", query = "SELECT f FROM Funcionarios f WHERE f.senha = :senha")})
 public class Funcionarios implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    @Column(name = "codigo_funcionario", nullable = false)
+
+    @Column(name = "codigo_funcionario")
     private Integer codigoFuncionario;
-    
-    @Column(name = "nome", nullable = false, length = 255)
+
+    @Column(name = "nome")
     private String nome;
-    
-    @Column(name = "cpf", nullable = false, length = 15)
+
+    @Column(name = "cpf")
     private String cpf;
-    
-    @Column(name = "nivelacesso", nullable = false, length = 45)
+
+    @Column(name = "nivelacesso")
     private String nivelacesso;
-    
-    @Column(name = "telefone", nullable = false, length = 20)
+
+    @Column(name = "telefone")
     private String telefone;
-    
-    @Column(name = "endereco", nullable = false, length = 45)
+
+    @Column(name = "endereco")
     private String endereco;
-    
-    @Column(name = "cidade", nullable = false, length = 45)
+
+    @Column(name = "cidade")
     private String cidade;
-    
-    @Column(name = "cep", nullable = false, length = 12)
+
+    @Column(name = "cep")
     private String cep;
-    
-    @Column(name = "uf", nullable = false, length = 20)
+
+    @Column(name = "uf")
     private String uf;
-    
-    @Column(name = "salario", nullable = false, length = 50)
+
+    @Column(name = "salario")
     private String salario;
-    
-    @Column(name = "login", nullable = false, length = 45)
+
+    @Column(name = "login")
     private String login;
-    
-    @Column(name = "senha", nullable = false, length = 45)
+
+    @Column(name = "senha")
     private String senha;
 
     public Funcionarios() {

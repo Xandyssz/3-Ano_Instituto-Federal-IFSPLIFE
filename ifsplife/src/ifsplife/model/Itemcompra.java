@@ -1,6 +1,7 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "itemcompra", catalog = "ifsplife", schema = "")
+@Table(name = "itemcompra")
 @NamedQueries({
     @NamedQuery(name = "Itemcompra.findAll", query = "SELECT i FROM Itemcompra i"),
     @NamedQuery(name = "Itemcompra.findByCodigoCompra", query = "SELECT i FROM Itemcompra i WHERE i.itemcompraPK.codigoCompra = :codigoCompra"),
@@ -20,45 +21,40 @@ import javax.persistence.Table;
     @NamedQuery(name = "Itemcompra.findByPreco", query = "SELECT i FROM Itemcompra i WHERE i.preco = :preco")})
 public class Itemcompra implements Serializable {
 
-    
     @EmbeddedId
-    protected ItemcompraId itemcompraPK;
+    protected ItemcompraPK itemcompraPK;
     
-    @Column(name = "quantidade", nullable = false)
+    @Column(name = "quantidade")
     private int quantidade;
     
-    @Column(name = "preco", nullable = false)
+    @Column(name = "preco")
     private float preco;
-    
-    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Compras compras;
-    @JoinColumn(name = "codigo_produto", referencedColumnName = "codigo_produto", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Item item;
 
     public Itemcompra() {
     }
 
-    public Itemcompra(ItemcompraId itemcompraPK) {
+    public Itemcompra(ItemcompraPK itemcompraPK) {
         this.itemcompraPK = itemcompraPK;
     }
 
-    public Itemcompra(ItemcompraId itemcompraPK, int quantidade, float preco) {
+    public Itemcompra(ItemcompraPK itemcompraPK, int quantidade, float preco) {
         this.itemcompraPK = itemcompraPK;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
     public Itemcompra(int codigoCompra, int codigoProduto) {
-        this.itemcompraPK = new ItemcompraId(codigoCompra, codigoProduto);
+        this.itemcompraPK = new ItemcompraPK(codigoCompra, codigoProduto);
     }
 
-    public ItemcompraId getItemcompraPK() {
+    public ItemcompraPK getItemcompraPK() {
         return itemcompraPK;
     }
 
-    public void setItemcompraPK(ItemcompraId itemcompraPK) {
+    public void setItemcompraPK(ItemcompraPK itemcompraPK) {
         this.itemcompraPK = itemcompraPK;
     }
 
@@ -84,14 +80,6 @@ public class Itemcompra implements Serializable {
 
     public void setCompras(Compras compras) {
         this.compras = compras;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setProdutos(Item item) {
-        this.item = item;
     }
 
     @Override

@@ -5,19 +5,18 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class CaixaDespesasId implements Serializable {
+public class CaixaDespesasID implements Serializable {
 
-    
-    @Column(name = "codigo_caixa", nullable = false)
+    @Column(name = "codigo_caixa")
     private int codigoCaixa;
-    
-    @Column(name = "codigo_despesa", nullable = false)
+
+    @Column(name = "codigo_despesa")
     private int codigoDespesa;
 
-    public CaixaDespesasId() {
+    public CaixaDespesasID() {
     }
 
-    public CaixaDespesasId(int codigoCaixa, int codigoDespesa) {
+    public CaixaDespesasID(int codigoCaixa, int codigoDespesa) {
         this.codigoCaixa = codigoCaixa;
         this.codigoDespesa = codigoDespesa;
     }
@@ -48,10 +47,10 @@ public class CaixaDespesasId implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof CaixaDespesasId)) {
+        if (!(object instanceof CaixaDespesasID)) {
             return false;
         }
-        CaixaDespesasId other = (CaixaDespesasId) object;
+        CaixaDespesasID other = (CaixaDespesasID) object;
         if (this.codigoCaixa != other.codigoCaixa) {
             return false;
         }
@@ -65,5 +64,5 @@ public class CaixaDespesasId implements Serializable {
     public String toString() {
         return "ifsplife.model.CaixaDespesasPK[ codigoCaixa=" + codigoCaixa + ", codigoDespesa=" + codigoDespesa + " ]";
     }
-    
+
 }

@@ -2,19 +2,25 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "compras", catalog = "ifsplife", schema = "")
+@Table(name = "compras")
 @NamedQueries({
     @NamedQuery(name = "Compras.findAll", query = "SELECT c FROM Compras c"),
     @NamedQuery(name = "Compras.findByCodigoCompra", query = "SELECT c FROM Compras c WHERE c.codigoCompra = :codigoCompra"),
@@ -26,19 +32,24 @@ public class Compras implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "codigo_compra", nullable = false)
+    @Column(name = "codigo_compra")
     private Integer codigoCompra;
 
-    @Column(name = "data_compra", nullable = false)
+    @Column(name = "data_compra")
     @Temporal(TemporalType.DATE)
     private Date dataCompra;
 
-    @Column(name = "forma_pagamento", nullable = false)
+    @Column(name = "forma_pagamento")
     private Character formaPagamento;
 
-    @Column(name = "valortotal", nullable = false)
+    @Column(name = "valortotal")
     private double valortotal;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "compras")
+    private List<Itemcompra> itemcompraList;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "compras")
+    private Pagamentocompra pagamentocompra;
+    @JoinColumn(name = "codigo_fornecedor", referencedColumnName = "codigo_fornecedor")
+    @ManyToOne(optional = false)
     private Fornecedores codigoFornecedor;
 
     public Compras() {
@@ -85,6 +96,22 @@ public class Compras implements Serializable {
 
     public void setValortotal(double valortotal) {
         this.valortotal = valortotal;
+    }
+
+    public List<Itemcompra> getItemcompraList() {
+        return itemcompraList;
+    }
+
+    public void setItemcompraList(List<Itemcompra> itemcompraList) {
+        this.itemcompraList = itemcompraList;
+    }
+
+    public Pagamentocompra getPagamentocompra() {
+        return pagamentocompra;
+    }
+
+    public void setPagamentocompra(Pagamentocompra pagamentocompra) {
+        this.pagamentocompra = pagamentocompra;
     }
 
     public Fornecedores getCodigoFornecedor() {

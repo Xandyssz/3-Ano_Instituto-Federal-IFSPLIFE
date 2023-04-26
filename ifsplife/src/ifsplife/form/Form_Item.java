@@ -19,7 +19,7 @@ public class Form_Item extends javax.swing.JPanel {
         tableItens.getColumnModel().getColumn(0).setPreferredWidth(30);
         tableItens.getColumnModel().getColumn(1).setPreferredWidth(250);
         tableItens.getColumnModel().getColumn(0).setPreferredWidth(100);
-        
+
         atualizarTabela();
 
     }
@@ -33,7 +33,7 @@ public class Form_Item extends javax.swing.JPanel {
         listaItems.addAll(controle.getTodos());
 
         for (Item item : listaItems) {
-            modelo.addRow(new Object[]{item.getNome(), item.getDescricao(), item.getValor()}
+            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getDescricao(), item.getValor()}
             );
         }
     }
@@ -196,13 +196,13 @@ public class Form_Item extends javax.swing.JPanel {
 
         tableItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome", "Descrição", "Valor"
+                "Nome", "Categoria", "Descrição", "Valor"
             }
         ));
         jScrollPane1.setViewportView(tableItens);
@@ -295,7 +295,7 @@ public class Form_Item extends javax.swing.JPanel {
 
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
 
-        int linha = tableItens.getSelectedRow();
+        Integer linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -321,7 +321,7 @@ public class Form_Item extends javax.swing.JPanel {
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
 
-        int linha = tableItens.getSelectedRow();
+        Integer linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -338,13 +338,13 @@ public class Form_Item extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        int linha = tableItens.getSelectedRow();
+        Integer linha = tableItens.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Item. Selecione.");
         } else {
-            int resposta = JOptionPane.showConfirmDialog(null,
+            Integer resposta = JOptionPane.showConfirmDialog(null,
                     "Deseja excluir esse Item?",
                     "Exclusão de Item",
                     JOptionPane.YES_NO_OPTION);

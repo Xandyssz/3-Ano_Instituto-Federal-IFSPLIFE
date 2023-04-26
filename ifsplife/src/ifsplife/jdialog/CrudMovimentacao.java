@@ -1,18 +1,14 @@
 package ifsplife.jdialog;
 
 import ifsplife.model.Movimentacao;
-import ifsplife.model.MovimentacaoId;
 import javax.swing.JOptionPane;
 
 public class CrudMovimentacao extends javax.swing.JDialog {
-
-
 
     public CrudMovimentacao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -246,7 +242,7 @@ public class CrudMovimentacao extends javax.swing.JDialog {
     }//GEN-LAST:event_ConfirmarValorMouseClicked
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
- 
+
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
 

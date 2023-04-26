@@ -5,19 +5,18 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class MovimentacaoId implements Serializable {
+public class MovimentacaoID implements Serializable {
 
-    
-    @Column(name = "codigo_movimentacao", nullable = false)
+    @Column(name = "codigo_movimentacao")
     private int codigoMovimentacao;
-    
-    @Column(name = "caixa_codigo_caixa", nullable = false)
+
+    @Column(name = "caixa_codigo_caixa")
     private int caixaCodigoCaixa;
 
-    public MovimentacaoId() {
+    public MovimentacaoID() {
     }
 
-    public MovimentacaoId(int codigoMovimentacao, int caixaCodigoCaixa) {
+    public MovimentacaoID(int codigoMovimentacao, int caixaCodigoCaixa) {
         this.codigoMovimentacao = codigoMovimentacao;
         this.caixaCodigoCaixa = caixaCodigoCaixa;
     }
@@ -48,11 +47,10 @@ public class MovimentacaoId implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MovimentacaoId)) {
+        if (!(object instanceof MovimentacaoID)) {
             return false;
         }
-        MovimentacaoId other = (MovimentacaoId) object;
+        MovimentacaoID other = (MovimentacaoID) object;
         if (this.codigoMovimentacao != other.codigoMovimentacao) {
             return false;
         }
@@ -66,5 +64,5 @@ public class MovimentacaoId implements Serializable {
     public String toString() {
         return "ifsplife.model.MovimentacaoPK[ codigoMovimentacao=" + codigoMovimentacao + ", caixaCodigoCaixa=" + caixaCodigoCaixa + " ]";
     }
-    
+
 }

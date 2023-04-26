@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "movimentacao", catalog = "ifsplife", schema = "")
+@Table(name = "movimentacao")
 @NamedQueries({
     @NamedQuery(name = "Movimentacao.findAll", query = "SELECT m FROM Movimentacao m"),
     @NamedQuery(name = "Movimentacao.findByCodigoMovimentacao", query = "SELECT m FROM Movimentacao m WHERE m.movimentacaoPK.codigoMovimentacao = :codigoMovimentacao"),
@@ -21,30 +21,29 @@ import javax.persistence.Table;
     @NamedQuery(name = "Movimentacao.findByCaixaCodigoCaixa", query = "SELECT m FROM Movimentacao m WHERE m.movimentacaoPK.caixaCodigoCaixa = :caixaCodigoCaixa")})
 public class Movimentacao implements Serializable {
 
-    
     @EmbeddedId
-    protected MovimentacaoId movimentacaoPK;
-    
-    @Column(name = "valor", nullable = false)
+    protected MovimentacaoID movimentacaoPK;
+
+    @Column(name = "valor")
     private double valor;
-    
-    @Column(name = "motivo", nullable = false, length = 200)
+
+    @Column(name = "motivo")
     private String motivo;
-    
-    @Column(name = "tipo", nullable = false)
-    private String tipo;
-    @JoinColumn(name = "caixa_codigo_caixa", referencedColumnName = "codigo_caixa", nullable = false, insertable = false, updatable = false)
+
+    @Column(name = "tipo")
+    private int tipo;
+    @JoinColumn(name = "caixa_codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Caixa caixa;
 
     public Movimentacao() {
     }
 
-    public Movimentacao(MovimentacaoId movimentacaoPK) {
+    public Movimentacao(MovimentacaoID movimentacaoPK) {
         this.movimentacaoPK = movimentacaoPK;
     }
 
-    public Movimentacao(MovimentacaoId movimentacaoPK, double valor, String motivo, String tipo) {
+    public Movimentacao(MovimentacaoID movimentacaoPK, double valor, String motivo, int tipo) {
         this.movimentacaoPK = movimentacaoPK;
         this.valor = valor;
         this.motivo = motivo;
@@ -52,14 +51,14 @@ public class Movimentacao implements Serializable {
     }
 
     public Movimentacao(int codigoMovimentacao, int caixaCodigoCaixa) {
-        this.movimentacaoPK = new MovimentacaoId(codigoMovimentacao, caixaCodigoCaixa);
+        this.movimentacaoPK = new MovimentacaoID(codigoMovimentacao, caixaCodigoCaixa);
     }
 
-    public MovimentacaoId getMovimentacaoPK() {
+    public MovimentacaoID getMovimentacaoPK() {
         return movimentacaoPK;
     }
 
-    public void setMovimentacaoPK(MovimentacaoId movimentacaoPK) {
+    public void setMovimentacaoPK(MovimentacaoID movimentacaoPK) {
         this.movimentacaoPK = movimentacaoPK;
     }
 
@@ -79,11 +78,11 @@ public class Movimentacao implements Serializable {
         this.motivo = motivo;
     }
 
-    public String getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
@@ -118,5 +117,5 @@ public class Movimentacao implements Serializable {
     public String toString() {
         return "ifsplife.model.Movimentacao[ movimentacaoPK=" + movimentacaoPK + " ]";
     }
-    
+
 }

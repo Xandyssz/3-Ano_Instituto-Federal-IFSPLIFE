@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pagamento", catalog = "ifsplife", schema = "")
+@Table(name = "pagamento")
 @NamedQueries({
     @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p"),
     @NamedQuery(name = "Pagamento.findByCodigoPagamento", query = "SELECT p FROM Pagamento p WHERE p.pagamentoPK.codigoPagamento = :codigoPagamento"),
@@ -20,41 +20,40 @@ import javax.persistence.Table;
     @NamedQuery(name = "Pagamento.findByForma", query = "SELECT p FROM Pagamento p WHERE p.forma = :forma")})
 public class Pagamento implements Serializable {
 
-    
     @EmbeddedId
-    protected PagamentoId pagamentoPK;
-    
-    @Column(name = "valor", nullable = false)
+    protected PagamentoID pagamentoPK;
+
+    @Column(name = "valor")
     private double valor;
-    
-    @Column(name = "forma", nullable = false, length = 10)
+
+    @Column(name = "forma")
     private String forma;
-    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Vendas vendas;
 
     public Pagamento() {
     }
 
-    public Pagamento(PagamentoId pagamentoPK) {
+    public Pagamento(PagamentoID pagamentoPK) {
         this.pagamentoPK = pagamentoPK;
     }
 
-    public Pagamento(PagamentoId pagamentoPK, double valor, String forma) {
+    public Pagamento(PagamentoID pagamentoPK, double valor, String forma) {
         this.pagamentoPK = pagamentoPK;
         this.valor = valor;
         this.forma = forma;
     }
 
     public Pagamento(int codigoPagamento, int codigoVenda) {
-        this.pagamentoPK = new PagamentoId(codigoPagamento, codigoVenda);
+        this.pagamentoPK = new PagamentoID(codigoPagamento, codigoVenda);
     }
 
-    public PagamentoId getPagamentoPK() {
+    public PagamentoID getPagamentoPK() {
         return pagamentoPK;
     }
 
-    public void setPagamentoPK(PagamentoId pagamentoPK) {
+    public void setPagamentoPK(PagamentoID pagamentoPK) {
         this.pagamentoPK = pagamentoPK;
     }
 
@@ -105,5 +104,5 @@ public class Pagamento implements Serializable {
     public String toString() {
         return "ifsplife.model.Pagamento[ pagamentoPK=" + pagamentoPK + " ]";
     }
-    
+
 }

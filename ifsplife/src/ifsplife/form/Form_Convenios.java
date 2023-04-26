@@ -293,7 +293,7 @@ public class Form_Convenios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
-        int linha = tableConvenios.getSelectedRow();
+        Integer linha = tableConvenios.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -317,7 +317,7 @@ public class Form_Convenios extends javax.swing.JPanel {
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
         // pega a linha selecionada da tabela se não estiver selecionada
         // retornará -1
-        int linha = tableConvenios.getSelectedRow();
+        Integer linha = tableConvenios.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
@@ -336,14 +336,14 @@ public class Form_Convenios extends javax.swing.JPanel {
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
         // pega a linha selecionada da tabela se não estiver selecionada
         // retornará -1
-        int linha = tableConvenios.getSelectedRow();
+        Integer linha = tableConvenios.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Convênio. Selecione.");
         } else {
             // cria o dialog de confirmação
-            int resposta = JOptionPane.showConfirmDialog(null,
+            Integer resposta = JOptionPane.showConfirmDialog(null,
                     "Deseja excluir essa Convênio?",
                     "Exclusão de Convênio",
                     JOptionPane.YES_NO_OPTION);
