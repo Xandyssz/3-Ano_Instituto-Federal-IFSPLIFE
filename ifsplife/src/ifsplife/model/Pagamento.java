@@ -29,7 +29,7 @@ public class Pagamento implements Serializable {
     @Column(name = "forma")
     private String forma;
     @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Vendas vendas;
 
     public Pagamento() {

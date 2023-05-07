@@ -49,7 +49,7 @@ public class Compras implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "compras")
     private Pagamentocompra pagamentocompra;
     @JoinColumn(name = "codigo_fornecedor", referencedColumnName = "codigo_fornecedor")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Fornecedores codigoFornecedor;
 
     public Compras() {

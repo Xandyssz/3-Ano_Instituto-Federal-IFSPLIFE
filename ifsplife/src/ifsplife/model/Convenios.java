@@ -23,7 +23,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Convenios.findByCnpj", query = "SELECT c FROM Convenios c WHERE c.cnpj = :cnpj"),
     @NamedQuery(name = "Convenios.findByEndereco", query = "SELECT c FROM Convenios c WHERE c.endereco = :endereco"),
     @NamedQuery(name = "Convenios.findByTelefone", query = "SELECT c FROM Convenios c WHERE c.telefone = :telefone"),
-    @NamedQuery(name = "Convenios.findByDesconto", query = "SELECT c FROM Convenios c WHERE c.desconto = :desconto")})
+    @NamedQuery(name = "Convenios.findByDesconto", query = "SELECT c.desconto FROM Convenios c WHERE c.nome = :nome")})
 public class Convenios implements Serializable {
 
     @Id

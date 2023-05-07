@@ -286,11 +286,11 @@
                                           <Component id="JLabelDataDaCompra" min="-2" max="-2" attributes="0"/>
                                           <Component id="jDateChooser1" min="-2" pref="229" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="JTextFieldFornecedor" alignment="0" pref="229" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxFornecedores" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jSeparator2" alignment="0" pref="229" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
@@ -358,8 +358,8 @@
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="JLabelFornecedor" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="JTextFieldFornecedor" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jComboBoxFornecedores" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jSeparator2" max="32767" attributes="0"/>
                                           </Group>
@@ -415,20 +415,6 @@
                     <Component class="javax.swing.JLabel" name="JLabelFornecedor">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Fornecedor"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="JTextFieldFornecedor">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="7f" green="7f" red="7f" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clique para selecionar"/>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
-                        </Property>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Hand Cursor"/>
-                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="JLabelUsuario">
@@ -525,6 +511,16 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JComboBox" name="jComboBoxFornecedores">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Fornecedores&gt;"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>

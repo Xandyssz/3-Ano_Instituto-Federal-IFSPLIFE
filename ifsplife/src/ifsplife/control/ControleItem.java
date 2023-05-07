@@ -76,4 +76,15 @@ public class ControleItem {
         return consulta.getResultList();
 
     }
+
+    public List<Item> buscarPorCategoria(String categoriaPesquisar) {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Item> consulta
+                = gerente.createNamedQuery("Item.findByCategoria", Item.class);
+
+        consulta.setParameter("categoria", categoriaPesquisar);
+
+        return consulta.getResultList();
+    }
 }

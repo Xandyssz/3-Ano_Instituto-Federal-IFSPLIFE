@@ -33,7 +33,7 @@ public class Sangria implements Serializable {
     @Column(name = "tipomovimentacao")
     private String tipomovimentacao;
     @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Caixa caixa;
 
     public Sangria() {

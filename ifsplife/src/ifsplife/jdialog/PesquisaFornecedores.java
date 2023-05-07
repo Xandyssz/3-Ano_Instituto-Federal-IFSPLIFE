@@ -1,51 +1,51 @@
 package ifsplife.jdialog;
 
-import ifsplife.control.ControleItem;
-import ifsplife.model.Item;
+import ifsplife.control.ControleFornecedor;
+import ifsplife.model.Fornecedores;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class PesquisaItens extends javax.swing.JDialog {
+public class PesquisaFornecedores extends javax.swing.JDialog {
 
-    ControleItem controle = new ControleItem();
+    ControleFornecedor controle = new ControleFornecedor();
 
-    List<Item> listaItems = new ArrayList<>();
+    List<Fornecedores> listaFornecedores = new ArrayList<>();
 
     private boolean selecionou = false;
-    Item itemSelecioando = null;
+    Fornecedores fornecedorSelecionado = null;
 
-    public PesquisaItens(java.awt.Frame parent, boolean modal) {
+    public PesquisaFornecedores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        tableItens.getColumnModel().getColumn(0).setPreferredWidth(30);
-        tableItens.getColumnModel().getColumn(1).setPreferredWidth(250);
-        tableItens.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tableFornecedores.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tableFornecedores.getColumnModel().getColumn(1).setPreferredWidth(250);
+        tableFornecedores.getColumnModel().getColumn(0).setPreferredWidth(100);
 
         atualizarTabela();
 
     }
 
     private void atualizarTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) tableItens.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tableFornecedores.getModel();
 
         modelo.setRowCount(0);
 
-        listaItems.clear();
-        listaItems.addAll(controle.buscarPorCategoria((String) comboFiltro.getSelectedItem()));
+        listaFornecedores.clear();
+        listaFornecedores.addAll(controle.getTodos());
 
-        for (Item item : listaItems) {
-            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getDescricao(), item.getValor()}
+        for (Fornecedores fornecedores : listaFornecedores) {
+            modelo.addRow(new Object[]{fornecedores.getNome(), fornecedores.getCnpj(), fornecedores.getTelefone()}
             );
         }
     }
 
     @SuppressWarnings("unchecked")
 
-    public Item getItemSelecionado() {
-        int linha = tableItens.getSelectedRow();
-        return listaItems.get(linha);
+    public Fornecedores getFornecedorSelecionado() {
+        int linha = tableFornecedores.getSelectedRow();
+        return listaFornecedores.get(linha);
     }
 
     public boolean isSelecionou() {
@@ -57,9 +57,6 @@ public class PesquisaItens extends javax.swing.JDialog {
 
         panelBorderGradient1 = new ifsplife.dev.swing.PanelBorderGradient();
         panelBorder1 = new ifsplife.dev.swing.PanelBorder();
-        jLabelFIltro = new javax.swing.JLabel();
-        jLabelCategoria = new javax.swing.JLabel();
-        comboFiltro = new javax.swing.JComboBox<>();
         JButtonCadastrar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelSelecionar = new javax.swing.JLabel();
         JButtonCancelar = new ifsplife.dev.swing.PanelBorderGradient();
@@ -67,7 +64,7 @@ public class PesquisaItens extends javax.swing.JDialog {
         panelBorder2 = new ifsplife.dev.swing.PanelBorder();
         jLabelItens = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableItens = new ifsplife.dev.swing.Table();
+        tableFornecedores = new ifsplife.dev.swing.Table();
         JSeparatorCRUD = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -75,22 +72,6 @@ public class PesquisaItens extends javax.swing.JDialog {
 
         panelBorder1.setBackground(new java.awt.Color(239, 239, 239));
         panelBorder1.setPreferredSize(new java.awt.Dimension(411, 317));
-
-        jLabelFIltro.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabelFIltro.setForeground(new java.awt.Color(0, 78, 146));
-        jLabelFIltro.setText("Filtro:");
-
-        jLabelCategoria.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-        jLabelCategoria.setForeground(new java.awt.Color(0, 78, 146));
-        jLabelCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCategoria.setText("Categoria");
-
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
-        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboFiltroActionPerformed(evt);
-            }
-        });
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -146,18 +127,18 @@ public class PesquisaItens extends javax.swing.JDialog {
         jLabelItens.setForeground(new java.awt.Color(127, 127, 127));
         jLabelItens.setText("Itens");
 
-        tableItens.setModel(new javax.swing.table.DefaultTableModel(
+        tableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Categoria", "Descricao", "Valor"
+                "Nome", "CNPJ", "Contato"
             }
         ));
-        jScrollPane1.setViewportView(tableItens);
+        jScrollPane1.setViewportView(tableFornecedores);
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -187,41 +168,24 @@ public class PesquisaItens extends javax.swing.JDialog {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelBorder2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelBorder2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelFIltro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JSeparatorCRUD)))
+                    .addComponent(JSeparatorCRUD))
                 .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addComponent(jLabelCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelFIltro)
-                            .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(JButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(JSeparatorCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -265,20 +229,13 @@ public class PesquisaItens extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
-    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
-        String filtro = comboFiltro.getSelectedItem().toString();
-        listaItems = controle.buscarPorCategoria(filtro);
-        atualizarTabela();
-
-    }//GEN-LAST:event_comboFiltroActionPerformed
-
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
-        int linha = tableItens.getSelectedRow();
+        int linha = tableFornecedores.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Item. Selecione.");
+                    "Não foi selecionado nenhum Fornecedor. Selecione.");
         } else {
             this.selecionou = true;
             setVisible(false);
@@ -293,14 +250,11 @@ public class PesquisaItens extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelCancelar;
     private javax.swing.JLabel JLabelSelecionar;
     private javax.swing.JSeparator JSeparatorCRUD;
-    private javax.swing.JComboBox<String> comboFiltro;
-    private javax.swing.JLabel jLabelCategoria;
-    private javax.swing.JLabel jLabelFIltro;
     private javax.swing.JLabel jLabelItens;
     private javax.swing.JScrollPane jScrollPane1;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorder panelBorder2;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
-    private ifsplife.dev.swing.Table tableItens;
+    private ifsplife.dev.swing.Table tableFornecedores;
     // End of variables declaration//GEN-END:variables
 }

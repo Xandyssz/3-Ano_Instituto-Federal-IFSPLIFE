@@ -39,10 +39,10 @@ public class Pagamentocompra implements Serializable {
     @Column(name = "valor")
     private float valor;
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Caixa caixaIdcaixa;
     @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @OneToOne
     private Compras compras;
 
     public Pagamentocompra() {

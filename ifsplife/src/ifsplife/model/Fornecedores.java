@@ -180,7 +180,7 @@ public class Fornecedores implements Serializable {
 
     @Override
     public String toString() {
-        return "ifsplife.model.Fornecedores[ codigoFornecedor=" + codigoFornecedor + " ]";
+        return this.nome;
     }
 
 }

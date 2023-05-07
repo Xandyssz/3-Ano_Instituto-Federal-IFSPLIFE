@@ -33,7 +33,7 @@ public class Movimentacao implements Serializable {
     @Column(name = "tipo")
     private int tipo;
     @JoinColumn(name = "caixa_codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Caixa caixa;
 
     public Movimentacao() {

@@ -44,10 +44,10 @@ public class Vendas implements Serializable {
     @Column(name = "forma_pagamento")
     private Character formaPagamento;
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Caixa caixaIdcaixa;
     @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Convenios codigoConvenio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
     private List<Itemvenda> itemvendaList;

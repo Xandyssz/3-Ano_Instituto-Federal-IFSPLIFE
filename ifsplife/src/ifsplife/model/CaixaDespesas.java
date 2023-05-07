@@ -29,10 +29,10 @@ public class CaixaDespesas implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;
     @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Caixa caixa;
     @JoinColumn(name = "codigo_despesa", referencedColumnName = "codigo_despesa", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Despesas despesas;
 
     public CaixaDespesas() {

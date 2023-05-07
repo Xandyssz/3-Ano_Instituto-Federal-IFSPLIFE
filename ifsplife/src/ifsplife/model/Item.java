@@ -187,4 +187,5 @@ public class Item implements Serializable {
         return "ifsplife.model.Item[ codigoItem=" + codigoItem + " ]";
     }
 
+    
 }

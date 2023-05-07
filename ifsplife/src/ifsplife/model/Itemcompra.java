@@ -30,7 +30,7 @@ public class Itemcompra implements Serializable {
     @Column(name = "preco")
     private float preco;
     @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Compras compras;
 
     public Itemcompra() {
