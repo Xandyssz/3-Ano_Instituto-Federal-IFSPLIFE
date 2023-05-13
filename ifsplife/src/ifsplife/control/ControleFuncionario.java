@@ -8,6 +8,8 @@ import javax.persistence.TypedQuery;
 
 public class ControleFuncionario {
 
+    private static Funcionarios funcionarioLogado = null;
+
     private static final ArrayList<Funcionarios> listaFuncionario = new ArrayList<>();
 
     public void adicionar(Funcionarios funcionarios) {
@@ -75,4 +77,38 @@ public class ControleFuncionario {
         return consulta.getResultList();
 
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static Funcionarios login(String login, String senha) throws FuncionarioOuSenhaIncorretaException {
+        List<Funcionarios> funcionarios = null;
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        TypedQuery<Funcionarios> consulta
+                = gerente.createNamedQuery("Funcionarios.login", Funcionarios.class);
+
+        consulta.setParameter("login", login);
+        consulta.setParameter("senha", senha);
+
+        funcionarios = consulta.getResultList();
+        if (funcionarios.isEmpty()) {
+            throw new FuncionarioOuSenhaIncorretaException("O usuario ou senha digitada está incorreta.");
+        } else {
+            ControleFuncionario.funcionarioLogado = funcionarios.get(0);
+        }
+
+        return funcionarios.get(0);
+    }
+
+    public static void logout() {
+        ControleFuncionario.funcionarioLogado = null;
+    }
+
+    public static boolean isUsuarioLogado() {
+        return funcionarioLogado != null;
+    }
+
+    public static Funcionarios getUsuarioLogado() {
+        return funcionarioLogado;
+    }
+
 }

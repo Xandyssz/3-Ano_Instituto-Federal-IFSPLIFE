@@ -16,16 +16,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f"),
     @NamedQuery(name = "Funcionarios.findByCodigoFuncionario", query = "SELECT f FROM Funcionarios f WHERE f.codigoFuncionario = :codigoFuncionario"),
     @NamedQuery(name = "Funcionarios.findByNome", query = "SELECT f FROM Funcionarios f WHERE f.nome = :nome"),
-    @NamedQuery(name = "Funcionarios.findByCpf", query = "SELECT f FROM Funcionarios f WHERE f.cpf = :cpf"),
-    @NamedQuery(name = "Funcionarios.findByNivelacesso", query = "SELECT f FROM Funcionarios f WHERE f.nivelacesso = :nivelacesso"),
-    @NamedQuery(name = "Funcionarios.findByTelefone", query = "SELECT f FROM Funcionarios f WHERE f.telefone = :telefone"),
-    @NamedQuery(name = "Funcionarios.findByEndereco", query = "SELECT f FROM Funcionarios f WHERE f.endereco = :endereco"),
-    @NamedQuery(name = "Funcionarios.findByCidade", query = "SELECT f FROM Funcionarios f WHERE f.cidade = :cidade"),
-    @NamedQuery(name = "Funcionarios.findByCep", query = "SELECT f FROM Funcionarios f WHERE f.cep = :cep"),
-    @NamedQuery(name = "Funcionarios.findByUf", query = "SELECT f FROM Funcionarios f WHERE f.uf = :uf"),
-    @NamedQuery(name = "Funcionarios.findBySalario", query = "SELECT f FROM Funcionarios f WHERE f.salario = :salario"),
-    @NamedQuery(name = "Funcionarios.findByLogin", query = "SELECT f FROM Funcionarios f WHERE f.login = :login"),
-    @NamedQuery(name = "Funcionarios.findBySenha", query = "SELECT f FROM Funcionarios f WHERE f.senha = :senha")})
+    @NamedQuery(name = "Usuario.login", query = "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha")
+})
 public class Funcionarios implements Serializable {
 
     @Id
