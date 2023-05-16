@@ -16,14 +16,14 @@ public class CrudItem extends javax.swing.JDialog {
     public Item getItem() {
         Item item = new Item();
 
-        item.setCodigoItem(codigo);
+        item.setCodigo_item(codigo);
         item.setNome(JTextFieldNome.getText());
         item.setDosagem(JTextFieldDosagem.getText());
         item.setDescricao(JTextFieldDescricao.getText());
         item.setLote(Integer.parseInt(JFormatedTextLote.getText()));
         item.setCategoria((String) JComboBoxCategoria.getSelectedItem());
-        item.setDataFabricacao(jDateChooserDataValidade.getDate());
-        item.setDataValidade(jDateChooserDataValidade.getDate());
+        item.setData_fabricacao(jDateChooserDataFabricacao.getDate());
+        item.setData_validade(jDateChooserDataValidade.getDate());
         item.setQuantidade(Integer.parseInt(JFormatedTextQuantidade.getText()));
         // inicio da formatação
         // formatação 
@@ -37,14 +37,14 @@ public class CrudItem extends javax.swing.JDialog {
     }
 
     public void setItem(Item item) {
-        this.codigo = item.getCodigoItem();
+        this.codigo = item.getCodigo_item();
         JTextFieldNome.setText(item.getNome());
         JTextFieldDosagem.setText(item.getDosagem());
         JTextFieldDescricao.setText(item.getDescricao());
         JFormatedTextLote.setValue(item.getLote());
         JComboBoxCategoria.setSelectedItem(item.getCategoria());
-        jDateChooserDataFabricacao.setDate(item.getDataFabricacao());
-        jDateChooserDataValidade.setDate(item.getDataValidade());
+        jDateChooserDataFabricacao.setDate(item.getData_fabricacao());
+        jDateChooserDataValidade.setDate(item.getData_validade());
         JFormatedTextQuantidade.setValue(item.getQuantidade());
         JFormatedTextValor.setValue(item.getValor());
     }

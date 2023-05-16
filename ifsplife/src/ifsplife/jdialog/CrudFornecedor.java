@@ -16,7 +16,7 @@ public class CrudFornecedor extends javax.swing.JDialog {
     public Fornecedores getFornecedores() {
         Fornecedores fornecedores = new Fornecedores();
 
-        fornecedores.setCodigoFornecedor(codigo);
+        fornecedores.setCodigo_fornecedor(codigo);
         fornecedores.setNome(JTextFieldNome.getText());
         fornecedores.setCnpj(JFormatedTextCNPJ.getText());
         fornecedores.setTelefone(JFormatedTextContato.getText());
@@ -29,7 +29,7 @@ public class CrudFornecedor extends javax.swing.JDialog {
     }
 
     public void setFornecedor(Fornecedores fornecedores) {
-        this.codigo = fornecedores.getCodigoFornecedor();
+        this.codigo = fornecedores.getCodigo_fornecedor();
         JTextFieldNome.setText(fornecedores.getNome());
         JFormatedTextCNPJ.setText(fornecedores.getCnpj());
         JFormatedTextContato.setText(fornecedores.getTelefone());

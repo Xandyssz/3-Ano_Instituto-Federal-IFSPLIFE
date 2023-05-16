@@ -1,8 +1,10 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,99 +23,97 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "vendas")
 @NamedQueries({
-    @NamedQuery(name = "Vendas.findAll", query = "SELECT v FROM Vendas v"),
-    @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigoVenda = :codigoVenda"),
-    @NamedQuery(name = "Vendas.findByDataVenda", query = "SELECT v FROM Vendas v WHERE v.dataVenda = :dataVenda"),
-    @NamedQuery(name = "Vendas.findByValorVenda", query = "SELECT v FROM Vendas v WHERE v.valorVenda = :valorVenda"),
-    @NamedQuery(name = "Vendas.findByFormaPagamento", query = "SELECT v FROM Vendas v WHERE v.formaPagamento = :formaPagamento")})
+    @NamedQuery(name = "Vendas.findAll", query = "SELECT v FROM Vendas v")})
 public class Vendas implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "codigo_venda")
-    private Integer codigoVenda;
+    @Column(name = "codigo_venda", nullable = false)
+    private Integer codigo_venda;
 
-    @Column(name = "data_venda")
+    @Column(name = "data_venda", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date dataVenda;
+    private Date data_venda;
 
-    @Column(name = "valor_venda")
-    private float valorVenda;
+    @Column(name = "forma_pagamento", nullable = false)
+    private Character forma_pagamento;
 
-    @Column(name = "forma_pagamento")
-    private Character formaPagamento;
+    @Column(name = "valor_venda", nullable = false)
+    private float valor_venda;
+
+    @ManyToOne
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
+    private Caixa caixa_idcaixa;
+
     @ManyToOne
-    private Caixa caixaIdcaixa;
     @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio")
-    @ManyToOne
-    private Convenios codigoConvenio;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
-    private List<Itemvenda> itemvendaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendas")
-    private List<Pagamento> pagamentoList;
+    private Convenios codigo_convenio;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigo_venda")
+    private List<Itemvenda> itemvendaList = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigo_venda")
+    private List<Pagamento> pagamentoList = new ArrayList<>();
 
     public Vendas() {
     }
 
-    public Vendas(Integer codigoVenda) {
-        this.codigoVenda = codigoVenda;
+    public Vendas(Integer codigo_venda, Date data_venda, Character forma_pagamento, float valor_venda, Caixa caixa_idcaixa, Convenios codigo_convenio) {
+        this.codigo_venda = codigo_venda;
+        this.data_venda = data_venda;
+        this.forma_pagamento = forma_pagamento;
+        this.valor_venda = valor_venda;
+        this.caixa_idcaixa = caixa_idcaixa;
+        this.codigo_convenio = codigo_convenio;
     }
 
-    public Vendas(Integer codigoVenda, Date dataVenda, float valorVenda, Character formaPagamento) {
-        this.codigoVenda = codigoVenda;
-        this.dataVenda = dataVenda;
-        this.valorVenda = valorVenda;
-        this.formaPagamento = formaPagamento;
+    public Integer getCodigo_venda() {
+        return codigo_venda;
     }
 
-    public Integer getCodigoVenda() {
-        return codigoVenda;
+    public void setCodigo_venda(Integer codigo_venda) {
+        this.codigo_venda = codigo_venda;
     }
 
-    public void setCodigoVenda(Integer codigoVenda) {
-        this.codigoVenda = codigoVenda;
+    public Date getData_venda() {
+        return data_venda;
     }
 
-    public Date getDataVenda() {
-        return dataVenda;
+    public void setData_venda(Date data_venda) {
+        this.data_venda = data_venda;
     }
 
-    public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
+    public Character getForma_pagamento() {
+        return forma_pagamento;
     }
 
-    public float getValorVenda() {
-        return valorVenda;
+    public void setForma_pagamento(Character forma_pagamento) {
+        this.forma_pagamento = forma_pagamento;
     }
 
-    public void setValorVenda(float valorVenda) {
-        this.valorVenda = valorVenda;
+    public float getValor_venda() {
+        return valor_venda;
     }
 
-    public Character getFormaPagamento() {
-        return formaPagamento;
+    public void setValor_venda(float valor_venda) {
+        this.valor_venda = valor_venda;
     }
 
-    public void setFormaPagamento(Character formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public Caixa getCaixa_idcaixa() {
+        return caixa_idcaixa;
     }
 
-    public Caixa getCaixaIdcaixa() {
-        return caixaIdcaixa;
+    public void setCaixa_idcaixa(Caixa caixa_idcaixa) {
+        this.caixa_idcaixa = caixa_idcaixa;
     }
 
-    public void setCaixaIdcaixa(Caixa caixaIdcaixa) {
-        this.caixaIdcaixa = caixaIdcaixa;
+    public Convenios getCodigo_convenio() {
+        return codigo_convenio;
     }
 
-    public Convenios getCodigoConvenio() {
-        return codigoConvenio;
-    }
-
-    public void setCodigoConvenio(Convenios codigoConvenio) {
-        this.codigoConvenio = codigoConvenio;
+    public void setCodigo_convenio(Convenios codigo_convenio) {
+        this.codigo_convenio = codigo_convenio;
     }
 
     public List<Itemvenda> getItemvendaList() {
@@ -134,26 +134,32 @@ public class Vendas implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codigoVenda != null ? codigoVenda.hashCode() : 0);
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.codigo_venda);
+        hash = 23 * hash + Objects.hashCode(this.caixa_idcaixa);
+        hash = 23 * hash + Objects.hashCode(this.codigo_convenio);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Vendas)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Vendas other = (Vendas) object;
-        if ((this.codigoVenda == null && other.codigoVenda != null) || (this.codigoVenda != null && !this.codigoVenda.equals(other.codigoVenda))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Vendas[ codigoVenda=" + codigoVenda + " ]";
+        final Vendas other = (Vendas) obj;
+        if (!Objects.equals(this.codigo_venda, other.codigo_venda)) {
+            return false;
+        }
+        if (!Objects.equals(this.caixa_idcaixa, other.caixa_idcaixa)) {
+            return false;
+        }
+        return Objects.equals(this.codigo_convenio, other.codigo_convenio);
     }
 
 }

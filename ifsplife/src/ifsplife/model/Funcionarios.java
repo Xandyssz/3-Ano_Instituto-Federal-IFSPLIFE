@@ -1,6 +1,7 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,130 +12,75 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcionarios")
+@Table(name = "funcionarios", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f"),
-    @NamedQuery(name = "Funcionarios.findByCodigoFuncionario", query = "SELECT f FROM Funcionarios f WHERE f.codigoFuncionario = :codigoFuncionario"),
-    @NamedQuery(name = "Funcionarios.findByNome", query = "SELECT f FROM Funcionarios f WHERE f.nome = :nome"),
-    @NamedQuery(name = "Usuario.login", query = "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha")
-})
+    @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f")})
 public class Funcionarios implements Serializable {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name = "codigo_funcionario")
-    private Integer codigoFuncionario;
-
-    @Column(name = "nome")
-    private String nome;
-
-    @Column(name = "cpf")
-    private String cpf;
-
-    @Column(name = "nivelacesso")
-    private String nivelacesso;
-
-    @Column(name = "telefone")
-    private String telefone;
-
-    @Column(name = "endereco")
-    private String endereco;
-
-    @Column(name = "cidade")
-    private String cidade;
-
-    @Column(name = "cep")
+    
+    @Column(name = "codigo_funcionario", nullable = false)
+    private Integer codigo_funcionario;
+    
+    @Column(name = "cep", nullable = false, length = 12)
     private String cep;
-
-    @Column(name = "uf")
-    private String uf;
-
-    @Column(name = "salario")
-    private String salario;
-
-    @Column(name = "login")
+    
+    @Column(name = "cidade", nullable = false, length = 45)
+    private String cidade;
+    
+    @Column(name = "cpf", nullable = false, length = 15)
+    private String cpf;
+    
+    @Column(name = "endereco", nullable = false, length = 45)
+    private String endereco;
+    
+    @Column(name = "login", nullable = false, length = 45)
     private String login;
-
-    @Column(name = "senha")
+    
+    @Column(name = "nivelacesso", nullable = false, length = 45)
+    private String nivelacesso;
+    
+    @Column(name = "nome", nullable = false, length = 255)
+    private String nome;
+    
+    @Column(name = "salario", nullable = false, length = 50)
+    private String salario;
+    
+    @Column(name = "senha", nullable = false, length = 45)
     private String senha;
+    
+    @Column(name = "telefone", nullable = false, length = 20)
+    private String telefone;
+    
+    @Column(name = "uf", nullable = false, length = 20)
+    private String uf;
 
     public Funcionarios() {
     }
 
-    public Funcionarios(Integer codigoFuncionario) {
-        this.codigoFuncionario = codigoFuncionario;
-    }
-
-    public Funcionarios(Integer codigoFuncionario, String nome, String cpf, String nivelacesso, String telefone, String endereco, String cidade, String cep, String uf, String salario, String login, String senha) {
-        this.codigoFuncionario = codigoFuncionario;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.nivelacesso = nivelacesso;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.cidade = cidade;
+    public Funcionarios(Integer codigo_funcionario, String cep, String cidade, String cpf, String endereco, String login, String nivelacesso, String nome, String salario, String senha, String telefone, String uf) {
+        this.codigo_funcionario = codigo_funcionario;
         this.cep = cep;
-        this.uf = uf;
-        this.salario = salario;
-        this.login = login;
-        this.senha = senha;
-    }
-
-    public Integer getCodigoFuncionario() {
-        return codigoFuncionario;
-    }
-
-    public void setCodigoFuncionario(Integer codigoFuncionario) {
-        this.codigoFuncionario = codigoFuncionario;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getNivelacesso() {
-        return nivelacesso;
-    }
-
-    public void setNivelacesso(String nivelacesso) {
-        this.nivelacesso = nivelacesso;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
         this.cidade = cidade;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.login = login;
+        this.nivelacesso = nivelacesso;
+        this.nome = nome;
+        this.salario = salario;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.uf = uf;
+    }
+
+    public Integer getCodigo_funcionario() {
+        return codigo_funcionario;
+    }
+
+    public void setCodigo_funcionario(Integer codigo_funcionario) {
+        this.codigo_funcionario = codigo_funcionario;
     }
 
     public String getCep() {
@@ -145,20 +91,28 @@ public class Funcionarios implements Serializable {
         this.cep = cep;
     }
 
-    public String getUf() {
-        return uf;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public String getSalario() {
-        return salario;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setSalario(String salario) {
-        this.salario = salario;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getLogin() {
@@ -169,6 +123,30 @@ public class Funcionarios implements Serializable {
         this.login = login;
     }
 
+    public String getNivelacesso() {
+        return nivelacesso;
+    }
+
+    public void setNivelacesso(String nivelacesso) {
+        this.nivelacesso = nivelacesso;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSalario() {
+        return salario;
+    }
+
+    public void setSalario(String salario) {
+        this.salario = salario;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -177,28 +155,44 @@ public class Funcionarios implements Serializable {
         this.senha = senha;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codigoFuncionario != null ? codigoFuncionario.hashCode() : 0);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.codigo_funcionario);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Funcionarios)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Funcionarios other = (Funcionarios) object;
-        if ((this.codigoFuncionario == null && other.codigoFuncionario != null) || (this.codigoFuncionario != null && !this.codigoFuncionario.equals(other.codigoFuncionario))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+        final Funcionarios other = (Funcionarios) obj;
+        return Objects.equals(this.codigo_funcionario, other.codigo_funcionario);
     }
 
-    @Override
-    public String toString() {
-        return "ifsplife.model.Funcionarios[ codigoFuncionario=" + codigoFuncionario + " ]";
-    }
-
+    
+    
 }

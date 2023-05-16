@@ -1,9 +1,13 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -13,56 +17,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pagamento")
 @NamedQueries({
-    @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p"),
-    @NamedQuery(name = "Pagamento.findByCodigoPagamento", query = "SELECT p FROM Pagamento p WHERE p.pagamentoPK.codigoPagamento = :codigoPagamento"),
-    @NamedQuery(name = "Pagamento.findByCodigoVenda", query = "SELECT p FROM Pagamento p WHERE p.pagamentoPK.codigoVenda = :codigoVenda"),
-    @NamedQuery(name = "Pagamento.findByValor", query = "SELECT p FROM Pagamento p WHERE p.valor = :valor"),
-    @NamedQuery(name = "Pagamento.findByForma", query = "SELECT p FROM Pagamento p WHERE p.forma = :forma")})
+    @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p")})
+
+@IdClass(PagamentoId.class)
 public class Pagamento implements Serializable {
 
-    @EmbeddedId
-    protected PagamentoID pagamentoPK;
-
-    @Column(name = "valor")
-    private double valor;
-
-    @Column(name = "forma")
-    private String forma;
-    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", insertable = false, updatable = false)
+    @Id
     @ManyToOne
-    private Vendas vendas;
+    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda")
+    private Vendas codigo_venda;
+
+    @Id
+    @Column(name = "codigo_pagamento")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo_pagamento;
+
+    @Column(name = "forma", nullable = false, length = 10)
+    private String forma;
+
+    @Column(name = "valor", nullable = false)
+    private double valor;
 
     public Pagamento() {
     }
 
-    public Pagamento(PagamentoID pagamentoPK) {
-        this.pagamentoPK = pagamentoPK;
-    }
-
-    public Pagamento(PagamentoID pagamentoPK, double valor, String forma) {
-        this.pagamentoPK = pagamentoPK;
-        this.valor = valor;
+    public Pagamento(String forma, double valor, Vendas codigo_venda) {
         this.forma = forma;
-    }
-
-    public Pagamento(int codigoPagamento, int codigoVenda) {
-        this.pagamentoPK = new PagamentoID(codigoPagamento, codigoVenda);
-    }
-
-    public PagamentoID getPagamentoPK() {
-        return pagamentoPK;
-    }
-
-    public void setPagamentoPK(PagamentoID pagamentoPK) {
-        this.pagamentoPK = pagamentoPK;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
         this.valor = valor;
+        this.codigo_venda = codigo_venda;
     }
 
     public String getForma() {
@@ -73,36 +55,42 @@ public class Pagamento implements Serializable {
         this.forma = forma;
     }
 
-    public Vendas getVendas() {
-        return vendas;
+    public double getValor() {
+        return valor;
     }
 
-    public void setVendas(Vendas vendas) {
-        this.vendas = vendas;
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Vendas getCodigo_venda() {
+        return codigo_venda;
+    }
+
+    public void setCodigo_venda(Vendas codigo_venda) {
+        this.codigo_venda = codigo_venda;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (pagamentoPK != null ? pagamentoPK.hashCode() : 0);
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.codigo_venda);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Pagamento)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Pagamento other = (Pagamento) object;
-        if ((this.pagamentoPK == null && other.pagamentoPK != null) || (this.pagamentoPK != null && !this.pagamentoPK.equals(other.pagamentoPK))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Pagamento[ pagamentoPK=" + pagamentoPK + " ]";
+        final Pagamento other = (Pagamento) obj;
+        return Objects.equals(this.codigo_venda, other.codigo_venda);
     }
 
 }

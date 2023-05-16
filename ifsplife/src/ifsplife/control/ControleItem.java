@@ -29,7 +29,7 @@ public class ControleItem {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         Item itemExcluir = gerente.find(Item.class,
-                Item.getCodigoItem());
+                Item.getCodigo_item());
 
         gerente.getTransaction().begin();
 

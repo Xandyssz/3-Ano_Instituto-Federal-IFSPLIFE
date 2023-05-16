@@ -2,9 +2,11 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -14,97 +16,85 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "caixa_despesas")
+@Table(name = "caixa_despesas", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "CaixaDespesas.findAll", query = "SELECT c FROM CaixaDespesas c"),
-    @NamedQuery(name = "CaixaDespesas.findByCodigoCaixa", query = "SELECT c FROM CaixaDespesas c WHERE c.caixaDespesasPK.codigoCaixa = :codigoCaixa"),
-    @NamedQuery(name = "CaixaDespesas.findByCodigoDespesa", query = "SELECT c FROM CaixaDespesas c WHERE c.caixaDespesasPK.codigoDespesa = :codigoDespesa"),
-    @NamedQuery(name = "CaixaDespesas.findByDataPagamento", query = "SELECT c FROM CaixaDespesas c WHERE c.dataPagamento = :dataPagamento")})
+    @NamedQuery(name = "CaixaDespesas.findAll", query = "SELECT c FROM CaixaDespesas c")})
+
+@IdClass(CaixaDespesasId.class)
+
 public class CaixaDespesas implements Serializable {
 
-    @EmbeddedId
-    protected CaixaDespesasID caixaDespesasPK;
-
-    @Column(name = "data_pagamento")
+    @Column(name = "data_pagamento", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date dataPagamento;
-    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
+    private Date data_pagamento;
+
+    @Id
     @ManyToOne
-    private Caixa caixa;
-    @JoinColumn(name = "codigo_despesa", referencedColumnName = "codigo_despesa", insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa")
+    private Caixa codigo_caixa;
+
+    @Id
     @ManyToOne
-    private Despesas despesas;
+    @JoinColumn(name = "codigo_despesa", referencedColumnName = "codigo_despesa")
+    private Despesas codigo_despesa;
 
     public CaixaDespesas() {
     }
 
-    public CaixaDespesas(CaixaDespesasID caixaDespesasPK) {
-        this.caixaDespesasPK = caixaDespesasPK;
+    public CaixaDespesas(Date data_pagamento, Caixa codigo_caixa, Despesas codigo_despesa) {
+        this.data_pagamento = data_pagamento;
+        this.codigo_caixa = codigo_caixa;
+        this.codigo_despesa = codigo_despesa;
     }
 
-    public CaixaDespesas(CaixaDespesasID caixaDespesasPK, Date dataPagamento) {
-        this.caixaDespesasPK = caixaDespesasPK;
-        this.dataPagamento = dataPagamento;
+    public Date getData_pagamento() {
+        return data_pagamento;
     }
 
-    public CaixaDespesas(int codigoCaixa, int codigoDespesa) {
-        this.caixaDespesasPK = new CaixaDespesasID(codigoCaixa, codigoDespesa);
+    public void setData_pagamento(Date data_pagamento) {
+        this.data_pagamento = data_pagamento;
     }
 
-    public CaixaDespesasID getCaixaDespesasPK() {
-        return caixaDespesasPK;
+    public Caixa getCodigo_caixa() {
+        return codigo_caixa;
     }
 
-    public void setCaixaDespesasPK(CaixaDespesasID caixaDespesasPK) {
-        this.caixaDespesasPK = caixaDespesasPK;
+    public void setCodigo_caixa(Caixa codigo_caixa) {
+        this.codigo_caixa = codigo_caixa;
     }
 
-    public Date getDataPagamento() {
-        return dataPagamento;
+    public Despesas getCodigo_despesa() {
+        return codigo_despesa;
     }
 
-    public void setDataPagamento(Date dataPagamento) {
-        this.dataPagamento = dataPagamento;
-    }
-
-    public Caixa getCaixa() {
-        return caixa;
-    }
-
-    public void setCaixa(Caixa caixa) {
-        this.caixa = caixa;
-    }
-
-    public Despesas getDespesas() {
-        return despesas;
-    }
-
-    public void setDespesas(Despesas despesas) {
-        this.despesas = despesas;
+    public void setCodigo_despesa(Despesas codigo_despesa) {
+        this.codigo_despesa = codigo_despesa;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (caixaDespesasPK != null ? caixaDespesasPK.hashCode() : 0);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.codigo_caixa);
+        hash = 53 * hash + Objects.hashCode(this.codigo_despesa);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof CaixaDespesas)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        CaixaDespesas other = (CaixaDespesas) object;
-        if ((this.caixaDespesasPK == null && other.caixaDespesasPK != null) || (this.caixaDespesasPK != null && !this.caixaDespesasPK.equals(other.caixaDespesasPK))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.CaixaDespesas[ caixaDespesasPK=" + caixaDespesasPK + " ]";
+        final CaixaDespesas other = (CaixaDespesas) obj;
+        if (!Objects.equals(this.codigo_caixa, other.codigo_caixa)) {
+            return false;
+        }
+        return Objects.equals(this.codigo_despesa, other.codigo_despesa);
     }
 
 }

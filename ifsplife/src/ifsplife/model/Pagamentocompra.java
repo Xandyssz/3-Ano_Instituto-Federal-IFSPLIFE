@@ -2,6 +2,7 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,54 +18,37 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "pagamentocompra")
 @NamedQueries({
-    @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p"),
-    @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigoCompra = :codigoCompra"),
-    @NamedQuery(name = "Pagamentocompra.findByParcela", query = "SELECT p FROM Pagamentocompra p WHERE p.parcela = :parcela"),
-    @NamedQuery(name = "Pagamentocompra.findByVencimento", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento = :vencimento"),
-    @NamedQuery(name = "Pagamentocompra.findByValor", query = "SELECT p FROM Pagamentocompra p WHERE p.valor = :valor")})
+    @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p")})
 public class Pagamentocompra implements Serializable {
 
-    @Id
-
-    @Column(name = "codigo_compra")
-    private Integer codigoCompra;
-
-    @Column(name = "parcela")
+    @Column(name = "parcela", nullable = false)
     private int parcela;
 
-    @Column(name = "vencimento")
+    @Column(name = "valor", nullable = false)
+    private float valor;
+
+    @Column(name = "vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date vencimento;
 
-    @Column(name = "valor")
-    private float valor;
-    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
     @ManyToOne
-    private Caixa caixaIdcaixa;
-    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
+    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
+    private Caixa caixa_idcaixa;
+
+    @Id
     @OneToOne
-    private Compras compras;
+    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
+    private Compras codigo_compra;
 
     public Pagamentocompra() {
     }
 
-    public Pagamentocompra(Integer codigoCompra) {
-        this.codigoCompra = codigoCompra;
-    }
-
-    public Pagamentocompra(Integer codigoCompra, int parcela, Date vencimento, float valor) {
-        this.codigoCompra = codigoCompra;
+    public Pagamentocompra(int parcela, float valor, Date vencimento, Caixa caixa_idcaixa, Compras codigo_compra) {
         this.parcela = parcela;
-        this.vencimento = vencimento;
         this.valor = valor;
-    }
-
-    public Integer getCodigoCompra() {
-        return codigoCompra;
-    }
-
-    public void setCodigoCompra(Integer codigoCompra) {
-        this.codigoCompra = codigoCompra;
+        this.vencimento = vencimento;
+        this.caixa_idcaixa = caixa_idcaixa;
+        this.codigo_compra = codigo_compra;
     }
 
     public int getParcela() {
@@ -75,14 +59,6 @@ public class Pagamentocompra implements Serializable {
         this.parcela = parcela;
     }
 
-    public Date getVencimento() {
-        return vencimento;
-    }
-
-    public void setVencimento(Date vencimento) {
-        this.vencimento = vencimento;
-    }
-
     public float getValor() {
         return valor;
     }
@@ -91,44 +67,54 @@ public class Pagamentocompra implements Serializable {
         this.valor = valor;
     }
 
-    public Caixa getCaixaIdcaixa() {
-        return caixaIdcaixa;
+    public Date getVencimento() {
+        return vencimento;
     }
 
-    public void setCaixaIdcaixa(Caixa caixaIdcaixa) {
-        this.caixaIdcaixa = caixaIdcaixa;
+    public void setVencimento(Date vencimento) {
+        this.vencimento = vencimento;
     }
 
-    public Compras getCompras() {
-        return compras;
+    public Caixa getCaixa_idcaixa() {
+        return caixa_idcaixa;
     }
 
-    public void setCompras(Compras compras) {
-        this.compras = compras;
+    public void setCaixa_idcaixa(Caixa caixa_idcaixa) {
+        this.caixa_idcaixa = caixa_idcaixa;
+    }
+
+    public Compras getCodigo_compra() {
+        return codigo_compra;
+    }
+
+    public void setCodigo_compra(Compras codigo_compra) {
+        this.codigo_compra = codigo_compra;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codigoCompra != null ? codigoCompra.hashCode() : 0);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.caixa_idcaixa);
+        hash = 67 * hash + Objects.hashCode(this.codigo_compra);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Pagamentocompra)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Pagamentocompra other = (Pagamentocompra) object;
-        if ((this.codigoCompra == null && other.codigoCompra != null) || (this.codigoCompra != null && !this.codigoCompra.equals(other.codigoCompra))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Pagamentocompra[ codigoCompra=" + codigoCompra + " ]";
+        final Pagamentocompra other = (Pagamentocompra) obj;
+        if (!Objects.equals(this.caixa_idcaixa, other.caixa_idcaixa)) {
+            return false;
+        }
+        return Objects.equals(this.codigo_compra, other.codigo_compra);
     }
 
 }

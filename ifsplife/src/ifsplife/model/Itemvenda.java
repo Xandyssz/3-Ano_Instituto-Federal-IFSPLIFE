@@ -1,10 +1,11 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
+import java.util.Objects;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -14,56 +15,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "itemvenda")
 @NamedQueries({
-    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i"),
-    @NamedQuery(name = "Itemvenda.findByCodigoVenda", query = "SELECT i FROM Itemvenda i WHERE i.itemvendaPK.codigoVenda = :codigoVenda"),
-    @NamedQuery(name = "Itemvenda.findByCodigoProduto", query = "SELECT i FROM Itemvenda i WHERE i.itemvendaPK.codigoProduto = :codigoProduto"),
-    @NamedQuery(name = "Itemvenda.findByQuantidade", query = "SELECT i FROM Itemvenda i WHERE i.quantidade = :quantidade"),
-    @NamedQuery(name = "Itemvenda.findByPreco", query = "SELECT i FROM Itemvenda i WHERE i.preco = :preco")})
+    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i")})
+
+@IdClass(ItemvendaId.class)
+
 public class Itemvenda implements Serializable {
 
-    @EmbeddedId
-    protected ItemvendaPK itemvendaPK;
-
-    @Column(name = "quantidade")
-    private int quantidade;
-
-    @Column(name = "preco")
-    private float preco;
-    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda", insertable = false, updatable = false)
+    @Id
     @ManyToOne
-    private Vendas vendas;
+    @JoinColumn(name = "codigo_venda", referencedColumnName = "codigo_venda")
+    private Vendas codigo_venda;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "codigo_item", referencedColumnName = "codigo_item")
+    private Item codigo_item;
+
+    @Column(name = "preco", nullable = false)
+    private float preco;
+
+    @Column(name = "quantidade", nullable = false)
+    private int quantidade;
 
     public Itemvenda() {
     }
 
-    public Itemvenda(ItemvendaPK itemvendaPK) {
-        this.itemvendaPK = itemvendaPK;
-    }
-
-    public Itemvenda(ItemvendaPK itemvendaPK, int quantidade, float preco) {
-        this.itemvendaPK = itemvendaPK;
-        this.quantidade = quantidade;
+    public Itemvenda(float preco, int quantidade, Vendas codigo_venda) {
         this.preco = preco;
-    }
-
-    public Itemvenda(int codigoVenda, int codigoProduto) {
-        this.itemvendaPK = new ItemvendaPK(codigoVenda, codigoProduto);
-    }
-
-    public ItemvendaPK getItemvendaPK() {
-        return itemvendaPK;
-    }
-
-    public void setItemvendaPK(ItemvendaPK itemvendaPK) {
-        this.itemvendaPK = itemvendaPK;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+        this.codigo_venda = codigo_venda;
     }
 
     public float getPreco() {
@@ -74,36 +54,42 @@ public class Itemvenda implements Serializable {
         this.preco = preco;
     }
 
-    public Vendas getVendas() {
-        return vendas;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setVendas(Vendas vendas) {
-        this.vendas = vendas;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Vendas getCodigo_venda() {
+        return codigo_venda;
+    }
+
+    public void setCodigo_venda(Vendas codigo_venda) {
+        this.codigo_venda = codigo_venda;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (itemvendaPK != null ? itemvendaPK.hashCode() : 0);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.codigo_venda);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Itemvenda)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Itemvenda other = (Itemvenda) object;
-        if ((this.itemvendaPK == null && other.itemvendaPK != null) || (this.itemvendaPK != null && !this.itemvendaPK.equals(other.itemvendaPK))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Itemvenda[ itemvendaPK=" + itemvendaPK + " ]";
+        final Itemvenda other = (Itemvenda) obj;
+        return Objects.equals(this.codigo_venda, other.codigo_venda);
     }
 
 }

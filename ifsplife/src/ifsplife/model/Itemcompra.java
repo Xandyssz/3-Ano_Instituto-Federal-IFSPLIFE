@@ -1,10 +1,13 @@
 package ifsplife.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
+import java.util.Objects;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -14,56 +17,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "itemcompra")
 @NamedQueries({
-    @NamedQuery(name = "Itemcompra.findAll", query = "SELECT i FROM Itemcompra i"),
-    @NamedQuery(name = "Itemcompra.findByCodigoCompra", query = "SELECT i FROM Itemcompra i WHERE i.itemcompraPK.codigoCompra = :codigoCompra"),
-    @NamedQuery(name = "Itemcompra.findByCodigoProduto", query = "SELECT i FROM Itemcompra i WHERE i.itemcompraPK.codigoProduto = :codigoProduto"),
-    @NamedQuery(name = "Itemcompra.findByQuantidade", query = "SELECT i FROM Itemcompra i WHERE i.quantidade = :quantidade"),
-    @NamedQuery(name = "Itemcompra.findByPreco", query = "SELECT i FROM Itemcompra i WHERE i.preco = :preco")})
+    @NamedQuery(name = "Itemcompra.findAll", query = "SELECT i FROM Itemcompra i")})
+
+@IdClass(ItemcompraId.class)
 public class Itemcompra implements Serializable {
 
-    @EmbeddedId
-    protected ItemcompraPK itemcompraPK;
-    
-    @Column(name = "quantidade")
-    private int quantidade;
-    
-    @Column(name = "preco")
-    private float preco;
-    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra", insertable = false, updatable = false)
+    @Id
     @ManyToOne
-    private Compras compras;
+    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
+    private Compras codigo_compra;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "codigo_item", referencedColumnName = "codigo_item")
+    private Item codigo_item;
+
+    @Column(name = "preco", nullable = false)
+    private float preco;
+
+    @Column(name = "quantidade", nullable = false)
+    private int quantidade;
 
     public Itemcompra() {
     }
 
-    public Itemcompra(ItemcompraPK itemcompraPK) {
-        this.itemcompraPK = itemcompraPK;
-    }
-
-    public Itemcompra(ItemcompraPK itemcompraPK, int quantidade, float preco) {
-        this.itemcompraPK = itemcompraPK;
-        this.quantidade = quantidade;
+    public Itemcompra(float preco, int quantidade, Compras codigo_compra) {
         this.preco = preco;
-    }
-
-    public Itemcompra(int codigoCompra, int codigoProduto) {
-        this.itemcompraPK = new ItemcompraPK(codigoCompra, codigoProduto);
-    }
-
-    public ItemcompraPK getItemcompraPK() {
-        return itemcompraPK;
-    }
-
-    public void setItemcompraPK(ItemcompraPK itemcompraPK) {
-        this.itemcompraPK = itemcompraPK;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+        this.codigo_compra = codigo_compra;
     }
 
     public float getPreco() {
@@ -74,36 +55,42 @@ public class Itemcompra implements Serializable {
         this.preco = preco;
     }
 
-    public Compras getCompras() {
-        return compras;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setCompras(Compras compras) {
-        this.compras = compras;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Compras getCodigo_compra() {
+        return codigo_compra;
+    }
+
+    public void setCodigo_compra(Compras codigo_compra) {
+        this.codigo_compra = codigo_compra;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (itemcompraPK != null ? itemcompraPK.hashCode() : 0);
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.codigo_compra);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Itemcompra)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Itemcompra other = (Itemcompra) object;
-        if ((this.itemcompraPK == null && other.itemcompraPK != null) || (this.itemcompraPK != null && !this.itemcompraPK.equals(other.itemcompraPK))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Itemcompra[ itemcompraPK=" + itemcompraPK + " ]";
+        final Itemcompra other = (Itemcompra) obj;
+        return Objects.equals(this.codigo_compra, other.codigo_compra);
     }
 
 }

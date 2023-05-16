@@ -28,7 +28,7 @@ public class ControleFornecedor {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         Fornecedores fornecedorExcluir = gerente.find(Fornecedores.class,
-                Fornecedor.getCodigoFornecedor());
+                Fornecedor.getCodigo_fornecedor());
 
         gerente.getTransaction().begin();
 

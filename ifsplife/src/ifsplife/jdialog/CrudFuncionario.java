@@ -16,7 +16,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
     public Funcionarios getFuncionario() {
         Funcionarios funcionarios = new Funcionarios();
 
-        funcionarios.setCodigoFuncionario(codigo);
+        funcionarios.setCodigo_funcionario(codigo);
         funcionarios.setNome(JTextFieldNome.getText());
         funcionarios.setCpf(JFormatedTextCPF.getText());
         funcionarios.setNivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
@@ -32,7 +32,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
     }
 
     public void setFuncionario(Funcionarios funcionarios) {
-        this.codigo = funcionarios.getCodigoFuncionario();
+        this.codigo = funcionarios.getCodigo_funcionario();
         JTextFieldNome.setText(funcionarios.getNome());
         JFormatedTextCPF.setText(funcionarios.getCpf());
         JComboBoxNivelAcesso.setSelectedItem(funcionarios.getNivelacesso());

@@ -16,7 +16,7 @@ public class CrudConvenio extends javax.swing.JDialog {
     public Convenios getConvenio() {
         Convenios c = new Convenios();
 
-        c.setCodigoConvenio(codigo);
+        c.setCodigo_convenio(codigo);
         c.setNome(JTextFieldNome.getText());
         c.setEmail(JTextFieldEmail.getText());
         c.setCnpj(JFormatedTextCNPJ.getText());
@@ -31,7 +31,7 @@ public class CrudConvenio extends javax.swing.JDialog {
     }
 
     public void setConvenio(Convenios convenio) {
-        this.codigo = convenio.getCodigoConvenio();
+        this.codigo = convenio.getCodigo_convenio();
         JTextFieldNome.setText(convenio.getNome());
         JTextFieldEmail.setText(convenio.getEmail());
         JFormatedTextCNPJ.setText(convenio.getCnpj());

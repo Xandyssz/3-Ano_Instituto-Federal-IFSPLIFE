@@ -1,8 +1,10 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,86 +19,86 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "caixa")
 @NamedQueries({
-    @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
-    @NamedQuery(name = "Caixa.findByCodigoCaixa", query = "SELECT c FROM Caixa c WHERE c.codigoCaixa = :codigoCaixa"),
-    @NamedQuery(name = "Caixa.findByStatus", query = "SELECT c FROM Caixa c WHERE c.status = :status"),
-    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura = :abertura"),
-    @NamedQuery(name = "Caixa.findByValorabertura", query = "SELECT c FROM Caixa c WHERE c.valorabertura = :valorabertura"),
-    @NamedQuery(name = "Caixa.findByTotalentradas", query = "SELECT c FROM Caixa c WHERE c.totalentradas = :totalentradas"),
-    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento = :fechamento"),
-    @NamedQuery(name = "Caixa.findByTotalsaidas", query = "SELECT c FROM Caixa c WHERE c.totalsaidas = :totalsaidas"),
-    @NamedQuery(name = "Caixa.findBySaldo", query = "SELECT c FROM Caixa c WHERE c.saldo = :saldo")})
+    @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c")})
 public class Caixa implements Serializable {
 
     @Id
-    @Column(name = "codigo_caixa")
-    private Integer codigoCaixa;
+    @Column(name = "codigo_caixa", nullable = false)
+    private Integer codigo_caixa;
 
-    @Column(name = "status")
-    private Character status;
-
-    @Column(name = "abertura")
+    @Column(name = "abertura", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date abertura;
 
-    @Column(name = "valorabertura")
-    private double valorabertura;
-
-    @Column(name = "totalentradas")
-    private double totalentradas;
-
-    @Column(name = "fechamento")
+    @Column(name = "fechamento", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date fechamento;
 
-    @Column(name = "totalsaidas")
+    @Column(name = "saldo", nullable = false)
+    private double saldo;
+
+    @Column(name = "status", nullable = false)
+    private Character status;
+
+    @Column(name = "totalentradas", nullable = false)
+    private double totalentradas;
+
+    @Column(name = "totalsaidas", nullable = false)
     private double totalsaidas;
 
-    @Column(name = "saldo")
-    private double saldo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
-    private List<Vendas> vendasList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixaIdcaixa")
-    private List<Pagamentocompra> pagamentocompraList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private List<Movimentacao> movimentacaoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private List<Sangria> sangriaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "caixa")
-    private List<CaixaDespesas> caixaDespesasList;
+    @Column(name = "valorabertura", nullable = false)
+    private double valorabertura;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "caixa_idcaixa")
+    private List<Vendas> vendas = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+             mappedBy = "caixa_idcaixa")
+    private List<Pagamentocompra> pagamentocompra = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+             mappedBy = "codigo_caixa")
+    private List<Movimentacao> movimentacao = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+             mappedBy = "codigo_caixa")
+    private List<Sangria> sangria = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+             mappedBy = "codigo_caixa")
+    private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
 
     public Caixa() {
     }
 
-    public Caixa(Integer codigoCaixa) {
-        this.codigoCaixa = codigoCaixa;
-    }
-
-    public Caixa(Integer codigoCaixa, Character status, Date abertura, double valorabertura, double totalentradas, Date fechamento, double totalsaidas, double saldo) {
-        this.codigoCaixa = codigoCaixa;
-        this.status = status;
+    public Caixa(Integer codigo_caixa, Date abertura, Date fechamento, double saldo, Character status, double totalentradas, double totalsaidas, double valorabertura, List<Vendas> vendas, List<Pagamentocompra> pagamentocompra, List<Movimentacao> movimentacao, List<Sangria> sangria, List<CaixaDespesas> caixaDespesas) {
+        this.codigo_caixa = codigo_caixa;
         this.abertura = abertura;
-        this.valorabertura = valorabertura;
-        this.totalentradas = totalentradas;
         this.fechamento = fechamento;
-        this.totalsaidas = totalsaidas;
         this.saldo = saldo;
-    }
-
-    public Integer getCodigoCaixa() {
-        return codigoCaixa;
-    }
-
-    public void setCodigoCaixa(Integer codigoCaixa) {
-        this.codigoCaixa = codigoCaixa;
-    }
-
-    public Character getStatus() {
-        return status;
-    }
-
-    public void setStatus(Character status) {
         this.status = status;
+        this.totalentradas = totalentradas;
+        this.totalsaidas = totalsaidas;
+        this.valorabertura = valorabertura;
+        this.vendas = vendas;
+        this.pagamentocompra = pagamentocompra;
+        this.movimentacao = movimentacao;
+        this.sangria = sangria;
+        this.caixaDespesas = caixaDespesas;
+    }
+
+    public Integer getCodigo_caixa() {
+        return codigo_caixa;
+    }
+
+    public void setCodigo_caixa(Integer codigo_caixa) {
+        this.codigo_caixa = codigo_caixa;
     }
 
     public Date getAbertura() {
@@ -107,36 +109,12 @@ public class Caixa implements Serializable {
         this.abertura = abertura;
     }
 
-    public double getValorabertura() {
-        return valorabertura;
-    }
-
-    public void setValorabertura(double valorabertura) {
-        this.valorabertura = valorabertura;
-    }
-
-    public double getTotalentradas() {
-        return totalentradas;
-    }
-
-    public void setTotalentradas(double totalentradas) {
-        this.totalentradas = totalentradas;
-    }
-
     public Date getFechamento() {
         return fechamento;
     }
 
     public void setFechamento(Date fechamento) {
         this.fechamento = fechamento;
-    }
-
-    public double getTotalsaidas() {
-        return totalsaidas;
-    }
-
-    public void setTotalsaidas(double totalsaidas) {
-        this.totalsaidas = totalsaidas;
     }
 
     public double getSaldo() {
@@ -147,68 +125,98 @@ public class Caixa implements Serializable {
         this.saldo = saldo;
     }
 
-    public List<Vendas> getVendasList() {
-        return vendasList;
+    public Character getStatus() {
+        return status;
     }
 
-    public void setVendasList(List<Vendas> vendasList) {
-        this.vendasList = vendasList;
+    public void setStatus(Character status) {
+        this.status = status;
     }
 
-    public List<Pagamentocompra> getPagamentocompraList() {
-        return pagamentocompraList;
+    public double getTotalentradas() {
+        return totalentradas;
     }
 
-    public void setPagamentocompraList(List<Pagamentocompra> pagamentocompraList) {
-        this.pagamentocompraList = pagamentocompraList;
+    public void setTotalentradas(double totalentradas) {
+        this.totalentradas = totalentradas;
     }
 
-    public List<Movimentacao> getMovimentacaoList() {
-        return movimentacaoList;
+    public double getTotalsaidas() {
+        return totalsaidas;
     }
 
-    public void setMovimentacaoList(List<Movimentacao> movimentacaoList) {
-        this.movimentacaoList = movimentacaoList;
+    public void setTotalsaidas(double totalsaidas) {
+        this.totalsaidas = totalsaidas;
     }
 
-    public List<Sangria> getSangriaList() {
-        return sangriaList;
+    public double getValorabertura() {
+        return valorabertura;
     }
 
-    public void setSangriaList(List<Sangria> sangriaList) {
-        this.sangriaList = sangriaList;
+    public void setValorabertura(double valorabertura) {
+        this.valorabertura = valorabertura;
     }
 
-    public List<CaixaDespesas> getCaixaDespesasList() {
-        return caixaDespesasList;
+    public List<Vendas> getVendas() {
+        return vendas;
     }
 
-    public void setCaixaDespesasList(List<CaixaDespesas> caixaDespesasList) {
-        this.caixaDespesasList = caixaDespesasList;
+    public void setVendas(List<Vendas> vendas) {
+        this.vendas = vendas;
+    }
+
+    public List<Pagamentocompra> getPagamentocompra() {
+        return pagamentocompra;
+    }
+
+    public void setPagamentocompra(List<Pagamentocompra> pagamentocompra) {
+        this.pagamentocompra = pagamentocompra;
+    }
+
+    public List<Movimentacao> getMovimentacao() {
+        return movimentacao;
+    }
+
+    public void setMovimentacao(List<Movimentacao> movimentacao) {
+        this.movimentacao = movimentacao;
+    }
+
+    public List<Sangria> getSangria() {
+        return sangria;
+    }
+
+    public void setSangria(List<Sangria> sangria) {
+        this.sangria = sangria;
+    }
+
+    public List<CaixaDespesas> getCaixaDespesas() {
+        return caixaDespesas;
+    }
+
+    public void setCaixaDespesas(List<CaixaDespesas> caixaDespesas) {
+        this.caixaDespesas = caixaDespesas;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codigoCaixa != null ? codigoCaixa.hashCode() : 0);
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.codigo_caixa);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Caixa)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Caixa other = (Caixa) object;
-        if ((this.codigoCaixa == null && other.codigoCaixa != null) || (this.codigoCaixa != null && !this.codigoCaixa.equals(other.codigoCaixa))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Caixa[ codigoCaixa=" + codigoCaixa + " ]";
+        final Caixa other = (Caixa) obj;
+        return Objects.equals(this.codigo_caixa, other.codigo_caixa);
     }
 
 }

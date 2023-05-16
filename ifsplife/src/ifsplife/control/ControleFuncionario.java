@@ -30,7 +30,7 @@ public class ControleFuncionario {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         Funcionarios funcionarioExcluir = gerente.find(Funcionarios.class,
-                Funcionarios.getCodigoFuncionario());
+                Funcionarios.getCodigo_funcionario());
 
         gerente.getTransaction().begin();
 

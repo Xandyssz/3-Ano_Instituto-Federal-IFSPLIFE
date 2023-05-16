@@ -1,9 +1,13 @@
 package ifsplife.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -13,53 +17,38 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sangria")
 @NamedQueries({
-    @NamedQuery(name = "Sangria.findAll", query = "SELECT s FROM Sangria s"),
-    @NamedQuery(name = "Sangria.findByCodigoCaixa", query = "SELECT s FROM Sangria s WHERE s.sangriaPK.codigoCaixa = :codigoCaixa"),
-    @NamedQuery(name = "Sangria.findByCodigoSangria", query = "SELECT s FROM Sangria s WHERE s.sangriaPK.codigoSangria = :codigoSangria"),
-    @NamedQuery(name = "Sangria.findByMotivo", query = "SELECT s FROM Sangria s WHERE s.motivo = :motivo"),
-    @NamedQuery(name = "Sangria.findByValor", query = "SELECT s FROM Sangria s WHERE s.valor = :valor"),
-    @NamedQuery(name = "Sangria.findByTipomovimentacao", query = "SELECT s FROM Sangria s WHERE s.tipomovimentacao = :tipomovimentacao")})
+    @NamedQuery(name = "Sangria.findAll", query = "SELECT s FROM Sangria s")})
+
+@IdClass(SangriaId.class)
 public class Sangria implements Serializable {
 
-    @EmbeddedId
-    protected SangriaID sangriaPK;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa")
+    private Caixa codigo_caixa;
 
-    @Column(name = "motivo")
+    @Id
+    @Column(name = "codigo_sangria")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo_sangria;
+    
+    @Column(name = "motivo", nullable = false, length = 250)
     private String motivo;
 
-    @Column(name = "valor")
-    private double valor;
-
-    @Column(name = "tipomovimentacao")
+    @Column(name = "tipomovimentacao", nullable = false, length = 45)
     private String tipomovimentacao;
-    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa", insertable = false, updatable = false)
-    @ManyToOne
-    private Caixa caixa;
+
+    @Column(name = "valor", nullable = false)
+    private double valor;
 
     public Sangria() {
     }
 
-    public Sangria(SangriaID sangriaPK) {
-        this.sangriaPK = sangriaPK;
-    }
-
-    public Sangria(SangriaID sangriaPK, String motivo, double valor, String tipomovimentacao) {
-        this.sangriaPK = sangriaPK;
+    public Sangria(String motivo, String tipomovimentacao, double valor, Caixa codigo_caixa) {
         this.motivo = motivo;
-        this.valor = valor;
         this.tipomovimentacao = tipomovimentacao;
-    }
-
-    public Sangria(int codigoCaixa, int codigoSangria) {
-        this.sangriaPK = new SangriaID(codigoCaixa, codigoSangria);
-    }
-
-    public SangriaID getSangriaPK() {
-        return sangriaPK;
-    }
-
-    public void setSangriaPK(SangriaID sangriaPK) {
-        this.sangriaPK = sangriaPK;
+        this.valor = valor;
+        this.codigo_caixa = codigo_caixa;
     }
 
     public String getMotivo() {
@@ -70,14 +59,6 @@ public class Sangria implements Serializable {
         this.motivo = motivo;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     public String getTipomovimentacao() {
         return tipomovimentacao;
     }
@@ -86,36 +67,42 @@ public class Sangria implements Serializable {
         this.tipomovimentacao = tipomovimentacao;
     }
 
-    public Caixa getCaixa() {
-        return caixa;
+    public double getValor() {
+        return valor;
     }
 
-    public void setCaixa(Caixa caixa) {
-        this.caixa = caixa;
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Caixa getCodigo_caixa() {
+        return codigo_caixa;
+    }
+
+    public void setCodigo_caixa(Caixa codigo_caixa) {
+        this.codigo_caixa = codigo_caixa;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (sangriaPK != null ? sangriaPK.hashCode() : 0);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.codigo_caixa);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Sangria)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Sangria other = (Sangria) object;
-        if ((this.sangriaPK == null && other.sangriaPK != null) || (this.sangriaPK != null && !this.sangriaPK.equals(other.sangriaPK))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ifsplife.model.Sangria[ sangriaPK=" + sangriaPK + " ]";
+        final Sangria other = (Sangria) obj;
+        return Objects.equals(this.codigo_caixa, other.codigo_caixa);
     }
 
 }

@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ifsplife.control;
 
-import java.util.ArrayList;
 import ifsplife.model.Convenios;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -12,7 +7,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author xandy
+ 
  */
 public class ControleConvenio {
 
@@ -35,7 +30,7 @@ public class ControleConvenio {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         Convenios convenioExcluir = gerente.find(Convenios.class,
-                Convenios.getCodigoConvenio());
+                Convenios.getCodigo_convenio());
 
         gerente.getTransaction().begin();
 
