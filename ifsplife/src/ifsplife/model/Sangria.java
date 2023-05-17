@@ -17,7 +17,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sangria")
 @NamedQueries({
-    @NamedQuery(name = "Sangria.findAll", query = "SELECT s FROM Sangria s")})
+    @NamedQuery(name = "Sangria.findAll", query = "SELECT s FROM Sangria s"),
+    @NamedQuery(name = "Sangria.findByCodigoSangria", query = "SELECT s FROM Sangria s WHERE s.codigo_sangria = :codigoSangria"),
+    @NamedQuery(name = "Sangria.findByMotivo", query = "SELECT s FROM Sangria s WHERE s.motivo = :motivo"),
+    @NamedQuery(name = "Sangria.findByTipomovimentacao", query = "SELECT s FROM Sangria s WHERE s.tipomovimentacao = :tipomovimentacao"),
+    @NamedQuery(name = "Sangria.findByValor", query = "SELECT s FROM Sangria s WHERE s.valor = :valor"),
+    @NamedQuery(name = "Sangria.findByCodigoCaixa", query = "SELECT s FROM Sangria s WHERE s.codigo_caixa = :codigoCaixa")})
 
 @IdClass(SangriaId.class)
 public class Sangria implements Serializable {
@@ -31,7 +36,7 @@ public class Sangria implements Serializable {
     @Column(name = "codigo_sangria")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo_sangria;
-    
+
     @Column(name = "motivo", nullable = false, length = 250)
     private String motivo;
 

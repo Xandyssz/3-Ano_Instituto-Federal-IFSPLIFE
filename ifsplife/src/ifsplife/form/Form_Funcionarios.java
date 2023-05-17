@@ -365,7 +365,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
-
+        atualizarTabela();
     }//GEN-LAST:event_search1KeyTyped
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

@@ -15,7 +15,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "itemvenda")
 @NamedQueries({
-    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i")})
+    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i"),
+    @NamedQuery(name = "Itemvenda.findByPreco", query = "SELECT i FROM Itemvenda i WHERE i.preco = :preco"),
+    @NamedQuery(name = "Itemvenda.findByQuantidade", query = "SELECT i FROM Itemvenda i WHERE i.quantidade = :quantidade"),
+    @NamedQuery(name = "Itemvenda.findByCodigoItem", query = "SELECT i FROM Itemvenda i WHERE i.codigo_item = :codigoItem"),
+    @NamedQuery(name = "Itemvenda.findByCodigoVenda", query = "SELECT i FROM Itemvenda i WHERE i.codigo_venda = :codigoVenda")})
 
 @IdClass(ItemvendaId.class)
 

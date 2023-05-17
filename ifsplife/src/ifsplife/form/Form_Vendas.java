@@ -3,10 +3,10 @@ package ifsplife.form;
 import ifsplife.control.ControleConvenio;
 import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Convenios;
-import ifsplife.model.Funcionarios;
 import ifsplife.model.Item;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,11 +15,10 @@ public class Form_Vendas extends javax.swing.JPanel {
 
     private boolean confirmou = false;
     private int codigo = 0;
-    Item itemSelecionado = null;
     private ControleConvenio controle = new ControleConvenio();
 
-//    ControleVendas controle = new ControleVendas();
-//    List<Venda> listaVendas = new ArrayList<>();
+    Item itemSelecionado = null;
+    List<Item> itens = new ArrayList<>();
 
     public Form_Vendas() {
         initComponents();
@@ -34,23 +33,7 @@ public class Form_Vendas extends javax.swing.JPanel {
             jComboBoxConvenios.addItem(c);
         }
 
-//        atualizarTabela();
-
     }
-
-//    private void atualizarTabela() {
-//        DefaultTableModel modelo = (DefaultTableModel) table1.getModel();
-//
-//        modelo.setRowCount(0);
-//
-//        listaVendas.clear();
-//        listaVendas.addAll(controle.getTodos());
-//
-//        for (Venda venda : listaVendas) {
-//            modelo.addRow(new Object[]{venda.getNome(), venda.Valor(), venda.getQuantidade(), venda.SubTotal()}
-//            );
-//        }
-//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -180,13 +163,13 @@ public class Form_Vendas extends javax.swing.JPanel {
 
         tableVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Valor", "Quantidade", "SubTotal"
+                "Nome", "Valor", "Quantidade"
             }
         ));
         jScrollPane1.setViewportView(tableVendas);
@@ -205,6 +188,7 @@ public class Form_Vendas extends javax.swing.JPanel {
 
         jLabelQtdItem.setText("Quantidade do Item:");
 
+        jFormattedTextFieldQtdItem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldQtdItem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jFormattedTextFieldQtdItemKeyReleased(evt);
@@ -441,18 +425,14 @@ public class Form_Vendas extends javax.swing.JPanel {
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBorder4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -526,22 +506,13 @@ public class Form_Vendas extends javax.swing.JPanel {
     }//GEN-LAST:event_jFormattedTextFieldQtdItemKeyReleased
 
     private void JButtonRemoverItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRemoverItemMouseClicked
-//        Integer linha = table1.getSelectedRow();
-//
-//        if (linha == -1) {
-//            JOptionPane.showMessageDialog(null,
-//                    "Não foi selecionado nenhum Fornecedor. Selecione.");
-//        } else {
-//            Integer resposta = JOptionPane.showConfirmDialog(null,
-//                    "Deseja excluir esse Fornecedor?",
-//                    "Exclusão de Fornecedor",
-//                    JOptionPane.YES_NO_OPTION);
-//
-//            if (resposta == JOptionPane.YES_OPTION) {
-//                controle.remover(listaFornecedores.get(linha));
-//                atualizarTabela();
-//            }
-//        }
+        int linha = tableVendas.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione o Item para remover.");
+        } else {
+            itens.remove(linha);
+//            atualizarTabela();
+        }
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
 
     private void calcularValorFinal() {

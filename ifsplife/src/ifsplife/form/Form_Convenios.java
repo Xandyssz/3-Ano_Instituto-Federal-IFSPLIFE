@@ -66,8 +66,18 @@ public class Form_Convenios extends javax.swing.JPanel {
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
         search1.setBorder(null);
+        search1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                search1KeyTyped(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         clear1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/x.png"))); // NOI18N
         clear1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,8 +325,6 @@ public class Form_Convenios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonEditarMouseClicked
     }
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
         Integer linha = tableConvenios.getSelectedRow();
 
         if (linha == -1) {
@@ -334,27 +342,31 @@ public class Form_Convenios extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
 
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        // pega a linha selecionada da tabela se não estiver selecionada
-        // retornará -1
         Integer linha = tableConvenios.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Convênio. Selecione.");
         } else {
-            // cria o dialog de confirmação
             Integer resposta = JOptionPane.showConfirmDialog(null,
                     "Deseja excluir essa Convênio?",
                     "Exclusão de Convênio",
                     JOptionPane.YES_NO_OPTION);
 
-            // verifica o que foi clicado
             if (resposta == JOptionPane.YES_OPTION) {
                 controle.remover(listaConvenios.get(linha));
                 atualizarTabela();
             }
         }
     }//GEN-LAST:event_JButtonExcluirMouseClicked
+
+    private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
+        atualizarTabela();
+    }//GEN-LAST:event_search1KeyTyped
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        atualizarTabela();
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;

@@ -17,42 +17,52 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "item")
 @NamedQueries({
-    @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i")})
+    @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
+    @NamedQuery(name = "Item.findByCodigoItem", query = "SELECT i FROM Item i WHERE i.codigo_item = :codigoItem"),
+    @NamedQuery(name = "Item.findByCategoria", query = "SELECT i FROM Item i WHERE i.categoria = :categoria"),
+    @NamedQuery(name = "Item.findByDataFabricacao", query = "SELECT i FROM Item i WHERE i.data_fabricacao = :dataFabricacao"),
+    @NamedQuery(name = "Item.findByDataValidade", query = "SELECT i FROM Item i WHERE i.data_validade = :dataValidade"),
+    @NamedQuery(name = "Item.findByDescricao", query = "SELECT i FROM Item i WHERE i.descricao = :descricao"),
+    @NamedQuery(name = "Item.findByDosagem", query = "SELECT i FROM Item i WHERE i.dosagem = :dosagem"),
+    @NamedQuery(name = "Item.findByLote", query = "SELECT i FROM Item i WHERE i.lote = :lote"),
+    @NamedQuery(name = "Item.findByNome", query = "SELECT i FROM Item i WHERE i.nome = :nome"),
+    @NamedQuery(name = "Item.findByQuantidade", query = "SELECT i FROM Item i WHERE i.quantidade = :quantidade"),
+    @NamedQuery(name = "Item.findByValor", query = "SELECT i FROM Item i WHERE i.valor = :valor")})
+
 public class Item implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_item", nullable = false)
     private Integer codigo_item;
-    
+
     @Column(name = "categoria", nullable = false, length = 45)
     private String categoria;
-    
+
     @Column(name = "data_fabricacao", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date data_fabricacao;
-    
+
     @Column(name = "data_validade", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date data_validade;
-    
+
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
-    
+
     @Column(name = "dosagem", length = 255)
     private String dosagem;
-    
+
     @Column(name = "lote", nullable = false)
     private int lote;
-    
+
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    
+
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
-    
+
     @Column(name = "valor", nullable = false)
     private float valor;
 

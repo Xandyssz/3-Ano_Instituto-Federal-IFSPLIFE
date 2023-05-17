@@ -24,7 +24,12 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "compras")
 @NamedQueries({
-    @NamedQuery(name = "Compras.findAll", query = "SELECT c FROM Compras c")})
+    @NamedQuery(name = "Compras.findAll", query = "SELECT c FROM Compras c"),
+    @NamedQuery(name = "Compras.findByCodigoCompra", query = "SELECT c FROM Compras c WHERE c.codigo_compra = :codigoCompra"),
+    @NamedQuery(name = "Compras.findByDataCompra", query = "SELECT c FROM Compras c WHERE c.data_compra = :dataCompra"),
+    @NamedQuery(name = "Compras.findByFormaPagamento", query = "SELECT c FROM Compras c WHERE c.forma_pagamento = :formaPagamento"),
+    @NamedQuery(name = "Compras.findByValortotal", query = "SELECT c FROM Compras c WHERE c.valortotal = :valortotal")})
+
 public class Compras implements Serializable {
 
     @Id

@@ -84,7 +84,7 @@ public class ControleFuncionario {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
         TypedQuery<Funcionarios> consulta
-                = gerente.createNamedQuery("Funcionarios.login", Funcionarios.class);
+                = gerente.createNamedQuery("Funcionarios.findByLogin", Funcionarios.class);
 
         consulta.setParameter("login", login);
         consulta.setParameter("senha", senha);

@@ -262,7 +262,7 @@ public class PesquisaItens extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
-        this.dispose();
+        setVisible(false);
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed

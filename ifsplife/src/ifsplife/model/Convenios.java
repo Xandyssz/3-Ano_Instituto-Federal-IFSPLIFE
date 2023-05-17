@@ -18,35 +18,42 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "convenios", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Convenios.findAll", query = "SELECT c FROM Convenios c")})
+    @NamedQuery(name = "Convenios.findAll", query = "SELECT c FROM Convenios c"),
+    @NamedQuery(name = "Convenios.findByCodigoConvenio", query = "SELECT c FROM Convenios c WHERE c.codigo_convenio = :codigoConvenio"),
+    @NamedQuery(name = "Convenios.findByCnpj", query = "SELECT c FROM Convenios c WHERE c.cnpj = :cnpj"),
+    @NamedQuery(name = "Convenios.findByDesconto", query = "SELECT c FROM Convenios c WHERE c.desconto = :desconto"),
+    @NamedQuery(name = "Convenios.findByEmail", query = "SELECT c FROM Convenios c WHERE c.email = :email"),
+    @NamedQuery(name = "Convenios.findByEndereco", query = "SELECT c FROM Convenios c WHERE c.endereco = :endereco"),
+    @NamedQuery(name = "Convenios.findByNome", query = "SELECT c FROM Convenios c WHERE c.nome = :nome"),
+    @NamedQuery(name = "Convenios.findByTelefone", query = "SELECT c FROM Convenios c WHERE c.telefone = :telefone")})
+
 public class Convenios implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_convenio", nullable = false)
     private Integer codigo_convenio;
-    
+
     @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
-    
+
     @Column(name = "desconto", nullable = false)
     private float desconto;
-    
+
     @Column(name = "email", nullable = false, length = 255)
     private String email;
-    
+
     @Column(name = "endereco", nullable = false, length = 255)
     private String endereco;
-    
+
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    
+
     @Column(name = "telefone", nullable = false, length = 255)
     private String telefone;
-    
-    @OneToMany(cascade = CascadeType.ALL, 
+
+    @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
             mappedBy = "codigo_convenio")
     private List<Vendas> vendas = new ArrayList<>();
@@ -151,5 +158,11 @@ public class Convenios implements Serializable {
         return Objects.equals(this.codigo_convenio, other.codigo_convenio);
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    
     
 }

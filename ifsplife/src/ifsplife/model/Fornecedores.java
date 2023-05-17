@@ -18,44 +18,53 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fornecedores", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Fornecedores.findAll", query = "SELECT f FROM Fornecedores f")})
+    @NamedQuery(name = "Fornecedores.findAll", query = "SELECT f FROM Fornecedores f"),
+    @NamedQuery(name = "Fornecedores.findByCodigoFornecedor", query = "SELECT f FROM Fornecedores f WHERE f.codigo_fornecedor = :codigoFornecedor"),
+    @NamedQuery(name = "Fornecedores.findByCep", query = "SELECT f FROM Fornecedores f WHERE f.cep = :cep"),
+    @NamedQuery(name = "Fornecedores.findByCidade", query = "SELECT f FROM Fornecedores f WHERE f.cidade = :cidade"),
+    @NamedQuery(name = "Fornecedores.findByCnpj", query = "SELECT f FROM Fornecedores f WHERE f.cnpj = :cnpj"),
+    @NamedQuery(name = "Fornecedores.findByEmail", query = "SELECT f FROM Fornecedores f WHERE f.email = :email"),
+    @NamedQuery(name = "Fornecedores.findByEndereco", query = "SELECT f FROM Fornecedores f WHERE f.endereco = :endereco"),
+    @NamedQuery(name = "Fornecedores.findByNome", query = "SELECT f FROM Fornecedores f WHERE f.nome = :nome"),
+    @NamedQuery(name = "Fornecedores.findByResponsavel", query = "SELECT f FROM Fornecedores f WHERE f.responsavel = :responsavel"),
+    @NamedQuery(name = "Fornecedores.findByTelefone", query = "SELECT f FROM Fornecedores f WHERE f.telefone = :telefone"),
+    @NamedQuery(name = "Fornecedores.findByUf", query = "SELECT f FROM Fornecedores f WHERE f.uf = :uf")})
 public class Fornecedores implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_fornecedor", nullable = false)
     private Integer codigo_fornecedor;
-    
+
     @Column(name = "cep", nullable = false, length = 12)
     private String cep;
-    
+
     @Column(name = "cidade", nullable = false, length = 45)
     private String cidade;
-    
+
     @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
-    
+
     @Column(name = "email", nullable = false, length = 45)
     private String email;
-    
+
     @Column(name = "endereco", nullable = false, length = 45)
     private String endereco;
-    
+
     @Column(name = "nome", nullable = false, length = 45)
     private String nome;
-    
+
     @Column(name = "responsavel", nullable = false, length = 45)
     private String responsavel;
-    
+
     @Column(name = "telefone", nullable = false, length = 20)
     private String telefone;
-    
+
     @Column(name = "uf", nullable = false, length = 20)
     private String uf;
-    
-    @OneToMany(cascade = CascadeType.ALL, 
+
+    @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
             mappedBy = "codigo_fornecedor")
     private List<Compras> compras = new ArrayList<>();
@@ -187,4 +196,10 @@ public class Fornecedores implements Serializable {
         return Objects.equals(this.codigo_fornecedor, other.codigo_fornecedor);
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    
 }

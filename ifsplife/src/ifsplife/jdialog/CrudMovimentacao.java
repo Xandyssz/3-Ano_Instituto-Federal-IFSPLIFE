@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 
 public class CrudMovimentacao extends javax.swing.JDialog {
 
+    private boolean confirmou = false;
+    private int codigo = 0;
+
     public CrudMovimentacao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -242,7 +245,24 @@ public class CrudMovimentacao extends javax.swing.JDialog {
     }//GEN-LAST:event_ConfirmarValorMouseClicked
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
+        if (JTextFieldMotivo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "O nome deve ser preenchido.");
+            JTextFieldMotivo.requestFocus();
+        } else if (JFormatedTextValor.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "A Descrição deve ser preenchida.");
+            JFormatedTextValor.requestFocus();
 
+        } else if (JComboBoxTipoDeMovimentacao.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null,
+                    "O Lote deve ser preenchido");
+            JComboBoxTipoDeMovimentacao.requestFocus();
+
+        } else {
+            this.confirmou = true;
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
 

@@ -20,7 +20,13 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "despesas", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Despesas.findAll", query = "SELECT d FROM Despesas d")})
+    @NamedQuery(name = "Despesas.findAll", query = "SELECT d FROM Despesas d"),
+    @NamedQuery(name = "Despesas.findByCodigoDespesa", query = "SELECT d FROM Despesas d WHERE d.codigo_despesa = :codigoDespesa"),
+    @NamedQuery(name = "Despesas.findByDataVencimento", query = "SELECT d FROM Despesas d WHERE d.data_vencimento = :dataVencimento"),
+    @NamedQuery(name = "Despesas.findByDescricao", query = "SELECT d FROM Despesas d WHERE d.descricao = :descricao"),
+    @NamedQuery(name = "Despesas.findByNome", query = "SELECT d FROM Despesas d WHERE d.nome = :nome"),
+    @NamedQuery(name = "Despesas.findByStatus", query = "SELECT d FROM Despesas d WHERE d.status = :status"),
+    @NamedQuery(name = "Despesas.findByValor", query = "SELECT d FROM Despesas d WHERE d.valor = :valor")})
 public class Despesas implements Serializable {
 
     

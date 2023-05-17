@@ -17,7 +17,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "movimentacao")
 @NamedQueries({
-    @NamedQuery(name = "Movimentacao.findAll", query = "SELECT m FROM Movimentacao m")})
+    @NamedQuery(name = "Movimentacao.findAll", query = "SELECT m FROM Movimentacao m"),
+    @NamedQuery(name = "Movimentacao.findByIdMovimentacao", query = "SELECT m FROM Movimentacao m WHERE m.codigo_movimentacao = :idMovimentacao"),
+    @NamedQuery(name = "Movimentacao.findByMotivo", query = "SELECT m FROM Movimentacao m WHERE m.motivo = :motivo"),
+    @NamedQuery(name = "Movimentacao.findByTipo", query = "SELECT m FROM Movimentacao m WHERE m.tipo = :tipo"),
+    @NamedQuery(name = "Movimentacao.findByValor", query = "SELECT m FROM Movimentacao m WHERE m.valor = :valor"),
+    @NamedQuery(name = "Movimentacao.findByCodigoCaixa", query = "SELECT m FROM Movimentacao m WHERE m.codigo_caixa = :codigoCaixa")})
 
 @IdClass(MovimentacaoId.class)
 public class Movimentacao implements Serializable {

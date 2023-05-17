@@ -1,6 +1,11 @@
 package ifsplife.jdialog;
 
+import ifsplife.control.ControleFuncionario;
+import ifsplife.control.FuncionarioOuSenhaIncorretaException;
+import ifsplife.model.Funcionarios;
+
 import ifsplife.main.Main;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JDialog {
 
@@ -16,7 +21,7 @@ public class Login extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         JLabelNome = new javax.swing.JLabel();
-        JTextFieldNome = new javax.swing.JTextField();
+        JTextFieldLogin = new javax.swing.JTextField();
         JSeparatorNome = new javax.swing.JSeparator();
         JLabelSenha = new javax.swing.JLabel();
         JTextFieldSenha = new javax.swing.JTextField();
@@ -35,12 +40,12 @@ public class Login extends javax.swing.JDialog {
         JLabelNome.setForeground(new java.awt.Color(255, 255, 255));
         JLabelNome.setText("Nome");
 
-        JTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        JTextFieldNome.setText(" Login...");
-        JTextFieldNome.setBorder(null);
-        JTextFieldNome.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldLogin.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        JTextFieldLogin.setText("admin");
+        JTextFieldLogin.setBorder(null);
+        JTextFieldLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTextFieldNomeMouseClicked(evt);
+                JTextFieldLoginMouseClicked(evt);
             }
         });
 
@@ -48,7 +53,7 @@ public class Login extends javax.swing.JDialog {
         JLabelSenha.setText("Senha");
 
         JTextFieldSenha.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        JTextFieldSenha.setText(" Senha...");
+        JTextFieldSenha.setText("admin");
         JTextFieldSenha.setBorder(null);
         JTextFieldSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,7 +113,7 @@ public class Login extends javax.swing.JDialog {
                                     .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JTextFieldSenha, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JSeparatorSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorderGradient1Layout.createSequentialGroup()
                                 .addGap(119, 119, 119)
                                 .addComponent(panelBorderGradientLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -127,7 +132,7 @@ public class Login extends javax.swing.JDialog {
                         .addGap(122, 122, 122)
                         .addComponent(JLabelNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JSeparatorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -168,19 +173,31 @@ public class Login extends javax.swing.JDialog {
         JTextFieldSenha.setText("");
     }//GEN-LAST:event_JTextFieldSenhaMouseClicked
 
-    private void JTextFieldNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldNomeMouseClicked
-        JTextFieldNome.setText("");
-    }//GEN-LAST:event_JTextFieldNomeMouseClicked
+    private void JTextFieldLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldLoginMouseClicked
+        JTextFieldLogin.setText("");
+    }//GEN-LAST:event_JTextFieldLoginMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        System.exit(0);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void panelBorderGradientLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBorderGradientLoginMouseClicked
-        this.dispose();
-        Main main = new Main();
-        main.setVisible(true);
-
+        try {
+            Funcionarios funcionarios = ControleFuncionario.login(JTextFieldLogin.getText(), JTextFieldSenha.getText());
+            if (funcionarios.getNivelacesso().equals("Administrador")) {
+                this.dispose();
+                Main main = new Main();
+                main.setVisible(true);
+            } else {
+                this.dispose();
+                Main main = new Main();
+                main.setVisible(true);
+            }
+        } catch (FuncionarioOuSenhaIncorretaException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            JTextFieldSenha.setText("");
+        }
     }//GEN-LAST:event_panelBorderGradientLoginMouseClicked
 
 
@@ -190,7 +207,7 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelSenha;
     private javax.swing.JSeparator JSeparatorNome;
     private javax.swing.JSeparator JSeparatorSenha;
-    private javax.swing.JTextField JTextFieldNome;
+    private javax.swing.JTextField JTextFieldLogin;
     private javax.swing.JTextField JTextFieldSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

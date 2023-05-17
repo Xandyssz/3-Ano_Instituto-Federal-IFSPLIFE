@@ -2,7 +2,13 @@ package ifsplife.form;
 
 import ifsplife.model.Fornecedores;
 import ifsplife.control.ControleFornecedor;
-import ifsplife.jdialog.PesquisaFornecedores;
+import ifsplife.jdialog.PesquisaItens;
+import ifsplife.model.Item;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Form_Compras extends javax.swing.JPanel {
 
@@ -10,6 +16,8 @@ public class Form_Compras extends javax.swing.JPanel {
     private int codigo = 0;
 
     private ControleFornecedor controle = new ControleFornecedor();
+
+    List<Item> itens = new ArrayList<>();
 
     public Form_Compras() {
         initComponents();
@@ -26,13 +34,13 @@ public class Form_Compras extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         panelBorder1 = new ifsplife.dev.swing.PanelBorder();
         jLabel2 = new javax.swing.JLabel();
+        JButtonRemoverItem1 = new ifsplife.dev.swing.PanelBorderGradient();
+        jLabel22 = new javax.swing.JLabel();
         JButtonAdicionarItem = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel17 = new javax.swing.JLabel();
         JButtonRemoverItem = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel19 = new javax.swing.JLabel();
         panelBorderTabelas = new ifsplife.dev.swing.PanelBorder();
-        JLabelRemedios = new javax.swing.JLabel();
-        JLabelProdutos = new javax.swing.JLabel();
         panelBorder3 = new ifsplife.dev.swing.PanelBorder();
         panelBorder2 = new ifsplife.dev.swing.PanelBorder();
         JLabelDetalhesDaCompra = new javax.swing.JLabel();
@@ -42,7 +50,7 @@ public class Form_Compras extends javax.swing.JPanel {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         JLabelFornecedor = new javax.swing.JLabel();
         JLabelUsuario = new javax.swing.JLabel();
-        JTextFieldUsuario = new javax.swing.JTextField();
+        JTextFieldResponsavel = new javax.swing.JTextField();
         JLabelValorFinal = new javax.swing.JLabel();
         JLabelR$ = new javax.swing.JLabel();
         JLabelTotalCompra = new javax.swing.JLabel();
@@ -52,9 +60,7 @@ public class Form_Compras extends javax.swing.JPanel {
         JLabelFinalizarPedido = new javax.swing.JLabel();
         jComboBoxFornecedores = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new ifsplife.dev.swing.Table();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table2 = new ifsplife.dev.swing.Table();
+        tableCompras = new ifsplife.dev.swing.Table();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -66,6 +72,30 @@ public class Form_Compras extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(127, 127, 127));
         jLabel2.setText("Itens da Compra");
+
+        JButtonRemoverItem1.setFirstColor(new java.awt.Color(153, 153, 153));
+        JButtonRemoverItem1.setPreferredSize(new java.awt.Dimension(90, 22));
+
+        jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Pesquisar Item");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JButtonRemoverItem1Layout = new javax.swing.GroupLayout(JButtonRemoverItem1);
+        JButtonRemoverItem1.setLayout(JButtonRemoverItem1Layout);
+        JButtonRemoverItem1Layout.setHorizontalGroup(
+            JButtonRemoverItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+        );
+        JButtonRemoverItem1Layout.setVerticalGroup(
+            JButtonRemoverItem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        );
 
         JButtonAdicionarItem.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonAdicionarItem.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -88,6 +118,11 @@ public class Form_Compras extends javax.swing.JPanel {
 
         JButtonRemoverItem.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonRemoverItem.setPreferredSize(new java.awt.Dimension(90, 22));
+        JButtonRemoverItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonRemoverItemMouseClicked(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,14 +154,6 @@ public class Form_Compras extends javax.swing.JPanel {
             .addGap(0, 385, Short.MAX_VALUE)
         );
 
-        JLabelRemedios.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLabelRemedios.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelRemedios.setText("Remédios");
-
-        JLabelProdutos.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLabelProdutos.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelProdutos.setText("Produtos");
-
         panelBorder2.setBackground(new java.awt.Color(255, 255, 255));
 
         JLabelDetalhesDaCompra.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -141,10 +168,10 @@ public class Form_Compras extends javax.swing.JPanel {
 
         JLabelUsuario.setText("Responsável");
 
-        JTextFieldUsuario.setEditable(false);
-        JTextFieldUsuario.setForeground(new java.awt.Color(127, 127, 127));
-        JTextFieldUsuario.setText("nome");
-        JTextFieldUsuario.setBorder(null);
+        JTextFieldResponsavel.setEditable(false);
+        JTextFieldResponsavel.setForeground(new java.awt.Color(127, 127, 127));
+        JTextFieldResponsavel.setText("nome");
+        JTextFieldResponsavel.setBorder(null);
 
         JLabelValorFinal.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         JLabelValorFinal.setForeground(new java.awt.Color(127, 127, 127));
@@ -179,6 +206,12 @@ public class Form_Compras extends javax.swing.JPanel {
             .addComponent(JLabelFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
+        jComboBoxFornecedores.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxFornecedoresItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
         panelBorder2Layout.setHorizontalGroup(
@@ -197,18 +230,18 @@ public class Form_Compras extends javax.swing.JPanel {
                             .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jComboBoxFornecedores, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder2Layout.createSequentialGroup()
                                 .addComponent(JLabelDataDeVencimento)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panelBorder2Layout.createSequentialGroup()
                                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(JTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTextFieldResponsavel, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                                     .addComponent(jSeparator5)
                                     .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
@@ -244,7 +277,7 @@ public class Form_Compras extends javax.swing.JPanel {
                                 .addGap(0, 2, Short.MAX_VALUE)
                                 .addComponent(JLabelUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JTextFieldResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorder2Layout.createSequentialGroup()
@@ -284,7 +317,7 @@ public class Form_Compras extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tableCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -292,23 +325,10 @@ public class Form_Compras extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Preço", "Quantidade", "SubTotal"
+                "Nome", "Valor", "Quantidade", "SubTotal"
             }
         ));
-        jScrollPane1.setViewportView(table1);
-
-        table2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Preço", "Quantidade", "SubTotal"
-            }
-        ));
-        jScrollPane2.setViewportView(table2);
+        jScrollPane1.setViewportView(tableCompras);
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -319,22 +339,16 @@ public class Form_Compras extends javax.swing.JPanel {
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(JButtonRemoverItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabelRemedios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
-                        .addGap(141, 141, 141)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelBorderTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelBorder3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -345,23 +359,18 @@ public class Form_Compras extends javax.swing.JPanel {
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(30, 30, 30)
+                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JButtonRemoverItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addComponent(JLabelRemedios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelBorderTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                                .addGap(2, 2, 2))))
+                        .addGap(71, 71, 71)
+                        .addComponent(panelBorderTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addComponent(JLabelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(panelBorder3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -371,39 +380,67 @@ public class Form_Compras extends javax.swing.JPanel {
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxFornecedoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFornecedoresItemStateChanged
+        jComboBoxFornecedores.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent event) {
+                if (event.getStateChange() == ItemEvent.SELECTED) {
+                    Fornecedores fornecedores = (Fornecedores) event.getItem();
+                    if (fornecedores != null) {
+                        JTextFieldResponsavel.setText(fornecedores.getResponsavel());
+                    }
+                }
+            }
+        });
+    }//GEN-LAST:event_jComboBoxFornecedoresItemStateChanged
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        PesquisaItens pesquisa = new PesquisaItens(null, true);
+        pesquisa.setVisible(true);
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void JButtonRemoverItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRemoverItemMouseClicked
+        int linha = tableCompras.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione o Item para remover.");
+        } else {
+            itens.remove(linha);
+            // atualizarTabela();
+        }
+    }//GEN-LAST:event_JButtonRemoverItemMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem;
     private ifsplife.dev.swing.PanelBorderGradient JButtonFinalizarPedido;
     private ifsplife.dev.swing.PanelBorderGradient JButtonRemoverItem;
+    private ifsplife.dev.swing.PanelBorderGradient JButtonRemoverItem1;
     private javax.swing.JLabel JLabelDataDaCompra;
     private javax.swing.JLabel JLabelDataDeVencimento;
     private javax.swing.JLabel JLabelDetalhesDaCompra;
     private javax.swing.JLabel JLabelFinalizarPedido;
     private javax.swing.JLabel JLabelFornecedor;
-    private javax.swing.JLabel JLabelProdutos;
     private javax.swing.JLabel JLabelR$;
-    private javax.swing.JLabel JLabelRemedios;
     private javax.swing.JLabel JLabelTotalCompra;
     private javax.swing.JLabel JLabelUsuario;
     private javax.swing.JLabel JLabelValorFinal;
-    private javax.swing.JTextField JTextFieldUsuario;
+    private javax.swing.JTextField JTextFieldResponsavel;
     private javax.swing.JComboBox<Fornecedores> jComboBoxFornecedores;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorder panelBorder2;
     private ifsplife.dev.swing.PanelBorder panelBorder3;
     private ifsplife.dev.swing.PanelBorder panelBorderTabelas;
-    private ifsplife.dev.swing.Table table1;
-    private ifsplife.dev.swing.Table table2;
+    private ifsplife.dev.swing.Table tableCompras;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,7 +19,16 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "caixa")
 @NamedQueries({
-    @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c")})
+    @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
+    @NamedQuery(name = "Caixa.findByCodigoCaixa", query = "SELECT c FROM Caixa c WHERE c.codigo_caixa = :codigoCaixa"),
+    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura = :abertura"),
+    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento = :fechamento"),
+    @NamedQuery(name = "Caixa.findBySaldo", query = "SELECT c FROM Caixa c WHERE c.saldo = :saldo"),
+    @NamedQuery(name = "Caixa.findByStatus", query = "SELECT c FROM Caixa c WHERE c.status = :status"),
+    @NamedQuery(name = "Caixa.findByTotalentradas", query = "SELECT c FROM Caixa c WHERE c.totalentradas = :totalentradas"),
+    @NamedQuery(name = "Caixa.findByTotalsaidas", query = "SELECT c FROM Caixa c WHERE c.totalsaidas = :totalsaidas"),
+    @NamedQuery(name = "Caixa.findByValorabertura", query = "SELECT c FROM Caixa c WHERE c.valorabertura = :valorabertura")})
+
 public class Caixa implements Serializable {
 
     @Id
@@ -56,22 +65,22 @@ public class Caixa implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
-             mappedBy = "caixa_idcaixa")
+            mappedBy = "caixa_idcaixa")
     private List<Pagamentocompra> pagamentocompra = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
-             mappedBy = "codigo_caixa")
+            mappedBy = "codigo_caixa")
     private List<Movimentacao> movimentacao = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
-             mappedBy = "codigo_caixa")
+            mappedBy = "codigo_caixa")
     private List<Sangria> sangria = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
-             mappedBy = "codigo_caixa")
+            mappedBy = "codigo_caixa")
     private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
 
     public Caixa() {

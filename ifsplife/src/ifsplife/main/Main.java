@@ -1,5 +1,6 @@
 package ifsplife.main;
 
+import ifsplife.control.ControleFuncionario;
 import ifsplife.form.Form_CaixaRegistradora;
 import ifsplife.form.Form_Compras;
 import ifsplife.form.Form_Convenios;
@@ -10,6 +11,7 @@ import ifsplife.form.Form_Profile;
 import ifsplife.form.Form_Funcionarios;
 import ifsplife.form.Form_Item;
 import ifsplife.form.Form_Vendas;
+import ifsplife.jdialog.Login;
 import ifsplife.menu.EventMenuSelected;
 
 public class Main extends javax.swing.JFrame {
@@ -19,6 +21,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         init();
+
+        nome.setText("Olá " + ControleFuncionario.getUsuarioLogado().getNome());
+        cargo.setText(ControleFuncionario.getUsuarioLogado().getNivelacesso());
+
     }
 
     private void init() {
@@ -73,6 +79,9 @@ public class Main extends javax.swing.JFrame {
         panelMenu = new javax.swing.JPanel();
         titleBar = new ifsplife.swing.titlebar.TitleBar();
         menu = new ifsplife.menu.Menu();
+        logout = new javax.swing.JLabel();
+        nome = new javax.swing.JLabel();
+        cargo = new javax.swing.JLabel();
         body = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,21 +91,53 @@ public class Main extends javax.swing.JFrame {
 
         panelMenu.setBackground(new java.awt.Color(255, 255, 255));
 
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/exit.png"))); // NOI18N
+        logout.setText("Logout");
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
+
+        nome.setText("jLabel2");
+
+        cargo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cargo.setText("jLabel1");
+        cargo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 9, Short.MAX_VALUE))
+                            .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addComponent(logout)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE))
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(logout)
+                    .addComponent(cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         body.setOpaque(false);
@@ -109,7 +150,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
                 .addContainerGap())
         );
         backgroundLayout.setVerticalGroup(
@@ -135,6 +176,13 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        ControleFuncionario.logout();
+        System.exit(0);
+        this.dispose();
+
+    }//GEN-LAST:event_logoutMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -171,7 +219,10 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JPanel body;
+    private javax.swing.JLabel cargo;
+    private javax.swing.JLabel logout;
     private ifsplife.menu.Menu menu;
+    private javax.swing.JLabel nome;
     private javax.swing.JPanel panelMenu;
     private ifsplife.swing.titlebar.TitleBar titleBar;
     // End of variables declaration//GEN-END:variables

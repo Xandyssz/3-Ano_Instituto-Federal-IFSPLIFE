@@ -14,46 +14,57 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "funcionarios", catalog = "ifsplife", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f")})
+    @NamedQuery(name = "Funcionarios.findAll", query = "SELECT f FROM Funcionarios f"),
+    @NamedQuery(name = "Funcionarios.findByCodigoFuncionario", query = "SELECT f FROM Funcionarios f WHERE f.codigo_funcionario = :codigoFuncionario"),
+    @NamedQuery(name = "Funcionarios.findByCep", query = "SELECT f FROM Funcionarios f WHERE f.cep = :cep"),
+    @NamedQuery(name = "Funcionarios.findByCidade", query = "SELECT f FROM Funcionarios f WHERE f.cidade = :cidade"),
+    @NamedQuery(name = "Funcionarios.findByCpf", query = "SELECT f FROM Funcionarios f WHERE f.cpf = :cpf"),
+    @NamedQuery(name = "Funcionarios.findByEndereco", query = "SELECT f FROM Funcionarios f WHERE f.endereco = :endereco"),
+    @NamedQuery(name = "Funcionarios.findByLogin", query = "SELECT f FROM Funcionarios f WHERE f.login = :login AND f.senha = :senha" ),
+    @NamedQuery(name = "Funcionarios.findByNivelacesso", query = "SELECT f FROM Funcionarios f WHERE f.nivelacesso = :nivelacesso"),
+    @NamedQuery(name = "Funcionarios.findByNome", query = "SELECT f FROM Funcionarios f WHERE f.nome = :nome"),
+    @NamedQuery(name = "Funcionarios.findBySalario", query = "SELECT f FROM Funcionarios f WHERE f.salario = :salario"),
+    @NamedQuery(name = "Funcionarios.findBySenha", query = "SELECT f FROM Funcionarios f WHERE f.senha = :senha"),
+    @NamedQuery(name = "Funcionarios.findByTelefone", query = "SELECT f FROM Funcionarios f WHERE f.telefone = :telefone"),
+    @NamedQuery(name = "Funcionarios.findByUf", query = "SELECT f FROM Funcionarios f WHERE f.uf = :uf")})
 public class Funcionarios implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "codigo_funcionario", nullable = false)
     private Integer codigo_funcionario;
-    
+
     @Column(name = "cep", nullable = false, length = 12)
     private String cep;
-    
+
     @Column(name = "cidade", nullable = false, length = 45)
     private String cidade;
-    
+
     @Column(name = "cpf", nullable = false, length = 15)
     private String cpf;
-    
+
     @Column(name = "endereco", nullable = false, length = 45)
     private String endereco;
-    
+
     @Column(name = "login", nullable = false, length = 45)
     private String login;
-    
+
     @Column(name = "nivelacesso", nullable = false, length = 45)
     private String nivelacesso;
-    
+
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    
+
     @Column(name = "salario", nullable = false, length = 50)
     private String salario;
-    
+
     @Column(name = "senha", nullable = false, length = 45)
     private String senha;
-    
+
     @Column(name = "telefone", nullable = false, length = 20)
     private String telefone;
-    
+
     @Column(name = "uf", nullable = false, length = 20)
     private String uf;
 
@@ -193,6 +204,4 @@ public class Funcionarios implements Serializable {
         return Objects.equals(this.codigo_funcionario, other.codigo_funcionario);
     }
 
-    
-    
 }
