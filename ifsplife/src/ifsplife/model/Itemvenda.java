@@ -74,6 +74,14 @@ public class Itemvenda implements Serializable {
         this.codigo_venda = codigo_venda;
     }
 
+    public Item getCodigo_item() {
+        return codigo_item;
+    }
+
+    public void setCodigo_item(Item codigo_item) {
+        this.codigo_item = codigo_item;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;

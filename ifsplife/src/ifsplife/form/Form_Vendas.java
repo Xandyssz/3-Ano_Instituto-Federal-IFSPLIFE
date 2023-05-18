@@ -1,9 +1,11 @@
 package ifsplife.form;
 
 import ifsplife.control.ControleConvenio;
+import ifsplife.jdialog.CrudItem;
 import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Convenios;
 import ifsplife.model.Item;
+import ifsplife.model.Itemvenda;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -18,7 +20,9 @@ public class Form_Vendas extends javax.swing.JPanel {
     private ControleConvenio controle = new ControleConvenio();
 
     Item itemSelecionado = null;
-    List<Item> itens = new ArrayList<>();
+    List<Itemvenda> itens = new ArrayList<>();
+
+    Item i = null;
 
     public Form_Vendas() {
         initComponents();
@@ -33,6 +37,21 @@ public class Form_Vendas extends javax.swing.JPanel {
             jComboBoxConvenios.addItem(c);
         }
 
+    }
+
+    private void atualizarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) tableVendas.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Itemvenda itens : itens) {
+            modelo.addRow(new Object[]{itens.getCodigo_item().getNome(), itens.getPreco(), itens.getQuantidade()}
+            );
+        }
+    }
+
+    public boolean isConfirmou() {
+        return confirmou;
     }
 
     @SuppressWarnings("unchecked")
@@ -120,6 +139,11 @@ public class Form_Vendas extends javax.swing.JPanel {
 
         JButtonAdicionarItem.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonAdicionarItem.setPreferredSize(new java.awt.Dimension(90, 22));
+        JButtonAdicionarItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonAdicionarItemMouseClicked(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -511,9 +535,20 @@ public class Form_Vendas extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Selecione o Item para remover.");
         } else {
             itens.remove(linha);
-//            atualizarTabela();
+            atualizarTabela();
         }
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
+
+    private void JButtonAdicionarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItemMouseClicked
+        Itemvenda novo = new Itemvenda();
+        novo.setPreco(TOP_ALIGNMENT);
+        novo.setQuantidade(WIDTH);
+        novo.setCodigo_item(itemSelecionado);
+
+        itens.add(novo);
+        atualizarTabela();
+
+    }//GEN-LAST:event_JButtonAdicionarItemMouseClicked
 
     private void calcularValorFinal() {
 

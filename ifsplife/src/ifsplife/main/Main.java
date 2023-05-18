@@ -35,15 +35,15 @@ public class Main extends javax.swing.JFrame {
             public void menuSelected(int index, int indexSubMenu) {
 //                System.out.println("" + index + " " + indexSubMenu);
                 if (index == 0 && indexSubMenu == 0) {
-                    showForm(new Form_Compras());
+                    showForm(new Form_Vendas()); 
                 } else if (index == 1 && indexSubMenu == 0) {
-                    showForm(new Form_Vendas());
-                } else if (index == 2 && indexSubMenu == 0) {
                     showForm(new Form_CaixaRegistradora());
-                } else if (index == 3 && indexSubMenu == 0) {
+                } else if (index == 2 && indexSubMenu == 0) {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
-                } else if (index == 4 && indexSubMenu == 0) {
+                } else if (index == 3 && indexSubMenu == 0) {
                     showForm(new Form_Fornecedores());
+                } else if (index == 4 && indexSubMenu == 0) {
+                    showForm(new Form_Compras());
                 } else if (index == 5 && indexSubMenu == 0) {
                     showForm(new Form_Convenios());
                 } else if (index == 6 && indexSubMenu == 0) {

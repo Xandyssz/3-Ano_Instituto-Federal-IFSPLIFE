@@ -39,12 +39,13 @@ public class Menu extends JPanel {
         scroll.setViewportBorder(null);
         add(scroll);
         addTitle("IFSP LIFE");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Compra"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Venda"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Caixa"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatórios"));
         addTitle("EXTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Fornecedor"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Compra"));
+
         addTitle("INTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
