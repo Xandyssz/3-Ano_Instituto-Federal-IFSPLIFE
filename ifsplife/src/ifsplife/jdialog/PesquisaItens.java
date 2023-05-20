@@ -36,7 +36,7 @@ public class PesquisaItens extends javax.swing.JDialog {
         listaItems.addAll(controle.buscarPorCategoria((String) comboFiltro.getSelectedItem()));
 
         for (Item item : listaItems) {
-            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getDescricao(), item.getValor()}
+            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getValor(), item.getQuantidade()}
             );
         }
     }
@@ -154,7 +154,7 @@ public class PesquisaItens extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Categoria", "Descricao", "Valor"
+                "Nome", "Categoria", "Valor", "Quantidade em Estoque"
             }
         ));
         jScrollPane1.setViewportView(tableItens);

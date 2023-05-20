@@ -79,7 +79,6 @@ public class Form_Vendas extends javax.swing.JPanel {
         jFormattedTextFieldValorItem = new javax.swing.JFormattedTextField();
         jSeparatorValorItem = new javax.swing.JSeparator();
         jLabelQtdItem = new javax.swing.JLabel();
-        jFormattedTextFieldQtdItem = new javax.swing.JFormattedTextField();
         jSeparatorQtdItem = new javax.swing.JSeparator();
         jLabelValorTotal = new javax.swing.JLabel();
         RSTotal = new javax.swing.JLabel();
@@ -101,6 +100,7 @@ public class Form_Vendas extends javax.swing.JPanel {
         JLabelTotalCompra1 = new javax.swing.JLabel();
         JButtonAdicionarItem1 = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
+        txtQuantidadeItem = new javax.swing.JTextField();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -212,13 +212,6 @@ public class Form_Vendas extends javax.swing.JPanel {
 
         jLabelQtdItem.setText("Quantidade do Item:");
 
-        jFormattedTextFieldQtdItem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        jFormattedTextFieldQtdItem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jFormattedTextFieldQtdItemKeyReleased(evt);
-            }
-        });
-
         jLabelValorTotal.setText("Valor Total dos Itens:");
 
         RSTotal.setText("R$");
@@ -297,8 +290,8 @@ public class Form_Vendas extends javax.swing.JPanel {
                                         .addComponent(jFormattedTextFieldValorItem)
                                         .addComponent(jSeparatorItem))
                                     .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabelQtdItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                        .addComponent(jFormattedTextFieldQtdItem, javax.swing.GroupLayout.Alignment.LEADING)))
+                                        .addComponent(txtQuantidadeItem, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelQtdItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelPorcentagem)
@@ -370,8 +363,8 @@ public class Form_Vendas extends javax.swing.JPanel {
                         .addComponent(jSeparatorValorItem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelQtdItem)
-                        .addGap(0, 0, 0)
-                        .addComponent(jFormattedTextFieldQtdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtQuantidadeItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparatorQtdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder5Layout.createSequentialGroup()
@@ -457,7 +450,7 @@ public class Form_Vendas extends javax.swing.JPanel {
                     .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBorder4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -493,42 +486,6 @@ public class Form_Vendas extends javax.swing.JPanel {
         });
     }//GEN-LAST:event_jComboBoxConveniosItemStateChanged
 
-    private void jFormattedTextFieldQtdItemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldQtdItemKeyReleased
-        double valorItem;
-        String quantidadeItemText = jFormattedTextFieldQtdItem.getText();
-        String nomeItemText = txtItem.getText();
-
-        if (nomeItemText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "O nome do item não pode estar em branco", "Erro", JOptionPane.ERROR_MESSAGE);
-            txtItem.requestFocus();
-            jFormattedTextFieldQtdItem.setValue("");
-            jFormattedTextFieldValorTotal.setValue(null);
-
-            return;
-        }
-
-        try {
-            valorItem = ((Number) jFormattedTextFieldValorItem.getValue()).doubleValue();
-            int quantidadeItem = Integer.parseInt(quantidadeItemText);
-
-            double valorTotalItens = valorItem * quantidadeItem;
-            jFormattedTextFieldValorTotal.setValue(valorTotalItens);
-
-        } catch (NumberFormatException | ClassCastException | NullPointerException e) {
-            if (e instanceof NullPointerException || e instanceof ClassCastException) {
-                JOptionPane.showMessageDialog(this, "O valor do item não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
-                jFormattedTextFieldValorItem.requestFocus();
-                jFormattedTextFieldValorTotal.setValue(null);
-
-            } else if (e instanceof NumberFormatException) {
-                JOptionPane.showMessageDialog(this, "A quantidade de itens não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
-                jFormattedTextFieldQtdItem.requestFocus();
-                jFormattedTextFieldValorTotal.setValue(null);
-
-            }
-        }
-    }//GEN-LAST:event_jFormattedTextFieldQtdItemKeyReleased
-
     private void JButtonRemoverItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRemoverItemMouseClicked
         int linha = tableVendas.getSelectedRow();
         if (linha == -1) {
@@ -541,10 +498,9 @@ public class Form_Vendas extends javax.swing.JPanel {
 
     private void JButtonAdicionarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItemMouseClicked
         Itemvenda novo = new Itemvenda();
-        novo.setPreco(TOP_ALIGNMENT);
-        novo.setQuantidade(WIDTH);
+        novo.setPreco(((Number) jFormattedTextFieldValorItem.getValue()).floatValue());
+        novo.setQuantidade(Integer.parseInt(txtQuantidadeItem.getText()));
         novo.setCodigo_item(itemSelecionado);
-
         itens.add(novo);
         atualizarTabela();
 
@@ -581,7 +537,6 @@ public class Form_Vendas extends javax.swing.JPanel {
     private javax.swing.JLabel RSTotal;
     private javax.swing.JComboBox<Convenios> jComboBoxConvenios;
     private javax.swing.JFormattedTextField jFormattedTextFieldPorcentagem;
-    private javax.swing.JFormattedTextField jFormattedTextFieldQtdItem;
     private javax.swing.JFormattedTextField jFormattedTextFieldTotalcomDesconto;
     private javax.swing.JFormattedTextField jFormattedTextFieldValorItem;
     private javax.swing.JFormattedTextField jFormattedTextFieldValorTotal;
@@ -613,5 +568,6 @@ public class Form_Vendas extends javax.swing.JPanel {
     private ifsplife.dev.swing.PanelBorder panelBorder5;
     private ifsplife.dev.swing.Table tableVendas;
     private javax.swing.JTextField txtItem;
+    private javax.swing.JTextField txtQuantidadeItem;
     // End of variables declaration//GEN-END:variables
 }

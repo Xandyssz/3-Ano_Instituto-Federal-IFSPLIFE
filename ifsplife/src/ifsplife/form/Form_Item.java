@@ -33,7 +33,7 @@ public class Form_Item extends javax.swing.JPanel {
         listaItems.addAll(controle.getTodos());
 
         for (Item item : listaItems) {
-            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getDescricao(), item.getValor()}
+            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getValor(), item.getQuantidade()}
             );
         }
     }
@@ -212,7 +212,7 @@ public class Form_Item extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Categoria", "Descrição", "Valor"
+                "Nome", "Categoria", "Valor", "Quantidade em Estoque"
             }
         ));
         jScrollPane1.setViewportView(tableItens);
