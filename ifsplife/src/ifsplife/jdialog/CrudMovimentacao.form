@@ -91,7 +91,7 @@
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="JTextFieldMotivo" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                                  <Component id="txtMotivo" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                                   <Component id="JSeparatorMotivo" alignment="1" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -102,14 +102,13 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="JFormatedTextValor" max="32767" attributes="0"/>
+                                          <Component id="txtValor" pref="163" max="32767" attributes="0"/>
                                           <Component id="JSeparatorValor" max="32767" attributes="0"/>
                                           <Component id="JLabelValor" max="32767" attributes="0"/>
-                                          <Component id="ConfirmarValor" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="JComboBoxTipoDeMovimentacao" max="32767" attributes="0"/>
+                                          <Component id="txtTipoMovimentacao" max="32767" attributes="0"/>
                                           <Component id="JSeparatorTipoDeMovimentacao" max="32767" attributes="0"/>
                                           <Component id="JLabelTipoDeMovimentacao" alignment="0" pref="151" max="32767" attributes="0"/>
                                       </Group>
@@ -134,37 +133,33 @@
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Component id="JSeparatorTipoDeMovimentacao" min="-2" pref="13" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JSeparatorValor" min="-2" pref="3" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="JFormatedTextValor" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="JLabelTipoDeMovimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JLabelValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JLabelMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="JTextFieldMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JComboBoxTipoDeMovimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                      <Component id="JSeparatorMotivo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="JSeparatorValor" min="-2" pref="3" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ConfirmarValor" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="txtValor" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="JLabelTipoDeMovimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JLabelValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JLabelMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTipoMovimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                  <Component id="JSeparatorMotivo" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="JButtonCadastrar" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="JButtonCancelar" min="-2" pref="25" max="-2" attributes="0"/>
@@ -194,7 +189,7 @@
                 <Property name="text" type="java.lang.String" value="Motivo da Movimenta&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldMotivo">
+            <Component class="javax.swing.JTextField" name="txtMotivo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -211,7 +206,7 @@
                 <Property name="text" type="java.lang.String" value="Valor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="JFormatedTextValor">
+            <Component class="javax.swing.JFormattedTextField" name="txtValor">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -224,14 +219,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="ConfirmarValor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Clique para confirmar o valor..."/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ConfirmarValorMouseClicked"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorValor">
             </Component>
             <Component class="javax.swing.JLabel" name="JLabelTipoDeMovimentacao">
@@ -239,7 +226,7 @@
                 <Property name="text" type="java.lang.String" value="Tipo de Movimenta&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="JComboBoxTipoDeMovimentacao">
+            <Component class="javax.swing.JComboBox" name="txtTipoMovimentacao">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">

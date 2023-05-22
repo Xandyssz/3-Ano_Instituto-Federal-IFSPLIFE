@@ -79,20 +79,20 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="JTextFieldNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                          <Component id="txtNomeEmpresa" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                           <Component id="JSeparatorNome" alignment="1" max="32767" attributes="0"/>
                                           <Component id="JLabelNome" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="JTextFieldResponsavel" alignment="1" pref="230" max="32767" attributes="0"/>
+                                          <Component id="txtResponsavel" alignment="1" pref="230" max="32767" attributes="0"/>
                                           <Component id="JSeparatorResponsavel" alignment="1" max="32767" attributes="0"/>
                                           <Component id="JLabelResposnavel" alignment="1" pref="230" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="JSeparatorCPF" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
-                                          <Component id="JFormatedTextCNPJ" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
+                                          <Component id="txtCNPJ" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
                                           <Component id="JLabelCNPJ" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
                                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="JLabelContato" min="-2" pref="120" max="-2" attributes="0"/>
-                                                  <Component id="JFormatedTextContato" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <Component id="txtContato" min="-2" pref="120" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -120,7 +120,7 @@
                                                   <Component id="JSeparatorEmail" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                                       <Component id="JLabelEmail" min="-2" pref="192" max="-2" attributes="0"/>
-                                                      <Component id="JTextFieldEmail" min="-2" pref="204" max="-2" attributes="0"/>
+                                                      <Component id="txtEmail" min="-2" pref="204" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -130,7 +130,7 @@
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                                      <Component id="JComboBoxEstado" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      <Component id="comboEstado" min="-2" pref="200" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <EmptySpace max="-2" attributes="0"/>
@@ -141,12 +141,12 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="JLabelCidade" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                                                   <Component id="JSeparatorCidade" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                                                  <Component id="JTextFieldCidade" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                                  <Component id="txtCidade" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="JLabelEndereco" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="JTextFieldEndereco" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
                                               <Component id="JSeparatorEndereco" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -155,7 +155,7 @@
                                           <Component id="JLabelCEP" min="-2" pref="77" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="JSeparatorCEP" max="32767" attributes="0"/>
-                                              <Component id="JFormatedTextCEP" pref="114" max="32767" attributes="0"/>
+                                              <Component id="txtCEP" pref="114" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -179,7 +179,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="JLabelCNPJ" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="JFormatedTextCNPJ" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCNPJ" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JSeparatorCPF" min="-2" pref="13" max="-2" attributes="0"/>
                           </Group>
@@ -188,14 +188,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="JLabelNome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="JTextFieldNome" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNomeEmpresa" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="JSeparatorNome" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="JLabelResposnavel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="JTextFieldResponsavel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtResponsavel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="JSeparatorResponsavel" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -205,7 +205,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="JLabelContato" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="JFormatedTextContato" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtContato" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JSeparatorContato" min="-2" pref="13" max="-2" attributes="0"/>
                           </Group>
@@ -224,11 +224,11 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="JTextFieldEmail" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="JComboBoxEstado" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboEstado" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -243,8 +243,8 @@
                                   <Component id="JSeparatorCEP" min="-2" pref="11" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="JTextFieldCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JFormatedTextCEP" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="txtCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCEP" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="JSeparatorCidade" min="-2" pref="11" max="-2" attributes="0"/>
@@ -255,7 +255,7 @@
                       </Group>
                       <Component id="JLabelEndereco" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTextFieldEndereco" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEndereco" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JSeparatorEndereco" min="-2" pref="13" max="-2" attributes="0"/>
                       <EmptySpace pref="29" max="32767" attributes="0"/>
@@ -288,7 +288,7 @@
                 <Property name="text" type="java.lang.String" value="Nome da Empresa Fornecedora"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldNome">
+            <Component class="javax.swing.JTextField" name="txtNomeEmpresa">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -305,7 +305,7 @@
                 <Property name="text" type="java.lang.String" value="Nome do Responsavel"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldResponsavel">
+            <Component class="javax.swing.JTextField" name="txtResponsavel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -322,7 +322,7 @@
                 <Property name="text" type="java.lang.String" value="CNPJ"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="JFormatedTextCNPJ">
+            <Component class="javax.swing.JFormattedTextField" name="txtCNPJ">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -342,7 +342,7 @@
                 <Property name="text" type="java.lang.String" value="Contato"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="JFormatedTextContato">
+            <Component class="javax.swing.JFormattedTextField" name="txtContato">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -362,7 +362,7 @@
                 <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldEmail">
+            <Component class="javax.swing.JTextField" name="txtEmail">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -379,7 +379,7 @@
                 <Property name="text" type="java.lang.String" value="Endereco"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldEndereco">
+            <Component class="javax.swing.JTextField" name="txtEndereco">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -396,7 +396,7 @@
                 <Property name="text" type="java.lang.String" value="Cidade"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldCidade">
+            <Component class="javax.swing.JTextField" name="txtCidade">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -413,7 +413,7 @@
                 <Property name="text" type="java.lang.String" value="CEP"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="JFormatedTextCEP">
+            <Component class="javax.swing.JFormattedTextField" name="txtCEP">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -426,7 +426,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JFormatedTextCEPActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEPActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorCEP">
@@ -436,7 +436,7 @@
                 <Property name="text" type="java.lang.String" value="Estado"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="JComboBoxEstado">
+            <Component class="javax.swing.JComboBox" name="comboEstado">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="27">

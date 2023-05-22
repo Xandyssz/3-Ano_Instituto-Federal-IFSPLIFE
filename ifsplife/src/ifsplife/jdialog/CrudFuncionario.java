@@ -17,33 +17,33 @@ public class CrudFuncionario extends javax.swing.JDialog {
         Funcionarios funcionarios = new Funcionarios();
 
         funcionarios.setCodigo_funcionario(codigo);
-        funcionarios.setNome(JTextFieldNome.getText());
-        funcionarios.setCpf(JFormatedTextCPF.getText());
-        funcionarios.setNivelacesso((String) JComboBoxNivelAcesso.getSelectedItem());
-        funcionarios.setTelefone(JFormatedTextContato.getText());
-        funcionarios.setEndereco(JTextFieldEndereco.getText());
-        funcionarios.setCidade(JTextFieldCidade.getText());
-        funcionarios.setCep(JFormatedTextCEP.getText());
-        funcionarios.setUf((String) JComboBoxEstado.getSelectedItem());
-        funcionarios.setSalario(JFormatedTextSalario.getText());
-        funcionarios.setLogin(JTextFieldLogin.getText());
-        funcionarios.setSenha(JTextFieldSenha.getText());
+        funcionarios.setNome(txtNome.getText());
+        funcionarios.setCpf(txtCPF.getText());
+        funcionarios.setNivelacesso((String) comboNivelAcesso.getSelectedItem());
+        funcionarios.setTelefone(txtContato.getText());
+        funcionarios.setEndereco(txtEndereco.getText());
+        funcionarios.setCidade(txtCidade.getText());
+        funcionarios.setCep(txtCEP.getText());
+        funcionarios.setUf((String) comboEstado.getSelectedItem());
+        funcionarios.setSalario(txtSalario.getText());
+        funcionarios.setLogin(txtLogin.getText());
+        funcionarios.setSenha(txtSenha.getText());
         return funcionarios;
     }
 
     public void setFuncionario(Funcionarios funcionarios) {
         this.codigo = funcionarios.getCodigo_funcionario();
-        JTextFieldNome.setText(funcionarios.getNome());
-        JFormatedTextCPF.setText(funcionarios.getCpf());
-        JComboBoxNivelAcesso.setSelectedItem(funcionarios.getNivelacesso());
-        JFormatedTextContato.setText(funcionarios.getTelefone());
-        JTextFieldEndereco.setText(funcionarios.getEndereco());
-        JTextFieldCidade.setText(funcionarios.getCidade());
-        JFormatedTextCEP.setText(funcionarios.getCep());
-        JComboBoxEstado.setSelectedItem(funcionarios.getUf());
-        JFormatedTextSalario.setText(funcionarios.getSalario());
-        JTextFieldLogin.setText(funcionarios.getLogin());
-        JTextFieldSenha.setText(funcionarios.getSenha());
+        txtNome.setText(funcionarios.getNome());
+        txtCPF.setText(funcionarios.getCpf());
+        comboNivelAcesso.setSelectedItem(funcionarios.getNivelacesso());
+        txtContato.setText(funcionarios.getTelefone());
+        txtEndereco.setText(funcionarios.getEndereco());
+        txtCidade.setText(funcionarios.getCidade());
+        txtCEP.setText(funcionarios.getCep());
+        comboEstado.setSelectedItem(funcionarios.getUf());
+        txtSalario.setText(funcionarios.getSalario());
+        txtLogin.setText(funcionarios.getLogin());
+        txtSenha.setText(funcionarios.getSenha());
     }
 
     public boolean isConfirmou() {
@@ -51,17 +51,17 @@ public class CrudFuncionario extends javax.swing.JDialog {
     }
 
     public void desabilitarEdicao() {
-        JTextFieldNome.setEditable(false);
-        JFormatedTextCPF.setEditable(false);
-        JComboBoxNivelAcesso.setEnabled(false);
-        JFormatedTextContato.setEditable(false);
-        JTextFieldEndereco.setEditable(false);
-        JTextFieldCidade.setEditable(false);
-        JFormatedTextCEP.setEditable(false);
-        JComboBoxEstado.setEnabled(false);
-        JFormatedTextSalario.setEditable(false);
-        JTextFieldLogin.setEditable(false);
-        JTextFieldSenha.setEditable(false);
+        txtNome.setEditable(false);
+        txtCPF.setEditable(false);
+        comboNivelAcesso.setEnabled(false);
+        txtContato.setEditable(false);
+        txtEndereco.setEditable(false);
+        txtCidade.setEditable(false);
+        txtCEP.setEditable(false);
+        comboEstado.setEnabled(false);
+        txtSalario.setEditable(false);
+        txtLogin.setEditable(false);
+        txtSenha.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -73,42 +73,42 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JLabelCRUD = new javax.swing.JLabel();
         JSeparatorCRUD = new javax.swing.JSeparator();
         JLabelNome = new javax.swing.JLabel();
-        JTextFieldNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         JSeparatorNome = new javax.swing.JSeparator();
         JLabelCPF = new javax.swing.JLabel();
-        JFormatedTextCPF = new javax.swing.JFormattedTextField();
+        txtCPF = new javax.swing.JFormattedTextField();
         JSeparatorCPF = new javax.swing.JSeparator();
         JLabelCargo = new javax.swing.JLabel();
         JSeparatorCargo = new javax.swing.JSeparator();
         JLabelContato = new javax.swing.JLabel();
         JSeparatorContato = new javax.swing.JSeparator();
         JLabelEndereco = new javax.swing.JLabel();
-        JTextFieldEndereco = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
         JSeparatorEndereco = new javax.swing.JSeparator();
         JLabelCidade = new javax.swing.JLabel();
-        JTextFieldCidade = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
         JSeparatorCidade = new javax.swing.JSeparator();
         JLabelCEP = new javax.swing.JLabel();
-        JFormatedTextCEP = new javax.swing.JFormattedTextField();
+        txtCEP = new javax.swing.JFormattedTextField();
         JSeparatorCEP = new javax.swing.JSeparator();
         JLabelEstado = new javax.swing.JLabel();
-        JComboBoxEstado = new javax.swing.JComboBox<>();
+        comboEstado = new javax.swing.JComboBox<>();
         JSeparatorEstado = new javax.swing.JSeparator();
         JLabelSalario = new javax.swing.JLabel();
-        JFormatedTextSalario = new javax.swing.JFormattedTextField();
+        txtSalario = new javax.swing.JFormattedTextField();
         JSeparatorSalario = new javax.swing.JSeparator();
-        JComboBoxNivelAcesso = new javax.swing.JComboBox<>();
+        comboNivelAcesso = new javax.swing.JComboBox<>();
         JLabeLogin = new javax.swing.JLabel();
-        JTextFieldLogin = new javax.swing.JTextField();
+        txtLogin = new javax.swing.JTextField();
         JSeparatorLogin = new javax.swing.JSeparator();
         JLabelSenha = new javax.swing.JLabel();
-        JTextFieldSenha = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
         JSeparatorSenha = new javax.swing.JSeparator();
         JButtonCadastrar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCadastrar = new javax.swing.JLabel();
         JButtonCancelar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCancelar = new javax.swing.JLabel();
-        JFormatedTextContato = new javax.swing.JFormattedTextField();
+        txtContato = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -123,15 +123,15 @@ public class CrudFuncionario extends javax.swing.JDialog {
 
         JLabelNome.setText("Nome");
 
-        JTextFieldNome.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldNome.setBorder(null);
+        txtNome.setBackground(new java.awt.Color(239, 239, 239));
+        txtNome.setBorder(null);
 
         JLabelCPF.setText("CPF");
 
-        JFormatedTextCPF.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextCPF.setBorder(null);
+        txtCPF.setBackground(new java.awt.Color(239, 239, 239));
+        txtCPF.setBorder(null);
         try {
-            JFormatedTextCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -142,50 +142,50 @@ public class CrudFuncionario extends javax.swing.JDialog {
 
         JLabelEndereco.setText("Endereco");
 
-        JTextFieldEndereco.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldEndereco.setBorder(null);
+        txtEndereco.setBackground(new java.awt.Color(239, 239, 239));
+        txtEndereco.setBorder(null);
 
         JLabelCidade.setText("Cidade");
 
-        JTextFieldCidade.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldCidade.setBorder(null);
+        txtCidade.setBackground(new java.awt.Color(239, 239, 239));
+        txtCidade.setBorder(null);
 
         JLabelCEP.setText("CEP");
 
-        JFormatedTextCEP.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextCEP.setBorder(null);
+        txtCEP.setBackground(new java.awt.Color(239, 239, 239));
+        txtCEP.setBorder(null);
         try {
-            JFormatedTextCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
+            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         JLabelEstado.setText("Estado");
 
-        JComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         JLabelSalario.setText("Salario");
 
-        JFormatedTextSalario.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextSalario.setBorder(null);
-        JFormatedTextSalario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        txtSalario.setBackground(new java.awt.Color(239, 239, 239));
+        txtSalario.setBorder(null);
+        txtSalario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        JComboBoxNivelAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Atendente" }));
-        JComboBoxNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
+        comboNivelAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Atendente" }));
+        comboNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JComboBoxNivelAcessoActionPerformed(evt);
+                comboNivelAcessoActionPerformed(evt);
             }
         });
 
         JLabeLogin.setText("Login");
 
-        JTextFieldLogin.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldLogin.setBorder(null);
+        txtLogin.setBackground(new java.awt.Color(239, 239, 239));
+        txtLogin.setBorder(null);
 
         JLabelSenha.setText("Senha");
 
-        JTextFieldSenha.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldSenha.setBorder(null);
+        txtSenha.setBackground(new java.awt.Color(239, 239, 239));
+        txtSenha.setBorder(null);
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -235,10 +235,10 @@ public class CrudFuncionario extends javax.swing.JDialog {
             .addComponent(JLabelCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
-        JFormatedTextContato.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextContato.setBorder(null);
+        txtContato.setBackground(new java.awt.Color(239, 239, 239));
+        txtContato.setBorder(null);
         try {
-            JFormatedTextContato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+            txtContato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -256,62 +256,62 @@ public class CrudFuncionario extends javax.swing.JDialog {
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(JTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorNome)
                                     .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JFormatedTextCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JLabelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JSeparatorCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                     .addComponent(JLabelCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JComboBoxNivelAcesso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(comboNivelAcesso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(45, 45, 45)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JLabelContato, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorContato, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                    .addComponent(JFormatedTextContato)))
+                                    .addComponent(txtContato)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JSeparatorEndereco)
                                     .addComponent(JLabelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabelCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JFormatedTextCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addComponent(JLabelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(JComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(JLabelSalario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                    .addComponent(JFormatedTextSalario))
+                                    .addComponent(txtSalario))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabeLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(JTextFieldSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 58, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
@@ -338,11 +338,11 @@ public class CrudFuncionario extends javax.swing.JDialog {
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(JFormatedTextCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JComboBoxNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboNivelAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(JFormatedTextContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JSeparatorContato, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,7 +351,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(JLabelNome)
                         .addGap(6, 6, 6)
-                        .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JSeparatorCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,8 +367,8 @@ public class CrudFuncionario extends javax.swing.JDialog {
                                 .addGap(25, 25, 25))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(JTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JSeparatorCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,14 +376,14 @@ public class CrudFuncionario extends javax.swing.JDialog {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(JLabelCEP)
                         .addGap(3, 3, 3)
-                        .addComponent(JFormatedTextCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JSeparatorCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelBorder1Layout.createSequentialGroup()
                             .addGap(52, 52, 52)
-                            .addComponent(JFormatedTextSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panelBorder1Layout.createSequentialGroup()
                             .addGap(74, 74, 74)
                             .addComponent(JSeparatorSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -394,7 +394,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
                                 .addGroup(panelBorder1Layout.createSequentialGroup()
                                     .addComponent(JLabelEstado)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JComboBoxEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(JSeparatorEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -407,7 +407,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
                                             .addComponent(JLabeLogin)
                                             .addGap(25, 25, 25))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                                            .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addComponent(JSeparatorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -416,7 +416,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
                                             .addComponent(JLabelSenha)
                                             .addGap(25, 25, 25))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                                            .addComponent(JTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(18, 18, 18)
@@ -458,59 +458,59 @@ public class CrudFuncionario extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JComboBoxNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxNivelAcessoActionPerformed
+    private void comboNivelAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNivelAcessoActionPerformed
 
-    }//GEN-LAST:event_JComboBoxNivelAcessoActionPerformed
+    }//GEN-LAST:event_comboNivelAcessoActionPerformed
 
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
-        if (JTextFieldNome.getText().isEmpty()) {
+        if (txtNome.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
-            JTextFieldNome.requestFocus();
-        } else if (JFormatedTextCPF.getText().isEmpty()) {
+            txtNome.requestFocus();
+        } else if (txtCPF.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O CPF deve ser preenchido.");
-            JFormatedTextCPF.requestFocus();
-        } else if (JComboBoxNivelAcesso.getSelectedItem() == null) {
+            txtCPF.requestFocus();
+        } else if (comboNivelAcesso.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
                     "Algum item deve ser selecionado.");
-            JComboBoxNivelAcesso.requestFocus();
-        } else if (JFormatedTextContato.getText().isEmpty()) {
+            comboNivelAcesso.requestFocus();
+        } else if (txtContato.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Contato deve ser preenchido.");
-            JFormatedTextContato.requestFocus();
-        } else if (JTextFieldEndereco.getText().isEmpty()) {
+            txtContato.requestFocus();
+        } else if (txtEndereco.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Endereço deve ser preenchido.");
-            JTextFieldEndereco.requestFocus();
-        } else if (JTextFieldCidade.getText().isEmpty()) {
+            txtEndereco.requestFocus();
+        } else if (txtCidade.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Cidade deve ser preenchida.");
-            JTextFieldCidade.requestFocus();
-        } else if (JFormatedTextCEP.getText().isEmpty()) {
+            txtCidade.requestFocus();
+        } else if (txtCEP.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O CEP deve ser preenchido.");
-            JFormatedTextCEP.requestFocus();
-        } else if (JComboBoxEstado.getSelectedItem() == null) {
+            txtCEP.requestFocus();
+        } else if (comboEstado.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
                     "Algum item deve ser selecionado.");
-            JComboBoxEstado.requestFocus();
-        } else if (JFormatedTextSalario.getText().isEmpty()) {
+            comboEstado.requestFocus();
+        } else if (txtSalario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Salário deve ser preenchido.");
-            JFormatedTextSalario.requestFocus();
-        } else if (JTextFieldLogin.getText().isEmpty()) {
+            txtSalario.requestFocus();
+        } else if (txtLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Login deve ser preenchido.");
-            JTextFieldLogin.requestFocus();
-        } else if (JTextFieldSenha.getText().isEmpty()) {
+            txtLogin.requestFocus();
+        } else if (txtSenha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Senha deve ser preenchida.");
-            JTextFieldSenha.requestFocus();
+            txtSenha.requestFocus();
         } else {
             this.confirmou = true;
             this.setVisible(false);
@@ -520,12 +520,6 @@ public class CrudFuncionario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;
-    private javax.swing.JComboBox<String> JComboBoxEstado;
-    private javax.swing.JComboBox<String> JComboBoxNivelAcesso;
-    private javax.swing.JFormattedTextField JFormatedTextCEP;
-    private javax.swing.JFormattedTextField JFormatedTextCPF;
-    private javax.swing.JFormattedTextField JFormatedTextContato;
-    private javax.swing.JFormattedTextField JFormatedTextSalario;
     private javax.swing.JLabel JLabeLogin;
     private javax.swing.JLabel JLabelCEP;
     private javax.swing.JLabel JLabelCPF;
@@ -552,12 +546,18 @@ public class CrudFuncionario extends javax.swing.JDialog {
     private javax.swing.JSeparator JSeparatorNome;
     private javax.swing.JSeparator JSeparatorSalario;
     private javax.swing.JSeparator JSeparatorSenha;
-    private javax.swing.JTextField JTextFieldCidade;
-    private javax.swing.JTextField JTextFieldEndereco;
-    private javax.swing.JTextField JTextFieldLogin;
-    private javax.swing.JTextField JTextFieldNome;
-    private javax.swing.JTextField JTextFieldSenha;
+    private javax.swing.JComboBox<String> comboEstado;
+    private javax.swing.JComboBox<String> comboNivelAcesso;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
+    private javax.swing.JFormattedTextField txtCEP;
+    private javax.swing.JFormattedTextField txtCPF;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JFormattedTextField txtContato;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JFormattedTextField txtSalario;
+    private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

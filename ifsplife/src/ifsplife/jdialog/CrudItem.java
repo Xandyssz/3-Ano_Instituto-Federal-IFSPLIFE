@@ -17,17 +17,17 @@ public class CrudItem extends javax.swing.JDialog {
         Item item = new Item();
 
         item.setCodigo_item(codigo);
-        item.setNome(JTextFieldNome.getText());
-        item.setDosagem(JTextFieldDosagem.getText());
-        item.setDescricao(JTextFieldDescricao.getText());
-        item.setLote(Integer.parseInt(JFormatedTextLote.getText()));
-        item.setCategoria((String) JComboBoxCategoria.getSelectedItem());
-        item.setData_fabricacao(jDateChooserDataFabricacao.getDate());
-        item.setData_validade(jDateChooserDataValidade.getDate());
-        item.setQuantidade(Integer.parseInt(JFormatedTextQuantidade.getText()));
+        item.setNome(txtNome.getText());
+        item.setDosagem(txtDosagem.getText());
+        item.setDescricao(txtDescricao.getText());
+        item.setLote(Integer.parseInt(txtLote.getText()));
+        item.setCategoria((String) comboCategoria.getSelectedItem());
+        item.setData_fabricacao(dataFabricao.getDate());
+        item.setData_validade(dataValidade.getDate());
+        item.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
         // inicio da formatação
         // formatação 
-        String valorStr = JFormatedTextValor.getValue().toString();
+        String valorStr = txtValor.getValue().toString();
         float valor = Float.parseFloat(valorStr);
         item.setValor(valor);
         //     
@@ -38,15 +38,15 @@ public class CrudItem extends javax.swing.JDialog {
 
     public void setItem(Item item) {
         this.codigo = item.getCodigo_item();
-        JTextFieldNome.setText(item.getNome());
-        JTextFieldDosagem.setText(item.getDosagem());
-        JTextFieldDescricao.setText(item.getDescricao());
-        JFormatedTextLote.setValue(item.getLote());
-        JComboBoxCategoria.setSelectedItem(item.getCategoria());
-        jDateChooserDataFabricacao.setDate(item.getData_fabricacao());
-        jDateChooserDataValidade.setDate(item.getData_validade());
-        JFormatedTextQuantidade.setValue(item.getQuantidade());
-        JFormatedTextValor.setValue(item.getValor());
+        txtNome.setText(item.getNome());
+        txtDosagem.setText(item.getDosagem());
+        txtDescricao.setText(item.getDescricao());
+        txtLote.setValue(item.getLote());
+        comboCategoria.setSelectedItem(item.getCategoria());
+        dataFabricao.setDate(item.getData_fabricacao());
+        dataValidade.setDate(item.getData_validade());
+        txtQuantidade.setValue(item.getQuantidade());
+        txtValor.setValue(item.getValor());
     }
 
     public boolean isConfirmou() {
@@ -54,15 +54,15 @@ public class CrudItem extends javax.swing.JDialog {
     }
 
     public void desabilitarEdicao() {
-        JTextFieldNome.setEditable(false);
-        JTextFieldDosagem.setEditable(false);
-        JTextFieldDescricao.setEditable(false);
-        JFormatedTextLote.setEditable(false);
-        JComboBoxCategoria.setEditable(false);
-        jDateChooserDataFabricacao.setEnabled(false);
-        jDateChooserDataValidade.setEnabled(false);
-        JFormatedTextQuantidade.setEditable(false);
-        JFormatedTextValor.setEditable(false);
+        txtNome.setEditable(false);
+        txtDosagem.setEditable(false);
+        txtDescricao.setEditable(false);
+        txtLote.setEditable(false);
+        comboCategoria.setEditable(false);
+        dataFabricao.setEnabled(false);
+        dataValidade.setEnabled(false);
+        txtQuantidade.setEditable(false);
+        txtValor.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -74,35 +74,35 @@ public class CrudItem extends javax.swing.JDialog {
         JLabelCRUD = new javax.swing.JLabel();
         JSeparatorCRUD = new javax.swing.JSeparator();
         JLabelNome = new javax.swing.JLabel();
-        JTextFieldNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         JSeparatorNome = new javax.swing.JSeparator();
         JLabelDosagem = new javax.swing.JLabel();
-        JTextFieldDosagem = new javax.swing.JTextField();
+        txtDosagem = new javax.swing.JTextField();
         JSeparatorDosagem = new javax.swing.JSeparator();
         JLabelDescricao = new javax.swing.JLabel();
-        JTextFieldDescricao = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
         JSeparatorDescricao = new javax.swing.JSeparator();
         JLabelLote = new javax.swing.JLabel();
-        JFormatedTextLote = new javax.swing.JFormattedTextField();
+        txtLote = new javax.swing.JFormattedTextField();
         JSeparatorLote = new javax.swing.JSeparator();
         JLabelDataFabricacao = new javax.swing.JLabel();
-        jDateChooserDataFabricacao = new com.toedter.calendar.JDateChooser();
+        dataFabricao = new com.toedter.calendar.JDateChooser();
         JSeparatorDataFabricacao = new javax.swing.JSeparator();
         JLabelDataValidade1 = new javax.swing.JLabel();
-        jDateChooserDataValidade = new com.toedter.calendar.JDateChooser();
+        dataValidade = new com.toedter.calendar.JDateChooser();
         JSeparatorDataValidade = new javax.swing.JSeparator();
         JLabelValor = new javax.swing.JLabel();
-        JFormatedTextValor = new javax.swing.JFormattedTextField();
+        txtValor = new javax.swing.JFormattedTextField();
         JSeparatorValor = new javax.swing.JSeparator();
         JLabelQuantidade = new javax.swing.JLabel();
-        JFormatedTextQuantidade = new javax.swing.JFormattedTextField();
+        txtQuantidade = new javax.swing.JFormattedTextField();
         JSeparatorQuantidade = new javax.swing.JSeparator();
         JButtonCadastrar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCadastrar = new javax.swing.JLabel();
         JButtonCancelar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCancelar = new javax.swing.JLabel();
         JLabelCategoria = new javax.swing.JLabel();
-        JComboBoxCategoria = new javax.swing.JComboBox<>();
+        comboCategoria = new javax.swing.JComboBox<>();
         JSeparatorCategoria = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -118,24 +118,24 @@ public class CrudItem extends javax.swing.JDialog {
 
         JLabelNome.setText("Nome");
 
-        JTextFieldNome.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldNome.setBorder(null);
+        txtNome.setBackground(new java.awt.Color(239, 239, 239));
+        txtNome.setBorder(null);
 
         JLabelDosagem.setText("Dosagem");
 
-        JTextFieldDosagem.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldDosagem.setBorder(null);
+        txtDosagem.setBackground(new java.awt.Color(239, 239, 239));
+        txtDosagem.setBorder(null);
 
         JLabelDescricao.setText("Descricao");
 
-        JTextFieldDescricao.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldDescricao.setBorder(null);
+        txtDescricao.setBackground(new java.awt.Color(239, 239, 239));
+        txtDescricao.setBorder(null);
 
         JLabelLote.setText("Lote");
 
-        JFormatedTextLote.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextLote.setBorder(null);
-        JFormatedTextLote.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtLote.setBackground(new java.awt.Color(239, 239, 239));
+        txtLote.setBorder(null);
+        txtLote.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         JLabelDataFabricacao.setText("Data de Fabricação");
 
@@ -143,15 +143,15 @@ public class CrudItem extends javax.swing.JDialog {
 
         JLabelValor.setText("Valor");
 
-        JFormatedTextValor.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextValor.setBorder(null);
-        JFormatedTextValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtValor.setBackground(new java.awt.Color(239, 239, 239));
+        txtValor.setBorder(null);
+        txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         JLabelQuantidade.setText("Quantidade ");
 
-        JFormatedTextQuantidade.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextQuantidade.setBorder(null);
-        JFormatedTextQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtQuantidade.setBackground(new java.awt.Color(239, 239, 239));
+        txtQuantidade.setBorder(null);
+        txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -203,7 +203,7 @@ public class CrudItem extends javax.swing.JDialog {
 
         JLabelCategoria.setText("Categoria do Item");
 
-        JComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
+        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -221,52 +221,52 @@ public class CrudItem extends javax.swing.JDialog {
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addGap(4, 4, 4)
                                         .addComponent(JLabelValor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(JFormatedTextValor, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addGap(4, 4, 4)
                                         .addComponent(JLabelQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(JFormatedTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(JLabelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(JTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(JSeparatorNome)
                                         .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(19, 19, 19)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabelDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JTextFieldDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JLabelDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorDescricao)
-                                    .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))))
+                                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))))
                         .addGap(0, 59, Short.MAX_VALUE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLabelLote, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JFormatedTextLote, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLote, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JSeparatorLote, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JSeparatorDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JLabelDataFabricacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooserDataFabricacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(dataFabricao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jDateChooserDataValidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dataValidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorDataValidade)
                                     .addComponent(JLabelDataValidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE))
@@ -291,7 +291,7 @@ public class CrudItem extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(JLabelNome)
                                 .addGap(6, 6, 6)
-                                .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
                                 .addComponent(JSeparatorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -301,7 +301,7 @@ public class CrudItem extends javax.swing.JDialog {
                                         .addComponent(JLabelDosagem)
                                         .addGap(25, 25, 25))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                                        .addComponent(JTextFieldDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(JSeparatorDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
@@ -310,7 +310,7 @@ public class CrudItem extends javax.swing.JDialog {
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addComponent(JLabelDescricao)
                                         .addGap(25, 25, 25))
-                                    .addComponent(JTextFieldDescricao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JSeparatorDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
@@ -318,13 +318,13 @@ public class CrudItem extends javax.swing.JDialog {
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelCategoria)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JComboBoxCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JSeparatorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelLote)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JFormatedTextLote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtLote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JSeparatorLote, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -333,13 +333,13 @@ public class CrudItem extends javax.swing.JDialog {
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelDataValidade1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooserDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)
                                 .addComponent(JSeparatorDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelDataFabricacao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooserDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dataFabricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)
                                 .addComponent(JSeparatorDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(4, 4, 4)
@@ -348,7 +348,7 @@ public class CrudItem extends javax.swing.JDialog {
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(JFormatedTextValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelValor)
                                 .addGap(31, 31, 31)))
@@ -357,7 +357,7 @@ public class CrudItem extends javax.swing.JDialog {
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(JFormatedTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                                 .addComponent(JLabelQuantidade)
                                 .addGap(31, 31, 31)))
@@ -406,42 +406,42 @@ public class CrudItem extends javax.swing.JDialog {
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
-        if (JTextFieldNome.getText().isEmpty()) {
+        if (txtNome.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
-            JTextFieldNome.requestFocus();
-        } else if (JTextFieldDescricao.getText().isEmpty()) {
+            txtNome.requestFocus();
+        } else if (txtDescricao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Descrição deve ser preenchida.");
-            JTextFieldDescricao.requestFocus();
+            txtDescricao.requestFocus();
 
-        } else if (JFormatedTextLote.getText().isEmpty()) {
+        } else if (txtLote.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Lote deve ser preenchido");
-            JFormatedTextLote.requestFocus();
-        } else if (JComboBoxCategoria.getSelectedItem() == null) {
+            txtLote.requestFocus();
+        } else if (comboCategoria.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
                     "Alguma categoria deve ser selecionada.");
-            JComboBoxCategoria.requestFocus();
-        } else if (jDateChooserDataFabricacao.getDate() == (null)) {
+            comboCategoria.requestFocus();
+        } else if (dataFabricao.getDate() == (null)) {
             JOptionPane.showMessageDialog(null,
                     "A Data de Fabricação deve ser preenchida.");
-            jDateChooserDataFabricacao.requestFocus();
+            dataFabricao.requestFocus();
 
-        } else if (jDateChooserDataValidade.getDate() == (null)) {
+        } else if (dataValidade.getDate() == (null)) {
             JOptionPane.showMessageDialog(null,
                     "A Data de Validade deve ser preenchida");
-            jDateChooserDataValidade.requestFocus();
+            dataValidade.requestFocus();
 
-        } else if (JFormatedTextQuantidade.getText().isEmpty()) {
+        } else if (txtQuantidade.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Quantidade deve ser preenchida.");
-            JFormatedTextQuantidade.requestFocus();
+            txtQuantidade.requestFocus();
 
-        } else if (JFormatedTextValor.getText().isEmpty()) {
+        } else if (txtValor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Valor deve ser preenchido.");
-            JFormatedTextValor.requestFocus();
+            txtValor.requestFocus();
         } else {
             this.confirmou = true;
             this.setVisible(false);
@@ -451,10 +451,6 @@ public class CrudItem extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;
-    private javax.swing.JComboBox<String> JComboBoxCategoria;
-    private javax.swing.JFormattedTextField JFormatedTextLote;
-    private javax.swing.JFormattedTextField JFormatedTextQuantidade;
-    private javax.swing.JFormattedTextField JFormatedTextValor;
     private javax.swing.JLabel JLabelCRUD;
     private javax.swing.JLabel JLabelCadastrar;
     private javax.swing.JLabel JLabelCancelar;
@@ -477,13 +473,17 @@ public class CrudItem extends javax.swing.JDialog {
     private javax.swing.JSeparator JSeparatorNome;
     private javax.swing.JSeparator JSeparatorQuantidade;
     private javax.swing.JSeparator JSeparatorValor;
-    private javax.swing.JTextField JTextFieldDescricao;
-    private javax.swing.JTextField JTextFieldDosagem;
-    private javax.swing.JTextField JTextFieldNome;
-    private com.toedter.calendar.JDateChooser jDateChooserDataFabricacao;
-    private com.toedter.calendar.JDateChooser jDateChooserDataValidade;
+    private javax.swing.JComboBox<String> comboCategoria;
+    private com.toedter.calendar.JDateChooser dataFabricao;
+    private com.toedter.calendar.JDateChooser dataValidade;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
+    private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtDosagem;
+    private javax.swing.JFormattedTextField txtLote;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JFormattedTextField txtQuantidade;
+    private javax.swing.JFormattedTextField txtValor;
     // End of variables declaration//GEN-END:variables
 
 }

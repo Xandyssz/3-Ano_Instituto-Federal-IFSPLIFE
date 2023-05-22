@@ -1,11 +1,45 @@
 package ifsplife.form;
 
 import ifsplife.jdialog.CrudMovimentacao;
+import javax.swing.table.DefaultTableModel;
 
 public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
+    private boolean confirmou = false;
+    private int codigo = 0;
+    
+//    List<Itemvenda> itens = new ArrayList<>();
+
     public Form_CaixaRegistradora() {
         initComponents();
+    }
+
+    private void atualizarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) tableMovimentacoes.getModel();
+
+        modelo.setRowCount(0);
+
+//        for (Itemvenda itens : itens) {
+//            modelo.addRow(new Object[]{itens.getCodigo_item().getNome(), itens.getQuantidade(), itens.getPreco()}
+//            );
+//        }
+    }
+
+    public boolean isConfirmou() {
+        return confirmou;
+    }
+
+    public void desabilitarTextos() {
+        JTextFieldDataDeAbertura.setEditable(false);
+        JTextFieldHorarioDeAbertura.setEditable(false);
+        jSpinnerQuantidadeDeVenda.setEnabled(false);
+        JFormattedTextFieldValorInicial.setEditable(false);
+        JFormattedTextFieldValorTotal.setEditable(false);
+        JSpinnerQuantidadeDeCompra.setEnabled(false);
+        JSpinnerQntdMovimentacaoSangria.setEnabled(false);
+        JSpinnerQntdMovimentacaoSuplementacao.setEnabled(false);
+        JFormattedTextFieldSangria.setEditable(false);
+        JFormattedTextFieldSuplementacao.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -376,7 +410,15 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
             new String [] {
                 "Descrição", "Valor", "Tipo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JScrollPaneMovimentacao.setViewportView(tableMovimentacoes);
 
         javax.swing.GroupLayout panelBorderTelaLayout = new javax.swing.GroupLayout(panelBorderTela);
@@ -411,9 +453,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButtonMovimentacaoCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonMovimentacaoCaixaMouseClicked
-       CrudMovimentacao movimentacao = new CrudMovimentacao(null, true);
-       
-       movimentacao.setVisible(true);
+        CrudMovimentacao movimentacao = new CrudMovimentacao(null, true);
+
+        movimentacao.setVisible(true);
     }//GEN-LAST:event_JButtonMovimentacaoCaixaMouseClicked
 
 

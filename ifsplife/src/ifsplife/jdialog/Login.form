@@ -53,9 +53,9 @@
                                       <Component id="JLabelNome" max="32767" attributes="0"/>
                                       <Component id="JSeparatorNome" alignment="0" max="32767" attributes="0"/>
                                       <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="JTextFieldSenha" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
                                       <Component id="JSeparatorSenha" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="JTextFieldLogin" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Component id="txtLogin" min="-2" pref="257" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -83,13 +83,13 @@
                           <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="JLabelNome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JTextFieldLogin" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="txtLogin" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JSeparatorNome" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="JLabelSenha" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="JTextFieldSenha" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="txtSenha" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JSeparatorSenha" min="-2" pref="13" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -130,19 +130,18 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nome"/>
+            <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="JTextFieldLogin">
+        <Component class="javax.swing.JTextField" name="txtLogin">
           <Properties>
-            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="admin"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTextFieldLoginMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLoginMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="JSeparatorNome">
@@ -155,7 +154,7 @@
             <Property name="text" type="java.lang.String" value="Senha"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="JTextFieldSenha">
+        <Component class="javax.swing.JTextField" name="txtSenha">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="admin"/>
@@ -164,7 +163,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTextFieldSenhaMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSenhaMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="JSeparatorSenha">

@@ -22,14 +22,13 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         JLabelCRUD = new javax.swing.JLabel();
         JSeparatorCRUD = new javax.swing.JSeparator();
         JLabelMotivo = new javax.swing.JLabel();
-        JTextFieldMotivo = new javax.swing.JTextField();
+        txtMotivo = new javax.swing.JTextField();
         JSeparatorMotivo = new javax.swing.JSeparator();
         JLabelValor = new javax.swing.JLabel();
-        JFormatedTextValor = new javax.swing.JFormattedTextField();
-        ConfirmarValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JFormattedTextField();
         JSeparatorValor = new javax.swing.JSeparator();
         JLabelTipoDeMovimentacao = new javax.swing.JLabel();
-        JComboBoxTipoDeMovimentacao = new javax.swing.JComboBox<>();
+        txtTipoMovimentacao = new javax.swing.JComboBox<>();
         JSeparatorTipoDeMovimentacao = new javax.swing.JSeparator();
         JButtonCadastrar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCadastrar = new javax.swing.JLabel();
@@ -51,25 +50,18 @@ public class CrudMovimentacao extends javax.swing.JDialog {
 
         JLabelMotivo.setText("Motivo da Movimentação");
 
-        JTextFieldMotivo.setBackground(new java.awt.Color(239, 239, 239));
-        JTextFieldMotivo.setBorder(null);
+        txtMotivo.setBackground(new java.awt.Color(239, 239, 239));
+        txtMotivo.setBorder(null);
 
         JLabelValor.setText("Valor");
 
-        JFormatedTextValor.setBackground(new java.awt.Color(239, 239, 239));
-        JFormatedTextValor.setBorder(null);
-        JFormatedTextValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        ConfirmarValor.setText("Clique para confirmar o valor...");
-        ConfirmarValor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConfirmarValorMouseClicked(evt);
-            }
-        });
+        txtValor.setBackground(new java.awt.Color(239, 239, 239));
+        txtValor.setBorder(null);
+        txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         JLabelTipoDeMovimentacao.setText("Tipo de Movimentação");
 
-        JComboBoxTipoDeMovimentacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sangria", "Suplementação" }));
+        txtTipoMovimentacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sangria", "Suplementação" }));
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -138,20 +130,19 @@ public class CrudMovimentacao extends javax.swing.JDialog {
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(JTextFieldMotivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtMotivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(JSeparatorMotivo))
                                         .addGap(45, 45, 45))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
                                         .addComponent(JLabelMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JFormatedTextValor)
+                                    .addComponent(txtValor, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                                     .addComponent(JSeparatorValor)
-                                    .addComponent(JLabelValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ConfirmarValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(JLabelValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(61, 61, 61)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JComboBoxTipoDeMovimentacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTipoMovimentacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorTipoDeMovimentacao)
                                     .addComponent(JLabelTipoDeMovimentacao, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
                         .addGap(0, 26, Short.MAX_VALUE)))
@@ -168,29 +159,26 @@ public class CrudMovimentacao extends javax.swing.JDialog {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(JSeparatorTipoDeMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JSeparatorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(JFormatedTextValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(JLabelTipoDeMovimentacao)
-                                    .addComponent(JLabelValor)
-                                    .addComponent(JLabelMotivo))
-                                .addGap(11, 11, 11)
-                                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(JTextFieldMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JComboBoxTipoDeMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
-                                .addComponent(JSeparatorMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConfirmarValor)))
-                .addGap(18, 18, 18)
+                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(JSeparatorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(JLabelTipoDeMovimentacao)
+                                .addComponent(JLabelValor)
+                                .addComponent(JLabelMotivo))
+                            .addGap(11, 11, 11)
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTipoMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(3, 3, 3)
+                            .addComponent(JSeparatorMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(30, 30, 30)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,31 +221,20 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
-    private void ConfirmarValorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmarValorMouseClicked
-        ConfirmarValor.requestFocus();
-        try {
-            if (((Number) JFormatedTextValor.getValue()).doubleValue() > 0) {
-                ConfirmarValor.setText("Valor confirmado R$ " + ((Number) JFormatedTextValor.getValue()).doubleValue());
-            }
-        } catch (Exception ex) {
-
-        }
-    }//GEN-LAST:event_ConfirmarValorMouseClicked
-
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
-        if (JTextFieldMotivo.getText().isEmpty()) {
+        if (txtMotivo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
-            JTextFieldMotivo.requestFocus();
-        } else if (JFormatedTextValor.getText().isEmpty()) {
+            txtMotivo.requestFocus();
+        } else if (txtValor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Descrição deve ser preenchida.");
-            JFormatedTextValor.requestFocus();
+            txtValor.requestFocus();
 
-        } else if (JComboBoxTipoDeMovimentacao.getSelectedItem() == null) {
+        } else if (txtTipoMovimentacao.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
                     "O Lote deve ser preenchido");
-            JComboBoxTipoDeMovimentacao.requestFocus();
+            txtTipoMovimentacao.requestFocus();
 
         } else {
             this.confirmou = true;
@@ -267,11 +244,8 @@ public class CrudMovimentacao extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ConfirmarValor;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;
-    private javax.swing.JComboBox<String> JComboBoxTipoDeMovimentacao;
-    private javax.swing.JFormattedTextField JFormatedTextValor;
     private javax.swing.JLabel JLabelCRUD;
     private javax.swing.JLabel JLabelCadastrar;
     private javax.swing.JLabel JLabelCancelar;
@@ -282,8 +256,10 @@ public class CrudMovimentacao extends javax.swing.JDialog {
     private javax.swing.JSeparator JSeparatorMotivo;
     private javax.swing.JSeparator JSeparatorTipoDeMovimentacao;
     private javax.swing.JSeparator JSeparatorValor;
-    private javax.swing.JTextField JTextFieldMotivo;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
+    private javax.swing.JTextField txtMotivo;
+    private javax.swing.JComboBox<String> txtTipoMovimentacao;
+    private javax.swing.JFormattedTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

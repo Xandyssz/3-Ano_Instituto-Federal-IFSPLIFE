@@ -214,7 +214,15 @@ public class Form_Convenios extends javax.swing.JPanel {
             new String [] {
                 "Nome", "Telefone", "Desconto (%)"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableConvenios);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N

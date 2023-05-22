@@ -215,7 +215,15 @@ public class Form_Funcionarios extends javax.swing.JPanel {
             new String [] {
                 "Nome", "CPF", "Cargo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableFuncionarios);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N

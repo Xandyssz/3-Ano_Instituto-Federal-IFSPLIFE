@@ -22,7 +22,6 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         init();
 
-        nome.setText("Olá " + ControleFuncionario.getUsuarioLogado().getNome());
         cargo.setText(ControleFuncionario.getUsuarioLogado().getNivelacesso());
 
     }
@@ -35,7 +34,7 @@ public class Main extends javax.swing.JFrame {
             public void menuSelected(int index, int indexSubMenu) {
 //                System.out.println("" + index + " " + indexSubMenu);
                 if (index == 0 && indexSubMenu == 0) {
-                    showForm(new Form_Vendas()); 
+                    showForm(new Form_Vendas());
                 } else if (index == 1 && indexSubMenu == 0) {
                     showForm(new Form_CaixaRegistradora());
                 } else if (index == 2 && indexSubMenu == 0) {
@@ -80,7 +79,6 @@ public class Main extends javax.swing.JFrame {
         titleBar = new ifsplife.swing.titlebar.TitleBar();
         menu = new ifsplife.menu.Menu();
         logout = new javax.swing.JLabel();
-        nome = new javax.swing.JLabel();
         cargo = new javax.swing.JLabel();
         body = new javax.swing.JPanel();
 
@@ -99,8 +97,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        nome.setText("jLabel2");
-
         cargo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cargo.setText("jLabel1");
         cargo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -115,14 +111,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelMenuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 9, Short.MAX_VALUE))
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addComponent(logout)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addComponent(logout)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cargo, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelMenuLayout.setVerticalGroup(
@@ -131,9 +122,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(logout)
                     .addComponent(cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -222,7 +211,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel cargo;
     private javax.swing.JLabel logout;
     private ifsplife.menu.Menu menu;
-    private javax.swing.JLabel nome;
     private javax.swing.JPanel panelMenu;
     private ifsplife.swing.titlebar.TitleBar titleBar;
     // End of variables declaration//GEN-END:variables

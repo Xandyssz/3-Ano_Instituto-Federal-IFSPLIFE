@@ -325,9 +325,17 @@ public class Form_Compras extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Valor", "Quantidade", "SubTotal"
+                "Nome", "Quantidade", "Valor Unitario", "SubTotal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableCompras);
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
