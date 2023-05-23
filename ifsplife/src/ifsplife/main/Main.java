@@ -10,7 +10,9 @@ import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;
 import ifsplife.form.Form_Funcionarios;
 import ifsplife.form.Form_Item;
-import ifsplife.form.Form_Vendas;
+import ifsplife.form.Form_RelatorioCompras;
+import ifsplife.form.Form_RelatorioVendas;
+import ifsplife.form.Form_Venda;
 import ifsplife.jdialog.Login;
 import ifsplife.menu.EventMenuSelected;
 
@@ -34,22 +36,24 @@ public class Main extends javax.swing.JFrame {
             public void menuSelected(int index, int indexSubMenu) {
 //                System.out.println("" + index + " " + indexSubMenu);
                 if (index == 0 && indexSubMenu == 0) {
-                    showForm(new Form_Vendas());
+                    showForm(new Form_Venda());
                 } else if (index == 1 && indexSubMenu == 0) {
                     showForm(new Form_CaixaRegistradora());
                 } else if (index == 2 && indexSubMenu == 0) {
-                    showForm(new Form_Empty(index + " " + indexSubMenu));
-                } else if (index == 3 && indexSubMenu == 0) {
                     showForm(new Form_Fornecedores());
-                } else if (index == 4 && indexSubMenu == 0) {
+                } else if (index == 3 && indexSubMenu == 0) {
                     showForm(new Form_Compras());
-                } else if (index == 5 && indexSubMenu == 0) {
+                } else if (index == 4 && indexSubMenu == 0) {
                     showForm(new Form_Convenios());
-                } else if (index == 6 && indexSubMenu == 0) {
+                } else if (index == 5 && indexSubMenu == 0) {
                     showForm(new Form_Funcionarios());
-                } else if (index == 7 && indexSubMenu == 0) {
+                } else if (index == 6 && indexSubMenu == 0) {
                     showForm(new Form_Item());
+                } else if (index == 7 && indexSubMenu == 0) {
+                    showForm(new Form_RelatorioCompras());
                 } else if (index == 8 && indexSubMenu == 0) {
+                    showForm(new Form_RelatorioVendas());
+                } else if (index == 9 && indexSubMenu == 0) {
                     showForm(new Form_Profile());
                 } else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));

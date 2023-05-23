@@ -41,15 +41,16 @@ public class Menu extends JPanel {
         addTitle("IFSP LIFE");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Venda"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Caixa"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatórios"));
         addTitle("EXTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Fornecedor"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Compra"));
-
         addTitle("INTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Item"));
+        addTitle("RELATÓRIOS");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Compra"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Venda"));
         addTitle("MEUS DADOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Perfil"));
     }

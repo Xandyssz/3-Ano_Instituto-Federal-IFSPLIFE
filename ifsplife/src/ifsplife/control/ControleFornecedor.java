@@ -1,6 +1,5 @@
 package ifsplife.control;
 
-import java.util.ArrayList;
 import ifsplife.model.Fornecedores;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -8,7 +7,6 @@ import javax.persistence.TypedQuery;
 
 public class ControleFornecedor {
 
-    private static final ArrayList<Fornecedores> listaFornecedor = new ArrayList<>();
 
     public void adicionar(Fornecedores fornecedores) {
 

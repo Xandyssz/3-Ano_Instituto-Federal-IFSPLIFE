@@ -90,6 +90,7 @@ public class Form_Profile extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        JButtonAlterarDados.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonAlterarDados.setPreferredSize(new java.awt.Dimension(112, 35));
 
         jLabel16.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -108,6 +109,7 @@ public class Form_Profile extends javax.swing.JPanel {
             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
+        JButtonAlterarSenha.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonAlterarSenha.setPreferredSize(new java.awt.Dimension(112, 35));
 
         jLabel15.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N

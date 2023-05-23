@@ -140,6 +140,9 @@
     </Container>
     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonCadastrar">
       <Properties>
+        <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[112, 35]"/>
         </Property>
@@ -177,6 +180,9 @@
     </Container>
     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonEditar">
       <Properties>
+        <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[112, 35]"/>
         </Property>
@@ -214,6 +220,9 @@
     </Container>
     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonVisualizar">
       <Properties>
+        <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[112, 35]"/>
         </Property>
@@ -251,6 +260,9 @@
     </Container>
     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonExcluir">
       <Properties>
+        <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[112, 35]"/>
         </Property>

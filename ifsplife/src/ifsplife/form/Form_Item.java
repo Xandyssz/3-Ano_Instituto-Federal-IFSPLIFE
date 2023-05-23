@@ -110,6 +110,7 @@ public class Form_Item extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,6 +134,7 @@ public class Form_Item extends javax.swing.JPanel {
             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
+        JButtonEditar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonEditar.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,6 +158,7 @@ public class Form_Item extends javax.swing.JPanel {
             .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
+        JButtonVisualizar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonVisualizar.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,6 +182,7 @@ public class Form_Item extends javax.swing.JPanel {
             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
+        JButtonExcluir.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonExcluir.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

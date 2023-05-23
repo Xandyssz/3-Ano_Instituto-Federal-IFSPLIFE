@@ -1,14 +1,12 @@
 package ifsplife.control;
 
 import ifsplife.model.Item;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 public class ControleItem {
 
-    private static final ArrayList<Item> listaItem = new ArrayList<>();
 
     // adiciona um materiaprima
     public void adicionar(Item item) {

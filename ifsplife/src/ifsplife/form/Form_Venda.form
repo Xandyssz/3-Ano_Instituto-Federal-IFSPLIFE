@@ -299,8 +299,21 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="JLabelDetalhesDaCompra1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="598" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="JLabelDetalhesDaCompra1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="txtItem" alignment="1" pref="192" max="32767" attributes="0"/>
+                                                  <Component id="jSeparatorItem" alignment="1" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabelItem" alignment="1" min="-2" pref="192" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="jSeparatorDataVenda" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                              <Component id="jLabeDataVenda" alignment="1" min="-2" pref="192" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
@@ -323,32 +336,24 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jSeparatorValorItem" max="32767" attributes="0"/>
-                                              <Component id="txtItem" alignment="1" pref="192" max="32767" attributes="0"/>
-                                              <Component id="jFormattedTextFieldValorItem" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="jSeparatorItem" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="jSeparatorValorItem" max="32767" attributes="0"/>
+                                                  <Component id="jFormattedTextFieldValorItem" alignment="1" pref="192" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabelValorItem" alignment="1" min="-2" pref="192" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="txtQuantidadeItem" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabelQtdItem" alignment="0" pref="186" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="jSeparatorQtdItem" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                          <Component id="jLabelValorItem" alignment="1" min="-2" pref="192" max="-2" attributes="0"/>
-                                          <Component id="jLabelItem" alignment="1" min="-2" pref="192" max="-2" attributes="0"/>
+                                          <Component id="DataVenda" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
                                               <Component id="RSTotal" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jSeparatorValorTotal" alignment="0" pref="192" max="32767" attributes="0"/>
                                                   <Component id="jLabelValorTotal" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jFormattedTextFieldValorTotal" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jSeparatorConvenios" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jComboBoxConvenios" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabelSelecioneConvenio" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" attributes="0">
@@ -367,36 +372,53 @@
                                                   </Group>
                                               </Group>
                                           </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="txtQuantidadeItem" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabelQtdItem" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jSeparatorQtdItem" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jLabelRSSTotalDesconto" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jLabelTotalcomDesconto" pref="195" max="32767" attributes="0"/>
-                                                  <Component id="jSeparatorTotalDesconto" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jFormattedTextFieldTotalcomDesconto" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelPorcentagem" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                                      <Component id="jSeparatorPorcentagem" min="-2" pref="195" max="-2" attributes="0"/>
+                                                      <Component id="jLabelRSSTotalDesconto" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="jLabelTotalcomDesconto" max="32767" attributes="0"/>
+                                                          <Component id="jSeparatorTotalDesconto" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="jFormattedTextFieldTotalcomDesconto" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabelDescontoConvenios" min="-2" pref="201" max="-2" attributes="0"/>
-                                                          <Component id="jFormattedTextFieldPorcentagem" min="-2" pref="198" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabelPorcentagem" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jFormattedTextFieldPorcentagem" min="-2" pref="195" max="-2" attributes="0"/>
+                                                              <Component id="jSeparatorPorcentagem" min="-2" pref="195" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                                          <Component id="jLabelDescontoConvenios" min="-2" pref="195" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jComboBoxConvenios" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                                  <Component id="jSeparatorConvenios" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                                  <Component id="jLabelSelecioneConvenio" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace pref="295" max="32767" attributes="0"/>
+                                      <EmptySpace pref="292" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -409,48 +431,107 @@
                               <Component id="JLabelDetalhesDaCompra1" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="JLabelValorFinal1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="JLabelR$1" max="32767" attributes="0"/>
+                                          <Component id="valorFinal" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JButtonAdicionarItem1" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="JLabelValorFinal1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="JLabelR$1" max="32767" attributes="0"/>
-                                                  <Component id="valorFinal" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="JButtonAdicionarItem1" min="-2" pref="25" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="jLabelSelecioneConvenio" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Component id="jSeparatorConvenios" min="-2" pref="10" max="-2" attributes="0"/>
                                           </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Component id="jComboBoxConvenios" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabeDataVenda" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="DataVenda" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jSeparatorDataVenda" min="-2" pref="10" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jLabelValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabelDescontoConvenios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="RSTotal" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                                          <Component id="jFormattedTextFieldValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabelDescontoConvenios" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                                  <Component id="jFormattedTextFieldPorcentagem" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="jLabelPorcentagem" alignment="3" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="jSeparatorPorcentagem" min="-2" pref="10" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jSeparatorValorTotal" min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jFormattedTextFieldPorcentagem" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabelPorcentagem" alignment="3" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabelItem" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="txtItem" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="jSeparatorItem" min="-2" pref="10" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabelValorTotal" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                                  <Component id="RSTotal" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                                                  <Component id="jFormattedTextFieldValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="jSeparatorValorTotal" min="-2" pref="10" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jSeparatorPorcentagem" min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
+                                                      <Component id="jLabelTotalcomDesconto" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jLabelRSSTotalDesconto" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                                          <Component id="jFormattedTextFieldTotalcomDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jSeparatorTotalDesconto" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabelValorTotal1" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -460,52 +541,17 @@
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="jSeparatorValorTotal1" min="-2" pref="10" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jLabelTotalcomDesconto" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jLabelRSSTotalDesconto" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                                          <Component id="jFormattedTextFieldTotalcomDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jSeparatorTotalDesconto" min="-2" pref="10" max="-2" attributes="0"/>
-                                                  </Group>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelSelecioneConvenio" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                              <Component id="jSeparatorConvenios" min="-2" pref="10" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxConvenios" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                              <Component id="jLabelValorItem" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldValorItem" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSeparatorValorItem" min="-2" pref="10" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                      <Component id="jLabelItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorItem" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelValorItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldValorItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorValorItem" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -523,6 +569,13 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Detalhes da Venda"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabeDataVenda">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Data da Venda:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparatorDataVenda">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelItem">
                       <Properties>
@@ -657,6 +710,9 @@
                           <Dimension value="[90, 22]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonAdicionarItem1MouseClicked"/>
+                      </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -718,6 +774,8 @@
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                       </Properties>
+                    </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="DataVenda">
                     </Component>
                   </SubComponents>
                 </Container>

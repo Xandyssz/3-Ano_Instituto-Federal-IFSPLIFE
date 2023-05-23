@@ -1,7 +1,6 @@
 package ifsplife.control;
 
 import ifsplife.model.Funcionarios;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -10,7 +9,6 @@ public class ControleFuncionario {
 
     private static Funcionarios funcionarioLogado = null;
 
-    private static final ArrayList<Funcionarios> listaFuncionario = new ArrayList<>();
 
     public void adicionar(Funcionarios funcionarios) {
 

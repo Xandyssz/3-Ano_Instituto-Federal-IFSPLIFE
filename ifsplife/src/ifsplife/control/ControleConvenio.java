@@ -5,10 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-/**
- *
- 
- */
 public class ControleConvenio {
 
     // adiciona um materiaprima
