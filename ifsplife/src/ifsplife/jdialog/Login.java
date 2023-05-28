@@ -1,9 +1,9 @@
 package ifsplife.jdialog;
 
+import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleFuncionario;
 import ifsplife.control.FuncionarioOuSenhaIncorretaException;
 import ifsplife.model.Funcionarios;
-
 import ifsplife.main.Main;
 import javax.swing.JOptionPane;
 
@@ -185,6 +185,7 @@ public class Login extends javax.swing.JDialog {
         try {
             Funcionarios funcionarios = ControleFuncionario.login(txtLogin.getText(), txtSenha.getText());
             if (funcionarios.getNivelacesso().equals("Administrador")) {
+                ControleCaixa.caixaAberto();
                 this.dispose();
                 Main main = new Main();
                 main.setVisible(true);

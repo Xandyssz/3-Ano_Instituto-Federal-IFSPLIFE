@@ -18,17 +18,15 @@ public class Form_Venda extends javax.swing.JPanel {
 
     boolean confirmou = false;
     int codigo = 0;
+    boolean alterar = false;
 
-    private ControleConvenio controle = new ControleConvenio();
     Item itemSelecionado = null;
-
-    List<Itemvenda> itens = new ArrayList<>();
-    List<Pagamento> pagamentos = new ArrayList<>();
-
     Item i = null;
     Vendas v = null;
 
-    boolean alterar = false;
+    ControleConvenio controle = new ControleConvenio();
+    List<Itemvenda> itens = new ArrayList<>();
+    List<Pagamento> pagamentos = new ArrayList<>();
 
     public void setAlterar(boolean alterar) {
         this.alterar = alterar;
@@ -42,6 +40,16 @@ public class Form_Venda extends javax.swing.JPanel {
             jComboBoxConvenios.addItem(c);
         }
 
+    }
+    
+    public Vendas getVenda()
+    {
+        Vendas v = new Vendas();
+        
+        v.setCodigo_venda(codigo);
+        v.setData_venda(DataVenda.getDate());
+        
+        return v;
     }
 
     public boolean isConfirmou() {
@@ -789,21 +797,11 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
-
-        if (DataVenda.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "Deve ser selecionado a data da venda");
-            DataVenda.requestFocus();
-
-        } else if (jComboBoxConvenios.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null,
-                    "Algum convênio deve ser selecionado.");
-            jComboBoxConvenios.requestFocus();
-        } else {
-
-            this.confirmou = true;
-            setVisible(false);
-        }
-
+//        Vendas v = crudconvenio.getConvenio();
+//
+//        controle.adicionar(c);
+//
+//        atualizarTabela();
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
 
 
