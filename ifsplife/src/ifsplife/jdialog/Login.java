@@ -185,7 +185,6 @@ public class Login extends javax.swing.JDialog {
         try {
             Funcionarios funcionarios = ControleFuncionario.login(txtLogin.getText(), txtSenha.getText());
             if (funcionarios.getNivelacesso().equals("Administrador")) {
-                ControleCaixa.caixaAberto();
                 this.dispose();
                 Main main = new Main();
                 main.setVisible(true);

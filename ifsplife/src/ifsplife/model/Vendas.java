@@ -120,6 +120,11 @@ public class Vendas implements Serializable {
         this.codigo_convenio = codigo_convenio;
     }
 
+    public void adicionarItem(Itemvenda iv) {
+        iv.setCodigo_venda(this);
+        this.itemvendaList.add(iv);
+    }
+
     public List<Itemvenda> getItemvendaList() {
         return itemvendaList;
     }

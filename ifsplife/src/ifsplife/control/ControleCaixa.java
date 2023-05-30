@@ -1,91 +1,88 @@
 package ifsplife.control;
 
-import ifsplife.model.Caixa;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import ifsplife.model.Caixa;
 
+/**
+ *
+ * @author Aluno
+ */
 public class ControleCaixa {
-
-    private static Caixa caixa = null;
-
-    public void adicionar(Caixa caixa) {
-
+    
+    private static Caixa caixaAberto = null;
+    
+    public void abrir(Caixa caixa)
+    {
         EntityManager gerente = GerenciadorConexao.getGerente();
-
         gerente.getTransaction().begin();
-
         gerente.persist(caixa);
-
         gerente.getTransaction().commit();
-
         gerente.close();
+        caixaAberto = caixa;
     }
-
-    public void remover(Caixa Caixa) {
-
+    
+    public void fechar(Caixa caixa)
+    {
         EntityManager gerente = GerenciadorConexao.getGerente();
-
-        Caixa funcionarioExcluir = gerente.find(Caixa.class,
-                Caixa.getCodigo_caixa());
-
         gerente.getTransaction().begin();
-
-        gerente.remove(funcionarioExcluir);
-
-        gerente.getTransaction().commit();
-
-        gerente.close();
-    }
-
-    public void alterar(Caixa caixa) {
-
-        EntityManager gerente = GerenciadorConexao.getGerente();
-
-        gerente.getTransaction().begin();
-
         gerente.merge(caixa);
-
         gerente.getTransaction().commit();
-
         gerente.close();
+        caixaAberto = null;
     }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static Caixa abrirCaixa(Date abertura) {
-
-        Caixa caixa = new Caixa();
-
-        caixa.setAbertura(abertura);
-        caixa.setValorabertura(0);
+    
+    public List<Caixa> getTodos()
+    {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        TypedQuery<Caixa> consulta = 
+                    gerente.createNamedQuery("Caixa.findAll", Caixa.class);
+        return consulta.getResultList();
+        
+    }
+    
+    public List<Caixa> getPorPeriodo(Date inicio, Date fim)
+    {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        TypedQuery<Caixa> consulta = 
+                    gerente.createNamedQuery("Caixa.findByAbertura", Caixa.class);
+        
+        consulta.setParameter("inicio", inicio);
+        consulta.setParameter("fim", fim);
+        return consulta.getResultList();
+        
+    }    
+    
+    private static Caixa verificarCaixaAbertoBanco()
+    {
+        List<Caixa> caixas;
 
         EntityManager gerente = GerenciadorConexao.getGerente();
-        gerente.find(Caixa.class, caixa);
-
-        ControleCaixa.caixa = caixa;
-
-        return caixa;
+        TypedQuery<Caixa> consulta = 
+                    gerente.createNamedQuery("Caixa.findByFechamento", Caixa.class);
+             
+        caixas = consulta.getResultList();
+        if(caixas.isEmpty())
+            return null;
+        else
+            return caixas.get(0);
     }
-
-    public static void fecharCaixa() {
-        if (caixa != null) {
-            caixa.setFechamento(new Date());
-
-            EntityManager gerente = GerenciadorConexao.getGerente();
-            gerente.merge(caixa);
-
-        }
-
-        ControleCaixa.caixa = null;
-    }
-
-    public static boolean caixaAberto() {
-        return caixa != null;
+    
+    public static boolean isCaixaAberto()
+    {
+        if (caixaAberto == null)
+            caixaAberto = verificarCaixaAbertoBanco();
+        return caixaAberto != null;
     }
 
     public static Caixa getCaixaAberto() {
-        return caixa;
+        if (caixaAberto == null)
+        {
+            caixaAberto = verificarCaixaAbertoBanco();
+        }
+        return caixaAberto;
     }
-
+    
 }
