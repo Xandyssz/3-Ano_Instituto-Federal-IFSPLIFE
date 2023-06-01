@@ -1,150 +1,209 @@
-CREATE DATABASE ifsplife;
-USE ifsplife ;
 
-CREATE TABLE  caixa (
-  codigo_caixa INT NOT NULL,
-  abertura TIME NOT NULL,
-  fechamento TIME NOT NULL,
-  saldo DOUBLE NOT NULL,
-  status CHAR(1) NOT NULL,
-  totalentradas DOUBLE NOT NULL,
-  totalsaidas DOUBLE NOT NULL,
-  valorabertura DOUBLE NOT NULL,
-  PRIMARY KEY (codigo_caixa));
-
-CREATE TABLE  fornecedores (
-  codigo_fornecedor INT NOT NULL AUTO_INCREMENT,
-  cep VARCHAR(12) NOT NULL,
-  cidade VARCHAR(45) NOT NULL,
-  cnpj VARCHAR(20) NOT NULL,
-  email VARCHAR(45) NOT NULL,
-  endereco VARCHAR(45) NOT NULL,
-  nome VARCHAR(45) NOT NULL,
-  responsavel VARCHAR(45) NOT NULL,
-  telefone VARCHAR(20) NOT NULL,
-  uf VARCHAR(20) NOT NULL,
-  PRIMARY KEY (codigo_fornecedor));
-
-CREATE TABLE  compras (
-  codigo_compra INT NOT NULL AUTO_INCREMENT,
-  data_compra DATE NOT NULL,
-  forma_pagamento CHAR(1) NOT NULL,
-  valortotal DOUBLE NOT NULL,
-  codigo_fornecedor INT NULL DEFAULT NULL,
-  PRIMARY KEY (codigo_compra),
-  FOREIGN KEY (codigo_fornecedor) REFERENCES fornecedores (codigo_fornecedor));
-
-CREATE TABLE  convenios (
-  codigo_convenio INT NOT NULL AUTO_INCREMENT,
-  cnpj VARCHAR(20) NOT NULL,
-  desconto FLOAT NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  endereco VARCHAR(255) NOT NULL,
-  nome VARCHAR(255) NOT NULL,
-  telefone VARCHAR(255) NOT NULL,
-  PRIMARY KEY (codigo_convenio));
-
-CREATE TABLE  despesas (
-  codigo_despesa INT NOT NULL,
-  data_vencimento DATE NOT NULL,
-  descricao VARCHAR(255) NOT NULL,
-  nome VARCHAR(45) NOT NULL,
-  status VARCHAR(20) NOT NULL,
-  valor DOUBLE NOT NULL,
-  caixa_codigo_caixa INT NOT NULL,
-  PRIMARY KEY (codigo_despesa),
-    FOREIGN KEY (caixa_codigo_caixa) REFERENCES caixa (codigo_caixa));
-
-CREATE TABLE  funcionarios (
-  codigo_funcionario INT NOT NULL AUTO_INCREMENT,
-  cep VARCHAR(12) NOT NULL,
-  cidade VARCHAR(45) NOT NULL,
-  cpf VARCHAR(15) NOT NULL,
-  endereco VARCHAR(45) NOT NULL,
-  login VARCHAR(45) NOT NULL,
-  nivelacesso VARCHAR(45) NOT NULL,
-  nome VARCHAR(255) NOT NULL,
-  salario VARCHAR(50) NOT NULL,
-  senha VARCHAR(45) NOT NULL,
-  telefone VARCHAR(20) NOT NULL,
-  uf VARCHAR(20) NOT NULL,
-  PRIMARY KEY (codigo_funcionario));
-
-CREATE TABLE  item (
-  codigo_item INT NOT NULL AUTO_INCREMENT,
-  categoria VARCHAR(45) NOT NULL,
-  data_fabricacao DATE NOT NULL,
-  data_validade DATE NOT NULL,
-  descricao VARCHAR(255) NOT NULL,
-  dosagem VARCHAR(255) NULL DEFAULT NULL,
-  lote INT NOT NULL,
-  nome VARCHAR(255) NOT NULL,
-  quantidade INT NOT NULL,
-  valor FLOAT NOT NULL,
-  PRIMARY KEY (codigo_item));
-
-CREATE TABLE  itemcompra (
-  preco FLOAT NOT NULL,
-  subtotal FLOAT NOT NULL,
-  quantidade INT NOT NULL,
-  codigo_compra INT NOT NULL,
-  codigo_item INT NOT NULL,
-  PRIMARY KEY (codigo_compra, codigo_item),
-    FOREIGN KEY (codigo_compra) REFERENCES compras (codigo_compra),
-    FOREIGN KEY (codigo_item) REFERENCES item (codigo_item));
-
-CREATE TABLE  vendas (
-  codigo_venda INT NOT NULL AUTO_INCREMENT,
-  data_venda DATE NOT NULL,
-  forma_pagamento CHAR(1) NOT NULL,
-  valor_venda FLOAT NOT NULL,
-  caixa_idcaixa INT NULL DEFAULT NULL,
-  codigo_convenio INT NULL DEFAULT NULL,
-  PRIMARY KEY (codigo_venda),
-    FOREIGN KEY (caixa_idcaixa) REFERENCES caixa (codigo_caixa),
-    FOREIGN KEY (codigo_convenio) REFERENCES convenios (codigo_convenio));
-
-CREATE TABLE  itemvenda (
-  preco FLOAT NOT NULL,
-  subtotal FLOAT NOT NULL,
-  quantidade INT NOT NULL,
-  codigo_item INT NOT NULL,
-  codigo_venda INT NOT NULL,
-  PRIMARY KEY (codigo_item, codigo_venda),
-    FOREIGN KEY (codigo_item) REFERENCES item (codigo_item),
-    FOREIGN KEY (codigo_venda) REFERENCES vendas (codigo_venda));
-
-CREATE TABLE  movimentacao (
-  idMovimentacao INT NOT NULL AUTO_INCREMENT,
-  motivo VARCHAR(200) NOT NULL,
-  tipo INT NOT NULL,
-  valor DOUBLE NOT NULL,
-  codigo_caixa INT NOT NULL,
-  PRIMARY KEY (idMovimentacao, codigo_caixa),
-    FOREIGN KEY (codigo_caixa) REFERENCES caixa (codigo_caixa));
-    
-CREATE TABLE  pagamento (
-  codigo_pagamento INT NOT NULL AUTO_INCREMENT,
-  forma VARCHAR(10) NOT NULL,
-  valor DOUBLE NOT NULL,
-  codigo_venda INT NOT NULL,
-  PRIMARY KEY (codigo_pagamento, codigo_venda),
-    FOREIGN KEY (codigo_venda) REFERENCES vendas (codigo_venda));
-
-CREATE TABLE  pagamentocompra (
-  parcela INT NOT NULL,
-  valor FLOAT NOT NULL,
-  vencimento DATE NOT NULL,
-  caixa_idcaixa INT NULL DEFAULT NULL,
-  codigo_compra INT NOT NULL,
-  PRIMARY KEY (codigo_compra),
-    FOREIGN KEY (caixa_idcaixa) REFERENCES caixa (codigo_caixa),
-    FOREIGN KEY (codigo_compra) REFERENCES compras (codigo_compra));
+-- -----------------------------------------------------
+-- Table `ifsplife`.`fornecedores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`fornecedores` (
+  `codigo_fornecedor` Integer NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `cnpj` VARCHAR(14) NOT NULL,
+  `telefone` VARCHAR(11) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `cep` VARCHAR(8) NOT NULL,
+  `uf` VARCHAR(2) NOT NULL,
+  PRIMARY KEY (`codigo_fornecedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
-INSERT INTO `ifsplife`.`funcionarios` (`codigo_funcionario`, `cep`, `cidade`, `cpf`, `endereco`, `login`, `nivelacesso`, `nome`, `salario`, `senha`, `telefone`, `uf`) VALUES ('1', '123', 'teste', '123', 'teste', 'admin', 'Administrador', 'alexandre', '123', 'admin', '123', 'SP');
-INSERT INTO `ifsplife`.`convenios` (`codigo_convenio`, `cnpj`, `desconto`, `email`, `endereco`, `nome`, `telefone`) VALUES ('1', '111', '10.00', 'teste@gmail.com', 'teste', 'unimed', '111');
-INSERT INTO `ifsplife`.`convenios` (`codigo_convenio`, `cnpj`, `desconto`, `email`, `endereco`, `nome`, `telefone`) VALUES ('2', '222', '05.00', 'test', 'teste2', 'bradesco', '222');
-INSERT INTO `ifsplife`.`fornecedores` (`codigo_fornecedor`, `cep`, `cidade`, `cnpj`, `email`, `endereco`, `nome`, `responsavel`, `telefone`, `uf`) VALUES ('1', '123', 'teste', '123', '123', '123', 'fornecedor', 'fornecedor', '123', 'SP');
-INSERT INTO `ifsplife`.`item` (`codigo_item`, `categoria`, `data_fabricacao`, `data_validade`, `descricao`, `dosagem`, `lote`, `nome`, `quantidade`, `valor`) VALUES ('1', 'Medicamentos', '2003-05-03', '2003-05-03', 'teste', '123', '5', 'remedio1', '5', '25.00');
-INSERT INTO `ifsplife`.`item` (`codigo_item`, `categoria`, `data_fabricacao`, `data_validade`, `descricao`, `dosagem`, `lote`, `nome`, `quantidade`, `valor`) VALUES ('2', 'Medicamentos', '2003-05-03', '2003-05-03', 'teste', '123', '5', 'remedio02', '10', '10.00');
+-- -----------------------------------------------------
+-- Table `ifsplife`.`compras`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`compras` (
+  `codigo_compra` Integer NOT NULL AUTO_INCREMENT,
+  `codigo_fornecedor` Integer NOT NULL,
+  `data_compra` DATE NOT NULL,
+  `forma_pagamento` CHAR(1) NOT NULL,
+  `valortotal` DOUBLE NOT NULL,
+  PRIMARY KEY (`codigo_compra`),
+  INDEX `codigo_fornecedor` (`codigo_fornecedor` ASC) VISIBLE,
+  CONSTRAInteger `compras_ibfk_1`
+    FOREIGN KEY (`codigo_fornecedor`)
+    REFERENCES `ifsplife`.`fornecedores` (`codigo_fornecedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`convenios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`convenios` (
+  `codigo_convenio` Integer NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `endereco` VARCHAR(255) NOT NULL,
+  `telefone` VARCHAR(255) NOT NULL,
+  `desconto` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo_convenio`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`funcionarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`funcionarios` (
+  `codigo_funcionario` Integer NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `cargo` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `endereco` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `cep` VARCHAR(12) NOT NULL,
+  `uf` VARCHAR(15) NOT NULL,
+  `salario` DOUBLE NOT NULL,
+  `nivelacesso` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`codigo_funcionario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`produtos` (
+  `codigo_produto` Integer NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `dosagem` VARCHAR(255) NULL,
+  `descricao` VARCHAR(45) NOT NULL,
+  `quantidade` Integer NOT NULL,
+  `valor` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo_produto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`caixa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`caixa` (
+  `codigo_caixa` Integer NOT NULL,
+  `status` CHAR(1) NOT NULL,
+  `abertura` TIME NOT NULL,
+  `valorabertura` DOUBLE NOT NULL,
+  `totalentradas` DOUBLE NOT NULL,
+  `fechamento` TIME NOT NULL,
+  `totalsaidas` DOUBLE NOT NULL,
+  `saldo` DOUBLE NOT NULL,
+  PRIMARY KEY (`codigo_caixa`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`vendas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`vendas` (
+  `codigo_venda` Integer NOT NULL AUTO_INCREMENT,
+  `codigo_convenio` Integer NOT NULL,
+  `data_venda` DATE NOT NULL,
+  `valor_venda` FLOAT NOT NULL,
+  `forma_pagamento` CHAR(1) NOT NULL,
+  `caixa_idcaixa` Integer NOT NULL,
+  PRIMARY KEY (`codigo_venda`),
+  INDEX `codigo_convenio` (`codigo_convenio` ASC) VISIBLE,
+  INDEX `fk_vendas_caixa1_idx` (`caixa_idcaixa` ASC) VISIBLE,
+  CONSTRAInteger `vendas_ibfk_3`
+    FOREIGN KEY (`codigo_convenio`)
+    REFERENCES `ifsplife`.`convenios` (`codigo_convenio`),
+  CONSTRAInteger `fk_vendas_caixa1`
+    FOREIGN KEY (`caixa_idcaixa`)
+    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`itemvenda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`itemvenda` (
+  `codigo_venda` Integer NOT NULL,
+  `codigo_produto` Integer NOT NULL,
+  `quantidade` Integer NOT NULL,
+  `preco` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo_venda`, `codigo_produto`),
+  INDEX `fk_table1_produtos1_idx` (`codigo_produto` ASC) VISIBLE,
+  CONSTRAInteger `fk_table1_vendas1`
+    FOREIGN KEY (`codigo_venda`)
+    REFERENCES `ifsplife`.`vendas` (`codigo_venda`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAInteger `fk_table1_produtos1`
+    FOREIGN KEY (`codigo_produto`)
+    REFERENCES `ifsplife`.`produtos` (`codigo_produto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`itemcompra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`itemcompra` (
+  `codigo_compra` Integer NOT NULL,
+  `codigo_produto` Integer NOT NULL,
+  `quantidade` Integer NOT NULL,
+  `preco` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo_compra`, `codigo_produto`),
+  INDEX `fk_table2_produtos1_idx` (`codigo_produto` ASC) VISIBLE,
+  CONSTRAInteger `fk_table2_compras1`
+    FOREIGN KEY (`codigo_compra`)
+    REFERENCES `ifsplife`.`compras` (`codigo_compra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAInteger `fk_table2_produtos1`
+    FOREIGN KEY (`codigo_produto`)
+    REFERENCES `ifsplife`.`produtos` (`codigo_produto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ifsplife`.`pagamentocompra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ifsplife`.`pagamentocompra` (
+  `codigo_compra` Integer NOT NULL,
+  `parcela` Integer NOT NULL,
+  `vencimento` DATE NOT NULL,
+  `valor` FLOAT NOT NULL,
+  `caixa_idcaixa` Integer NOT NULL,
+  PRIMARY KEY (`codigo_compra`),
+  INDEX `fk_table3_caixa1_idx` (`caixa_idcaixa` ASC) VISIBLE,
+  CONSTRAInteger `fk_table3_compras1`
+    FOREIGN KEY (`codigo_compra`)
+    REFERENCES `ifsplife`.`compras` (`codigo_compra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAInteger `fk_table3_caixa1`
+    FOREIGN KEY (`caixa_idcaixa`)
+    REFERENCES `ifsplife`.`caixa` (`codigo_caixa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

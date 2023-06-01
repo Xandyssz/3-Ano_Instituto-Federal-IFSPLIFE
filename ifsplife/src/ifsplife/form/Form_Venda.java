@@ -18,11 +18,12 @@ public class Form_Venda extends javax.swing.JPanel {
 
     boolean confirmou = false;
     int codigo = 0;
-    private double total = 0;
     boolean alterar = false;
+
     Item itemSelecionado = null;
     Item i = null;
     Vendas v = null;
+
     ControleConvenio controle = new ControleConvenio();
     List<Itemvenda> itens = new ArrayList<>();
     List<Pagamento> pagamentos = new ArrayList<>();
@@ -40,41 +41,30 @@ public class Form_Venda extends javax.swing.JPanel {
         }
 
     }
+    
+    public Vendas getVenda()
+    {
+        Vendas v = new Vendas();
+        
+        v.setCodigo_venda(codigo);
+        v.setData_venda(DataVenda.getDate());
+        
+        return v;
+    }
 
     public boolean isConfirmou() {
         return confirmou;
     }
 
-    public Vendas getVenda() {
-        Vendas v = new Vendas();
-        v.setData_venda(DataVenda.getDate());
-        v.setForma_pagamento(Character.MAX_VALUE);
-        v.setValor_venda(TOP_ALIGNMENT);
-
-        for (Itemvenda iv : itens) {
-            v.adicionarItem(iv);
-        }
-
-        return v;
-    }
-
-    private void atualizarTabelaItens() {
+    private void atualizarTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tableVendas.getModel();
 
         modelo.setRowCount(0);
 
-        total = 0;
-        // varre todos os produtos que estão no controle
-        for (Itemvenda iv : itens) {
-            modelo.addRow(new Object[]{
-                iv.getCodigo_item().getNome(),
-                iv.getCodigo_item().getQuantidade(),
-                iv.getCodigo_item().getQuantidade(),
-                iv.getSubtotal()});
-            total += iv.getSubtotal();
+        for (Itemvenda itens : itens) {
+            modelo.addRow(new Object[]{itens.getCodigo_item().getNome(), itens.getQuantidade(), itens.getPreco(), itens.getSubtotal()}
+            );
         }
-        String totalString = String.valueOf(total);
-        valorFinal.setText(totalString);
     }
 
     public void desabilitarTextos() {
@@ -708,7 +698,7 @@ public class Form_Venda extends javax.swing.JPanel {
             }
 
             itens.remove(linha);
-            atualizarTabelaItens();
+            atualizarTabela();
             limparTexto();
 
             double soma = somarValoresTabela();
@@ -759,7 +749,7 @@ public class Form_Venda extends javax.swing.JPanel {
 
             }
 
-            atualizarTabelaItens();
+            atualizarTabela();
             limparTexto();
 
             double soma = somarValoresTabela();
@@ -807,9 +797,11 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
-        this.confirmou = true;
-        JOptionPane.showMessageDialog(null, "O pedido foi finalizado com sucesso.");
-
+//        Vendas v = crudconvenio.getConvenio();
+//
+//        controle.adicionar(c);
+//
+//        atualizarTabela();
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
 
 
