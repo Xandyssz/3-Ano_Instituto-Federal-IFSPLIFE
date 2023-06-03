@@ -29,7 +29,7 @@ public class Pagamentocompra implements Serializable {
     private int parcela;
 
     @Column(name = "valor", nullable = false)
-    private float valor;
+    private Double valor;
 
     @Column(name = "vencimento", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -47,7 +47,7 @@ public class Pagamentocompra implements Serializable {
     public Pagamentocompra() {
     }
 
-    public Pagamentocompra(int parcela, float valor, Date vencimento, Caixa caixa_idcaixa, Compras codigo_compra) {
+    public Pagamentocompra(int parcela, Double valor, Date vencimento, Caixa caixa_idcaixa, Compras codigo_compra) {
         this.parcela = parcela;
         this.valor = valor;
         this.vencimento = vencimento;
@@ -63,11 +63,11 @@ public class Pagamentocompra implements Serializable {
         this.parcela = parcela;
     }
 
-    public float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

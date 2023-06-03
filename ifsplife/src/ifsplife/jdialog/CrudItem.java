@@ -25,13 +25,7 @@ public class CrudItem extends javax.swing.JDialog {
         item.setData_fabricacao(dataFabricao.getDate());
         item.setData_validade(dataValidade.getDate());
         item.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-        // inicio da formatação
-        // formatação 
-        String valorStr = txtValor.getValue().toString();
-        float valor = Float.parseFloat(valorStr);
-        item.setValor(valor);
-        //     
-        // fim da formatação
+        item.setValor((Double) txtValor.getValue());
 
         return item;
     }

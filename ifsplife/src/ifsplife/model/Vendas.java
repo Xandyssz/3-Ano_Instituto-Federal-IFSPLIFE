@@ -41,10 +41,10 @@ public class Vendas implements Serializable {
     private Date data_venda;
 
     @Column(name = "forma_pagamento", nullable = false)
-    private Character forma_pagamento;
+    private String forma_pagamento;
 
     @Column(name = "valor_venda", nullable = false)
-    private float valor_venda;
+    private Double valor_venda;
 
     @ManyToOne
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
@@ -63,7 +63,7 @@ public class Vendas implements Serializable {
     public Vendas() {
     }
 
-    public Vendas(Integer codigo_venda, Date data_venda, Character forma_pagamento, float valor_venda, Caixa caixa_idcaixa, Convenios codigo_convenio) {
+    public Vendas(Integer codigo_venda, Date data_venda, String forma_pagamento, Double valor_venda, Caixa caixa_idcaixa, Convenios codigo_convenio) {
         this.codigo_venda = codigo_venda;
         this.data_venda = data_venda;
         this.forma_pagamento = forma_pagamento;
@@ -88,19 +88,19 @@ public class Vendas implements Serializable {
         this.data_venda = data_venda;
     }
 
-    public Character getForma_pagamento() {
+    public String getForma_pagamento() {
         return forma_pagamento;
     }
 
-    public void setForma_pagamento(Character forma_pagamento) {
+    public void setForma_pagamento(String forma_pagamento) {
         this.forma_pagamento = forma_pagamento;
     }
 
-    public float getValor_venda() {
+    public double getValor_venda() {
         return valor_venda;
     }
 
-    public void setValor_venda(float valor_venda) {
+    public void setValor_venda(Double valor_venda) {
         this.valor_venda = valor_venda;
     }
 
@@ -118,6 +118,11 @@ public class Vendas implements Serializable {
 
     public void setCodigo_convenio(Convenios codigo_convenio) {
         this.codigo_convenio = codigo_convenio;
+    }
+
+    public void adicionarItem(Itemvenda iv) {
+        iv.setCodigo_venda(this);
+        this.itemvendaList.add(iv);
     }
 
     public List<Itemvenda> getItemvendaList() {

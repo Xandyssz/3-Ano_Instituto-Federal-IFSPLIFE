@@ -1,6 +1,7 @@
 package ifsplife.form;
 
 import ifsplife.control.ControleConvenio;
+import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Convenios;
 import ifsplife.model.Item;
@@ -18,13 +19,14 @@ public class Form_Venda extends javax.swing.JPanel {
 
     boolean confirmou = false;
     int codigo = 0;
+    private double total = 0;
     boolean alterar = false;
-
     Item itemSelecionado = null;
     Item i = null;
     Vendas v = null;
-
     ControleConvenio controle = new ControleConvenio();
+    ControleVenda controleVenda = new ControleVenda();
+
     List<Itemvenda> itens = new ArrayList<>();
     List<Pagamento> pagamentos = new ArrayList<>();
 
@@ -41,30 +43,50 @@ public class Form_Venda extends javax.swing.JPanel {
         }
 
     }
-    
-    public Vendas getVenda()
-    {
-        Vendas v = new Vendas();
-        
-        v.setCodigo_venda(codigo);
-        v.setData_venda(DataVenda.getDate());
-        
-        return v;
-    }
 
     public boolean isConfirmou() {
         return confirmou;
     }
 
-    private void atualizarTabela() {
+    public Vendas getVendas() {
+        if (v == null) {
+            v = new Vendas();
+        }
+        v.setData_venda(DataVenda.getDate());
+        for (Itemvenda item : itens) {
+            v.adicionarItem(item);
+        }
+        v.setCodigo_convenio((Convenios) jComboBoxConvenios.getSelectedItem());
+
+        // adicionar forma de pagamento"
+        v.setForma_pagamento((String) jComboBoxFormaPagamento.getSelectedItem());
+//            
+        // adiciona valor da venda
+        String vendaText = valorFinal.getText().replace(",", ".");
+        double valorVenda;
+        valorVenda = Double.parseDouble(vendaText);
+        v.setValor_venda(valorVenda);
+
+        return v;
+    }
+
+    private void atualizarTabelaItens() {
         DefaultTableModel modelo = (DefaultTableModel) tableVendas.getModel();
 
         modelo.setRowCount(0);
 
-        for (Itemvenda itens : itens) {
-            modelo.addRow(new Object[]{itens.getCodigo_item().getNome(), itens.getQuantidade(), itens.getPreco(), itens.getSubtotal()}
-            );
+        total = 0;
+        // varre todos os produtos que estão no controle
+        for (Itemvenda iv : itens) {
+            modelo.addRow(new Object[]{
+                iv.getCodigo_item().getNome(),
+                iv.getCodigo_item().getQuantidade(),
+                iv.getCodigo_item().getQuantidade(),
+                iv.getSubtotal()});
+            total += iv.getSubtotal();
         }
+        String totalString = String.valueOf(total);
+        valorFinal.setText(totalString);
     }
 
     public void desabilitarTextos() {
@@ -203,6 +225,8 @@ public class Form_Venda extends javax.swing.JPanel {
         jSeparatorValorTotal1 = new javax.swing.JSeparator();
         valorFinal = new javax.swing.JLabel();
         DataVenda = new com.toedter.calendar.JDateChooser();
+        jComboBoxFormaPagamento = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -397,6 +421,10 @@ public class Form_Venda extends javax.swing.JPanel {
         valorFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         valorFinal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pix", "Cartão de Crédito", "Cartão de Débito" }));
+
+        jLabel1.setText("Forma de pagamento:");
+
         javax.swing.GroupLayout panelBorder5Layout = new javax.swing.GroupLayout(panelBorder5);
         panelBorder5.setLayout(panelBorder5Layout);
         panelBorder5Layout.setHorizontalGroup(
@@ -404,31 +432,15 @@ public class Form_Venda extends javax.swing.JPanel {
             .addGroup(panelBorder5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder5Layout.createSequentialGroup()
-                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLabelDetalhesDaCompra1)
-                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtItem, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                                    .addComponent(jSeparatorItem))
-                                .addComponent(jLabelItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparatorDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabeDataVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
-                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panelBorder5Layout.createSequentialGroup()
-                                        .addComponent(JLabelR$1)
-                                        .addGap(97, 97, 97))
-                                    .addComponent(JButtonAdicionarItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(52, 52, 52))
-                            .addGroup(panelBorder5Layout.createSequentialGroup()
-                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(valorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLabelValorFinal1))
-                                .addContainerGap())))
+                    .addComponent(JLabelDetalhesDaCompra1)
+                    .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtItem, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(jSeparatorItem))
+                        .addComponent(jLabelItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparatorDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabeDataVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder5Layout.createSequentialGroup()
                         .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,8 +500,25 @@ public class Form_Venda extends javax.swing.JPanel {
                                 .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBoxConvenios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparatorConvenios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelSelecioneConvenio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(292, Short.MAX_VALUE))))
+                                    .addComponent(jLabelSelecioneConvenio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelBorder5Layout.createSequentialGroup()
+                                .addComponent(JLabelR$1)
+                                .addGap(97, 97, 97))
+                            .addComponent(JButtonAdicionarItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52))
+                    .addGroup(panelBorder5Layout.createSequentialGroup()
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(valorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JLabelValorFinal1))
+                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBoxFormaPagamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         panelBorder5Layout.setVerticalGroup(
             panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -569,11 +598,14 @@ public class Form_Venda extends javax.swing.JPanel {
                                         .addGap(6, 6, 6)))
                                 .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelBorder5Layout.createSequentialGroup()
-                                        .addComponent(jLabelTotalcomDesconto)
+                                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabelTotalcomDesconto)
+                                            .addComponent(jLabel1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabelRSSTotalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jFormattedTextFieldTotalcomDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jFormattedTextFieldTotalcomDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSeparatorTotalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelBorder5Layout.createSequentialGroup()
@@ -698,7 +730,7 @@ public class Form_Venda extends javax.swing.JPanel {
             }
 
             itens.remove(linha);
-            atualizarTabela();
+            atualizarTabelaItens();
             limparTexto();
 
             double soma = somarValoresTabela();
@@ -724,8 +756,8 @@ public class Form_Venda extends javax.swing.JPanel {
 
             novo.setCodigo_item(itemSelecionado);
             novo.setQuantidade(Integer.parseInt(txtQuantidadeItem.getText()));
-            novo.setPreco(((Number) jFormattedTextFieldValorItem.getValue()).floatValue());
-            novo.setSubtotal(((Number) jFormattedTextFieldValorTotal.getValue()).floatValue());
+            novo.setPreco(((Number) jFormattedTextFieldValorItem.getValue()).doubleValue());
+            novo.setSubtotal(((Number) jFormattedTextFieldValorTotal.getValue()).doubleValue());
 
             boolean flag = false;
             for (Itemvenda itens : itens) {
@@ -739,7 +771,7 @@ public class Form_Venda extends javax.swing.JPanel {
                     double valorAdicional = (double) jFormattedTextFieldValorTotal.getValue();
 
                     itens.setQuantidade(quantidadeAtual + quantidadeAdicional);
-                    itens.setSubtotal((float) (valorAtual + valorAdicional));
+                    itens.setSubtotal((double) (valorAtual + valorAdicional));
 
                 }
             }
@@ -749,7 +781,7 @@ public class Form_Venda extends javax.swing.JPanel {
 
             }
 
-            atualizarTabela();
+            atualizarTabelaItens();
             limparTexto();
 
             double soma = somarValoresTabela();
@@ -797,11 +829,12 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
-//        Vendas v = crudconvenio.getConvenio();
-//
-//        controle.adicionar(c);
-//
-//        atualizarTabela();
+        if (this.confirmou = true) {
+            v = this.getVendas();
+            controleVenda.adicionar(v);
+            atualizarTabelaItens();
+            JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.");
+        }
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
 
 
@@ -817,11 +850,13 @@ public class Form_Venda extends javax.swing.JPanel {
     private javax.swing.JLabel RSTotal;
     private javax.swing.JLabel RSTotal1;
     private javax.swing.JComboBox<Convenios> jComboBoxConvenios;
+    private javax.swing.JComboBox<String> jComboBoxFormaPagamento;
     private javax.swing.JFormattedTextField jFormattedTextFieldPorcentagem;
     private javax.swing.JFormattedTextField jFormattedTextFieldTotalcomDesconto;
     private javax.swing.JFormattedTextField jFormattedTextFieldValorItem;
     private javax.swing.JFormattedTextField jFormattedTextFieldValorTotal;
     private javax.swing.JLabel jLabeDataVenda;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

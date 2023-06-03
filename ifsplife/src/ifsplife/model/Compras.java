@@ -43,7 +43,7 @@ public class Compras implements Serializable {
     private Date data_compra;
 
     @Column(name = "forma_pagamento", nullable = false)
-    private Character forma_pagamento;
+    private String forma_pagamento;
 
     @Column(name = "valortotal", nullable = false)
     private double valortotal;
@@ -65,7 +65,7 @@ public class Compras implements Serializable {
     public Compras() {
     }
 
-    public Compras(Integer codigo_compra, Date data_compra, Character forma_pagamento, double valortotal, Pagamentocompra pagamentocompra, Fornecedores codigo_fornecedor) {
+    public Compras(Integer codigo_compra, Date data_compra, String forma_pagamento, double valortotal, Pagamentocompra pagamentocompra, Fornecedores codigo_fornecedor) {
         this.codigo_compra = codigo_compra;
         this.data_compra = data_compra;
         this.forma_pagamento = forma_pagamento;
@@ -90,11 +90,11 @@ public class Compras implements Serializable {
         this.data_compra = data_compra;
     }
 
-    public Character getForma_pagamento() {
+    public String getForma_pagamento() {
         return forma_pagamento;
     }
 
-    public void setForma_pagamento(Character forma_pagamento) {
+    public void setForma_pagamento(String forma_pagamento) {
         this.forma_pagamento = forma_pagamento;
     }
 

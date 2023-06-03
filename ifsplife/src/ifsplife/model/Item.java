@@ -64,12 +64,12 @@ public class Item implements Serializable {
     private int quantidade;
 
     @Column(name = "valor", nullable = false)
-    private float valor;
+    private Double valor;
 
     public Item() {
     }
 
-    public Item(Integer codigo_item, String categoria, Date data_fabricacao, Date data_validade, String descricao, String dosagem, int lote, String nome, int quantidade, float valor) {
+    public Item(Integer codigo_item, String categoria, Date data_fabricacao, Date data_validade, String descricao, String dosagem, int lote, String nome, int quantidade, Double valor) {
         this.codigo_item = codigo_item;
         this.categoria = categoria;
         this.data_fabricacao = data_fabricacao;
@@ -154,11 +154,11 @@ public class Item implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

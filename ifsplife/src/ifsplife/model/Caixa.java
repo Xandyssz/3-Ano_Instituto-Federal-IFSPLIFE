@@ -20,14 +20,8 @@ import javax.persistence.TemporalType;
 @Table(name = "caixa")
 @NamedQueries({
     @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
-    @NamedQuery(name = "Caixa.findByCodigoCaixa", query = "SELECT c FROM Caixa c WHERE c.codigo_caixa = :codigoCaixa"),
-    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura = :abertura"),
-    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento = :fechamento"),
-    @NamedQuery(name = "Caixa.findBySaldo", query = "SELECT c FROM Caixa c WHERE c.saldo = :saldo"),
-    @NamedQuery(name = "Caixa.findByStatus", query = "SELECT c FROM Caixa c WHERE c.status = :status"),
-    @NamedQuery(name = "Caixa.findByTotalentradas", query = "SELECT c FROM Caixa c WHERE c.totalentradas = :totalentradas"),
-    @NamedQuery(name = "Caixa.findByTotalsaidas", query = "SELECT c FROM Caixa c WHERE c.totalsaidas = :totalsaidas"),
-    @NamedQuery(name = "Caixa.findByValorabertura", query = "SELECT c FROM Caixa c WHERE c.valorabertura = :valorabertura")})
+    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura BETWEEN :inicio AND :fim"),
+    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento IS NULL")})
 
 public class Caixa implements Serializable {
 
@@ -47,7 +41,7 @@ public class Caixa implements Serializable {
     private double saldo;
 
     @Column(name = "status", nullable = false)
-    private Character status;
+    private String status;
 
     @Column(name = "totalentradas", nullable = false)
     private double totalentradas;
@@ -86,7 +80,7 @@ public class Caixa implements Serializable {
     public Caixa() {
     }
 
-    public Caixa(Integer codigo_caixa, Date abertura, Date fechamento, double saldo, Character status, double totalentradas, double totalsaidas, double valorabertura, List<Vendas> vendas, List<Pagamentocompra> pagamentocompra, List<Movimentacao> movimentacao, List<Sangria> sangria, List<CaixaDespesas> caixaDespesas) {
+    public Caixa(Integer codigo_caixa, Date abertura, Date fechamento, double saldo, String status, double totalentradas, double totalsaidas, double valorabertura, List<Vendas> vendas, List<Pagamentocompra> pagamentocompra, List<Movimentacao> movimentacao, List<Sangria> sangria, List<CaixaDespesas> caixaDespesas) {
         this.codigo_caixa = codigo_caixa;
         this.abertura = abertura;
         this.fechamento = fechamento;
@@ -134,11 +128,11 @@ public class Caixa implements Serializable {
         this.saldo = saldo;
     }
 
-    public Character getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Character status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

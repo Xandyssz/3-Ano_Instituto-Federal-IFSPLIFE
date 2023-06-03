@@ -36,10 +36,10 @@ public class Itemvenda implements Serializable {
     private Item codigo_item;
 
     @Column(name = "preco", nullable = false)
-    private float preco;
+    private Double preco;
 
     @Column(name = "subtotal", nullable = false)
-    private float subtotal;
+    private Double subtotal;
 
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
@@ -47,26 +47,26 @@ public class Itemvenda implements Serializable {
     public Itemvenda() {
     }
 
-    public Itemvenda(float preco, float subtotal, int quantidade, Vendas codigo_venda) {
+    public Itemvenda(Double preco, Double subtotal, int quantidade, Vendas codigo_venda) {
         this.preco = preco;
         this.subtotal = subtotal;
         this.quantidade = quantidade;
         this.codigo_venda = codigo_venda;
     }
 
-    public float getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
-    public float getSubtotal() {
+    public Double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(float subtotal) {
+    public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
 

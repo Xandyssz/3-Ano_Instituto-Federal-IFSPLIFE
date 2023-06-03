@@ -22,9 +22,7 @@ public class CrudConvenio extends javax.swing.JDialog {
         c.setCnpj(txtCNPJ.getText());
         c.setTelefone(txtContato.getText());
         c.setEndereco(txtEndereco.getText());
-        String descontoStr = txtDesconto.getText();
-        float desconto = Float.parseFloat(descontoStr);
-        c.setDesconto(desconto);
+        c.setDesconto((Double) txtDesconto.getValue());
         //    
         return c;
     }
