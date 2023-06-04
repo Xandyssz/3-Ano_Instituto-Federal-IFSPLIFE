@@ -13,6 +13,27 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         initComponents();
     }
 
+    public Movimentacao getMovimentacao() {
+        Movimentacao movimentacao = new Movimentacao();
+        movimentacao.setCodigo_movimentacao(codigo);
+        movimentacao.setMotivo(txtMotivo.getText());
+        movimentacao.setValor(((Number) txtValor.getValue()).doubleValue());
+        movimentacao.setTipo((String) txtTipoMovimentacao.getSelectedItem());
+
+        return movimentacao;
+    }
+
+    public void setMovimentacao(Movimentacao movimentacao) {
+        this.codigo = movimentacao.getCodigo_movimentacao();
+        txtMotivo.setText(txtMotivo.getText());
+        txtValor.setValue(txtValor.getValue());
+        txtTipoMovimentacao.setSelectedItem(txtTipoMovimentacao.getSelectedItem());
+    }
+
+    public boolean isConfirmou() {
+        return confirmou;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -1,17 +1,23 @@
 package ifsplife.form;
 
+import ifsplife.control.ControleMovimentacao;
 import ifsplife.jdialog.CrudMovimentacao;
+import ifsplife.model.Movimentacao;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
+    ControleMovimentacao controle = new ControleMovimentacao();
+    List<Movimentacao> movimentacao = new ArrayList<>();
+
     private boolean confirmou = false;
     private int codigo = 0;
-    
-//    List<Itemvenda> itens = new ArrayList<>();
 
     public Form_CaixaRegistradora() {
         initComponents();
+        atualizarTabela();
     }
 
     private void atualizarTabela() {
@@ -19,10 +25,13 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         modelo.setRowCount(0);
 
-//        for (Itemvenda itens : itens) {
-//            modelo.addRow(new Object[]{itens.getCodigo_item().getNome(), itens.getQuantidade(), itens.getPreco()}
-//            );
-//        }
+        movimentacao.clear();
+        movimentacao.addAll(controle.getTodos());
+
+        for (Movimentacao movimentacao : movimentacao) {
+            modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()}
+            );
+        }
     }
 
     public boolean isConfirmou() {
@@ -456,6 +465,14 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         CrudMovimentacao movimentacao = new CrudMovimentacao(null, true);
 
         movimentacao.setVisible(true);
+
+        if (movimentacao.isConfirmou()) {
+            Movimentacao m = movimentacao.getMovimentacao();
+
+            controle.adicionar(m);
+
+            atualizarTabela();
+        }
     }//GEN-LAST:event_JButtonMovimentacaoCaixaMouseClicked
 
 

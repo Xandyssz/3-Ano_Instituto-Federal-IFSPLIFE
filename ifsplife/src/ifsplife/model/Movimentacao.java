@@ -41,7 +41,7 @@ public class Movimentacao implements Serializable {
     private String motivo;
 
     @Column(name = "tipo", nullable = false)
-    private int tipo;
+    private String tipo;
 
     @Column(name = "valor", nullable = false)
     private double valor;
@@ -49,11 +49,20 @@ public class Movimentacao implements Serializable {
     public Movimentacao() {
     }
 
-    public Movimentacao(String motivo, int tipo, double valor, Caixa codigo_caixa) {
+    public Movimentacao(int codigo_movimentacoa, String motivo, String tipo, double valor, Caixa codigo_caixa) {
+        this.codigo_movimentacao = codigo_movimentacao;
         this.motivo = motivo;
         this.tipo = tipo;
         this.valor = valor;
         this.codigo_caixa = codigo_caixa;
+    }
+
+    public int getCodigo_movimentacao() {
+        return codigo_movimentacao;
+    }
+
+    public void setCodigo_movimentacao(int codigo_movimentacao) {
+        this.codigo_movimentacao = codigo_movimentacao;
     }
 
     public String getMotivo() {
@@ -64,11 +73,11 @@ public class Movimentacao implements Serializable {
         this.motivo = motivo;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -76,7 +85,7 @@ public class Movimentacao implements Serializable {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

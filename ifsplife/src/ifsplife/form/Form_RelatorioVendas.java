@@ -147,7 +147,7 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Data de Venda", "Nome", "Categoria", "Valor"
+                "Nome", "Quantidade", "Valor Unitario", "SubTotal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
