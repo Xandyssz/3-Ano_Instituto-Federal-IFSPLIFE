@@ -20,112 +20,88 @@ import javax.persistence.TemporalType;
 @Table(name = "caixa")
 @NamedQueries({
     @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
-    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura BETWEEN :inicio AND :fim"),
-    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento IS NULL")})
+    @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.data_abertura BETWEEN :inicio AND :fim"),
+    @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.data_fechamento IS NULL")})
 
 public class Caixa implements Serializable {
 
     @Id
     @Column(name = "codigo_caixa", nullable = false)
-    private Integer codigo_caixa;
-
-    @Column(name = "abertura", nullable = false)
-    @Temporal(TemporalType.TIME)
-    private Date abertura;
-
-    @Column(name = "fechamento", nullable = false)
-    @Temporal(TemporalType.TIME)
-    private Date fechamento;
-
-    @Column(name = "saldo", nullable = false)
-    private double saldo;
+    private int codigo_caixa;
 
     @Column(name = "status", nullable = false)
     private String status;
 
-    @Column(name = "totalentradas", nullable = false)
-    private double totalentradas;
+    @Column(name = "data_abertura", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date data_abertura;
 
-    @Column(name = "totalsaidas", nullable = false)
-    private double totalsaidas;
+    @Column(name = "horario_abertura", nullable = false)
+    @Temporal(TemporalType.TIME)
+    private Date horario_abertura;
 
-    @Column(name = "valorabertura", nullable = false)
-    private double valorabertura;
+    @Column(name = "data_fechamento", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date data_fechamento;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @Column(name = "horario_fechamento", nullable = false)
+    @Temporal(TemporalType.TIME)
+    private Date horario_fechamento;
+
+    @Column(name = "total_entradas", nullable = false)
+    private double total_entradas;
+
+    @Column(name = "total_saidas", nullable = false)
+    private double total_saidas;
+
+    @Column(name = "valor_abertura", nullable = false)
+    private double valor_abertura;
+
+    @Column(name = "valor_fechamento", nullable = false)
+    private double valor_fechamento;
+
+    @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "caixa_idcaixa")
     private List<Vendas> vendas = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "caixa_idcaixa")
     private List<Pagamentocompra> pagamentocompra = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "codigo_caixa")
     private List<Movimentacao> movimentacao = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "codigo_caixa")
     private List<Sangria> sangria = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "codigo_caixa")
     private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
 
     public Caixa() {
     }
 
-    public Caixa(Integer codigo_caixa, Date abertura, Date fechamento, double saldo, String status, double totalentradas, double totalsaidas, double valorabertura, List<Vendas> vendas, List<Pagamentocompra> pagamentocompra, List<Movimentacao> movimentacao, List<Sangria> sangria, List<CaixaDespesas> caixaDespesas) {
+    public Caixa(int codigo_caixa, String status, Date data_abertura, Date horario_abertura, Date data_fechamento, Date horario_fechamento, double total_entradas, double total_saidas, double valor_abertura, double valor_fechamento) {
         this.codigo_caixa = codigo_caixa;
-        this.abertura = abertura;
-        this.fechamento = fechamento;
-        this.saldo = saldo;
         this.status = status;
-        this.totalentradas = totalentradas;
-        this.totalsaidas = totalsaidas;
-        this.valorabertura = valorabertura;
-        this.vendas = vendas;
-        this.pagamentocompra = pagamentocompra;
-        this.movimentacao = movimentacao;
-        this.sangria = sangria;
-        this.caixaDespesas = caixaDespesas;
+        this.data_abertura = data_abertura;
+        this.horario_abertura = horario_abertura;
+        this.data_fechamento = data_fechamento;
+        this.horario_fechamento = horario_fechamento;
+        this.total_entradas = total_entradas;
+        this.total_saidas = total_saidas;
+        this.valor_abertura = valor_abertura;
+        this.valor_fechamento = valor_fechamento;
     }
 
-    public Integer getCodigo_caixa() {
+    public int getCodigo_caixa() {
         return codigo_caixa;
     }
 
-    public void setCodigo_caixa(Integer codigo_caixa) {
+    public void setCodigo_caixa(int codigo_caixa) {
         this.codigo_caixa = codigo_caixa;
-    }
-
-    public Date getAbertura() {
-        return abertura;
-    }
-
-    public void setAbertura(Date abertura) {
-        this.abertura = abertura;
-    }
-
-    public Date getFechamento() {
-        return fechamento;
-    }
-
-    public void setFechamento(Date fechamento) {
-        this.fechamento = fechamento;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
     }
 
     public String getStatus() {
@@ -136,28 +112,68 @@ public class Caixa implements Serializable {
         this.status = status;
     }
 
-    public double getTotalentradas() {
-        return totalentradas;
+    public Date getData_abertura() {
+        return data_abertura;
     }
 
-    public void setTotalentradas(double totalentradas) {
-        this.totalentradas = totalentradas;
+    public void setData_abertura(Date data_abertura) {
+        this.data_abertura = data_abertura;
     }
 
-    public double getTotalsaidas() {
-        return totalsaidas;
+    public Date getHorario_abertura() {
+        return horario_abertura;
     }
 
-    public void setTotalsaidas(double totalsaidas) {
-        this.totalsaidas = totalsaidas;
+    public void setHorario_abertura(Date horario_abertura) {
+        this.horario_abertura = horario_abertura;
     }
 
-    public double getValorabertura() {
-        return valorabertura;
+    public Date getData_fechamento() {
+        return data_fechamento;
     }
 
-    public void setValorabertura(double valorabertura) {
-        this.valorabertura = valorabertura;
+    public void setData_fechamento(Date data_fechamento) {
+        this.data_fechamento = data_fechamento;
+    }
+
+    public Date getHorario_fechamento() {
+        return horario_fechamento;
+    }
+
+    public void setHorario_fechamento(Date horario_fechamento) {
+        this.horario_fechamento = horario_fechamento;
+    }
+
+    public double getTotal_entradas() {
+        return total_entradas;
+    }
+
+    public void setTotal_entradas(double total_entradas) {
+        this.total_entradas = total_entradas;
+    }
+
+    public double getTotal_saidas() {
+        return total_saidas;
+    }
+
+    public void setTotal_saidas(double total_saidas) {
+        this.total_saidas = total_saidas;
+    }
+
+    public double getValor_abertura() {
+        return valor_abertura;
+    }
+
+    public void setValor_abertura(double valor_abertura) {
+        this.valor_abertura = valor_abertura;
+    }
+
+    public double getValor_fechamento() {
+        return valor_fechamento;
+    }
+
+    public void setValor_fechamento(double valor_fechamento) {
+        this.valor_fechamento = valor_fechamento;
     }
 
     public List<Vendas> getVendas() {
@@ -198,6 +214,14 @@ public class Caixa implements Serializable {
 
     public void setCaixaDespesas(List<CaixaDespesas> caixaDespesas) {
         this.caixaDespesas = caixaDespesas;
+    }
+
+    public double getTotalMovimentacao() {
+        double total = 0;
+        for (Movimentacao m : movimentacao) {
+            total += m.getValor();
+        }
+        return total;
     }
 
     @Override

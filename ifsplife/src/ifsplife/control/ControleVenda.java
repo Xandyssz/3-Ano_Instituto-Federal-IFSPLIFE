@@ -1,5 +1,6 @@
 package ifsplife.control;
 
+import ifsplife.model.Caixa;
 import ifsplife.model.Vendas;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -59,6 +60,22 @@ public class ControleVenda {
 
         return consulta.getResultList();
 
+    }
+    
+    public double getTotalVendaPorCaixa(Caixa caixa){
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        double total = 0;
+        
+        TypedQuery<Vendas> consulta
+                = gerente.createNamedQuery("Vendas.findByCaixa", Vendas.class);
+        consulta.setParameter("caixa", caixa);
+        
+        
+        for(Vendas v: consulta.getResultList())
+            total += v.getValor_venda();
+            
+        return total;
     }
     
 }

@@ -27,6 +27,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigo_venda = :codigoVenda"),
     @NamedQuery(name = "Vendas.findByDataVenda", query = "SELECT v FROM Vendas v WHERE v.data_venda = :dataVenda"),
     @NamedQuery(name = "Vendas.findByFormaPagamento", query = "SELECT v FROM Vendas v WHERE v.forma_pagamento = :formaPagamento"),
+    @NamedQuery(name = "Vendas.findByCaixa", query = "SELECT v FROM Vendas v WHERE v.caixa_idcaixa = :caixa"),
     @NamedQuery(name = "Vendas.findByValorVenda", query = "SELECT v FROM Vendas v WHERE v.valor_venda = :valorVenda")})
 public class Vendas implements Serializable {
 
@@ -44,7 +45,7 @@ public class Vendas implements Serializable {
     private String forma_pagamento;
 
     @Column(name = "valor_venda", nullable = false)
-    private Double valor_venda;
+    private double valor_venda;
 
     @ManyToOne
     @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")

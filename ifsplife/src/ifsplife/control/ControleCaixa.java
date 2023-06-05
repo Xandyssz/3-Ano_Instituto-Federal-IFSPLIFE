@@ -85,4 +85,9 @@ public class ControleCaixa {
         return caixaAberto;
     }
     
+    public static void atualizarCaixa()
+    {
+        caixaAberto = verificarCaixaAbertoBanco();
+    }
+    
 }
