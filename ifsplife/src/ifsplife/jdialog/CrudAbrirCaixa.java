@@ -17,7 +17,7 @@ public class CrudAbrirCaixa extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         desabilitarbotao();
-
+        
         dataAbertura.setDate(hoje);
         horarioAbertura.setText(teste.format(hoje));
         txtValor.setValue(0);
@@ -32,6 +32,15 @@ public class CrudAbrirCaixa extends javax.swing.JDialog {
         caixa.setValor_abertura(((Number) txtValor.getValue()).doubleValue());
         caixa.setStatus("Aberto");
         return caixa;
+    }
+
+    public void setCaixa(Caixa caixa) {
+        this.codigo = caixa.getCodigo_caixa();
+        dataAbertura.setDate(dataAbertura.getDate());
+        horarioAbertura.setText(teste.format(hoje));
+        txtValor.setValue(((Number) txtValor.getValue()).doubleValue());
+        caixa.setStatus("Fechado");
+
     }
 
     public boolean isConfirmou() {
