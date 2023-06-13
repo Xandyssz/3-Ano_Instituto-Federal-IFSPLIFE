@@ -6,10 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import ifsplife.model.Caixa;
 
-/**
- *
- * @author Aluno
- */
 public class ControleCaixa {
     
     private static Caixa caixaAberto = null;

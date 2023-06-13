@@ -9,7 +9,6 @@ public class ControleFuncionario {
 
     private static Funcionarios funcionarioLogado = null;
 
-
     public void adicionar(Funcionarios funcionarios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
@@ -75,6 +74,7 @@ public class ControleFuncionario {
         return consulta.getResultList();
 
     }
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static Funcionarios login(String login, String senha) throws FuncionarioOuSenhaIncorretaException {

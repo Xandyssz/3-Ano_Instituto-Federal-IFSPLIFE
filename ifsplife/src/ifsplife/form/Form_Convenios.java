@@ -298,7 +298,6 @@ public class Form_Convenios extends javax.swing.JPanel {
     private void clear1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clear1MouseClicked
         search1.setText("");
     }//GEN-LAST:event_clear1MouseClicked
-
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
         CrudConvenio crudconvenio = new CrudConvenio(null, true);
@@ -313,7 +312,6 @@ public class Form_Convenios extends javax.swing.JPanel {
             atualizarTabela();
         }
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
-
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
         Integer linha = tableConvenios.getSelectedRow();
 
@@ -352,7 +350,6 @@ public class Form_Convenios extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
-
     private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
         Integer linha = tableConvenios.getSelectedRow();
 
@@ -371,15 +368,12 @@ public class Form_Convenios extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_JButtonExcluirMouseClicked
-
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
         atualizarTabela();
     }//GEN-LAST:event_search1KeyTyped
-
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         atualizarTabela();
     }//GEN-LAST:event_jLabel2MouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonEditar;

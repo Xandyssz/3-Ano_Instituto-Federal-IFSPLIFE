@@ -7,7 +7,6 @@ import javax.persistence.TypedQuery;
 
 public class ControleFornecedor {
 
-
     public void adicionar(Fornecedores fornecedores) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();

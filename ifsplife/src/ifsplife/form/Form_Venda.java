@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleConvenio;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.PesquisaItens;
@@ -170,6 +171,7 @@ public class Form_Venda extends javax.swing.JPanel {
         }
         return somaTabela;
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -685,17 +687,22 @@ public class Form_Venda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPesquisarMouseClicked
+        if (!ControleCaixa.isCaixaAberto()) {
+            JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
+            return;
+        }
+
         if (DataVenda.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "Deve ser selecionado a data da venda");
+            JOptionPane.showMessageDialog(null, "Deve ser selecionada a data da venda");
             DataVenda.requestFocus();
         } else {
-
             PesquisaItens pesquisa = new PesquisaItens(null, true);
             pesquisa.setVisible(true);
             itemSelecionado = pesquisa.getItemSelecionado();
             txtItem.setText(itemSelecionado.getNome());
             jFormattedTextFieldValorItem.setValue(itemSelecionado.getValor());
         }
+
     }//GEN-LAST:event_jLabelPesquisarMouseClicked
 
     private void jComboBoxConveniosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxConveniosItemStateChanged
@@ -832,6 +839,7 @@ public class Form_Venda extends javax.swing.JPanel {
         if (this.confirmou = true) {
             v = this.getVendas();
             controleVenda.adicionar(v);
+
             atualizarTabelaItens();
             JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.");
         }

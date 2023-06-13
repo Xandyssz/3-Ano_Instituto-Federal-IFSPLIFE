@@ -38,8 +38,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JButtonStatus = new ifsplife.dev.swing.PanelBorderGradient();
-        jLabel19 = new javax.swing.JLabel();
         JButtonVisualizar = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
         JButtonEditar = new ifsplife.dev.swing.PanelBorderGradient();
@@ -62,30 +60,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
         jLabelCategoria2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 239, 239));
-
-        JButtonStatus.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonStatus.setPreferredSize(new java.awt.Dimension(112, 35));
-        JButtonStatus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonStatusMouseClicked(evt);
-            }
-        });
-
-        jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Alterar Status");
-
-        javax.swing.GroupLayout JButtonStatusLayout = new javax.swing.GroupLayout(JButtonStatus);
-        JButtonStatus.setLayout(JButtonStatusLayout);
-        JButtonStatusLayout.setHorizontalGroup(
-            JButtonStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-        );
-        JButtonStatusLayout.setVerticalGroup(
-            JButtonStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
 
         JButtonVisualizar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonVisualizar.setPreferredSize(new java.awt.Dimension(112, 35));
@@ -282,8 +256,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,8 +316,7 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -402,14 +373,9 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
         search2.setText("");
     }//GEN-LAST:event_clear1MouseClicked
 
-    private void JButtonStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonStatusMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JButtonStatusMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonEditar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonStatus;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
     private javax.swing.JLabel clear1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -418,7 +384,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCategoria1;

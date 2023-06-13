@@ -7,7 +7,6 @@ import javax.persistence.TypedQuery;
 
 public class ControleConvenio {
 
-    // adiciona um materiaprima
     public void adicionar(Convenios convenios) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();

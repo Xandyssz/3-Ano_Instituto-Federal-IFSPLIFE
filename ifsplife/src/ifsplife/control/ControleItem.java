@@ -7,8 +7,6 @@ import javax.persistence.TypedQuery;
 
 public class ControleItem {
 
-
-    // adiciona um materiaprima
     public void adicionar(Item item) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();

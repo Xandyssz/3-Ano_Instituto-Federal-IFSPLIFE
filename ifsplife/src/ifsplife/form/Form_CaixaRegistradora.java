@@ -2,7 +2,7 @@ package ifsplife.form;
 
 import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleMovimentacao;
-import ifsplife.jdialog.CrudAbrirCaixa;
+import ifsplife.jdialog.CrudCaixa;
 import ifsplife.jdialog.CrudMovimentacao;
 import ifsplife.model.Caixa;
 import ifsplife.model.Movimentacao;
@@ -26,9 +26,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
     public Form_CaixaRegistradora() {
         initComponents();
-        desabilitarTextos();
 
         if (ControleCaixa.isCaixaAberto()) {
+            JLabelCaixa.setText("Fechar Caixa");
             ControleCaixa.atualizarCaixa();
         } else {
             JLabelCaixa.setText("Abrir Caixa");
@@ -67,11 +67,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JSpinnerQntdMovimentacaoSuplementacao.setEnabled(false);
         JFormattedTextFieldSangria.setEditable(false);
         JFormattedTextFieldSuplementacao.setEditable(false);
-    }
-
-    public void desabilitarBotao() {
-        JButtonCaixa2.setVisible(false);
-        JLabelCaixa2.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -120,8 +115,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JLabelFinalizarPedido = new javax.swing.JLabel();
         JButtonCaixa = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCaixa = new javax.swing.JLabel();
-        JButtonCaixa2 = new ifsplife.dev.swing.PanelBorderGradient();
-        JLabelCaixa2 = new javax.swing.JLabel();
         JTextFieldDataDeAbertura = new com.toedter.calendar.JDateChooser();
         JScrollPaneMovimentacao = new javax.swing.JScrollPane();
         tableMovimentacoes = new ifsplife.dev.swing.Table();
@@ -237,7 +230,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JLabelCaixa.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         JLabelCaixa.setForeground(new java.awt.Color(255, 255, 255));
         JLabelCaixa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCaixa.setText("abrir");
         JLabelCaixa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JLabelCaixaMouseClicked(evt);
@@ -255,32 +247,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JButtonCaixaLayout.setVerticalGroup(
             JButtonCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JLabelCaixa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-        );
-
-        JButtonCaixa2.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonCaixa2.setPreferredSize(new java.awt.Dimension(90, 22));
-        JButtonCaixa2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonCaixa2MouseClicked(evt);
-            }
-        });
-
-        JLabelCaixa2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        JLabelCaixa2.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelCaixa2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCaixa2.setText("Fechar Caixa");
-
-        javax.swing.GroupLayout JButtonCaixa2Layout = new javax.swing.GroupLayout(JButtonCaixa2);
-        JButtonCaixa2.setLayout(JButtonCaixa2Layout);
-        JButtonCaixa2Layout.setHorizontalGroup(
-            JButtonCaixa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JButtonCaixa2Layout.createSequentialGroup()
-                .addComponent(JLabelCaixa2, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        JButtonCaixa2Layout.setVerticalGroup(
-            JButtonCaixa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JLabelCaixa2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelBorderDetalhesCaixaLayout = new javax.swing.GroupLayout(panelBorderDetalhesCaixa);
@@ -373,8 +339,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                                 .addGap(60, 60, 60)
                                 .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JButtonCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JButtonMovimentacaoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JButtonCaixa2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(JButtonMovimentacaoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelBorderDetalhesCaixaLayout.setVerticalGroup(
@@ -461,9 +426,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                 .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparatorSangria)
                     .addComponent(jSeparatorSuplementacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(JButtonCaixa2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addGap(94, 94, 94))
         );
 
         tableMovimentacoes.setModel(new javax.swing.table.DefaultTableModel(
@@ -524,13 +487,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         movimentacao.setVisible(true);
 
         if (movimentacao.isConfirmou()) {
-            JButtonCaixa1.setVisible(false);
-            JLabelCaixa1.setVisible(false);
-
-            JButtonCaixa2.setVisible(true);
-            JLabelCaixa2.setVisible(true);
             Movimentacao m = movimentacao.getMovimentacao();
-
             controlemovimentacao.adicionar(m);
 
             atualizarTabela();
@@ -538,49 +495,37 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonMovimentacaoCaixaMouseClicked
 
     private void JLabelCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelCaixaMouseClicked
-        CrudAbrirCaixa abrirCaixa = new CrudAbrirCaixa(null, true);
+        CrudCaixa abrirCaixa = new CrudCaixa(null, true);
 
-        abrirCaixa.setVisible(true);
+        if (!ControleCaixa.isCaixaAberto()) {
+            abrirCaixa.setVisible(true);
+            if (abrirCaixa.isConfirmou()) {
+                Caixa c = abrirCaixa.getCaixa();
 
-        if (abrirCaixa.isConfirmou()) {
-            Caixa c = abrirCaixa.getCaixa();
-
-            JTextFieldDataDeAbertura.setDate(c.getData_abertura());
-            JTextFieldHorarioDeAbertura.setText(teste.format(c.getHorario_abertura()));
-            JFormattedTextFieldValorInicial.setValue(c.getValor_abertura());
-            controlecaixa.abrir(c);
-            atualizarTabela();
+                JTextFieldDataDeAbertura.setDate(c.getData_abertura());
+                JTextFieldHorarioDeAbertura.setText(teste.format(c.getHorario_abertura()));
+                JFormattedTextFieldValorInicial.setValue(c.getValor_abertura());
+                controlecaixa.abrir(c);
+                atualizarTabela();
+            }
+        } else {
+            Caixa c = ControleCaixa.getCaixaAberto();
+            c.setData_fechamento(new Date());
+            c.setHorario_fechamento(new Date());
+            c.setStatus("Fechado");
+           
+            controlecaixa.fechar(c);
+         
         }
     }//GEN-LAST:event_JLabelCaixaMouseClicked
-
-    private void JButtonCaixa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCaixa2MouseClicked
-        CrudAbrirCaixa fecharCaixa = new CrudAbrirCaixa(null, true);
-
-        fecharCaixa.setVisible(true);
-
-        if (fecharCaixa.isConfirmou()) {
-            Caixa c = fecharCaixa.getCaixa();
-
-            JTextFieldDataDeAbertura.setDate(c.getData_fechamento());
-            JTextFieldHorarioDeAbertura.setText(teste.format(c.getHorario_fechamento()));
-            controlecaixa.fechar(c);
-            atualizarTabela();
-        }
-    }//GEN-LAST:event_JButtonCaixa2MouseClicked
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCaixa;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonCaixa1;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonCaixa2;
     private ifsplife.dev.swing.PanelBorderGradient JButtonMovimentacaoCaixa;
     private javax.swing.JFormattedTextField JFormattedTextFieldSangria;
     private javax.swing.JFormattedTextField JFormattedTextFieldSuplementacao;
     private javax.swing.JFormattedTextField JFormattedTextFieldValorInicial;
     private javax.swing.JFormattedTextField JFormattedTextFieldValorTotal;
     private javax.swing.JLabel JLabelCaixa;
-    private javax.swing.JLabel JLabelCaixa1;
-    private javax.swing.JLabel JLabelCaixa2;
     private javax.swing.JLabel JLabelFinalizarPedido;
     private javax.swing.JLabel JLabelMovimentacao;
     private javax.swing.JLabel JLabelQuantidadeDeCompra;

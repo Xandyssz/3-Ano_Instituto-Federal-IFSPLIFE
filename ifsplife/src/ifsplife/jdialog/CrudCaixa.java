@@ -2,10 +2,9 @@ package ifsplife.jdialog;
 
 import ifsplife.model.Caixa;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JOptionPane;
+import java.util.Date;import javax.swing.JOptionPane;
 
-public class CrudAbrirCaixa extends javax.swing.JDialog {
+public class CrudCaixa extends javax.swing.JDialog {
 
     private boolean confirmou = false;
     private int codigo = 0;
@@ -13,11 +12,10 @@ public class CrudAbrirCaixa extends javax.swing.JDialog {
     private SimpleDateFormat teste = new SimpleDateFormat("HH:mm");
     private Date hoje = new Date();
 
-    public CrudAbrirCaixa(java.awt.Frame parent, boolean modal) {
+    public CrudCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        desabilitarbotao();
-        
+       
         dataAbertura.setDate(hoje);
         horarioAbertura.setText(teste.format(hoje));
         txtValor.setValue(0);

@@ -417,8 +417,6 @@ public class Form_Compras extends javax.swing.JPanel {
             // atualizarTabela();
         }
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem;
     private ifsplife.dev.swing.PanelBorderGradient JButtonFinalizarPedido;
