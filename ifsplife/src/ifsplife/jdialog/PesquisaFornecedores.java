@@ -36,7 +36,7 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
         listaFornecedores.addAll(controle.getTodos());
 
         for (Fornecedores fornecedores : listaFornecedores) {
-            modelo.addRow(new Object[]{fornecedores.getNome(), fornecedores.getCnpj(), fornecedores.getTelefone()}
+            modelo.addRow(new Object[]{fornecedores.getNome(), fornecedores.getResponsavel(), fornecedores.getCnpj(), fornecedores.getTelefone()}
             );
         }
     }
@@ -62,10 +62,11 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
         JButtonCancelar = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCancelar = new javax.swing.JLabel();
         panelBorder2 = new ifsplife.dev.swing.PanelBorder();
-        jLabelItens = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFornecedores = new ifsplife.dev.swing.Table();
+        jLabelItens1 = new javax.swing.JLabel();
         JSeparatorCRUD = new javax.swing.JSeparator();
+        jLabelItens = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -123,22 +124,22 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
 
         panelBorder2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelItens.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabelItens.setForeground(new java.awt.Color(127, 127, 127));
-        jLabelItens.setText("Itens");
-
         tableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome", "CNPJ", "Contato"
+                "Nome", "Responsavel", "CNPJ", "Contato"
             }
         ));
         jScrollPane1.setViewportView(tableFornecedores);
+
+        jLabelItens1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabelItens1.setForeground(new java.awt.Color(127, 127, 127));
+        jLabelItens1.setText("Fornecedores");
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -146,22 +147,30 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
             panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addComponent(jLabelItens)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBorder2Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabelItens1)
+                    .addContainerGap(713, Short.MAX_VALUE)))
         );
         panelBorder2Layout.setVerticalGroup(
             panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelItens)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBorder2Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabelItens1)
+                    .addContainerGap(252, Short.MAX_VALUE)))
         );
+
+        jLabelItens.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabelItens.setForeground(new java.awt.Color(127, 127, 127));
+        jLabelItens.setText("Pesquisa de Fornecedores");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -172,7 +181,9 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelBorder2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabelItens)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,8 +195,10 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelItens))
                 .addGap(18, 18, 18)
                 .addComponent(JSeparatorCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -251,6 +264,7 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelSelecionar;
     private javax.swing.JSeparator JSeparatorCRUD;
     private javax.swing.JLabel jLabelItens;
+    private javax.swing.JLabel jLabelItens1;
     private javax.swing.JScrollPane jScrollPane1;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorder panelBorder2;

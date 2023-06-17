@@ -30,7 +30,7 @@ public class Form_Item extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaItems.clear();
-        listaItems.addAll(controle.getTodos());
+        listaItems.addAll(controle.getPorNome(search1.getText()));
 
         for (Item item : listaItems) {
             modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getValor(), item.getQuantidade()}

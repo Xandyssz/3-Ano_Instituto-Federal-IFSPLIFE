@@ -30,7 +30,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaFornecedores.clear();
-        listaFornecedores.addAll(controle.getTodos());
+        listaFornecedores.addAll(controle.getPorNome(search1.getText()));
 
         for (Fornecedores fornecedor : listaFornecedores) {
             modelo.addRow(new Object[]{fornecedor.getNome(), fornecedor.getCnpj(), fornecedor.getResponsavel(), fornecedor.getTelefone()}

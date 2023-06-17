@@ -52,7 +52,7 @@
                               <Component id="JButtonAdicionarItem" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JButtonRemoverItem" min="-2" pref="112" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="514" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -291,12 +291,16 @@
                                           <Component id="JLabelFornecedor" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
                                           <Component id="JLabelDataDaCompra" min="-2" max="-2" attributes="0"/>
                                           <Component id="jDateChooser1" min="-2" pref="229" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jComboBoxFornecedores" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jSeparator2" alignment="0" pref="229" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="fornecedores" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jSeparator2" alignment="0" pref="229" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
@@ -309,7 +313,7 @@
                                                   <Component id="jSeparator5" alignment="1" max="32767" attributes="0"/>
                                                   <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="55" max="32767" attributes="0"/>
+                                              <EmptySpace pref="26" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="JButtonFinalizarPedido" alignment="1" min="-2" pref="397" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
@@ -365,7 +369,10 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="JLabelFornecedor" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jComboBoxFornecedores" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="fornecedores" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jSeparator2" max="32767" attributes="0"/>
                                           </Group>
@@ -517,18 +524,15 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JComboBox" name="jComboBoxFornecedores">
+                    <Component class="javax.swing.JTextField" name="fornecedores">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton1">
                       <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="0"/>
-                        </Property>
+                        <Property name="text" type="java.lang.String" value="Pesquisar"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxFornecedoresItemStateChanged"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
                       </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Fornecedores&gt;"/>
-                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

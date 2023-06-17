@@ -31,7 +31,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaFuncionarios.clear();
-        listaFuncionarios.addAll(controle.getTodos());
+        listaFuncionarios.addAll(controle.getPorNome(search1.getText()));
 
         for (Funcionarios funcionarios : listaFuncionarios) {
             modelo.addRow(new Object[]{funcionarios.getNome(), funcionarios.getCpf(), funcionarios.getNivelacesso()}

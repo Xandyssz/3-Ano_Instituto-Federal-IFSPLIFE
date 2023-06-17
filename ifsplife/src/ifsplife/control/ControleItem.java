@@ -65,7 +65,7 @@ public class ControleItem {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         TypedQuery<Item> consulta
-                = gerente.createNamedQuery("Item.findByNomeEspecifico", Item.class);
+                = gerente.createNamedQuery("Item.findByNome", Item.class);
 
         consulta.setParameter("nome", "%" + nomePesquisar + "%");
 

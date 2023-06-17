@@ -25,7 +25,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Fornecedores.findByCnpj", query = "SELECT f FROM Fornecedores f WHERE f.cnpj = :cnpj"),
     @NamedQuery(name = "Fornecedores.findByEmail", query = "SELECT f FROM Fornecedores f WHERE f.email = :email"),
     @NamedQuery(name = "Fornecedores.findByEndereco", query = "SELECT f FROM Fornecedores f WHERE f.endereco = :endereco"),
-    @NamedQuery(name = "Fornecedores.findByNome", query = "SELECT f FROM Fornecedores f WHERE f.nome = :nome"),
+    @NamedQuery(name = "Fornecedores.findByNome", query = "SELECT f FROM Fornecedores f WHERE f.nome like :nome"),
     @NamedQuery(name = "Fornecedores.findByResponsavel", query = "SELECT f FROM Fornecedores f WHERE f.responsavel = :responsavel"),
     @NamedQuery(name = "Fornecedores.findByTelefone", query = "SELECT f FROM Fornecedores f WHERE f.telefone = :telefone"),
     @NamedQuery(name = "Fornecedores.findByUf", query = "SELECT f FROM Fornecedores f WHERE f.uf = :uf")})

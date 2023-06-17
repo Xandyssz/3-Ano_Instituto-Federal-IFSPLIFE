@@ -78,10 +78,6 @@ public class Caixa implements Serializable {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             mappedBy = "codigo_caixa")
-    private List<Sangria> sangria = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.REFRESH,
-            mappedBy = "codigo_caixa")
     private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
 
     public Caixa() {
@@ -114,6 +110,16 @@ public class Caixa implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    public double retSantria(){
+        double soma=0;
+        for(Movimentacao mo: this.movimentacao){
+            if(mo.getTipo().equals("Sangria")){
+                soma+=mo.getValor();
+            }   
+        }    
+        return soma;
     }
 
     public Date getData_abertura() {
@@ -202,14 +208,6 @@ public class Caixa implements Serializable {
 
     public void setMovimentacao(List<Movimentacao> movimentacao) {
         this.movimentacao = movimentacao;
-    }
-
-    public List<Sangria> getSangria() {
-        return sangria;
-    }
-
-    public void setSangria(List<Sangria> sangria) {
-        this.sangria = sangria;
     }
 
     public List<CaixaDespesas> getCaixaDespesas() {

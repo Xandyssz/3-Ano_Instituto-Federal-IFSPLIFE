@@ -2,6 +2,7 @@ package ifsplife.form;
 
 import ifsplife.model.Fornecedores;
 import ifsplife.control.ControleFornecedor;
+import ifsplife.jdialog.PesquisaFornecedores;
 import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Item;
 import java.awt.event.ItemEvent;
@@ -14,6 +15,7 @@ public class Form_Compras extends javax.swing.JPanel {
 
     private boolean confirmou = false;
     private int codigo = 0;
+    Fornecedores fornecedorSelecionado = null;
 
     private ControleFornecedor controle = new ControleFornecedor();
 
@@ -22,9 +24,6 @@ public class Form_Compras extends javax.swing.JPanel {
     public Form_Compras() {
         initComponents();
 
-        for (Fornecedores f : controle.getTodos()) {
-            jComboBoxFornecedores.addItem(f);
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -58,7 +57,8 @@ public class Form_Compras extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         JButtonFinalizarPedido = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelFinalizarPedido = new javax.swing.JLabel();
-        jComboBoxFornecedores = new javax.swing.JComboBox<>();
+        fornecedores = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCompras = new ifsplife.dev.swing.Table();
 
@@ -206,9 +206,10 @@ public class Form_Compras extends javax.swing.JPanel {
             .addComponent(JLabelFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
-        jComboBoxFornecedores.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxFornecedoresItemStateChanged(evt);
+        jButton1.setText("Pesquisar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
             }
         });
 
@@ -227,10 +228,13 @@ public class Form_Compras extends javax.swing.JPanel {
                             .addComponent(JLabelFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLabelDataDaCompra)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxFornecedores, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                            .addGroup(panelBorder2Layout.createSequentialGroup()
+                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(fornecedores, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder2Layout.createSequentialGroup()
                                 .addComponent(JLabelDataDeVencimento)
@@ -241,7 +245,7 @@ public class Form_Compras extends javax.swing.JPanel {
                                     .addComponent(JLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                                     .addComponent(jSeparator5)
                                     .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JButtonFinalizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
@@ -283,7 +287,9 @@ public class Form_Compras extends javax.swing.JPanel {
                             .addGroup(panelBorder2Layout.createSequentialGroup()
                                 .addComponent(JLabelFornecedor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator2))))
                     .addGroup(panelBorder2Layout.createSequentialGroup()
@@ -353,7 +359,7 @@ public class Form_Compras extends javax.swing.JPanel {
                         .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(514, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -388,21 +394,6 @@ public class Form_Compras extends javax.swing.JPanel {
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBoxFornecedoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFornecedoresItemStateChanged
-        jComboBoxFornecedores.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(ItemEvent event) {
-                if (event.getStateChange() == ItemEvent.SELECTED) {
-                    Fornecedores fornecedores = (Fornecedores) event.getItem();
-                    if (fornecedores != null) {
-                        JTextFieldResponsavel.setText(fornecedores.getResponsavel());
-                    }
-                }
-            }
-        });
-    }//GEN-LAST:event_jComboBoxFornecedoresItemStateChanged
-
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         PesquisaItens pesquisa = new PesquisaItens(null, true);
         pesquisa.setVisible(true);
@@ -417,6 +408,20 @@ public class Form_Compras extends javax.swing.JPanel {
             // atualizarTabela();
         }
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        //        if (fornecedores.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Deve ser selecionado um fornecedor");
+//            fornecedores.requestFocus();
+//        } else {
+        PesquisaFornecedores pesquisa = new PesquisaFornecedores(null, true);
+        pesquisa.setVisible(true);
+        fornecedorSelecionado = pesquisa.getFornecedorSelecionado();
+        fornecedores.setText(fornecedorSelecionado.getNome());
+        JTextFieldResponsavel.setText(fornecedorSelecionado.getResponsavel());
+//        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem;
     private ifsplife.dev.swing.PanelBorderGradient JButtonFinalizarPedido;
@@ -432,7 +437,8 @@ public class Form_Compras extends javax.swing.JPanel {
     private javax.swing.JLabel JLabelUsuario;
     private javax.swing.JLabel JLabelValorFinal;
     private javax.swing.JTextField JTextFieldResponsavel;
-    private javax.swing.JComboBox<Fornecedores> jComboBoxFornecedores;
+    private javax.swing.JTextField fornecedores;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel17;

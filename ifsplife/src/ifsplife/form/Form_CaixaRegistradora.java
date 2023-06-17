@@ -6,6 +6,7 @@ import ifsplife.jdialog.CrudCaixa;
 import ifsplife.jdialog.CrudMovimentacao;
 import ifsplife.model.Caixa;
 import ifsplife.model.Movimentacao;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,10 +30,16 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         if (ControleCaixa.isCaixaAberto()) {
             JLabelCaixa.setText("Fechar Caixa");
+            status.setText("status do caixa: aberto");
+            
+            status.setForeground(Color.GREEN);
             ControleCaixa.atualizarCaixa();
         } else {
             JLabelCaixa.setText("Abrir Caixa");
+            status.setText("status do caixa: fechado");
+            status.setForeground(Color.RED);
         }
+        System.out.println(ControleCaixa.isCaixaAberto());
         atualizarTabela();
 
     }
@@ -44,10 +51,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         movimentacao.clear();
         movimentacao.addAll(controlemovimentacao.getTodos());
-
+       
         for (Movimentacao movimentacao : movimentacao) {
-            modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()}
-            );
+            modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()});
 
         }
     }
@@ -118,6 +124,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JTextFieldDataDeAbertura = new com.toedter.calendar.JDateChooser();
         JScrollPaneMovimentacao = new javax.swing.JScrollPane();
         tableMovimentacoes = new ifsplife.dev.swing.Table();
+        status = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -450,6 +457,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         });
         JScrollPaneMovimentacao.setViewportView(tableMovimentacoes);
 
+        status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        status.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panelBorderTelaLayout = new javax.swing.GroupLayout(panelBorderTela);
         panelBorderTela.setLayout(panelBorderTelaLayout);
         panelBorderTelaLayout.setHorizontalGroup(
@@ -461,14 +471,17 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                     .addComponent(panelBorderDetalhesCaixa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorderTelaLayout.createSequentialGroup()
                         .addComponent(JLabelMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panelBorderTelaLayout.setVerticalGroup(
             panelBorderTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorderTelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JLabelMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBorderTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JScrollPaneMovimentacao, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -513,9 +526,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
             c.setData_fechamento(new Date());
             c.setHorario_fechamento(new Date());
             c.setStatus("Fechado");
-           
             controlecaixa.fechar(c);
-         
+            JLabelCaixa.setText("Fechado");
+            
         }
     }//GEN-LAST:event_JLabelCaixaMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -563,6 +576,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     private javax.swing.JSpinner jSpinnerQuantidadeDeVenda;
     private ifsplife.dev.swing.PanelBorder panelBorderDetalhesCaixa;
     private ifsplife.dev.swing.PanelBorder panelBorderTela;
+    private javax.swing.JLabel status;
     private ifsplife.dev.swing.Table tableMovimentacoes;
     // End of variables declaration//GEN-END:variables
 }

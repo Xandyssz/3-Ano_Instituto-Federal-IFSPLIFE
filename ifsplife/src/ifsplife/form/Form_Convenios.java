@@ -30,7 +30,7 @@ public class Form_Convenios extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         listaConvenios.clear();
-        listaConvenios.addAll(controle.getTodos());
+        listaConvenios.addAll(controle.getPorNome(search1.getText()));
 
         for (Convenios c : listaConvenios) {
             modelo.addRow(new Object[]{c.getNome(), c.getTelefone(), c.getDesconto()}
