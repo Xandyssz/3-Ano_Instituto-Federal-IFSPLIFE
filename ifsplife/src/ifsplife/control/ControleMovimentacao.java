@@ -21,31 +21,14 @@ public class ControleMovimentacao {
     }
 
     public List<Movimentacao> getTodos() {
-    EntityManager gerente = GerenciadorConexao.getGerente();
 
-    TypedQuery<Movimentacao> consulta = gerente.createNamedQuery("Movimentacao.findAll", Movimentacao.class);
-    List<Movimentacao> movimentacoes = consulta.getResultList();
+        EntityManager gerente = GerenciadorConexao.getGerente();
 
-    double valorSuplementacao = 0.0;
-    double valorSangria = 0.0;
+        TypedQuery<Movimentacao> consulta
+                = gerente.createNamedQuery("Movimentacao.findAll", Movimentacao.class);
 
-    for (Movimentacao movimentacao : movimentacoes) {
-        String tipo = movimentacao.getTipo();
-        double valor = movimentacao.getValor();
+        return consulta.getResultList();
 
-        if (tipo.equals("Suplementação")) {
-            valorSuplementacao += valor;
-        } else if (tipo.equals("Sangria")) {
-            valorSangria += valor;
-        }
     }
-
-    System.out.println("Valor de Suplementação: " + valorSuplementacao);
-    System.out.println("Valor de Sangria: " + valorSangria);
-
-    return movimentacoes;
-}
-    
-
 
 }

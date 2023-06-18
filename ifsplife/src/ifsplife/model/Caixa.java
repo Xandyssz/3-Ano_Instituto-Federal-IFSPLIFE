@@ -111,15 +111,25 @@ public class Caixa implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    public double retSantria(){
-        double soma=0;
-        for(Movimentacao mo: this.movimentacao){
-            if(mo.getTipo().equals("Sangria")){
-                soma+=mo.getValor();
-            }   
-        }    
-        return soma;
+
+    public double setSangria() {
+        double soma_sangria = 0;
+        for (Movimentacao mo : this.movimentacao) {
+            if (mo.getTipo().equals("Sangria")) {
+                soma_sangria += mo.getValor();
+            }
+        }
+        return soma_sangria;
+    }
+
+    public double setSuplementacao() {
+        double soma_suplementacao = 0;
+        for (Movimentacao mo : this.movimentacao) {
+            if (mo.getTipo().equals("Suplementação")) {
+                soma_suplementacao += mo.getValor();
+            }
+        }
+        return soma_suplementacao;
     }
 
     public Date getData_abertura() {

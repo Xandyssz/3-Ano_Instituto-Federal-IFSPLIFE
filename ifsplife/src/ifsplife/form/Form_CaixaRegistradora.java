@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Form_CaixaRegistradora extends javax.swing.JPanel {
@@ -31,7 +32,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         if (ControleCaixa.isCaixaAberto()) {
             JLabelCaixa.setText("Fechar Caixa");
             status.setText("status do caixa: aberto");
-            
+
             status.setForeground(Color.GREEN);
             ControleCaixa.atualizarCaixa();
         } else {
@@ -51,7 +52,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         movimentacao.clear();
         movimentacao.addAll(controlemovimentacao.getTodos());
-       
+
         for (Movimentacao movimentacao : movimentacao) {
             modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()});
 
@@ -502,33 +503,47 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         if (movimentacao.isConfirmou()) {
             Movimentacao m = movimentacao.getMovimentacao();
             controlemovimentacao.adicionar(m);
-
+            
+            // adicionar metodos de calculos "sangria/movimentacao" do modelo | caixa
+            
             atualizarTabela();
         }
     }//GEN-LAST:event_JButtonMovimentacaoCaixaMouseClicked
 
     private void JLabelCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelCaixaMouseClicked
-        CrudCaixa abrirCaixa = new CrudCaixa(null, true);
+        int escolha = JOptionPane.showConfirmDialog(null, "Deseja " + (ControleCaixa.isCaixaAberto() ? "fechar" : "abrir") + " o caixa?", "Confirmação", JOptionPane.YES_NO_OPTION);
 
-        if (!ControleCaixa.isCaixaAberto()) {
-            abrirCaixa.setVisible(true);
-            if (abrirCaixa.isConfirmou()) {
-                Caixa c = abrirCaixa.getCaixa();
+        if (escolha == JOptionPane.YES_OPTION) {
+            CrudCaixa abrirCaixa = new CrudCaixa(null, true);
 
-                JTextFieldDataDeAbertura.setDate(c.getData_abertura());
-                JTextFieldHorarioDeAbertura.setText(teste.format(c.getHorario_abertura()));
-                JFormattedTextFieldValorInicial.setValue(c.getValor_abertura());
-                controlecaixa.abrir(c);
-                atualizarTabela();
+            if (!ControleCaixa.isCaixaAberto()) {
+                abrirCaixa.setVisible(true);
+                if (abrirCaixa.isConfirmou()) {
+                    Caixa c = abrirCaixa.getCaixa();
+
+                    JTextFieldDataDeAbertura.setDate(c.getData_abertura());
+                    JTextFieldHorarioDeAbertura.setText(teste.format(c.getHorario_abertura()));
+                    JFormattedTextFieldValorInicial.setValue(c.getValor_abertura());
+                    controlecaixa.abrir(c);
+                    status.setText("status do caixa: Aberto");
+                    status.setForeground(Color.GREEN);
+                    JLabelCaixa.setText("Fechar Caixa");
+                    atualizarTabela();
+                }
+            } else {
+                int fecharEscolha = JOptionPane.showConfirmDialog(null, "Deseja realmente fechar o caixa?", "Confirmação", JOptionPane.YES_NO_OPTION);
+
+                if (fecharEscolha == JOptionPane.YES_OPTION) {
+                    Caixa c = ControleCaixa.getCaixaAberto();
+                    c.setData_fechamento(new Date());
+                    c.setHorario_fechamento(new Date());
+                    c.setStatus("Fechado");
+                    controlecaixa.fechar(c);
+                    status.setText("status do caixa: fechado");
+                    status.setForeground(Color.RED);
+                    JLabelCaixa.setText("Abrir Caixa");
+                }
             }
-        } else {
-            Caixa c = ControleCaixa.getCaixaAberto();
-            c.setData_fechamento(new Date());
-            c.setHorario_fechamento(new Date());
-            c.setStatus("Fechado");
-            controlecaixa.fechar(c);
-            JLabelCaixa.setText("Fechado");
-            
         }
     }//GEN-LAST:event_JLabelCaixaMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables

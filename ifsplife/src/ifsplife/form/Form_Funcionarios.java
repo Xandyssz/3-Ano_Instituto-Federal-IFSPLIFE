@@ -59,7 +59,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFuncionarios = new ifsplife.dev.swing.Table();
         jLabel3 = new javax.swing.JLabel();
-        JLabelMovimentacao = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 239, 239));
 
@@ -258,10 +257,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        JLabelMovimentacao.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        JLabelMovimentacao.setForeground(new java.awt.Color(127, 127, 127));
-        JLabelMovimentacao.setText("Movimentações");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -283,11 +278,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(17, 17, 17))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(JLabelMovimentacao)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,11 +293,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(JButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(JLabelMovimentacao)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -405,7 +390,6 @@ public class Form_Funcionarios extends javax.swing.JPanel {
     private ifsplife.dev.swing.PanelBorderGradient JButtonEditar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
-    private javax.swing.JLabel JLabelMovimentacao;
     private javax.swing.JLabel clear1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

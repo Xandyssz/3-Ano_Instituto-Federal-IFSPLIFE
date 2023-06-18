@@ -9,9 +9,12 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JDialog {
 
+    private boolean senhaVisivel = false;
+
     public Login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,11 +27,12 @@ public class Login extends javax.swing.JDialog {
         txtLogin = new javax.swing.JTextField();
         JSeparatorNome = new javax.swing.JSeparator();
         JLabelSenha = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
         JSeparatorSenha = new javax.swing.JSeparator();
         panelBorderGradientLogin = new ifsplife.dev.swing.PanelBorderGradient();
         JLabelCadastrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
+        exibirSenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -50,15 +54,6 @@ public class Login extends javax.swing.JDialog {
 
         JLabelSenha.setForeground(new java.awt.Color(255, 255, 255));
         JLabelSenha.setText("Senha");
-
-        txtSenha.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtSenha.setText("admin");
-        txtSenha.setBorder(null);
-        txtSenha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSenhaMouseClicked(evt);
-            }
-        });
 
         panelBorderGradientLogin.setBackground(new java.awt.Color(255, 255, 255));
         panelBorderGradientLogin.setFirstColor(new java.awt.Color(195, 186, 186));
@@ -92,6 +87,15 @@ public class Login extends javax.swing.JDialog {
             }
         });
 
+        txtSenha.setText("admin");
+
+        exibirSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/icons8-visível-25.png"))); // NOI18N
+        exibirSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exibirSenhaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBorderGradient1Layout = new javax.swing.GroupLayout(panelBorderGradient1);
         panelBorderGradient1.setLayout(panelBorderGradient1Layout);
         panelBorderGradient1Layout.setHorizontalGroup(
@@ -102,24 +106,26 @@ public class Login extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorderGradient1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
                     .addGroup(panelBorderGradient1Layout.createSequentialGroup()
                         .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(panelBorderGradientLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorderGradient1Layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(JLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JSeparatorNome, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JSeparatorSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelBorderGradient1Layout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(panelBorderGradientLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 88, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorderGradient1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
+                                    .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(txtSenha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exibirSenha)))
+                        .addGap(0, 45, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelBorderGradient1Layout.setVerticalGroup(
@@ -136,9 +142,11 @@ public class Login extends javax.swing.JDialog {
                         .addComponent(JSeparatorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JLabelSenha)
-                        .addGap(2, 2, 2)
-                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exibirSenha))
+                        .addGap(4, 4, 4)
                         .addComponent(JSeparatorSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelBorderGradientLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,10 +176,6 @@ public class Login extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSenhaMouseClicked
-        txtSenha.setText("");
-    }//GEN-LAST:event_txtSenhaMouseClicked
-
     private void txtLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLoginMouseClicked
         txtLogin.setText("");
     }//GEN-LAST:event_txtLoginMouseClicked
@@ -197,7 +201,20 @@ public class Login extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
             txtSenha.setText("");
         }
+
     }//GEN-LAST:event_panelBorderGradientLoginMouseClicked
+
+    private void exibirSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exibirSenhaMouseClicked
+
+        // Código para alternar a visibilidade da senha
+        if (senhaVisivel) {
+            txtSenha.setEchoChar('*'); // Ocultar senha
+            senhaVisivel = false;
+        } else {
+            txtSenha.setEchoChar((char) 0); // Mostrar senha
+            senhaVisivel = true;
+        }
+    }//GEN-LAST:event_exibirSenhaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -206,12 +223,13 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelSenha;
     private javax.swing.JSeparator JSeparatorNome;
     private javax.swing.JSeparator JSeparatorSenha;
+    private javax.swing.JLabel exibirSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradientLogin;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

@@ -106,6 +106,11 @@ public class Compras implements Serializable {
         this.valortotal = valortotal;
     }
 
+    public void adicionarItem(Itemcompra ic) {
+        ic.setCodigo_compra(this);
+        this.itemcompra.add(ic);
+    }
+
     public List<Itemcompra> getItemcompra() {
         return itemcompra;
     }
