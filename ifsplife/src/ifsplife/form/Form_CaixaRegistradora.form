@@ -107,19 +107,17 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabelValorInicial" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="jSeparatorValorInicial" alignment="0" pref="302" max="32767" attributes="0"/>
-                                          <Component id="jSeparatorDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
-                                          <Component id="jLabelDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelValorInicial" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jSeparatorValorInicial" alignment="0" pref="302" max="32767" attributes="0"/>
+                                      <Component id="jSeparatorDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
+                                      <Component id="jLabelDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabelRSInicial" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="JFormattedTextFieldValorInicial" min="-2" pref="257" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="JTextFieldDataDeAbertura" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                                      <Component id="JTextFieldDataDeAbertura" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">

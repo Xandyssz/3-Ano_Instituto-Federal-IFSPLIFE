@@ -58,9 +58,6 @@ public class Vendas implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigo_venda")
     private List<Itemvenda> itemvendaList = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigo_venda")
-    private List<Pagamento> pagamentoList = new ArrayList<>();
-
     public Vendas() {
     }
 
@@ -132,14 +129,6 @@ public class Vendas implements Serializable {
 
     public void setItemvendaList(List<Itemvenda> itemvendaList) {
         this.itemvendaList = itemvendaList;
-    }
-
-    public List<Pagamento> getPagamentoList() {
-        return pagamentoList;
-    }
-
-    public void setPagamentoList(List<Pagamento> pagamentoList) {
-        this.pagamentoList = pagamentoList;
     }
 
     @Override

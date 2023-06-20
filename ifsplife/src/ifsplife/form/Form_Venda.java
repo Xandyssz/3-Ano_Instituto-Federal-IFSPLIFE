@@ -7,7 +7,6 @@ import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Convenios;
 import ifsplife.model.Item;
 import ifsplife.model.Itemvenda;
-import ifsplife.model.Pagamento;
 import ifsplife.model.Vendas;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -29,7 +28,6 @@ public class Form_Venda extends javax.swing.JPanel {
     ControleVenda controleVenda = new ControleVenda();
 
     List<Itemvenda> itens = new ArrayList<>();
-    List<Pagamento> pagamentos = new ArrayList<>();
 
     public Form_Venda() {
         initComponents();
@@ -833,10 +831,10 @@ public class Form_Venda extends javax.swing.JPanel {
             controleVenda.adicionar(v);
 
             atualizarTabelaItens();
-            
+
             String totalString = String.valueOf(total);
             valorFinal.setText(totalString);
-            
+
             JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.");
         }
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
