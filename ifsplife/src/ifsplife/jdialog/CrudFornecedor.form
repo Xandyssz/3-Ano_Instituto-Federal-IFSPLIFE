@@ -334,6 +334,9 @@
                   <Format format="##.###.###/####.##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCNPJKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorCPF">
             </Component>
@@ -354,6 +357,9 @@
                   <Format format="(##) #####-####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContatoKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorContato">
             </Component>
@@ -426,7 +432,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEPActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCEPKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorCEP">

@@ -33,7 +33,6 @@ public class CrudMovimentacao extends javax.swing.JDialog {
 //        txtTipoMovimentacao.setSelectedItem(txtTipoMovimentacao.getSelectedItem());
 //        
 //    }
-
     public boolean isConfirmou() {
         return confirmou;
     }
@@ -83,6 +82,11 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         txtValor.setBackground(new java.awt.Color(239, 239, 239));
         txtValor.setBorder(null);
         txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
 
         JLabelTipoDeMovimentacao.setText("Tipo de Movimentação");
 
@@ -266,6 +270,13 @@ public class CrudMovimentacao extends javax.swing.JDialog {
             this.setVisible(false);
         }
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtValorKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

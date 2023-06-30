@@ -297,6 +297,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
 
     private void clear1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clear1MouseClicked
         search1.setText("");
+        atualizarTabela();
     }//GEN-LAST:event_clear1MouseClicked
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
         CrudFornecedor crudfornecedor = new CrudFornecedor(null, true);

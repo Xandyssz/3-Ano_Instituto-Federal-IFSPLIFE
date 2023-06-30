@@ -51,12 +51,12 @@ public class Compras implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
             mappedBy = "codigo_compra")
-    private List<Itemcompra> itemcompra = new ArrayList<>();
+    private List<Produtocompra> itemcompra = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL,
             orphanRemoval = true,
             mappedBy = "codigo_compra")
-    private Pagamentocompra pagamentocompra;
+    private List<Pagamentocompra> pagamentocompra;
 
     @ManyToOne
     @JoinColumn(name = "codigo_fornecedor", referencedColumnName = "codigo_fornecedor")
@@ -65,7 +65,7 @@ public class Compras implements Serializable {
     public Compras() {
     }
 
-    public Compras(Integer codigo_compra, Date data_compra, String forma_pagamento, double valortotal, Pagamentocompra pagamentocompra, Fornecedores codigo_fornecedor) {
+    public Compras(Integer codigo_compra, Date data_compra, String forma_pagamento, double valortotal, List<Pagamentocompra> pagamentocompra, Fornecedores codigo_fornecedor) {
         this.codigo_compra = codigo_compra;
         this.data_compra = data_compra;
         this.forma_pagamento = forma_pagamento;
@@ -106,25 +106,28 @@ public class Compras implements Serializable {
         this.valortotal = valortotal;
     }
 
-    public void adicionarItem(Itemcompra ic) {
+    public void adicionarItem(Produtocompra ic) {
         ic.setCodigo_compra(this);
         this.itemcompra.add(ic);
     }
 
-    public List<Itemcompra> getItemcompra() {
+    public List<Produtocompra> getItemcompra() {
         return itemcompra;
     }
 
-    public void setItemcompra(List<Itemcompra> itemcompra) {
+    public void setItemcompra(List<Produtocompra> itemcompra) {
         this.itemcompra = itemcompra;
     }
 
-    public Pagamentocompra getPagamentocompra() {
+    public List<Pagamentocompra> getPagamentocompra() {
         return pagamentocompra;
     }
 
-    public void setPagamentocompra(Pagamentocompra pagamentocompra) {
+    public void setPagamentocompra(List<Pagamentocompra> pagamentocompra) {
         this.pagamentocompra = pagamentocompra;
+        for(Pagamentocompra p : pagamentocompra){
+          p.setCodigo_compra(this);
+        }
     }
 
     public Fornecedores getCodigo_fornecedor() {

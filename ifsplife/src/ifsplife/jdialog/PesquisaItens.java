@@ -1,7 +1,7 @@
 package ifsplife.jdialog;
 
-import ifsplife.control.ControleItem;
-import ifsplife.model.Item;
+import ifsplife.control.ControleProduto;
+import ifsplife.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -9,12 +9,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class PesquisaItens extends javax.swing.JDialog {
 
-    ControleItem controle = new ControleItem();
+    ControleProduto controle = new ControleProduto();
 
-    List<Item> listaItems = new ArrayList<>();
+    List<Produto> listaItems = new ArrayList<>();
 
     private boolean selecionou = false;
-    Item itemSelecioando = null;
+    Produto itemSelecioando = null;
 
     public PesquisaItens(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -35,7 +35,7 @@ public class PesquisaItens extends javax.swing.JDialog {
         listaItems.clear();
         listaItems.addAll(controle.buscarPorCategoria((String) comboFiltro.getSelectedItem()));
 
-        for (Item item : listaItems) {
+        for (Produto item : listaItems) {
             modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getValor(), item.getQuantidade()}
             );
         }
@@ -43,7 +43,7 @@ public class PesquisaItens extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
 
-    public Item getItemSelecionado() {
+    public Produto getProdutoSelecionado() {
         int linha = tableItens.getSelectedRow();
         return listaItems.get(linha);
     }

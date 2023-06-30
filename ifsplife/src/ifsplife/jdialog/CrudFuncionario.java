@@ -25,7 +25,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         funcionarios.setCidade(txtCidade.getText());
         funcionarios.setCep(txtCEP.getText());
         funcionarios.setUf((String) comboEstado.getSelectedItem());
-        funcionarios.setSalario(txtSalario.getText());
+        funcionarios.setSalario(((Number) txtSalario.getValue()).doubleValue());
         funcionarios.setLogin(txtLogin.getText());
         funcionarios.setSenha(txtSenha.getText());
         return funcionarios;
@@ -41,7 +41,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         txtCidade.setText(funcionarios.getCidade());
         txtCEP.setText(funcionarios.getCep());
         comboEstado.setSelectedItem(funcionarios.getUf());
-        txtSalario.setText(funcionarios.getSalario());
+        txtSalario.setValue(funcionarios.getSalario());
         txtLogin.setText(funcionarios.getLogin());
         txtSenha.setText(funcionarios.getSenha());
     }
@@ -135,6 +135,11 @@ public class CrudFuncionario extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCPFKeyTyped(evt);
+            }
+        });
 
         JLabelCargo.setText("Cargo");
 
@@ -155,10 +160,15 @@ public class CrudFuncionario extends javax.swing.JDialog {
         txtCEP.setBackground(new java.awt.Color(239, 239, 239));
         txtCEP.setBorder(null);
         try {
-            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
+            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCEPKeyTyped(evt);
+            }
+        });
 
         JLabelEstado.setText("Estado");
 
@@ -169,6 +179,11 @@ public class CrudFuncionario extends javax.swing.JDialog {
         txtSalario.setBackground(new java.awt.Color(239, 239, 239));
         txtSalario.setBorder(null);
         txtSalario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        txtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSalarioKeyTyped(evt);
+            }
+        });
 
         comboNivelAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Atendente" }));
         comboNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +257,11 @@ public class CrudFuncionario extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtContato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContatoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -515,6 +535,34 @@ public class CrudFuncionario extends javax.swing.JDialog {
             this.confirmou = true;
             this.setVisible(false);
         }    }//GEN-LAST:event_JButtonCadastrarMouseClicked
+
+    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtCPFKeyTyped
+
+    private void txtContatoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContatoKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtContatoKeyTyped
+
+    private void txtCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCEPKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtCEPKeyTyped
+
+    private void txtSalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalarioKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtSalarioKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

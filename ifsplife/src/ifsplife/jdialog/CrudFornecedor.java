@@ -129,6 +129,11 @@ public class CrudFornecedor extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCNPJKeyTyped(evt);
+            }
+        });
 
         JLabelContato.setText("Contato");
 
@@ -139,6 +144,11 @@ public class CrudFornecedor extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtContato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContatoKeyTyped(evt);
+            }
+        });
 
         JLabelEmail.setText("Email");
 
@@ -164,9 +174,9 @@ public class CrudFornecedor extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCEP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCEPActionPerformed(evt);
+        txtCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCEPKeyTyped(evt);
             }
         });
 
@@ -454,9 +464,26 @@ public class CrudFornecedor extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
-    private void txtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCEPActionPerformed
+    private void txtCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCNPJKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtCNPJKeyTyped
+
+    private void txtContatoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContatoKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtContatoKeyTyped
+
+    private void txtCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCEPKeyTyped
+        if (Character.isDigit(evt.getKeyChar())) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtCEPKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

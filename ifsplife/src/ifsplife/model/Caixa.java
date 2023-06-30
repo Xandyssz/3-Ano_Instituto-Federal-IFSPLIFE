@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.processing.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,24 +51,24 @@ public class Caixa implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date horario_fechamento;
 
-    @Column(name = "total_entradas", nullable = false)
+    @Column(name = "total_entradas")
     private double total_entradas;
 
-    @Column(name = "total_saidas", nullable = false)
+    @Column(name = "total_saidas")
     private double total_saidas;
 
-    @Column(name = "valor_abertura", nullable = false)
+    @Column(name = "valor_abertura")
     private double valor_abertura;
 
-    @Column(name = "valor_fechamento", nullable = false)
+    @Column(name = "valor_fechamento")
     private double valor_fechamento;
 
     @OneToMany(cascade = CascadeType.REFRESH,
-            mappedBy = "caixa_idcaixa")
+            mappedBy = "codigo_caixa")
     private List<Vendas> vendas = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.REFRESH,
-            mappedBy = "caixa_idcaixa")
+            mappedBy = "codigo_caixa")
     private List<Pagamentocompra> pagamentocompra = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.REFRESH,
@@ -112,7 +111,7 @@ public class Caixa implements Serializable {
         this.status = status;
     }
 
-    public double setSangria() {
+    public double getSangria() {
         double soma_sangria = 0;
         for (Movimentacao mo : this.movimentacao) {
             if (mo.getTipo().equals("Sangria")) {
@@ -122,7 +121,7 @@ public class Caixa implements Serializable {
         return soma_sangria;
     }
 
-    public double setSuplementacao() {
+    public double getSuplementacao() {
         double soma_suplementacao = 0;
         for (Movimentacao mo : this.movimentacao) {
             if (mo.getTipo().equals("Suplementação")) {
@@ -164,7 +163,7 @@ public class Caixa implements Serializable {
         this.horario_fechamento = horario_fechamento;
     }
 
-    public double getTotal_entradas() {
+    public Double getTotal_entradas() {
         return total_entradas;
     }
 
@@ -172,7 +171,7 @@ public class Caixa implements Serializable {
         this.total_entradas = total_entradas;
     }
 
-    public double getTotal_saidas() {
+    public Double getTotal_saidas() {
         return total_saidas;
     }
 
@@ -180,7 +179,7 @@ public class Caixa implements Serializable {
         this.total_saidas = total_saidas;
     }
 
-    public double getValor_abertura() {
+    public Double getValor_abertura() {
         return valor_abertura;
     }
 
@@ -188,7 +187,7 @@ public class Caixa implements Serializable {
         this.valor_abertura = valor_abertura;
     }
 
-    public double getValor_fechamento() {
+    public Double getValor_fechamento() {
         return valor_fechamento;
     }
 
@@ -229,9 +228,13 @@ public class Caixa implements Serializable {
     }
 
     public double getTotalMovimentacao() {
-        double total = 0;
+        double total = valor_abertura; // Start with the opening value
         for (Movimentacao m : movimentacao) {
-            total += m.getValor();
+            if (m.getTipo().equals("Sangria")) {
+                total -= m.getValor(); // Subtract sangria
+            } else {
+                total += m.getValor();
+            }
         }
         return total;
     }

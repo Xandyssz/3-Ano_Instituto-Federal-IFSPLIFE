@@ -9,14 +9,14 @@
     <class>ifsplife.model.Despesas</class>
     <class>ifsplife.model.Fornecedores</class>
     <class>ifsplife.model.Funcionarios</class>
-    <class>ifsplife.model.Item</class>
-    <class>ifsplife.model.Itemcompra</class>
-    <class>ifsplife.model.Itemvenda</class>
     <class>ifsplife.model.Movimentacao</class>
     <class>ifsplife.model.Pagamento</class>
     <class>ifsplife.model.Pagamentocompra</class>
     <class>ifsplife.model.Sangria</class>
     <class>ifsplife.model.Vendas</class>
+    <class>ifsplife.model.Produtovenda</class>
+    <class>ifsplife.model.Produtocompra</class>
+    <class>ifsplife.model.Produto</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ifsplife?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

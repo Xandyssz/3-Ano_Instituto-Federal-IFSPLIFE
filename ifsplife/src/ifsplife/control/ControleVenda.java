@@ -60,21 +60,21 @@ public class ControleVenda {
         return consulta.getResultList();
 
     }
-    
-    public double getTotalVendaPorCaixa(Caixa caixa){
+
+    public double getTotalVendaPorCaixa(Caixa caixa) {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         double total = 0;
-        
+
         TypedQuery<Vendas> consulta
                 = gerente.createNamedQuery("Vendas.findByCaixa", Vendas.class);
         consulta.setParameter("caixa", caixa);
-        
-        
-        for(Vendas v: consulta.getResultList())
+
+        for (Vendas v : consulta.getResultList()) {
             total += v.getValor_venda();
-            
+        }
+
         return total;
     }
-    
+
 }

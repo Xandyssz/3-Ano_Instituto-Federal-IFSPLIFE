@@ -59,5 +59,6 @@ public class ControleCompra {
         return consulta.getResultList();
 
     }
+    
 
 }

@@ -27,13 +27,12 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigo_venda = :codigoVenda"),
     @NamedQuery(name = "Vendas.findByDataVenda", query = "SELECT v FROM Vendas v WHERE v.data_venda = :dataVenda"),
     @NamedQuery(name = "Vendas.findByFormaPagamento", query = "SELECT v FROM Vendas v WHERE v.forma_pagamento = :formaPagamento"),
-    @NamedQuery(name = "Vendas.findByCaixa", query = "SELECT v FROM Vendas v WHERE v.caixa_idcaixa = :caixa"),
+    @NamedQuery(name = "Vendas.findByCaixa", query = "SELECT v FROM Vendas v WHERE v.codigo_caixa = :caixa"),
     @NamedQuery(name = "Vendas.findByValorVenda", query = "SELECT v FROM Vendas v WHERE v.valor_venda = :valorVenda")})
 public class Vendas implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "codigo_venda", nullable = false)
     private Integer codigo_venda;
 
@@ -48,25 +47,25 @@ public class Vendas implements Serializable {
     private double valor_venda;
 
     @ManyToOne
-    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
-    private Caixa caixa_idcaixa;
+    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa")
+    private Caixa codigo_caixa;
 
     @ManyToOne
     @JoinColumn(name = "codigo_convenio", referencedColumnName = "codigo_convenio")
     private Convenios codigo_convenio;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigo_venda")
-    private List<Itemvenda> itemvendaList = new ArrayList<>();
+    private List<Produtovenda> ProdutovendaList = new ArrayList<>();
 
     public Vendas() {
     }
 
-    public Vendas(Integer codigo_venda, Date data_venda, String forma_pagamento, Double valor_venda, Caixa caixa_idcaixa, Convenios codigo_convenio) {
+    public Vendas(Integer codigo_venda, Date data_venda, String forma_pagamento, Double valor_venda, Caixa codigo_caixa, Convenios codigo_convenio) {
         this.codigo_venda = codigo_venda;
         this.data_venda = data_venda;
         this.forma_pagamento = forma_pagamento;
         this.valor_venda = valor_venda;
-        this.caixa_idcaixa = caixa_idcaixa;
+        this.codigo_caixa = codigo_caixa;
         this.codigo_convenio = codigo_convenio;
     }
 
@@ -102,12 +101,12 @@ public class Vendas implements Serializable {
         this.valor_venda = valor_venda;
     }
 
-    public Caixa getCaixa_idcaixa() {
-        return caixa_idcaixa;
+    public Caixa getcodigo_caixa() {
+        return codigo_caixa;
     }
 
-    public void setCaixa_idcaixa(Caixa caixa_idcaixa) {
-        this.caixa_idcaixa = caixa_idcaixa;
+    public void setcodigo_caixa(Caixa codigo_caixa) {
+        this.codigo_caixa = codigo_caixa;
     }
 
     public Convenios getCodigo_convenio() {
@@ -118,24 +117,24 @@ public class Vendas implements Serializable {
         this.codigo_convenio = codigo_convenio;
     }
 
-    public void adicionarItem(Itemvenda iv) {
+    public void adicionarItem(Produtovenda iv) {
         iv.setCodigo_venda(this);
-        this.itemvendaList.add(iv);
+        this.ProdutovendaList.add(iv);
     }
 
-    public List<Itemvenda> getItemvendaList() {
-        return itemvendaList;
+    public List<Produtovenda> getProdutovendaList() {
+        return ProdutovendaList;
     }
 
-    public void setItemvendaList(List<Itemvenda> itemvendaList) {
-        this.itemvendaList = itemvendaList;
+    public void setProdutovendaList(List<Produtovenda> ProdutovendaList) {
+        this.ProdutovendaList = ProdutovendaList;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 23 * hash + Objects.hashCode(this.codigo_venda);
-        hash = 23 * hash + Objects.hashCode(this.caixa_idcaixa);
+        hash = 23 * hash + Objects.hashCode(this.codigo_caixa);
         hash = 23 * hash + Objects.hashCode(this.codigo_convenio);
         return hash;
     }
@@ -155,7 +154,7 @@ public class Vendas implements Serializable {
         if (!Objects.equals(this.codigo_venda, other.codigo_venda)) {
             return false;
         }
-        if (!Objects.equals(this.caixa_idcaixa, other.caixa_idcaixa)) {
+        if (!Objects.equals(this.codigo_caixa, other.codigo_caixa)) {
             return false;
         }
         return Objects.equals(this.codigo_convenio, other.codigo_convenio);

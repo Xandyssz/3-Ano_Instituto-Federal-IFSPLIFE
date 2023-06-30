@@ -39,7 +39,7 @@ public class Convenios implements Serializable {
     private String cnpj;
 
     @Column(name = "desconto", nullable = false)
-    private Double desconto;
+    private double desconto;
 
     @Column(name = "email", nullable = false, length = 255)
     private String email;
@@ -61,7 +61,7 @@ public class Convenios implements Serializable {
     public Convenios() {
     }
 
-    public Convenios(Integer codigo_convenio, String cnpj, Double desconto, String email, String endereco, String nome, String telefone, List<Vendas> vendas) {
+    public Convenios(Integer codigo_convenio, String cnpj, double desconto, String email, String endereco, String nome, String telefone, List<Vendas> vendas) {
         this.codigo_convenio = codigo_convenio;
         this.cnpj = cnpj;
         this.desconto = desconto;
@@ -88,11 +88,11 @@ public class Convenios implements Serializable {
         this.cnpj = cnpj;
     }
 
-    public Double getDesconto() {
+    public double getDesconto() {
         return desconto;
     }
 
-    public void setDesconto(Double desconto) {
+    public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
 

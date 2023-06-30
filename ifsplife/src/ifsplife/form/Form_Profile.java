@@ -17,7 +17,7 @@ public class Form_Profile extends javax.swing.JPanel {
         JTextFieldCidade.setText(ControleFuncionario.getUsuarioLogado().getCidade());
         JFormatedTextCEP.setText(ControleFuncionario.getUsuarioLogado().getCep());
         JComboBoxEstado.setSelectedItem(ControleFuncionario.getUsuarioLogado().getUf());
-        JFormatedTextSalario.setText(ControleFuncionario.getUsuarioLogado().getSalario());
+        JFormatedTextSalario.setValue(ControleFuncionario.getUsuarioLogado().getSalario());
         JTextFieldLogin.setText(ControleFuncionario.getUsuarioLogado().getLogin());
         JTextFieldSenha.setText(ControleFuncionario.getUsuarioLogado().getSenha());
     }

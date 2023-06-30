@@ -1,8 +1,10 @@
 package ifsplife.form;
 
-import ifsplife.control.ControleItem;
-import ifsplife.jdialog.CrudItem;
-import ifsplife.model.Item;
+import ifsplife.control.ControleCompra;
+import ifsplife.jdialog.RelatorioCompras;
+import ifsplife.model.Compras;
+import ifsplife.model.Produtocompra;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -10,9 +12,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class Form_RelatorioCompras extends javax.swing.JPanel {
 
-    ControleItem controle = new ControleItem();
+    private SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
-    List<Item> listaItems = new ArrayList<>();
+    ControleCompra controle = new ControleCompra();
+
+    List<Compras> compras = new ArrayList<>();
+    List<Produtocompra> itens = new ArrayList<>();
 
     public Form_RelatorioCompras() {
         initComponents();
@@ -29,11 +34,11 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
         modelo.setRowCount(0);
 
-        listaItems.clear();
-        listaItems.addAll(controle.getTodos());
+        compras.clear();
+        compras.addAll(controle.getTodos());
 
-        for (Item item : listaItems) {
-            modelo.addRow(new Object[]{item.getNome(), item.getCategoria(), item.getValor(), item.getQuantidade()}
+        for (Compras compras : compras) {
+            modelo.addRow(new Object[]{formatador.format(compras.getData_compra()), compras.getCodigo_fornecedor().getNome(), compras.getValortotal()}
             );
         }
     }
@@ -55,15 +60,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         tableRelatCompras = new ifsplife.dev.swing.Table();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        search2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        clear1 = new javax.swing.JLabel();
-        jLabelFIltro = new javax.swing.JLabel();
-        comboFiltro = new javax.swing.JComboBox<>();
-        jLabelCategoria = new javax.swing.JLabel();
-        jLabelCategoria3 = new javax.swing.JLabel();
-        comboFiltro1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(239, 239, 239));
 
@@ -173,7 +169,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Categoria", "Valor", "Status"
+                "Data da Compra", "Fornecedor", "Valor Total", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -188,7 +184,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel3.setText("Item");
+        jLabel3.setText("Compras");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -209,90 +205,12 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Relatório de Compras Realizadas no Sistema");
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        search2.setForeground(new java.awt.Color(153, 153, 153));
-        search2.setBorder(null);
-        search2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                search2KeyTyped(evt);
-            }
-        });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
-        clear1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/x.png"))); // NOI18N
-        clear1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clear1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(clear1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(search2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(search2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(clear1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jLabelFIltro.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabelFIltro.setText("Filtro:");
-
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
-        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboFiltroActionPerformed(evt);
-            }
-        });
-
-        jLabelCategoria.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-        jLabelCategoria.setForeground(new java.awt.Color(0, 78, 146));
-        jLabelCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCategoria.setText("Categoria");
-        jLabelCategoria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabelCategoria3.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-        jLabelCategoria3.setForeground(new java.awt.Color(0, 78, 146));
-        jLabelCategoria3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCategoria3.setText("Valor até:");
-        jLabelCategoria3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        comboFiltro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
-        comboFiltro1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboFiltro1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -314,44 +232,15 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                     .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelFIltro, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboFiltro1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCategoria3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelFIltro)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(comboFiltro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabelCategoria3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelCategoria, javax.swing.GroupLayout.Alignment.LEADING)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -365,44 +254,22 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
     private void JButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonEditarMouseClicked
 
-        Integer linha = tableRelatCompras.getSelectedRow();
-
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Item. Selecione.");
-        } else {
-            CrudItem cruditem = new CrudItem(null, true);
-
-            cruditem.setItem(listaItems.get(linha));
-
-            cruditem.setVisible(true);
-
-            if (cruditem.isConfirmou()) {
-                Item item = cruditem.getItem();
-
-                controle.alterar(item);
-
-                atualizarTabela();
-            }
-
-        }
-
     }//GEN-LAST:event_JButtonEditarMouseClicked
 
     private void JButtonVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizarMouseClicked
 
-        Integer linha = tableRelatCompras.getSelectedRow();
+        int linha = tableRelatCompras.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Item. Selecione.");
+                    "Não foi selecionado nenhuma Venda. Selecione.");
         } else {
-            CrudItem cruditem = new CrudItem(null, true);
+            RelatorioCompras tela = new RelatorioCompras(null, true);
 
-            cruditem.setItem(listaItems.get(linha));
-            cruditem.desabilitarEdicao();
+            tela.setCompras(compras.get(linha));
+            tela.desabilitarEdicao();
 
-            cruditem.setVisible(true);
+            tela.setVisible(true);
 
         }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
@@ -412,68 +279,37 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Item. Selecione.");
+                    "Não foi selecionado nenhuma Compra. Selecione.");
         } else {
             Integer resposta = JOptionPane.showConfirmDialog(null,
-                    "Deseja excluir esse Item?",
-                    "Exclusão de Item",
+                    "Deseja excluir essa Compra?",
+                    "Exclusão da Compra",
                     JOptionPane.YES_NO_OPTION);
 
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaItems.get(linha));
+                controle.remover(compras.get(linha));
                 atualizarTabela();
             }
         }
     }//GEN-LAST:event_JButtonExcluirMouseClicked
 
-    private void search2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search2KeyTyped
-        atualizarTabela();
-    }//GEN-LAST:event_search2KeyTyped
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        atualizarTabela();
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void clear1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clear1MouseClicked
-        search2.setText("");
-    }//GEN-LAST:event_clear1MouseClicked
-
     private void JButtonVisualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizar2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonVisualizar2MouseClicked
-
-    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
-        String filtro = comboFiltro.getSelectedItem().toString();
-        listaItems = controle.buscarPorCategoria(filtro);
-        atualizarTabela();
-    }//GEN-LAST:event_comboFiltroActionPerformed
-
-    private void comboFiltro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboFiltro1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonEditar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar2;
-    private javax.swing.JLabel clear1;
-    private javax.swing.JComboBox<String> comboFiltro;
-    private javax.swing.JComboBox<String> comboFiltro1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelCategoria;
-    private javax.swing.JLabel jLabelCategoria3;
-    private javax.swing.JLabel jLabelFIltro;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
-    private javax.swing.JTextField search2;
     private ifsplife.dev.swing.Table tableRelatCompras;
     // End of variables declaration//GEN-END:variables
 }

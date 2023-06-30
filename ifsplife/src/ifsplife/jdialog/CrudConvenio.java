@@ -22,8 +22,7 @@ public class CrudConvenio extends javax.swing.JDialog {
         c.setCnpj(txtCNPJ.getText());
         c.setTelefone(txtContato.getText());
         c.setEndereco(txtEndereco.getText());
-        c.setDesconto((Double) txtDesconto.getValue());
-        //    
+        c.setDesconto(((Number) txtDesconto.getValue()).doubleValue());
         return c;
     }
 
@@ -34,9 +33,8 @@ public class CrudConvenio extends javax.swing.JDialog {
         txtCNPJ.setText(convenio.getCnpj());
         txtContato.setText(convenio.getTelefone());
         txtEndereco.setText(convenio.getEndereco());
-        double desconto = convenio.getDesconto();
-        String descontoStr = String.valueOf(desconto);
-        txtDesconto.setText(descontoStr);        //
+        txtDesconto.setValue(convenio.getDesconto());
+        //
     }
 
     public boolean isConfirmou() {
@@ -134,11 +132,8 @@ public class CrudConvenio extends javax.swing.JDialog {
 
         txtDesconto.setBackground(new java.awt.Color(239, 239, 239));
         txtDesconto.setBorder(null);
-        try {
-            txtDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtDesconto.setText("");
         txtDesconto.setToolTipText("");
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
@@ -365,8 +360,6 @@ public class CrudConvenio extends javax.swing.JDialog {
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_JButtonCancelarMouseClicked
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;

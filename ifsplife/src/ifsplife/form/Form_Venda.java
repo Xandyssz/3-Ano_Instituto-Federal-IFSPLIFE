@@ -5,11 +5,12 @@ import ifsplife.control.ControleConvenio;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.PesquisaItens;
 import ifsplife.model.Convenios;
-import ifsplife.model.Item;
-import ifsplife.model.Itemvenda;
+import ifsplife.model.Produto;
+import ifsplife.model.Produtovenda;
 import ifsplife.model.Vendas;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,17 +18,20 @@ import javax.swing.table.DefaultTableModel;
 
 public class Form_Venda extends javax.swing.JPanel {
 
-    boolean confirmou = false;
-    int codigo = 0;
-    private double total = 0;
     boolean alterar = false;
-    Item itemSelecionado = null;
-    Item i = null;
+    boolean confirmou = false;
+
+    private double total = 0;
+    private int codigo = 0;
+
+    Produto itemSelecionado = null;
+    Produto i = null;
     Vendas v = null;
+
     ControleConvenio controle = new ControleConvenio();
     ControleVenda controleVenda = new ControleVenda();
 
-    List<Itemvenda> itens = new ArrayList<>();
+    List<Produtovenda> itens = new ArrayList<>();
 
     public Form_Venda() {
         initComponents();
@@ -52,19 +56,15 @@ public class Form_Venda extends javax.swing.JPanel {
             v = new Vendas();
         }
         v.setData_venda(DataVenda.getDate());
-        for (Itemvenda item : itens) {
+        for (Produtovenda item : itens) {
             v.adicionarItem(item);
         }
         v.setForma_pagamento((String) jComboBoxFormaPagamento.getSelectedItem());
-
-        // adicionar forma de pagamento"
-//            
-        // adiciona valor da venda
         String vendaText = valorFinal.getText().replace(",", ".");
         double valorVenda;
         valorVenda = Double.parseDouble(vendaText);
         v.setValor_venda(valorVenda);
-        v.setCaixa_idcaixa(ControleCaixa.getCaixaAberto());
+        v.setcodigo_caixa(ControleCaixa.getCaixaAberto());
         v.setCodigo_convenio((Convenios) jComboBoxConvenios.getSelectedItem());
 
         return v;
@@ -72,21 +72,18 @@ public class Form_Venda extends javax.swing.JPanel {
 
     private void atualizarTabelaItens() {
         DefaultTableModel modelo = (DefaultTableModel) tableVendas.getModel();
-
         modelo.setRowCount(0);
 
         total = 0;
-        // varre todos os produtos que estão no controle
-        for (Itemvenda iv : itens) {
+        for (Produtovenda pv : itens) {
             modelo.addRow(new Object[]{
-                iv.getCodigo_item().getNome(),
-                iv.getCodigo_item().getValor(),
-                txtQuantidadeItem.getText(),
-                iv.getSubtotal()});
-            total += iv.getSubtotal();
+                pv.getcodigo_produto().getNome(),
+                pv.getcodigo_produto().getValor(),
+                pv.getQuantidade(), // Obtém a quantidade do item individualmente
+                pv.getSubtotal()});
+            total += pv.getSubtotal();
         }
-        String totalString = String.valueOf(total);
-        valorFinal.setText(totalString);
+        valorFinal.setText(String.valueOf(total));
     }
 
     public void desabilitarTextos() {
@@ -242,7 +239,7 @@ public class Form_Venda extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel2.setText("Itens da Venda");
+        jLabel2.setText("Produtos da Venda");
 
         JButtonPesquisarItem.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonPesquisarItem.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -250,7 +247,7 @@ public class Form_Venda extends javax.swing.JPanel {
         jLabelPesquisar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabelPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPesquisar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelPesquisar.setText("Pesquisar Item");
+        jLabelPesquisar.setText("Pesquisar Produto");
         jLabelPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelPesquisarMouseClicked(evt);
@@ -261,7 +258,7 @@ public class Form_Venda extends javax.swing.JPanel {
         JButtonPesquisarItem.setLayout(JButtonPesquisarItemLayout);
         JButtonPesquisarItemLayout.setHorizontalGroup(
             JButtonPesquisarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+            .addComponent(jLabelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JButtonPesquisarItemLayout.setVerticalGroup(
             JButtonPesquisarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,13 +276,13 @@ public class Form_Venda extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Adicionar Item");
+        jLabel20.setText("Adicionar Produto");
 
         javax.swing.GroupLayout JButtonAdicionarItemLayout = new javax.swing.GroupLayout(JButtonAdicionarItem);
         JButtonAdicionarItem.setLayout(JButtonAdicionarItemLayout);
         JButtonAdicionarItemLayout.setHorizontalGroup(
             JButtonAdicionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JButtonAdicionarItemLayout.setVerticalGroup(
             JButtonAdicionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,13 +300,13 @@ public class Form_Venda extends javax.swing.JPanel {
         jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Remover Item");
+        jLabel19.setText("Remover Produto");
 
         javax.swing.GroupLayout JButtonRemoverItemLayout = new javax.swing.GroupLayout(JButtonRemoverItem);
         JButtonRemoverItem.setLayout(JButtonRemoverItemLayout);
         JButtonRemoverItemLayout.setHorizontalGroup(
             JButtonRemoverItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
         );
         JButtonRemoverItemLayout.setVerticalGroup(
             JButtonRemoverItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -563,16 +560,11 @@ public class Form_Venda extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabelItem.setText("Item:");
+        jLabelItem.setText("Produto:");
 
-        jLabelValorItem.setText("Valor do Item:");
+        jLabelValorItem.setText("Valor do Produto:");
 
         jFormattedTextFieldValorItem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-        jFormattedTextFieldValorItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldValorItemActionPerformed(evt);
-            }
-        });
 
         txtQuantidadeItem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -580,11 +572,11 @@ public class Form_Venda extends javax.swing.JPanel {
             }
         });
 
-        jLabelQtdItem.setText("Quantidade do Item:");
+        jLabelQtdItem.setText("Quantidade do Produto:");
 
         jFormattedTextFieldValorTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        jLabelValorTotal.setText("Valor Total do Item:");
+        jLabelValorTotal.setText("Valor Total do Produto:");
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -598,11 +590,11 @@ public class Form_Venda extends javax.swing.JPanel {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -688,7 +680,7 @@ public class Form_Venda extends javax.swing.JPanel {
         } else {
             PesquisaItens pesquisa = new PesquisaItens(null, true);
             pesquisa.setVisible(true);
-            itemSelecionado = pesquisa.getItemSelecionado();
+            itemSelecionado = pesquisa.getProdutoSelecionado();
             txtItem.setText(itemSelecionado.getNome());
             jFormattedTextFieldValorItem.setValue(itemSelecionado.getValor());
         }
@@ -748,34 +740,42 @@ public class Form_Venda extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "A Quantidade de Itens deve ser preenchida");
             txtQuantidadeItem.requestFocus();
         } else {
-            ativarInputs();
-            Itemvenda novo = new Itemvenda();
+            // Verificar o estoque do item selecionado
+            int quantidadeDesejada = Integer.parseInt(txtQuantidadeItem.getText());
+            int estoqueDisponivel = itemSelecionado.getQuantidade();
 
-            novo.setCodigo_item(itemSelecionado);
+            if (quantidadeDesejada > estoqueDisponivel) {
+                JOptionPane.showMessageDialog(null, "Quantidade solicitada superior ao estoque disponível");
+                txtQuantidadeItem.setText("");
+                jFormattedTextFieldValorTotal.setText("");
+                txtQuantidadeItem.requestFocus();
+                return;
+            }
+
+            ativarInputs();
+            Produtovenda novo = new Produtovenda();
+
+            novo.setcodigo_produto(itemSelecionado);
             novo.setQuantidade(Integer.parseInt(txtQuantidadeItem.getText()));
             novo.setPreco(((Number) jFormattedTextFieldValorItem.getValue()).doubleValue());
             novo.setSubtotal(((Number) jFormattedTextFieldValorTotal.getValue()).doubleValue());
 
             boolean flag = false;
-            for (Itemvenda itens : itens) {
-
-                if (itens.getCodigo_item().getCodigo_item() == itemSelecionado.getCodigo_item()) {
+            for (Produtovenda item : itens) {
+                Produto produto = item.getcodigo_produto();
+                if (produto.getcodigo_produto() == itemSelecionado.getcodigo_produto()) {
                     flag = true;
-                    int quantidadeAtual = itens.getQuantidade();
-                    double valorAtual = itens.getSubtotal();
-
                     int quantidadeAdicional = Integer.parseInt(txtQuantidadeItem.getText());
                     double valorAdicional = (double) jFormattedTextFieldValorTotal.getValue();
 
-                    itens.setQuantidade(quantidadeAtual + quantidadeAdicional);
-                    itens.setSubtotal((double) (valorAtual + valorAdicional));
-
+                    item.setQuantidade(item.getQuantidade() + quantidadeAdicional);
+                    item.setSubtotal(item.getSubtotal() + valorAdicional);
+                    break;
                 }
             }
 
             if (!flag) {
                 itens.add(novo);
-
             }
 
             atualizarTabelaItens();
@@ -784,9 +784,7 @@ public class Form_Venda extends javax.swing.JPanel {
             double soma = somarValoresTabela();
             txtValorTabela.setValue(soma);
         }
-
     }//GEN-LAST:event_JButtonAdicionarItemMouseClicked
-
     private void txtQuantidadeItemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeItemKeyReleased
         String quantidadeItemText = txtQuantidadeItem.getText();
         String nomeItemText = txtItem.getText();
@@ -821,8 +819,6 @@ public class Form_Venda extends javax.swing.JPanel {
 
             }
         }
-
-
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
@@ -833,17 +829,19 @@ public class Form_Venda extends javax.swing.JPanel {
             atualizarTabelaItens();
 
             String totalString = String.valueOf(total);
-            valorFinal.setText(totalString);
+            double valorFormatado = Double.parseDouble(totalString);
+
+            DecimalFormat decimalFormat = new DecimalFormat("#.##"); // Define o formato desejado
+            String valorFinalFormatado = decimalFormat.format(valorFormatado); // Formata o valor
+            valorFinal.setText(valorFinalFormatado);
 
             JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.");
+
+            DefaultTableModel model = (DefaultTableModel) tableVendas.getModel();
+            model.setRowCount(0);
+            desativarInputs();
         }
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
-
-    private void jFormattedTextFieldValorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldValorItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldValorItemActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DataVenda;
     private ifsplife.dev.swing.PanelBorderGradient JButtonAdicionarItem;

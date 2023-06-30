@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "movimentacao")
 @NamedQueries({
     @NamedQuery(name = "Movimentacao.findAll", query = "SELECT m FROM Movimentacao m"),
-    @NamedQuery(name = "Movimentacao.findByIdMovimentacao", query = "SELECT m FROM Movimentacao m WHERE m.codigo_movimentacao = :idMovimentacao"),
+    @NamedQuery(name = "Movimentacao.findBycodigo_movimentacao", query = "SELECT m FROM Movimentacao m WHERE m.codigo_movimentacao = :codigo_movimentacao"),
     @NamedQuery(name = "Movimentacao.findByMotivo", query = "SELECT m FROM Movimentacao m WHERE m.motivo = :motivo"),
     @NamedQuery(name = "Movimentacao.findByTipo", query = "SELECT m FROM Movimentacao m WHERE m.tipo = :tipo"),
     @NamedQuery(name = "Movimentacao.findByValor", query = "SELECT m FROM Movimentacao m WHERE m.valor = :valor"),
@@ -33,7 +33,7 @@ public class Movimentacao implements Serializable {
     private Caixa codigo_caixa;
 
     @Id
-    @Column(name = "idMovimentacao")
+    @Column(name = "codigo_movimentacao")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo_movimentacao;
 
@@ -85,7 +85,7 @@ public class Movimentacao implements Serializable {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

@@ -56,8 +56,8 @@ public class Funcionarios implements Serializable {
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
 
-    @Column(name = "salario", nullable = false, length = 50)
-    private String salario;
+    @Column(name = "salario", nullable = false)
+    private double salario;
 
     @Column(name = "senha", nullable = false, length = 45)
     private String senha;
@@ -71,7 +71,7 @@ public class Funcionarios implements Serializable {
     public Funcionarios() {
     }
 
-    public Funcionarios(Integer codigo_funcionario, String cep, String cidade, String cpf, String endereco, String login, String nivelacesso, String nome, String salario, String senha, String telefone, String uf) {
+    public Funcionarios(Integer codigo_funcionario, String cep, String cidade, String cpf, String endereco, String login, String nivelacesso, String nome, double salario, String senha, String telefone, String uf) {
         this.codigo_funcionario = codigo_funcionario;
         this.cep = cep;
         this.cidade = cidade;
@@ -150,11 +150,11 @@ public class Funcionarios implements Serializable {
         this.nome = nome;
     }
 
-    public String getSalario() {
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 

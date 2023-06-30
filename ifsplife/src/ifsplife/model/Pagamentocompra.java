@@ -35,9 +35,12 @@ public class Pagamentocompra implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date vencimento;
 
+    @Column(name = "status", nullable = true, length = 45)
+    private String status = "Pendente";
+
     @ManyToOne
-    @JoinColumn(name = "caixa_idcaixa", referencedColumnName = "codigo_caixa")
-    private Caixa caixa_idcaixa;
+    @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa")
+    private Caixa codigo_caixa;
 
     @Id
     @OneToOne
@@ -47,11 +50,12 @@ public class Pagamentocompra implements Serializable {
     public Pagamentocompra() {
     }
 
-    public Pagamentocompra(int parcela, Double valor, Date vencimento, Caixa caixa_idcaixa, Compras codigo_compra) {
+    public Pagamentocompra(int parcela, Double valor, Date vencimento, String status, Caixa codigo_caixa, Compras codigo_compra) {
         this.parcela = parcela;
         this.valor = valor;
         this.vencimento = vencimento;
-        this.caixa_idcaixa = caixa_idcaixa;
+        this.status = status;
+        this.codigo_caixa = codigo_caixa;
         this.codigo_compra = codigo_compra;
     }
 
@@ -79,12 +83,20 @@ public class Pagamentocompra implements Serializable {
         this.vencimento = vencimento;
     }
 
-    public Caixa getCaixa_idcaixa() {
-        return caixa_idcaixa;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCaixa_idcaixa(Caixa caixa_idcaixa) {
-        this.caixa_idcaixa = caixa_idcaixa;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Caixa getcodigo_caixa() {
+        return codigo_caixa;
+    }
+
+    public void setcodigo_caixa(Caixa codigo_caixa) {
+        this.codigo_caixa = codigo_caixa;
     }
 
     public Compras getCodigo_compra() {
@@ -98,7 +110,7 @@ public class Pagamentocompra implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.caixa_idcaixa);
+        hash = 67 * hash + Objects.hashCode(this.codigo_caixa);
         hash = 67 * hash + Objects.hashCode(this.codigo_compra);
         return hash;
     }
@@ -115,7 +127,7 @@ public class Pagamentocompra implements Serializable {
             return false;
         }
         final Pagamentocompra other = (Pagamentocompra) obj;
-        if (!Objects.equals(this.caixa_idcaixa, other.caixa_idcaixa)) {
+        if (!Objects.equals(this.codigo_caixa, other.codigo_caixa)) {
             return false;
         }
         return Objects.equals(this.codigo_compra, other.codigo_compra);
