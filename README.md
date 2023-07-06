@@ -200,7 +200,7 @@ o Função Saída 1.0 - Gerar Relatório de itens
 
 o Função Saída 1.1 - Gerar Relatório de Compra
 
-        Descrição » Essa função emite um relatório de todas as compras feitas dentro de um determinado período de tempo.
+    Descrição » Essa função emite um relatório de todas as compras feitas dentro de um determinado período de tempo.
         
     Itens de Informações » 
      - Identificação da Compra - Código numérico com no máximo 4 casas
@@ -218,7 +218,7 @@ o Função Saída 1.1 - Gerar Relatório de Compra
 
 o Função Saída 1.2 - Gerar Relatório de Venda
 
-        Descrição » Essa função emite um relatório de todas as vendas feitas dentro de um determinado período de tempo.
+    Descrição » Essa função emite um relatório de todas as vendas feitas dentro de um determinado período de tempo.
 
     Itens de Informações » 
      - Identificação da Venda – Código numérico com no máximo 4 casas;
