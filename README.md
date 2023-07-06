@@ -93,8 +93,9 @@ o Função Fundamental 1.2 - Efetuar Venda
      - Quantidade do Produto – Valor numérico inteiro
 
 o Função Fundamental 1.3 - Gerenciar Caixa
-    Descrição » Essa função permite ao funcionário abrir e fechar o caixa
-    
+
+     Descrição » Essa função permite ao funcionário abrir e fechar o caixa.
+     
     Itens de Informações » 
      - Código do Caixa – dd/mm/aaaa;
      - Status – texto com tamanho máximo 45;
