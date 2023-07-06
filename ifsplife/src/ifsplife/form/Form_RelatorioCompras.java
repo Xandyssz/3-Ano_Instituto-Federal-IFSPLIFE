@@ -38,7 +38,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         compras.addAll(controle.getTodos());
 
         for (Compras compras : compras) {
-            modelo.addRow(new Object[]{formatador.format(compras.getData_compra()), compras.getCodigo_fornecedor().getNome(), compras.getValortotal()}
+            modelo.addRow(new Object[]{formatador.format(compras.getData_compra()), compras.getCodigo_fornecedor().getNome(), compras.getValortotal(), compras.getForma_pagamento()}
             );
         }
     }
@@ -169,7 +169,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Data da Compra", "Fornecedor", "Valor Total", "Status"
+                "Data da Compra", "Fornecedor", "Valor Total", "Pagamento"
             }
         ) {
             boolean[] canEdit = new boolean [] {

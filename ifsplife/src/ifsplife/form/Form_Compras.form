@@ -53,46 +53,43 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="ProdutosDaCompra" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="JButtonRemoverItem1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="ButtonPesquisarProduto" min="-2" pref="140" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JButtonAdicionarItem" min="-2" pref="135" max="-2" attributes="0"/>
+                              <Component id="JButtonAdicionarProduto" min="-2" pref="135" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JButtonRemoverItem" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="JButtonRemoverProduto" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="panelBorder3" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                      <Component id="panelBorder5" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="panelBorder4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panelDetalhesCompra" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jScrollPaneProdutos" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                  <Component id="panelBorderParcelass" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                              <Component id="panelBorderParcelas" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="panelBorderTabelas" min="-2" pref="0" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtItem" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
-                                          <Component id="jSeparatorItem" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
-                                          <Component id="jLabelItem" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="txtProduto" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="jSeparatorProduto" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="jLabelProduto" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jSeparatorValorItem" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="jLabelValorItem" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextFieldValorItem" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="jSeparatorValorProduto" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="jLabelValorProduto" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="txtValorProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -104,9 +101,9 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="jSeparatorValorTotal" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
-                                              <Component id="jFormattedTextFieldValorTotal" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                              <Component id="txtValorTotalProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jLabelValorTotal" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="jLabelValorTotalProdutos" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -121,69 +118,61 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="JButtonRemoverItem" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="JButtonAdicionarItem" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="JButtonRemoverProduto" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="JButtonAdicionarProduto" min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="JButtonRemoverItem1" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonPesquisarProduto" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="ProdutosDaCompra" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelBorderTabelas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="284" max="32767" attributes="0"/>
+                              <Component id="jLabelProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparatorProduto" min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorItem" min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelValorItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldValorItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorValorItem" min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelValorTotal" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldValorTotal" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorValorTotal" min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="panelBorder4" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="panelBorder5" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="panelBorder3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelValorProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtValorProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparatorValorProduto" min="-2" pref="10" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelValorTotalProdutos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtValorTotalProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparatorValorTotal" min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPaneProdutos" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="panelBorderParcelas" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="panelBorderParcelass" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="panelDetalhesCompra" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="ProdutosDaCompra">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="sansserif" size="18" style="1"/>
@@ -194,7 +183,7 @@
                 <Property name="text" type="java.lang.String" value="Produtos da Compra"/>
               </Properties>
             </Component>
-            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonRemoverItem1">
+            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="ButtonPesquisarProduto">
               <Properties>
                 <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -207,17 +196,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel22" alignment="0" pref="140" max="32767" attributes="0"/>
+                      <Component id="txtPesquisarProduto" alignment="0" pref="140" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel22" alignment="1" pref="25" max="32767" attributes="0"/>
+                      <Component id="txtPesquisarProduto" alignment="1" pref="25" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel22">
+                <Component class="javax.swing.JLabel" name="txtPesquisarProduto">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -229,12 +218,12 @@
                     <Property name="text" type="java.lang.String" value="Pesquisar Produto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel22MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPesquisarProdutoMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonAdicionarItem">
+            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonAdicionarProduto">
               <Properties>
                 <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -247,17 +236,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel17" alignment="0" pref="135" max="32767" attributes="0"/>
+                      <Component id="txtAdicionarProduto" alignment="0" pref="135" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel17" alignment="1" pref="25" max="32767" attributes="0"/>
+                      <Component id="txtAdicionarProduto" alignment="1" pref="25" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel17">
+                <Component class="javax.swing.JLabel" name="txtAdicionarProduto">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -269,12 +258,12 @@
                     <Property name="text" type="java.lang.String" value="Adicionar Produto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel17MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAdicionarProdutoMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonRemoverItem">
+            <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonRemoverProduto">
               <Properties>
                 <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -284,23 +273,23 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonRemoverItemMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonRemoverProdutoMouseClicked"/>
               </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel19" alignment="0" pref="143" max="32767" attributes="0"/>
+                      <Component id="txtRemoverProduto" alignment="0" pref="143" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel19" alignment="1" pref="25" max="32767" attributes="0"/>
+                      <Component id="txtRemoverProduto" alignment="1" pref="25" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel19">
+                <Component class="javax.swing.JLabel" name="txtRemoverProduto">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -312,42 +301,19 @@
                     <Property name="text" type="java.lang.String" value="Remover Produto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel19MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtRemoverProdutoMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorderTabelas">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[939, 385]"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorder3">
+            <Container class="ifsplife.dev.swing.PanelBorder" name="panelDetalhesCompra">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="panelBorder2" max="32767" attributes="0"/>
+                          <Component id="panelDetalhes" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -356,14 +322,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="panelBorder2" max="32767" attributes="0"/>
+                          <Component id="panelDetalhes" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorder2">
+                <Container class="ifsplife.dev.swing.PanelBorder" name="panelDetalhes">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -669,25 +635,36 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JSeparator" name="jSeparatorValorTotal">
+            <Component class="javax.swing.JLabel" name="jLabelProduto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Produtos:"/>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparatorQtdItem">
+            <Component class="javax.swing.JTextField" name="txtProduto">
             </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparatorValorItem">
+            <Component class="javax.swing.JSeparator" name="jSeparatorProduto">
             </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparatorItem">
+            <Component class="javax.swing.JLabel" name="jLabelValorProduto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Valor do Produto:"/>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtItem">
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldValorItem">
+            <Component class="javax.swing.JFormattedTextField" name="txtValorProduto">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="#,##0.00" subtype="-1" type="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldValorItemActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorProdutoActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparatorValorProduto">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelQtdItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quantidade do Produto:"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtQuantidadeItem">
               <Events>
@@ -695,34 +672,23 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtQuantidadeItemKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldValorTotal">
+            <Component class="javax.swing.JSeparator" name="jSeparatorQtdItem">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelValorTotalProdutos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Valor Total do Produto:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtValorTotalProduto">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="#,##0.00" subtype="-1" type="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelValorTotal">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Valor Total do Produto:"/>
-              </Properties>
+            <Component class="javax.swing.JSeparator" name="jSeparatorValorTotal">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelQtdItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Quantidade do Produto:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelValorItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Valor do Produto:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Produtos:"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+            <Container class="javax.swing.JScrollPane" name="jScrollPaneProdutos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -751,7 +717,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorder4">
+            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorderParcelas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -765,7 +731,7 @@
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="478" max="-2" attributes="0"/>
+                              <Component id="jScrollPaneParcelas" min="-2" pref="478" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -773,11 +739,11 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="270" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="282" max="32767" attributes="0"/>
+                              <Component id="jScrollPaneParcelas" pref="282" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -785,7 +751,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                <Container class="javax.swing.JScrollPane" name="jScrollPaneParcelas">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ef" green="ef" red="ef" type="rgb"/>
@@ -800,14 +766,20 @@
                     <Component class="ifsplife.dev.swing.Table" name="tableParcelas">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="3" rowCount="4">
-                            <Column editable="false" title="Data Vencimento" type="java.lang.Object"/>
+                          <Table columnCount="4" rowCount="4">
+                            <Column editable="true" title="Parcela" type="java.lang.Object"/>
+                            <Column editable="false" title="Vencimento" type="java.lang.Object"/>
                             <Column editable="false" title="Valor" type="java.lang.Object"/>
                             <Column editable="false" title="Status" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
@@ -834,7 +806,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorder5">
+            <Container class="ifsplife.dev.swing.PanelBorder" name="panelBorderParcelass">
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -867,21 +839,38 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLabelDataDeVencimento" alignment="0" pref="148" max="32767" attributes="0"/>
-                                  <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="valorParcela" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="jSeparatorDataVencimento" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabelDataVencimento" max="32767" attributes="0"/>
+                                                      <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="JLabelDataDeVencimento" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jSeparator7" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="valorParcela" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="JButtonAdicionarItem2" min="-2" pref="128" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="JButtonAdicionarItem2" min="-2" pref="128" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -890,41 +879,35 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="16" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jSeparator6" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="jSeparator7" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="valorParcela" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JButtonAdicionarItem2" min="-2" pref="25" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelDataVencimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
+                                  <Component id="valorParcela" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jSeparatorDataVencimento" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="jSeparator7" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JButtonAdicionarItem2" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel3">
+                    <Component class="javax.swing.JLabel" name="jLabelDataVencimento">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Data de Vencimento"/>
                       </Properties>
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="JLabelDataDeVencimento">
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator6">
+                    <Component class="javax.swing.JSeparator" name="jSeparatorDataVencimento">
                     </Component>
                     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonAdicionarItem2">
                       <Properties>
@@ -935,6 +918,9 @@
                           <Dimension value="[90, 22]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonAdicionarItem2MouseClicked"/>
+                      </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -977,6 +963,11 @@
                     <Component class="javax.swing.JSeparator" name="jSeparator7">
                     </Component>
                     <Component class="javax.swing.JFormattedTextField" name="valorParcela">
+                      <Properties>
+                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                          <Format format="#,##0.00" subtype="-1" type="0"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>

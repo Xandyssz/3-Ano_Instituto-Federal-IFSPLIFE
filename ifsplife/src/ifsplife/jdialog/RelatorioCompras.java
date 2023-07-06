@@ -7,11 +7,14 @@ import ifsplife.model.Fornecedores;
 import ifsplife.model.Pagamentocompra;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtocompra;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class RelatorioCompras extends javax.swing.JDialog {
+
+    private SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
     ControleCompra controleCompra = new ControleCompra();
     ControleFornecedor controle = new ControleFornecedor();
@@ -57,12 +60,11 @@ public class RelatorioCompras extends javax.swing.JDialog {
         int sequencia = 1;
 
         // varre todos os produtos que estão no controle
-        for (Produtocompra item : itens) {
-            modelo.addRow(new Object[]{
-                item.getcodigo_produto().getNome(),
-                item.getcodigo_produto().getValor(),
-                item.getQuantidade(), // Obtém a quantidade do item individualmente
-                item.getSubtotal()});
+        for (Pagamentocompra pagamento : pagamentos) {
+            modelo.addRow(new Object[]{pagamento.getParcela(),
+                formatador.format(pagamento.getVencimento()),
+                pagamento.getValor(),
+                pagamento.getStatus()});
         }
     }
 
@@ -87,9 +89,17 @@ public class RelatorioCompras extends javax.swing.JDialog {
             c = new Compras();
         }
         c.setData_compra(DataVenda.getDate());
+
         for (Produtocompra item : itens) {
             c.adicionarItem(item);
         }
+
+        // MEXER NISTO###########
+        for (Pagamentocompra p : pagamentos) {
+            c.setPagamentocompra(pagamentos);
+        }
+        // MEXER NISTO###########
+
         c.setForma_pagamento((String) jComboBoxFormaPagamento.getSelectedItem());
         c.setCodigo_fornecedor(fornecedorSelecionado);
         return c;
@@ -102,7 +112,12 @@ public class RelatorioCompras extends javax.swing.JDialog {
         JTextFieldResponsavel.setText(compras.getCodigo_fornecedor().getResponsavel());
         jComboBoxFormaPagamento.setSelectedItem(compras.getCodigo_fornecedor());
         itens.addAll(compras.getItemcompra());
+
+        // MEXER NISTO###########
+        pagamentos.addAll(compras.getPagamentocompra());
+        // MEXER NISTO###########
         atualizarTabelaItens();
+        atualizarTabelaParcelas();
     }
 
     @SuppressWarnings("unchecked")
@@ -357,17 +372,17 @@ public class RelatorioCompras extends javax.swing.JDialog {
 
         tableParcelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Data de Vencimento", "Valor", "Status"
+                "Parcela", "Data de Vencimento", "Valor", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

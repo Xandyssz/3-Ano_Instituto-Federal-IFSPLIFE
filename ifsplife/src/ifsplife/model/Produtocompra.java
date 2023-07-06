@@ -2,6 +2,7 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ import javax.persistence.Table;
 public class Produtocompra implements Serializable {
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
     private Compras codigo_compra;
 

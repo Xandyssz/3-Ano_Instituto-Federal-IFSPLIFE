@@ -3,6 +3,7 @@ package ifsplife.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -43,7 +44,7 @@ public class Pagamentocompra implements Serializable {
     private Caixa codigo_caixa;
 
     @Id
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
     private Compras codigo_compra;
 

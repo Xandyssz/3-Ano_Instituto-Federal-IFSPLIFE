@@ -173,6 +173,17 @@ public class Form_Venda extends javax.swing.JPanel {
         return somaTabela;
     }
 
+    public void atualizarEstoque(int quantidadeVendida) {
+        int estoqueAnterior = itemSelecionado.getQuantidade();
+        int estoqueAtualizado = estoqueAnterior - quantidadeVendida;
+        itemSelecionado.setQuantidade(estoqueAtualizado);
+
+        System.out.println("Estoque do item " + itemSelecionado.getNome() + " atualizado:");
+        System.out.println("Estoque anterior: " + estoqueAnterior);
+        System.out.println("Quantidade vendida: " + quantidadeVendida);
+        System.out.println("Estoque atualizado: " + estoqueAtualizado);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -258,7 +269,7 @@ public class Form_Venda extends javax.swing.JPanel {
         JButtonPesquisarItem.setLayout(JButtonPesquisarItemLayout);
         JButtonPesquisarItemLayout.setHorizontalGroup(
             JButtonPesquisarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
         );
         JButtonPesquisarItemLayout.setVerticalGroup(
             JButtonPesquisarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +293,7 @@ public class Form_Venda extends javax.swing.JPanel {
         JButtonAdicionarItem.setLayout(JButtonAdicionarItemLayout);
         JButtonAdicionarItemLayout.setHorizontalGroup(
             JButtonAdicionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         JButtonAdicionarItemLayout.setVerticalGroup(
             JButtonAdicionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,9 +601,9 @@ public class Form_Venda extends javax.swing.JPanel {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonPesquisarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtonAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -825,6 +836,12 @@ public class Form_Venda extends javax.swing.JPanel {
         if (this.confirmou = true) {
             v = this.getVendas();
             controleVenda.adicionar(v);
+
+            // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            for (Produtovenda item : itens) {
+                atualizarEstoque(item.getQuantidade());
+            }
+            // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
             atualizarTabelaItens();
 

@@ -48,13 +48,13 @@ public class Compras implements Serializable {
     @Column(name = "valortotal", nullable = false)
     private double valortotal;
 
-    @OneToMany(cascade = CascadeType.ALL,
+    @OneToMany(cascade = CascadeType.PERSIST,
             orphanRemoval = true,
             mappedBy = "codigo_compra")
     private List<Produtocompra> itemcompra = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL,
-            orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.PERSIST, 
+            orphanRemoval = true, 
             mappedBy = "codigo_compra")
     private List<Pagamentocompra> pagamentocompra;
 
@@ -125,8 +125,8 @@ public class Compras implements Serializable {
 
     public void setPagamentocompra(List<Pagamentocompra> pagamentocompra) {
         this.pagamentocompra = pagamentocompra;
-        for(Pagamentocompra p : pagamentocompra){
-          p.setCodigo_compra(this);
+        for (Pagamentocompra p : pagamentocompra) {
+            p.setCodigo_compra(this);
         }
     }
 
