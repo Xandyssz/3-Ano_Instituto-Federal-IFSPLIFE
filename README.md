@@ -32,30 +32,16 @@ Por fim, o sistema tem dois níveis de acesso, o Administrador e o Funcionário.
 
 # Capítulo 2 - DOCUMENTAÇÃO
 **Descrição das Documentações:**<br>
-o Levantamento de Dados -  
+o Levantamento de Dados | ✅<br>  
 o Escopo | ✅<br> 
-o Protótipo - <br>
 o Modelo Lógico | ✅<br>
 o Modelo Fisico | ✅<br>
-o Diagrama Caso de Uso - <br>
+o Diagrama de Classes | ✅<br>
+o Diagrama Caso de Uso | ✅<br>
 o Diagrama Caso de Atividade - <br> 
-o Diagrama de Classes - <br>
 o Doc. Semana Nacional de Ciência e Tecnologia - 
 
-
-# Capítulo 3 - IMPLEMENTAÇÃO 
-**Descrição das Implementações:**<br>
-**Lista de Módulos:**<br>
-o Interface de Login - [LOGIN] & [SPLASHSCREEN] | ✅<br>
-o Interface Home - | ❎<br>
-o Interface dos Fornecedores  - [Fornecedores] |  ✅<br>
-o Interface de Compra - [ComprarProdutos] | ✅<br>
-o Interface dos Medicamentos - [BuscarProdutos] | ✅<br>
-o Interface de Venda - [NF] | ✅<br>
-o Interface de Úsuarios - [Usuarios] | ✅<br>
-o Interface Convênios - [Convênios] | ✅
-
-# Capítulo 4 - DEFINIÇÃO DE FUNÇÕES 
+# Capítulo 3 - DEFINIÇÃO DE FUNÇÕES 
 **Descrição das Funções**
 Todos as funções que serão implementadas no sistema.
 **Lista de Funções:**<p>
