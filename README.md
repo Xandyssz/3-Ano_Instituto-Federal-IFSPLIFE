@@ -52,8 +52,8 @@ o Função Fundamental 1.0 - Efetuar Compra
      um determinado fornecedor. Quando é efetuado uma nova compra, é gerado informações sobre o pedido dos produtos comprados, como também é realizado a atualização do estoque. Essa função também permite que a compra possa ser alterada.
      
     Itens de Informações » 
-     - Identificação da Compra - Código numérico com no máximo 4 casas
-     - Identificação do Fornecedor - Código numérico com no máximo 4 casas
+     - Identificação da Compra - Código numérico com no máximo 4 casas;
+     - Identificação do Fornecedor - Código numérico com no máximo 4 casas;
      - Valor da compra - conjunto numérico;
      - Forma de Pagamento – texto com tamanho máximo de 45;
      - Data de Compra - dd/mm/aaaa;<p>
@@ -83,14 +83,14 @@ o Função Fundamental 1.2 - Efetuar Venda
      - Identificação da Venda – Código numérico com no máximo 4 casas;
      - Data da venda - dd/mm/aaaa;
      - Valor da venda - conjunto numérico;
-     - Convênio – 1 letra – S – Possui, N – Não Possui
+     - Convênio – texto com tamanho máximo de 45;
      - Forma de Pagamento – texto com tamanho máximo de 45;
 
      PARA CADA ITEM VENDIDO »
      - Identificação da Venda – Código numérico com no máximo 4 casas;
-     - Identificação do Produto – Código numérico com no máximo 9 casas
-     - Preço – Conjunto numérico
-     - Quantidade do Produto – Valor numérico inteiro
+     - Identificação do Produto – Código numérico com no máximo 9 casas;
+     - Preço – Conjunto numérico;
+     - Quantidade do Produto – Valor numérico inteiro;
 
 o Função Fundamental 1.3 - Gerenciar Caixa
 
@@ -99,10 +99,10 @@ o Função Fundamental 1.3 - Gerenciar Caixa
     Itens de Informações » 
      - Código do Caixa – dd/mm/aaaa;
      - Status – texto com tamanho máximo 45;
-     - Horário de abertura - hh;mm:ss
+     - Horário de abertura - hh;mm:ss;
      - Valor de abertura – conjunto numérico;
      - Total de entradas – conjunto numérico;
-     - Horário de fechamento - hh;mm:ss
+     - Horário de fechamento - hh;mm:ss;
      - Total de saídas – conjunto numérico;
      - Saldo – conjunto numérico; <p>
 
