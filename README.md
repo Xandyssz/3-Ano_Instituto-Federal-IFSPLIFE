@@ -85,6 +85,7 @@ o Função Fundamental 1.2 - Efetuar Venda
      - Valor da venda - conjunto numérico;
      - Convênio – 1 letra – S – Possui, N – Não Possui
      - Forma de Pagamento – texto com tamanho máximo de 45;
+
      PARA CADA ITEM VENDIDO »
      - Identificação da Venda – Código numérico com no máximo 4 casas;
      - Identificação do Produto – Código numérico com no máximo 9 casas
@@ -103,6 +104,7 @@ o Função Fundamental 1.3 - Gerenciar Caixa
      - Horário de fechamento - hh;mm:ss
      - Total de saídas – conjunto numérico;
      - Saldo – conjunto numérico; <p>
+
      PARA CADA SANGRIA/SUPLEMENTAÇÃO »
      - Código do Caixa – conjunto numérico;
      - Código Movimentação – conjunto numérico;
