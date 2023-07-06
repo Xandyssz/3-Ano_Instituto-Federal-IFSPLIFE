@@ -235,9 +235,7 @@ o Função Saída 1.2 - Gerar Relatório de Venda
      - Subtotal – Conjunto numérico
 
 # Capítulo 5 - CONCLUSÕES
- Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede, de forma que, facilita atividades como o *[FUNÇÃO AQUI*]. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
-
-    o A coleta de informações detalhadas deve ser feita. Sem isso, o propósito de usar o sistema não será adequada.
+ Este projeto foi projetado com uma alta usabilidade, de forma que os usuários não terão dificuldades em utilizar nenhuma das funcionalidades. O sistema, em geral otimiza as atividades da rede. O ganho de produtividade e a redução do tempo de entrega dos resultados são muito expressivos. Reduzindo erros procedimentais. Espera-se que o projeto venha a ser concluído com todas as funções até dezembro de 2023.
 
 ## Stack utilizada
 
