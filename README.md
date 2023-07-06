@@ -32,12 +32,12 @@ Por fim, o sistema tem dois níveis de acesso, o Administrador e o Funcionário.
 
 # Capítulo 2 - DOCUMENTAÇÃO
 **Descrição das Documentações:**<br>
-o Levantamento de Dados | ✅<br>  
-o Escopo | ✅<br> 
-o Modelo Lógico | ✅<br>
-o Modelo Fisico | ✅<br>
-o Diagrama de Classes | ✅<br>
-o Diagrama Caso de Uso | ✅<br>
+o Levantamento de Dados |  ✅<br>  
+o Escopo |  ✅<br> 
+o Modelo Lógico |  ✅<br>
+o Modelo Fisico |  ✅<br>
+o Diagrama de Classes |  ✅<br>
+o Diagrama Caso de Uso |  ✅<br>
 o Diagrama Caso de Atividade - <br> 
 o Doc. Semana Nacional de Ciência e Tecnologia - 
 
