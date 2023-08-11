@@ -1,6 +1,8 @@
 package ifsplife.control;
 
 import ifsplife.model.Caixa;
+import ifsplife.model.Produto;
+import ifsplife.model.Produtovenda;
 import ifsplife.model.Vendas;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -15,6 +17,13 @@ public class ControleVenda {
         gerente.getTransaction().begin();
 
         gerente.persist(vendas);
+
+        for (Produtovenda pv : vendas.getProdutovendaList()) {
+            Produto p = pv.getcodigo_produto();
+            p.atualizarEstoqueVenda(pv.getQuantidade());
+            System.out.println(p.getQuantidade());
+            gerente.merge(p);
+        }
 
         gerente.getTransaction().commit();
 

@@ -86,17 +86,11 @@ public class Produto implements Serializable {
     // METODO PARA ATUALIZAR O ESTOQUE, QUANDO REALIZA UMA  VENDA
     public void atualizarEstoqueVenda(int quantidadeVendida) {
         this.quantidade -= quantidadeVendida;
-        if (this.quantidade < 0) {
-            this.quantidade = 0;
-        }
     }
 
     // METODO PARA ATUALIZAR O ESTOQUE, QUANDO REALIZA UMA COMPRA
     public void atualizarEstoqueCompra(int quantidadeComprada) {
-        this.quantidade -= quantidadeComprada;
-        if (this.quantidade < 0) {
-            this.quantidade = 0;
-        }
+        this.quantidade += quantidadeComprada;
     }
     // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 

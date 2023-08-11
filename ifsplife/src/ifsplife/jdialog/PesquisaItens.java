@@ -156,7 +156,15 @@ public class PesquisaItens extends javax.swing.JDialog {
             new String [] {
                 "Nome", "Categoria", "Valor", "Quantidade em Estoque"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableItens);
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);

@@ -1,6 +1,8 @@
 package ifsplife.control;
 
 import ifsplife.model.Compras;
+import ifsplife.model.Produto;
+import ifsplife.model.Produtocompra;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -14,6 +16,13 @@ public class ControleCompra {
         gerente.getTransaction().begin();
 
         gerente.persist(compras);
+        
+        for(Produtocompra pc : compras.getItemcompra())
+        {
+            Produto p = pc.getcodigo_produto();
+            p.atualizarEstoqueCompra(pc.getQuantidade());
+            gerente.merge(p);
+        }
 
         gerente.getTransaction().commit();
 

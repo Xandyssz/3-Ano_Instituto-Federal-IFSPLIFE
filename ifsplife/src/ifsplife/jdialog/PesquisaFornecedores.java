@@ -134,7 +134,15 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
             new String [] {
                 "Nome", "Responsavel", "CNPJ", "Contato"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableFornecedores);
 
         jLabelItens1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
