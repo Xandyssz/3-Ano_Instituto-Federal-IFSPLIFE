@@ -1,12 +1,22 @@
 package ifsplife.form;
 
 import ifsplife.control.ControleFornecedor;
+import ifsplife.control.ControleFuncionario;
 import ifsplife.jdialog.CrudFornecedor;
 import ifsplife.model.Fornecedores;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Form_Fornecedores extends javax.swing.JPanel {
 
@@ -58,6 +68,8 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFornecedores = new ifsplife.dev.swing.Table();
         jLabel3 = new javax.swing.JLabel();
+        JButtonRelatorio2 = new ifsplife.dev.swing.PanelBorderGradient();
+        jLabel21 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 239, 239));
 
@@ -66,6 +78,11 @@ public class Form_Fornecedores extends javax.swing.JPanel {
 
         search1.setForeground(new java.awt.Color(153, 153, 153));
         search1.setBorder(null);
+        search1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search1ActionPerformed(evt);
+            }
+        });
         search1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 search1KeyTyped(evt);
@@ -94,7 +111,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(clear1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(search1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                .addComponent(search1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap())
@@ -104,9 +121,9 @@ public class Form_Fornecedores extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(search1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(clear1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clear1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(search1))
                 .addContainerGap())
         );
 
@@ -240,7 +257,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -254,6 +271,30 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        JButtonRelatorio2.setFirstColor(new java.awt.Color(153, 153, 153));
+        JButtonRelatorio2.setPreferredSize(new java.awt.Dimension(112, 35));
+        JButtonRelatorio2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonRelatorio2MouseClicked(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Gerar Relatório");
+
+        javax.swing.GroupLayout JButtonRelatorio2Layout = new javax.swing.GroupLayout(JButtonRelatorio2);
+        JButtonRelatorio2.setLayout(JButtonRelatorio2Layout);
+        JButtonRelatorio2Layout.setHorizontalGroup(
+            JButtonRelatorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+        );
+        JButtonRelatorio2Layout.setVerticalGroup(
+            JButtonRelatorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -274,7 +315,9 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                         .addComponent(JButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JButtonRelatorio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(17, 17, 17))
         );
@@ -286,7 +329,8 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonRelatorio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -371,22 +415,52 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JButtonExcluirMouseClicked
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
-       atualizarTabela();
+        atualizarTabela();
     }//GEN-LAST:event_search1KeyTyped
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         atualizarTabela();
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void JButtonRelatorio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRelatorio2MouseClicked
+        try {
+            ControleFornecedor cfo = new ControleFornecedor();
+
+            JasperReport relatorioCompilado
+                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioFornecedores.jrxml");
+
+            JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
+                    new JRBeanCollectionDataSource(cfo.getTodos()));
+
+            JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
+
+            painelRelatorio.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Form_RelatorioCompras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JButtonRelatorio2MouseClicked
+
+    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonEditar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir;
+    private ifsplife.dev.swing.PanelBorderGradient JButtonRelatorio;
+    private ifsplife.dev.swing.PanelBorderGradient JButtonRelatorio1;
+    private ifsplife.dev.swing.PanelBorderGradient JButtonRelatorio2;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
     private javax.swing.JLabel clear1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

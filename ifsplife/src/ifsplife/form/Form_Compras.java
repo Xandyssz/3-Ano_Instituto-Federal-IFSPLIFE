@@ -41,6 +41,7 @@ public class Form_Compras extends javax.swing.JPanel {
     public Form_Compras() {
         initComponents();
         desativarInputs();
+        desabilitarTextos();
     }
 
     public void setAlterar(boolean alterar) {
@@ -49,6 +50,13 @@ public class Form_Compras extends javax.swing.JPanel {
 
     public boolean isConfirmou() {
         return confirmou;
+    }
+
+    public void desabilitarTextos() {
+        txtProduto.setEditable(false);
+        txtValorProduto.setEditable(false);
+        txtValorTotalProduto.setEditable(false);
+        fornecedores.setEditable(false);
     }
 
     public void limparTexto() {
@@ -61,7 +69,13 @@ public class Form_Compras extends javax.swing.JPanel {
     private void setVisibilidade(boolean visivel) {
         JLabelDataDeVencimento.setVisible(visivel);
         JLabelFornecedor.setVisible(visivel);
+        //
         fornecedores.setVisible(visivel);
+        jLabel2.setVisible(visivel);
+        jSeparator3.setVisible(visivel);
+        //
+
+        comboParcelas.setVisible(visivel);
         jButton1.setVisible(visivel);
         JLabelUsuario.setVisible(visivel);
         JTextFieldResponsavel.setVisible(visivel);
@@ -667,6 +681,11 @@ public class Form_Compras extends javax.swing.JPanel {
         valorParcela.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         comboParcelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x", "11x", "12x" }));
+        comboParcelas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboParcelasItemStateChanged(evt);
+            }
+        });
         comboParcelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboParcelasActionPerformed(evt);
@@ -1080,6 +1099,50 @@ public class Form_Compras extends javax.swing.JPanel {
     private void comboParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParcelasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboParcelasActionPerformed
+
+    private void comboParcelasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboParcelasItemStateChanged
+        String selectedParcela = comboParcelas.getSelectedItem().toString();
+        double valorTotal = Double.parseDouble(txtValorTotalProduto.getValue().toString());
+
+        switch (selectedParcela) {
+            case "1x" -> {
+                valorParcela.setText(txtValorTotalProduto.getValue().toString());
+            }
+            case "2x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 2));
+            }
+            case "3x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 3));
+            }
+            case "4x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 4));
+            }
+            case "5x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 5));
+            }
+            case "6x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 6));
+            }
+            case "7x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 7));
+            }
+            case "8x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 8));
+            }
+            case "9x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 9));
+            }
+            case "10x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 10));
+            }
+            case "11x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 11));
+            }
+            case "12x" -> {
+                valorParcela.setText(Double.toString(valorTotal / 12));
+            }
+        }
+    }//GEN-LAST:event_comboParcelasItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient ButtonPesquisarProduto;

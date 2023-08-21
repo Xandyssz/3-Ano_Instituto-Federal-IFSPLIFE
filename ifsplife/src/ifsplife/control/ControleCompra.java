@@ -3,6 +3,7 @@ package ifsplife.control;
 import ifsplife.model.Compras;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtocompra;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -16,9 +17,8 @@ public class ControleCompra {
         gerente.getTransaction().begin();
 
         gerente.persist(compras);
-        
-        for(Produtocompra pc : compras.getItemcompra())
-        {
+
+        for (Produtocompra pc : compras.getItemcompra()) {
             Produto p = pc.getcodigo_produto();
             p.atualizarEstoqueCompra(pc.getQuantidade());
             gerente.merge(p);
@@ -68,6 +68,19 @@ public class ControleCompra {
         return consulta.getResultList();
 
     }
-    
+
+    public List<Compras> getPorPeriodo(Date inicio, Date fim) {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Compras> consulta
+                = gerente.createNamedQuery("Compras.findByPeriodo", Compras.class);
+
+        consulta.setParameter("datainicio", inicio);
+        consulta.setParameter("datafim", fim);
+        
+        return consulta.getResultList();
+
+    }
 
 }

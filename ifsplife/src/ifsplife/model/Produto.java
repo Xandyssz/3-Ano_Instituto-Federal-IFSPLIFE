@@ -26,7 +26,11 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Produto.findByDosagem", query = "SELECT i FROM Produto i WHERE i.dosagem = :dosagem"),
     @NamedQuery(name = "Produto.findByLote", query = "SELECT i FROM Produto i WHERE i.lote = :lote"),
     @NamedQuery(name = "Produto.findByNome", query = "SELECT i FROM Produto i WHERE i.nome like :nome"),
-    @NamedQuery(name = "Produto.findByQuantidade", query = "SELECT i FROM Produto i WHERE i.quantidade = :quantidade"),
+    
+    
+    @NamedQuery(name = "Produto.findByQuantidade", query = "SELECT i FROM Produto i WHERE i.quantidade < 10"),
+    
+    
     @NamedQuery(name = "Produto.findByValor", query = "SELECT i FROM Produto i WHERE i.valor = :valor")})
 
 public class Produto implements Serializable {

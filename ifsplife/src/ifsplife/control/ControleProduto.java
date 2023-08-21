@@ -83,4 +83,12 @@ public class ControleProduto {
 
         return consulta.getResultList();
     }
+
+    public List<Produto> quantidadeProduto() {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Produto> consulta = gerente.createNamedQuery("Produto.findByQuantidade", Produto.class);
+
+        return consulta.getResultList();
+    }
 }

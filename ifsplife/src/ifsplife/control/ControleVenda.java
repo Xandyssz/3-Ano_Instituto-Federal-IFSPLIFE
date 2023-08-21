@@ -4,6 +4,7 @@ import ifsplife.model.Caixa;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtovenda;
 import ifsplife.model.Vendas;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -84,6 +85,20 @@ public class ControleVenda {
         }
 
         return total;
+    }
+
+    public List<Vendas> getPorPeriodo(Date inicio, Date fim) {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Vendas> consulta
+                = gerente.createNamedQuery("Vendas.findByPeriodos", Vendas.class);
+
+        consulta.setParameter("datainicio", inicio);
+        consulta.setParameter("datafim", fim);
+
+        return consulta.getResultList();
+
     }
 
 }

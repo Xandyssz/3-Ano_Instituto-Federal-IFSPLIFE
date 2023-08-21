@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +27,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Compras.findByCodigoCompra", query = "SELECT c FROM Compras c WHERE c.codigo_compra = :codigoCompra"),
     @NamedQuery(name = "Compras.findByDataCompra", query = "SELECT c FROM Compras c WHERE c.data_compra = :dataCompra"),
     @NamedQuery(name = "Compras.findByFormaPagamento", query = "SELECT c FROM Compras c WHERE c.forma_pagamento = :formaPagamento"),
+    @NamedQuery(name = "Compras.findByPeriodo", query = "SELECT c FROM Compras c WHERE c.data_compra BETWEEN :datainicio AND :datafim"),
     @NamedQuery(name = "Compras.findByValortotal", query = "SELECT c FROM Compras c WHERE c.valortotal = :valortotal")})
 
 public class Compras implements Serializable {
@@ -53,8 +53,8 @@ public class Compras implements Serializable {
             mappedBy = "codigo_compra")
     private List<Produtocompra> itemcompra = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.PERSIST, 
-            orphanRemoval = true, 
+    @OneToMany(cascade = CascadeType.PERSIST,
+            orphanRemoval = true,
             mappedBy = "codigo_compra")
     private List<Pagamentocompra> pagamentocompra;
 
