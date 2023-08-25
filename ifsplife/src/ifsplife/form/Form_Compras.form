@@ -64,22 +64,20 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="panelDetalhesCompra" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jScrollPaneProdutos" max="32767" attributes="0"/>
-                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="panelBorderParcelass" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="panelBorderParcelas" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="panelDetalhesCompra" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
+                                      <Component id="jScrollPaneProdutos" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="panelBorderParcelass" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="panelBorderParcelas" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtProduto" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
                                           <Component id="jSeparatorProduto" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
@@ -97,9 +95,9 @@
                                           <Component id="jLabelQtdItem" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                           <Component id="jSeparatorQtdItem" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                               <Component id="jSeparatorValorTotal" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
                                               <Component id="txtValorTotalProduto" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                                           </Group>
@@ -125,30 +123,32 @@
                               <Component id="ProdutosDaCompra" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparatorProduto" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelProduto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtProduto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorProduto" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelValorProduto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtValorProduto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorValorProduto" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelValorProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtValorProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparatorValorProduto" min="-2" pref="10" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelQtdItem" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtQuantidadeItem" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparatorQtdItem" min="-2" pref="10" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jLabelValorTotalProdutos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtValorTotalProduto" min="-2" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                               <Component id="jSeparatorValorTotal" min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPaneProdutos" pref="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -763,7 +763,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="270" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="264" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -876,27 +876,17 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="jSeparatorDataVencimento" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jLabelDataVencimento" max="32767" attributes="0"/>
-                                                      <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="JLabelDataDeVencimento" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jSeparator7" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="jLabel4" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="valorParcela" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="JLabelDataDeVencimento" pref="159" max="32767" attributes="0"/>
+                                          <Component id="jSeparatorDataVencimento" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelDataVencimento" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -912,25 +902,29 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="16" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelDataVencimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="valorParcela" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboParcelas" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
-                                  <Component id="valorParcela" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboParcelas" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jSeparatorDataVencimento" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jSeparator7" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabelDataVencimento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JLabelDataDeVencimento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSeparatorDataVencimento" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JButtonAdicionarItem2" min="-2" pref="25" max="-2" attributes="0"/>
@@ -939,15 +933,6 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabelDataVencimento">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Data de Vencimento"/>
-                      </Properties>
-                    </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="JLabelDataDeVencimento">
-                    </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparatorDataVencimento">
-                    </Component>
                     <Container class="ifsplife.dev.swing.PanelBorderGradient" name="JButtonAdicionarItem2">
                       <Properties>
                         <Property name="firstColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1041,6 +1026,15 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Parcelas"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelDataVencimento">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Data de Vencimento"/>
+                      </Properties>
+                    </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="JLabelDataDeVencimento">
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparatorDataVencimento">
                     </Component>
                   </SubComponents>
                 </Container>

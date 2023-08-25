@@ -12,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +29,8 @@ public class Form_Venda extends javax.swing.JPanel {
     Produto i = null;
     Vendas v = null;
 
+    Date data = new Date();
+
     ControleConvenio controle = new ControleConvenio();
     ControleVenda controleVenda = new ControleVenda();
 
@@ -37,6 +40,7 @@ public class Form_Venda extends javax.swing.JPanel {
         initComponents();
         desativarInputs();
         desabilitarTextos();
+        DataVenda.setDate(new Date());
 
         for (Convenios c : controle.getTodos()) {
             jComboBoxConvenios.addItem(c);
@@ -87,6 +91,7 @@ public class Form_Venda extends javax.swing.JPanel {
     }
 
     public void desabilitarTextos() {
+        DataVenda.setEnabled(false);
         txtItem.setEditable(false);
         jFormattedTextFieldValorTotal.setEditable(false);
         jFormattedTextFieldPorcentagem.setEditable(false);
@@ -178,10 +183,10 @@ public class Form_Venda extends javax.swing.JPanel {
         int estoqueAtualizado = estoqueAnterior - quantidadeVendida;
         itemSelecionado.setQuantidade(estoqueAtualizado);
 
-        System.out.println("Estoque do item " + itemSelecionado.getNome() + " atualizado:");
-        System.out.println("Estoque anterior: " + estoqueAnterior);
-        System.out.println("Quantidade vendida: " + quantidadeVendida);
-        System.out.println("Estoque atualizado: " + estoqueAtualizado);
+//        System.out.println("Estoque do item " + itemSelecionado.getNome() + " atualizado:");
+//        System.out.println("Estoque anterior: " + estoqueAnterior);
+//        System.out.println("Quantidade vendida: " + quantidadeVendida);
+//        System.out.println("Estoque atualizado: " + estoqueAtualizado);
     }
 
     @SuppressWarnings("unchecked")
@@ -716,12 +721,17 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBoxConveniosItemStateChanged
 
     private void JButtonRemoverItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRemoverItemMouseClicked
+        if (!ControleCaixa.isCaixaAberto()) {
+            JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
+            return;
+        }
+        
         int linha = tableVendas.getSelectedRow();
         int valorColumnIndex = 3;
         double somaTabela = 0;
 
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione o Item para remover.");
+            JOptionPane.showMessageDialog(null, "Selecione o Produto para remover.");
         } else {
             Object valorCelula = tableVendas.getValueAt(linha, valorColumnIndex);
             if (valorCelula instanceof Number) {
@@ -742,13 +752,19 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
 
     private void JButtonAdicionarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItemMouseClicked
+
+        if (!ControleCaixa.isCaixaAberto()) {
+            JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
+            return;
+        }
+
         jComboBoxConvenios.setEnabled(true);
 
         if (this.itemSelecionado == null) {
-            JOptionPane.showMessageDialog(null, "Não foi selecionado um item");
+            JOptionPane.showMessageDialog(null, "Não foi selecionado um Produto");
             JButtonPesquisarItem.requestFocus();
         } else if (txtQuantidadeItem.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "A Quantidade de Itens deve ser preenchida");
+            JOptionPane.showMessageDialog(null, "A Quantidade de Produtos deve ser preenchida");
             txtQuantidadeItem.requestFocus();
         } else {
             // Verificar o estoque do item selecionado

@@ -80,61 +80,73 @@ FROM ifsplife.funcionarios]]>
 		<property name="com.jaspersoft.studio.field.name" value="codigo_funcionario"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_funcionario"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[codigo_funcionario]]></fieldDescription>
 	</field>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
 	</field>
 	<field name="telefone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
 	</field>
 	<field name="endereco" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="endereco"/>
 		<property name="com.jaspersoft.studio.field.label" value="endereco"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[endereco]]></fieldDescription>
 	</field>
 	<field name="salario" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.name" value="salario"/>
 		<property name="com.jaspersoft.studio.field.label" value="salario"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[salario]]></fieldDescription>
 	</field>
 	<field name="nivelacesso" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nivelacesso"/>
 		<property name="com.jaspersoft.studio.field.label" value="nivelacesso"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[nivelacesso]]></fieldDescription>
 	</field>
 	<field name="cidade" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="cidade"/>
 		<property name="com.jaspersoft.studio.field.label" value="cidade"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[cidade]]></fieldDescription>
 	</field>
 	<field name="cep" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="cep"/>
 		<property name="com.jaspersoft.studio.field.label" value="cep"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[cep]]></fieldDescription>
 	</field>
 	<field name="cpf" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
 		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
 	</field>
 	<field name="login" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="login"/>
 		<property name="com.jaspersoft.studio.field.label" value="login"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[login]]></fieldDescription>
 	</field>
 	<field name="senha" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="senha"/>
 		<property name="com.jaspersoft.studio.field.label" value="senha"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[senha]]></fieldDescription>
 	</field>
 	<field name="uf" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="uf"/>
 		<property name="com.jaspersoft.studio.field.label" value="uf"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[uf]]></fieldDescription>
 	</field>
 	<title>
 		<band height="126" splitType="Stretch">

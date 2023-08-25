@@ -78,21 +78,25 @@ FROM ifsplife.vendas
 		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[codigo_venda]]></fieldDescription>
 	</field>
 	<field name="forma_pagamento" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="forma_pagamento"/>
 		<property name="com.jaspersoft.studio.field.label" value="forma_pagamento"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[forma_pagamento]]></fieldDescription>
 	</field>
 	<field name="data_venda" class="java.util.Date">
 		<property name="com.jaspersoft.studio.field.name" value="data_venda"/>
 		<property name="com.jaspersoft.studio.field.label" value="data_venda"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[data_venda]]></fieldDescription>
 	</field>
 	<field name="valor_venda" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.name" value="valor_venda"/>
 		<property name="com.jaspersoft.studio.field.label" value="valor_venda"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[valor_venda]]></fieldDescription>
 	</field>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>

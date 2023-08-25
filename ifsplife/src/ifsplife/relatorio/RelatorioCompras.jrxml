@@ -81,41 +81,49 @@ FROM ifsplife.compras
 		<property name="com.jaspersoft.studio.field.name" value="codigo_compra"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_compra"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+		<fieldDescription><![CDATA[codigo_compra]]></fieldDescription>
 	</field>
-	<field name="data_compra" class="java.sql.Date">
+	<field name="data_compra" class="java.util.Date">
 		<property name="com.jaspersoft.studio.field.name" value="data_compra"/>
 		<property name="com.jaspersoft.studio.field.label" value="data_compra"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+		<fieldDescription><![CDATA[data_compra]]></fieldDescription>
 	</field>
 	<field name="forma_pagamento" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="forma_pagamento"/>
 		<property name="com.jaspersoft.studio.field.label" value="forma_pagamento"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+		<fieldDescription><![CDATA[forma_pagamento]]></fieldDescription>
 	</field>
 	<field name="valortotal" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.name" value="valortotal"/>
 		<property name="com.jaspersoft.studio.field.label" value="valortotal"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+		<fieldDescription><![CDATA[valortotal]]></fieldDescription>
 	</field>
 	<field name="codigo_fornecedor" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="codigo_fornecedor"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_fornecedor"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compras"/>
+		<fieldDescription><![CDATA[codigo_fornecedor.codigo_fornecedor]]></fieldDescription>
 	</field>
 	<field name="responsavel" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="responsavel"/>
 		<property name="com.jaspersoft.studio.field.label" value="responsavel"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
+		<fieldDescription><![CDATA[codigo_fornecedor.responsavel]]></fieldDescription>
 	</field>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
+		<fieldDescription><![CDATA[codigo_fornecedor.nome]]></fieldDescription>
 	</field>
 	<field name="telefone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
+		<fieldDescription><![CDATA[codigo_fornecedor.telefone]]></fieldDescription>
 	</field>
 	<title>
 		<band height="126" splitType="Stretch">

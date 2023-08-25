@@ -9,6 +9,7 @@ import ifsplife.form.Form_Empty;
 import ifsplife.form.Form_Fornecedores;
 import ifsplife.form.Form_Profile;
 import ifsplife.form.Form_Funcionarios;
+import ifsplife.form.Form_Pagamentos;
 import ifsplife.form.Form_Produto;
 import ifsplife.form.Form_RelatorioCompras;
 import ifsplife.form.Form_RelatorioVendas;
@@ -47,18 +48,20 @@ public class Main_adm extends javax.swing.JFrame {
                 } else if (index == 2 && indexSubMenu == 0) {
                     showForm(new Form_Venda());
                 } else if (index == 3 && indexSubMenu == 0) {
-                    showForm(new Form_Fornecedores());
+                    showForm(new Form_Pagamentos());
                 } else if (index == 4 && indexSubMenu == 0) {
-                    showForm(new Form_Convenios());
+                    showForm(new Form_Fornecedores());
                 } else if (index == 5 && indexSubMenu == 0) {
-                    showForm(new Form_Funcionarios());
+                    showForm(new Form_Convenios());
                 } else if (index == 6 && indexSubMenu == 0) {
-                    showForm(new Form_Produto());
+                    showForm(new Form_Funcionarios());
                 } else if (index == 7 && indexSubMenu == 0) {
-                    showForm(new Form_RelatorioCompras());
+                    showForm(new Form_Produto());
                 } else if (index == 8 && indexSubMenu == 0) {
-                    showForm(new Form_RelatorioVendas());
+                    showForm(new Form_RelatorioCompras());
                 } else if (index == 9 && indexSubMenu == 0) {
+                    showForm(new Form_RelatorioVendas());
+                } else if (index == 10 && indexSubMenu == 0) {
                     showForm(new Form_Profile());
                 } else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));

@@ -239,7 +239,7 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
                 .addComponent(JButtonExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -368,8 +368,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir1;
     private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar1;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar2;
     private com.toedter.calendar.JDateChooser fim;
     private com.toedter.calendar.JDateChooser inicio;
     private javax.swing.JLabel jLabel1;
@@ -378,8 +376,6 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
