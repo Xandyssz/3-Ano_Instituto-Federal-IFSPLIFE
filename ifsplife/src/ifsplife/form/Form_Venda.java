@@ -4,6 +4,7 @@ import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleConvenio;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.PesquisaItens;
+import ifsplife.model.Caixa;
 import ifsplife.model.Convenios;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtovenda;
@@ -851,8 +852,14 @@ public class Form_Venda extends javax.swing.JPanel {
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
         if (this.confirmou = true) {
             v = this.getVendas();
+           
             controleVenda.adicionar(v);
-
+            ControleCaixa.getCaixaAberto().addVenda(v);
+//            ControleCaixa cc = new ControleCaixa();
+//            Caixa c = ControleCaixa.getCaixaAberto();
+//            c.setTotal_entradas(c.getTotal_entradas()+v.getValor_venda());
+//            c.setValor_fechamento(c.getValor_abertura()+c.getTotal_entradas()-c.getTotal_saidas());
+//            cc.fechar(c);
             // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             for (Produtovenda item : itens) {
                 atualizarEstoque(item.getQuantidade());

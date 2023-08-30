@@ -10,6 +10,27 @@ public class ProdutovendaId implements Serializable {
     public ProdutovendaId() {
     }
 
+    public ProdutovendaId(int codigo_venda, int codigo_produto) {
+        this.codigo_venda = codigo_venda;
+        this.codigo_produto = codigo_produto;
+    }
+
+    public int getCodigo_venda() {
+        return codigo_venda;
+    }
+
+    public void setCodigo_venda(int codigo_venda) {
+        this.codigo_venda = codigo_venda;
+    }
+
+    public int getCodigo_produto() {
+        return codigo_produto;
+    }
+
+    public void setCodigo_produto(int codigo_produto) {
+        this.codigo_produto = codigo_produto;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;

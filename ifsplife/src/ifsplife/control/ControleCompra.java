@@ -78,7 +78,7 @@ public class ControleCompra {
 
         consulta.setParameter("datainicio", inicio);
         consulta.setParameter("datafim", fim);
-        
+
         return consulta.getResultList();
 
     }

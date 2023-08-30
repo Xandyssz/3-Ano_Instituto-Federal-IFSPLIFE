@@ -154,24 +154,35 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabelValorInicial" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <Component id="jSeparatorValorInicial" alignment="0" pref="302" max="32767" attributes="0"/>
-                                      <Component id="jSeparatorDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
-                                      <Component id="jLabelDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelRSInicial" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="JFormattedTextFieldValorInicial" min="-2" pref="257" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabelValorInicial" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="jSeparatorValorInicial" alignment="0" pref="302" max="32767" attributes="0"/>
+                                          <Component id="jSeparatorDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
+                                          <Component id="jLabelDataDeAbertura" alignment="0" pref="302" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabelRSInicial" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="JFormattedTextFieldValorInicial" min="-2" pref="257" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="JTextFieldDataDeAbertura" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabelRSSangria" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="JFormattedTextFieldSangria" min="-2" pref="217" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabelValorSangria" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jSeparatorSangria" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="JTextFieldDataDeAbertura" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelRSSangria" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="JFormattedTextFieldSangria" min="-2" pref="217" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabelRSSangria1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="JFormattedTextFieldCompras" min="-2" pref="217" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabelValorSangria1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jSeparatorSangria1" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabelValorSangria" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jSeparatorSangria" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -183,6 +194,15 @@
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Component id="jSeparatorSuplementacao" alignment="1" min="-2" pref="292" max="-2" attributes="0"/>
                                           <Component id="jSeparatorValorTotal" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="jSeparatorSuplementacao1" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                                              <Component id="jLabelValorSuplementacao1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabelRSSuplementacao1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="JFormattedTextFieldVendas" min="-2" pref="195" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -265,17 +285,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabelValorSangria" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelRSSangria" min="-2" max="-2" attributes="0"/>
-                                      <Component id="JFormattedTextFieldSangria" min="-2" pref="16" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jSeparatorSangria" min="-2" pref="15" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabelValorSuplementacao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -285,9 +295,37 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jSeparatorSuplementacao" min="-2" pref="12" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="jLabelValorSuplementacao1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="JFormattedTextFieldVendas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRSSuplementacao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorSuplementacao1" min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelValorSangria" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelRSSangria" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JFormattedTextFieldSangria" min="-2" pref="16" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorSangria" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabelValorSangria1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelRSSangria1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JFormattedTextFieldCompras" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparatorSangria1" min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -556,6 +594,58 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="jLabelValorSuplementacao1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Valor Vendas"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="JFormattedTextFieldVendas">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                      <Format format="#,##0.00" subtype="-1" type="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSeparator" name="jSeparatorSuplementacao1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRSSuplementacao1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="R$"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSeparator" name="jSeparatorSangria1">
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="JFormattedTextFieldCompras">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                      <Format format="#,##0.00" subtype="-1" type="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelValorSangria1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Valor Compra"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRSSangria1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="R$"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

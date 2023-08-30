@@ -75,10 +75,6 @@ public class Caixa implements Serializable {
             mappedBy = "codigo_caixa")
     private List<Movimentacao> movimentacao = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.REFRESH,
-            mappedBy = "codigo_caixa")
-    private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
-
     public Caixa() {
     }
 
@@ -111,6 +107,7 @@ public class Caixa implements Serializable {
         this.status = status;
     }
 
+    // GETTER DOS VALORES DE MOVIMENTAÇÃO //
     public double getSangria() {
         double soma_sangria = 0;
         for (Movimentacao mo : this.movimentacao) {
@@ -120,7 +117,6 @@ public class Caixa implements Serializable {
         }
         return soma_sangria;
     }
-
     public double getSuplementacao() {
         double soma_suplementacao = 0;
         for (Movimentacao mo : this.movimentacao) {
@@ -130,7 +126,31 @@ public class Caixa implements Serializable {
         }
         return soma_suplementacao;
     }
+    // GETTER DOS VALORES DE MOVIMENTAÇÃO //
+    
+    // GETTER DOS VALORES DE VENDA //
+    public double getVendasPorCaixa() {
+        double soma_vendas = 0;
+        for (Vendas venda : this.vendas) {
+            soma_vendas += venda.getValor_venda();
+        }
+        return soma_vendas;
+    }
 
+    // GETTER DOS VALORES DE VENDA //
+
+    public double getTotalMovimentacao() {
+        double total = valor_abertura; // Start with the opening value
+        for (Movimentacao m : movimentacao) {
+            if (m.getTipo().equals("Sangria")) {
+                total -= m.getValor(); // Subtract sangria
+            } else {
+                total += m.getValor();
+            }
+        }
+        return total;
+    }
+    
     public Date getData_abertura() {
         return data_abertura;
     }
@@ -218,25 +238,10 @@ public class Caixa implements Serializable {
     public void setMovimentacao(List<Movimentacao> movimentacao) {
         this.movimentacao = movimentacao;
     }
-
-    public List<CaixaDespesas> getCaixaDespesas() {
-        return caixaDespesas;
-    }
-
-    public void setCaixaDespesas(List<CaixaDespesas> caixaDespesas) {
-        this.caixaDespesas = caixaDespesas;
-    }
-
-    public double getTotalMovimentacao() {
-        double total = valor_abertura; // Start with the opening value
-        for (Movimentacao m : movimentacao) {
-            if (m.getTipo().equals("Sangria")) {
-                total -= m.getValor(); // Subtract sangria
-            } else {
-                total += m.getValor();
-            }
-        }
-        return total;
+    
+    public void addVenda(Vendas venda)
+    {
+        this.vendas.add(venda);
     }
 
     @Override

@@ -21,15 +21,25 @@ public class ControlePagamento {
         gerente.close();
     }
 
-    public List<Pagamentocompra> getPorPeriodo(Date inicio, Date fim)
-    {
+    public List<Pagamentocompra> getTodos() {
+
         EntityManager gerente = GerenciadorConexao.getGerente();
-        TypedQuery<Pagamentocompra> consulta = 
-                    gerente.createNamedQuery("Pagamentocompra.findByPeriodo", Pagamentocompra.class);
-        
+
+        TypedQuery<Pagamentocompra> consulta
+                = gerente.createNamedQuery("Pagamentocompra.findAll", Pagamentocompra.class);
+
+        return consulta.getResultList();
+
+    }
+
+    public List<Pagamentocompra> getPorPeriodo(Date inicio, Date fim) {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        TypedQuery<Pagamentocompra> consulta
+                = gerente.createNamedQuery("Pagamentocompra.findByPeriodo", Pagamentocompra.class);
+
         consulta.setParameter("inicio", inicio);
         consulta.setParameter("fim", fim);
-        return consulta.getResultList();  
-    }    
+        return consulta.getResultList();
+    }
 
 }

@@ -2,17 +2,17 @@ package ifsplife.model;
 
 import java.io.Serializable;
 
-public class ProdutocompraId implements Serializable {
+public class PagamentocompraId {
 
     private int codigo_compra;
-    private int codigo_produto;
+    private int parcela;
 
-    public ProdutocompraId() {
+    public PagamentocompraId() {
     }
 
-    public ProdutocompraId(int codigo_compra, int codigo_produto) {
+    public PagamentocompraId(int codigo_compra, int parcela) {
         this.codigo_compra = codigo_compra;
-        this.codigo_produto = codigo_produto;
+        this.parcela = parcela;
     }
 
     public int getCodigo_compra() {
@@ -23,19 +23,19 @@ public class ProdutocompraId implements Serializable {
         this.codigo_compra = codigo_compra;
     }
 
-    public int getCodigo_produto() {
-        return codigo_produto;
+    public int getParcela() {
+        return parcela;
     }
 
-    public void setCodigo_produto(int codigo_produto) {
-        this.codigo_produto = codigo_produto;
+    public void setParcela(int parcela) {
+        this.parcela = parcela;
     }
     
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 5;
         hash = 97 * hash + this.codigo_compra;
-        hash = 97 * hash + this.codigo_produto;
+        hash = 97 * hash + this.parcela;
         return hash;
     }
 
@@ -50,11 +50,11 @@ public class ProdutocompraId implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ProdutocompraId other = (ProdutocompraId) obj;
+        final PagamentocompraId other = (PagamentocompraId) obj;
         if (this.codigo_compra != other.codigo_compra) {
             return false;
         }
-        return this.codigo_produto == other.codigo_produto;
+        return this.parcela == other.parcela;
     }
 
 }

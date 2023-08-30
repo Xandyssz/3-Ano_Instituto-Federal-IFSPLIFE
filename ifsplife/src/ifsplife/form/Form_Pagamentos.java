@@ -1,8 +1,6 @@
 package ifsplife.form;
 
 import ifsplife.control.ControlePagamento;
-import ifsplife.jdialog.RelatorioVendas;
-import ifsplife.model.Compras;
 import ifsplife.model.Pagamentocompra;
 import ifsplife.model.Produtocompra;
 import java.text.SimpleDateFormat;
@@ -45,15 +43,14 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         modelo.setRowCount(0);
         pagamentos.clear();
-        pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
 
-//        if (inicio.getDate() == null) {
-//            pagamentos.addAll(controle.realizarPagamento(pagamento));
-//        } else {
-//            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-//        }
+        if (inicio.getDate() == null) {
+            pagamentos.addAll(controle.getTodos());
+        } else {
+            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
+        }
         for (Pagamentocompra pagamentos : pagamentos) {
-            modelo.addRow(new Object[]{pagamentos.getCodigo_compra().getCodigo_compra(), pagamentos.getParcela(),formatador.format(pagamentos.getVencimento()), pagamentos.getStatus()}
+            modelo.addRow(new Object[]{pagamentos.getParcela(), formatador.format(pagamentos.getVencimento()), pagamentos.getValor(), pagamentos.getStatus()}
             );
         }
     }
@@ -92,9 +89,17 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Código da Compra", "Parcela", "Data de Vencimento", "Status"
+                "Parcela", "Data de Vencimento", "Valor Parcela", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablePagamentos);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -167,6 +172,11 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Pagar");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JButtonPagarLayout = new javax.swing.GroupLayout(JButtonPagar);
         JButtonPagar.setLayout(JButtonPagarLayout);
@@ -308,6 +318,19 @@ public class Form_Pagamentos extends javax.swing.JPanel {
             Logger.getLogger(Form_Pagamentos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JButtonRelatorioMouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        Integer linha = tablePagamentos.getSelectedRow();
+
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null,
+                    "Não foi selecionado nenhuma parcela para pagamento. Selecione.");
+        } else {
+
+            pagamentos.get(linha);
+//            controle.realizarPagamento(pagamento);
+        }
+    }//GEN-LAST:event_jLabel18MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;

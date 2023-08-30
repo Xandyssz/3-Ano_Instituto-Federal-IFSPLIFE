@@ -49,9 +49,11 @@ public class Menu_adm extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Produtos"));
+        
         addTitle("RELATÓRIOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Compra"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Venda"));
+        
         addTitle("MEUS DADOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Perfil"));
     }

@@ -2,6 +2,7 @@ package ifsplife.form;
 
 import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleMovimentacao;
+import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.CrudCaixa;
 import ifsplife.jdialog.CrudMovimentacao;
 import ifsplife.model.Caixa;
@@ -32,36 +33,34 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         if (ControleCaixa.isCaixaAberto()) {
             AbrirFecharCaixa.setText("Fechar Caixa");
             caixaStatus.setText("status do caixa: aberto");
-
             caixaStatus.setForeground(Color.GREEN);
             ControleCaixa.atualizarCaixa();
-
             setarMovimentacoes();
         } else {
             AbrirFecharCaixa.setText("Abrir Caixa");
             caixaStatus.setText("status do caixa: fechado");
             caixaStatus.setForeground(Color.RED);
         }
-
         atualizarTabela();
-
     }
 
     private void setarMovimentacoes() {
         Caixa caixa = ControleCaixa.getCaixaAberto();
+        ControleVenda controlevenda = new ControleVenda();
 
         JTextFieldDataDeAbertura.setEnabled(false);
         JTextFieldHorarioDeAbertura.setEnabled(false);
-
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-
         JTextFieldDataDeAbertura.setDate(caixa.getData_abertura());
         JTextFieldHorarioDeAbertura.setText(format.format(caixa.getHorario_abertura()));
-
         JFormattedTextFieldValorInicial.setValue(caixa.getValor_abertura());
-        JFormattedTextFieldValorTotal.setValue(caixa.getTotalMovimentacao());
+
+        //////////
+        JFormattedTextFieldValorTotal.setValue(caixa.getTotalMovimentacao() + controlevenda.getTotalVendaPorCaixa(caixa));
         JFormattedTextFieldSuplementacao.setValue(caixa.getSuplementacao());
         JFormattedTextFieldSangria.setValue(caixa.getSangria());
+        JFormattedTextFieldVendas.setValue(controlevenda.getTotalVendaPorCaixa(caixa));
+        //////////
     }
 
     private void atualizarTabela() {
@@ -70,7 +69,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         modelo.setRowCount(0);
 
         movimentacao.clear();
-        movimentacao.addAll(controlemovimentacao.getTodos());
+        movimentacao.addAll(controlemovimentacao.getMovPorCaixa(controlecaixa.getCaixaAberto()));
 
         for (Movimentacao movimentacao : movimentacao) {
             modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()});
@@ -98,6 +97,10 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JFormattedTextFieldValorTotal.setText("");
         JFormattedTextFieldSangria.setText("");
         JFormattedTextFieldSuplementacao.setText("");
+        //
+        JFormattedTextFieldCompras.setText("");
+        JFormattedTextFieldVendas.setText("");
+
     }
 
     @SuppressWarnings("unchecked")
@@ -140,6 +143,14 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         MovimentacaoCaixa = new javax.swing.JLabel();
         JButtonCaixa = new ifsplife.dev.swing.PanelBorderGradient();
         AbrirFecharCaixa = new javax.swing.JLabel();
+        jLabelValorSuplementacao1 = new javax.swing.JLabel();
+        JFormattedTextFieldVendas = new javax.swing.JFormattedTextField();
+        jSeparatorSuplementacao1 = new javax.swing.JSeparator();
+        jLabelRSSuplementacao1 = new javax.swing.JLabel();
+        jSeparatorSangria1 = new javax.swing.JSeparator();
+        JFormattedTextFieldCompras = new javax.swing.JFormattedTextField();
+        jLabelValorSangria1 = new javax.swing.JLabel();
+        jLabelRSSangria1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -305,6 +316,24 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
             .addComponent(AbrirFecharCaixa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
+        jLabelValorSuplementacao1.setText("Valor Vendas");
+
+        JFormattedTextFieldVendas.setBorder(null);
+        JFormattedTextFieldVendas.setForeground(new java.awt.Color(0, 153, 51));
+        JFormattedTextFieldVendas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        JFormattedTextFieldVendas.setText("0");
+
+        jLabelRSSuplementacao1.setText("R$");
+
+        JFormattedTextFieldCompras.setBorder(null);
+        JFormattedTextFieldCompras.setForeground(new java.awt.Color(255, 0, 0));
+        JFormattedTextFieldCompras.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        JFormattedTextFieldCompras.setText("0");
+
+        jLabelValorSangria1.setText("Valor Compra");
+
+        jLabelRSSangria1.setText("R$");
+
         javax.swing.GroupLayout panelBorderDetalhesCaixaLayout = new javax.swing.GroupLayout(panelBorderDetalhesCaixa);
         panelBorderDetalhesCaixa.setLayout(panelBorderDetalhesCaixaLayout);
         panelBorderDetalhesCaixaLayout.setHorizontalGroup(
@@ -316,22 +345,30 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                         .addComponent(jLabelDeatalhesDoCaixa))
                     .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparatorValorInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                            .addComponent(jSeparatorDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                            .addComponent(jLabelDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                            .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
-                                .addComponent(jLabelRSInicial)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JFormattedTextFieldValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(JTextFieldDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
-                                .addComponent(jLabelRSSangria)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JFormattedTextFieldSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelValorSangria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparatorSangria))
+                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparatorValorInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                                .addComponent(jSeparatorDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                                .addComponent(jLabelDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                                .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
+                                    .addComponent(jLabelRSInicial)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(JFormattedTextFieldValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JTextFieldDataDeAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
+                                    .addComponent(jLabelRSSangria)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(JFormattedTextFieldSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelValorSangria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparatorSangria))
+                            .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
+                                    .addComponent(jLabelRSSangria1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(JFormattedTextFieldCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelValorSangria1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparatorSangria1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
@@ -340,7 +377,14 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                                 .addComponent(JFormattedTextFieldValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jSeparatorSuplementacao, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparatorValorTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparatorValorTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparatorSuplementacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelValorSuplementacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
+                                        .addComponent(jLabelRSSuplementacao1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JFormattedTextFieldVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
                                 .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,15 +448,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparatorValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
-                        .addComponent(jLabelValorSangria)
-                        .addGap(6, 6, 6)
-                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRSSangria)
-                            .addComponent(JFormattedTextFieldSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparatorSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
                         .addComponent(jLabelValorSuplementacao)
                         .addGap(6, 6, 6)
@@ -420,8 +456,32 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                             .addComponent(jLabelRSSuplementacao)
                             .addComponent(JFormattedTextFieldSuplementacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparatorSuplementacao, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 93, Short.MAX_VALUE))
+                        .addComponent(jSeparatorSuplementacao, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabelValorSuplementacao1)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JFormattedTextFieldVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelRSSuplementacao1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparatorSuplementacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBorderDetalhesCaixaLayout.createSequentialGroup()
+                        .addComponent(jLabelValorSangria)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRSSangria)
+                            .addComponent(JFormattedTextFieldSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparatorSangria, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelValorSangria1)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelBorderDetalhesCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRSSangria1)
+                            .addComponent(JFormattedTextFieldCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparatorSangria1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelBorderTelaLayout = new javax.swing.GroupLayout(panelBorderTela);
@@ -494,6 +554,8 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                     DefaultTableModel model = (DefaultTableModel) tableMovimentacoes.getModel();
                     model.setRowCount(0);
                     limparTextos();
+                    atualizarTabela();
+
                 }
             }
         }
@@ -521,7 +583,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
             controleCaixa.fechar(caixa);
 
-            // adicionar metodos de calculos "sangria/movimentacao" do modelo | caixa
             atualizarTabela();
 
             setarMovimentacoes();
@@ -542,10 +603,12 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     private ifsplife.dev.swing.PanelBorderGradient JButtonCaixa;
     private ifsplife.dev.swing.PanelBorderGradient JButtonMovimentacaoCaixa;
     private ifsplife.dev.swing.PanelBorderGradient JButtonMovimentacaoCaixa1;
+    private javax.swing.JFormattedTextField JFormattedTextFieldCompras;
     private javax.swing.JFormattedTextField JFormattedTextFieldSangria;
     private javax.swing.JFormattedTextField JFormattedTextFieldSuplementacao;
     private javax.swing.JFormattedTextField JFormattedTextFieldValorInicial;
     private javax.swing.JFormattedTextField JFormattedTextFieldValorTotal;
+    private javax.swing.JFormattedTextField JFormattedTextFieldVendas;
     private javax.swing.JLabel JLabelMovimentacao;
     private javax.swing.JScrollPane JScrollPaneMovimentacao;
     private com.toedter.calendar.JDateChooser JTextFieldDataDeAbertura;
@@ -557,17 +620,23 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelHorarioDeAbertura;
     private javax.swing.JLabel jLabelRSInicial;
     private javax.swing.JLabel jLabelRSSangria;
+    private javax.swing.JLabel jLabelRSSangria1;
     private javax.swing.JLabel jLabelRSSuplementacao;
+    private javax.swing.JLabel jLabelRSSuplementacao1;
     private javax.swing.JLabel jLabelRSTotal;
     private javax.swing.JLabel jLabelValorInicial;
     private javax.swing.JLabel jLabelValorSangria;
+    private javax.swing.JLabel jLabelValorSangria1;
     private javax.swing.JLabel jLabelValorSuplementacao;
+    private javax.swing.JLabel jLabelValorSuplementacao1;
     private javax.swing.JLabel jLabelValorTotal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparatorDataDeAbertura;
     private javax.swing.JSeparator jSeparatorHorarioDeAbertura;
     private javax.swing.JSeparator jSeparatorSangria;
+    private javax.swing.JSeparator jSeparatorSangria1;
     private javax.swing.JSeparator jSeparatorSuplementacao;
+    private javax.swing.JSeparator jSeparatorSuplementacao1;
     private javax.swing.JSeparator jSeparatorValorInicial;
     private javax.swing.JSeparator jSeparatorValorTotal;
     private ifsplife.dev.swing.PanelBorder panelBorderDetalhesCaixa;

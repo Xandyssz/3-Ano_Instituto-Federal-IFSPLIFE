@@ -49,11 +49,6 @@ public class Despesas implements Serializable {
     
     @Column(name = "valor", nullable = false)
     private double valor;
-    
-    @OneToMany(cascade = CascadeType.ALL, 
-            orphanRemoval = true,
-            mappedBy = "codigo_despesa")
-    private List<CaixaDespesas> caixaDespesas = new ArrayList<>();
 
     public Despesas() {
     }
@@ -113,14 +108,6 @@ public class Despesas implements Serializable {
 
     public void setValor(double valor) {
         this.valor = valor;
-    }
-
-    public List<CaixaDespesas> getCaixaDespesas() {
-        return caixaDespesas;
-    }
-
-    public void setCaixaDespesas(List<CaixaDespesas> caixaDespesas) {
-        this.caixaDespesas = caixaDespesas;
     }
 
     @Override

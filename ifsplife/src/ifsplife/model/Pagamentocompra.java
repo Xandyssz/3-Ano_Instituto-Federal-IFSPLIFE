@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -21,10 +22,18 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p"),
     @NamedQuery(name = "Pagamentocompra.findByVencimento", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento = :vencimento"),
-    @NamedQuery(name = "Pagamentocompra.findByPeriodo", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento BETWEEN :inicio AND :fim"),    
+    @NamedQuery(name = "Pagamentocompra.findByPeriodo", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento BETWEEN :inicio AND :fim"),
     @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_compra = :codigoCompra")})
+
+@IdClass(PagamentocompraId.class)
 public class Pagamentocompra implements Serializable {
 
+    @Id
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
+    private Compras codigo_compra;
+
+    @Id
     @Column(name = "parcela", nullable = false)
     private int parcela;
 
@@ -41,11 +50,6 @@ public class Pagamentocompra implements Serializable {
     @ManyToOne
     @JoinColumn(name = "codigo_caixa", referencedColumnName = "codigo_caixa")
     private Caixa codigo_caixa;
-
-    @Id
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "codigo_compra", referencedColumnName = "codigo_compra")
-    private Compras codigo_compra;
 
     public Pagamentocompra() {
     }

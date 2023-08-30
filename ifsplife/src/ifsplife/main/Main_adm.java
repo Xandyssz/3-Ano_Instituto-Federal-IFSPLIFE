@@ -27,6 +27,7 @@ public class Main_adm extends javax.swing.JFrame {
         init();
 
         cargo.setText(ControleFuncionario.getUsuarioLogado().getNivelacesso());
+        
         setLocationRelativeTo(null);
         Dimension DimMax = Toolkit.getDefaultToolkit().getScreenSize();
         this.setMaximumSize(DimMax);
