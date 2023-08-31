@@ -5,6 +5,7 @@ import ifsplife.control.ControleMovimentacao;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.CrudCaixa;
 import ifsplife.jdialog.CrudMovimentacao;
+import ifsplife.jdialog.RelatorioCaixas;
 import ifsplife.model.Caixa;
 import ifsplife.model.Movimentacao;
 import java.awt.Color;
@@ -21,6 +22,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     ControleCaixa controlecaixa = new ControleCaixa();
 
     List<Movimentacao> movimentacao = new ArrayList<>();
+    List<Caixa> caixas = new ArrayList<>();
 
     private boolean confirmou = false;
     private int codigo = 0;
@@ -80,6 +82,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     public boolean isConfirmou() {
         return confirmou;
     }
+
 
     public void desabilitarTextos() {
         JTextFieldDataDeAbertura.setEnabled(false);
@@ -546,6 +549,8 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
                     c.setData_fechamento(new Date());
                     c.setHorario_fechamento(new Date());
                     c.setStatus("Fechado");
+                    c.setTotal_entradas(((Number) JFormattedTextFieldSuplementacao.getValue()).doubleValue());
+                    c.setTotal_saidas(((Number) JFormattedTextFieldSangria.getValue()).doubleValue());
                     c.setValor_fechamento(((Number) JFormattedTextFieldValorTotal.getValue()).doubleValue());
                     controlecaixa.fechar(c);
                     caixaStatus.setText("status do caixa: fechado");
@@ -594,7 +599,13 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonMovimentacaoCaixa1MouseClicked
 
     private void GerenciamentoCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GerenciamentoCaixaMouseClicked
-        JOptionPane.showMessageDialog(null, "EM DESENVOLVIMENTO");
+
+        RelatorioCaixas tela = new RelatorioCaixas(null, true);
+
+        tela.desabilitarEdicao();
+
+        tela.setVisible(true);
+
     }//GEN-LAST:event_GerenciamentoCaixaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

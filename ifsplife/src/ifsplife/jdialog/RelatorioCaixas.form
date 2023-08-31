@@ -75,7 +75,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabelItens" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" pref="597" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="JButtonCancelar" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -97,13 +97,13 @@
                           <Component id="JButtonCancelar" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabelItens" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="JSeparatorCRUD" min="-2" pref="14" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="366" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="panelBorder6" min="-2" pref="200" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="359" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="panelBorder6" min="-2" pref="210" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -159,7 +159,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7f" green="7f" red="7f" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Detalhes dos Produtos"/>
+                <Property name="text" type="java.lang.String" value="Detalhes"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -169,14 +169,14 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="ifsplife.dev.swing.Table" name="tableVendas">
+                <Component class="ifsplife.dev.swing.Table" name="tableCaixas">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
-                        <Column editable="false" title="Nome" type="java.lang.Object"/>
-                        <Column editable="false" title="Valor Unitario" type="java.lang.Object"/>
-                        <Column editable="false" title="Quantidade" type="java.lang.Object"/>
-                        <Column editable="false" title="SubTotal" type="java.lang.Object"/>
+                        <Column editable="false" title="C&#xf3;digo do Caixa" type="java.lang.Object"/>
+                        <Column editable="false" title="Data de Abertura" type="java.lang.Object"/>
+                        <Column editable="false" title="Horario de Abertura" type="java.lang.Object"/>
+                        <Column editable="false" title="Valor Abertura" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -244,54 +244,60 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLabelDetalhesDaCompra2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JLabelDetalhesDaCompra2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jSeparatorPorcentagem3" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxFormaPagamento" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="DataVenda" alignment="1" pref="189" max="32767" attributes="0"/>
+                                                  <Component id="DataFechamento" alignment="1" pref="189" max="32767" attributes="0"/>
                                                   <Component id="jSeparatorDataVenda" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabeDataVenda" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabelSelecioneConvenio1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                                      <Component id="jSeparatorConvenios1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jComboBoxConvenios1" min="-2" pref="195" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabelPorcentagem1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jFormattedTextFieldPorcentagem1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                                  <Component id="jSeparatorPorcentagem1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                                  <Component id="jLabelDescontoConvenios1" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabelRSSTotalDesconto1" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jFormattedTextFieldTotalcomDesconto" min="-2" pref="189" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jSeparatorPorcentagem2" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
-                                                  <Component id="jLabelTotalcomDesconto1" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jSeparatorDataVenda1" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabeDataVenda1" alignment="0" pref="189" max="32767" attributes="0"/>
+                                                  <Component id="HorarioFechamento" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabelRSSTotalDesconto3" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jFormattedTextFieldValorFechamento" min="-2" pref="189" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jSeparatorPorcentagem5" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                              <Component id="jLabelTotalcomDesconto3" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabelRSSTotalDesconto1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldTotalEntradas" min="-2" pref="189" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jSeparatorPorcentagem2" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                          <Component id="jLabelTotalcomDesconto1" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabelRSSTotalDesconto2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldTotalSaidas" min="-2" pref="189" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jSeparatorPorcentagem4" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                          <Component id="jLabelTotalcomDesconto2" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -302,51 +308,62 @@
                               <Component id="JLabelDetalhesDaCompra2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jLabelTotalcomDesconto1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jFormattedTextFieldTotalcomDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFormattedTextFieldTotalEntradas" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelRSSTotalDesconto1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSeparatorPorcentagem2" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jFormattedTextFieldPorcentagem1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelPorcentagem1" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="jComboBoxConvenios1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparatorPorcentagem1" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabeDataVenda" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="jLabeDataVenda1" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="jSeparatorDataVenda1" min="-2" pref="10" max="-2" attributes="0"/>
+                                          </Group>
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                                              <Component id="DataVenda" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelTotalcomDesconto2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jFormattedTextFieldTotalSaidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelRSSTotalDesconto2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSeparatorPorcentagem4" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabeDataVenda" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="HorarioFechamento" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="DataFechamento" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jSeparatorDataVenda" min="-2" pref="10" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelSelecioneConvenio1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                              <Component id="jSeparatorConvenios1" min="-2" pref="10" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabelDescontoConvenios1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabelTotalcomDesconto3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jFormattedTextFieldValorFechamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelRSSTotalDesconto3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSeparatorPorcentagem5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBoxFormaPagamento" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparatorPorcentagem3" min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -360,33 +377,12 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="7f" green="7f" red="7f" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Detalhes da Venda"/>
+                        <Property name="text" type="java.lang.String" value="Detalhes do Caixa"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelSelecioneConvenio1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Selecione o Conv&#xea;nio:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparatorConvenios1">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelDescontoConvenios1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Desconto do Conv&#xea;nio:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelPorcentagem1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="%"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldPorcentagem1">
-                    </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparatorPorcentagem1">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelTotalcomDesconto1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Valor Total dos Itens com Desconto:"/>
+                        <Property name="text" type="java.lang.String" value="Total de Entradas"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelRSSTotalDesconto1">
@@ -394,52 +390,55 @@
                         <Property name="text" type="java.lang.String" value="R$"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBoxFormaPagamento">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="3">
-                            <StringItem index="0" value="Pix"/>
-                            <StringItem index="1" value="Cart&#xe3;o de Cr&#xe9;dito"/>
-                            <StringItem index="2" value="Cart&#xe3;o de D&#xe9;bito"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Forma de pagamento:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTotalcomDesconto">
+                    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTotalEntradas">
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparatorPorcentagem2">
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparatorPorcentagem3">
-                    </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparatorDataVenda">
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="DataVenda">
+                    <Component class="com.toedter.calendar.JDateChooser" name="DataFechamento">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabeDataVenda">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Data da Venda:"/>
+                        <Property name="text" type="java.lang.String" value="Data de Fechamento"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBoxConvenios1">
+                    <Component class="javax.swing.JLabel" name="jLabeDataVenda1">
                       <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="0"/>
-                        </Property>
+                        <Property name="text" type="java.lang.String" value="Horario de Fechamento"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxConvenios1ItemStateChanged"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Convenios&gt;"/>
-                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparatorDataVenda1">
+                    </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="HorarioFechamento">
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparatorPorcentagem4">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelRSSTotalDesconto2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="R$"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTotalSaidas">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelTotalcomDesconto2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Total de Saidas"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelTotalcomDesconto3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Valor de Fechamento"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelRSSTotalDesconto3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="R$"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldValorFechamento">
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparatorPorcentagem5">
                     </Component>
                   </SubComponents>
                 </Container>
