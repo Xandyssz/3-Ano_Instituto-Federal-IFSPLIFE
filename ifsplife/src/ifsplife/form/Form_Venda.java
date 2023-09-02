@@ -4,7 +4,6 @@ import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleConvenio;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.PesquisaItens;
-import ifsplife.model.Caixa;
 import ifsplife.model.Convenios;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtovenda;
@@ -184,10 +183,6 @@ public class Form_Venda extends javax.swing.JPanel {
         int estoqueAtualizado = estoqueAnterior - quantidadeVendida;
         itemSelecionado.setQuantidade(estoqueAtualizado);
 
-//        System.out.println("Estoque do item " + itemSelecionado.getNome() + " atualizado:");
-//        System.out.println("Estoque anterior: " + estoqueAnterior);
-//        System.out.println("Quantidade vendida: " + quantidadeVendida);
-//        System.out.println("Estoque atualizado: " + estoqueAtualizado);
     }
 
     @SuppressWarnings("unchecked")
@@ -726,7 +721,7 @@ public class Form_Venda extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
             return;
         }
-        
+
         int linha = tableVendas.getSelectedRow();
         int valorColumnIndex = 3;
         double somaTabela = 0;
@@ -819,7 +814,7 @@ public class Form_Venda extends javax.swing.JPanel {
         double valorItem;
 
         if (nomeItemText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "O nome do item não pode estar em branco", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "O nome do Produto não pode estar em branco", "Erro", JOptionPane.ERROR_MESSAGE);
             JButtonPesquisarItem.requestFocus();
             txtQuantidadeItem.setText("");
             jFormattedTextFieldValorTotal.setValue(null);
@@ -836,12 +831,12 @@ public class Form_Venda extends javax.swing.JPanel {
 
         } catch (NumberFormatException | ClassCastException | NullPointerException e) {
             if (e instanceof NullPointerException || e instanceof ClassCastException) {
-                JOptionPane.showMessageDialog(this, "O valor do item não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "O valor do produto não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
                 jFormattedTextFieldValorItem.requestFocus();
                 jFormattedTextFieldValorTotal.setValue(null);
 
             } else if (e instanceof NumberFormatException) {
-                JOptionPane.showMessageDialog(this, "A quantidade de itens não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "A quantidade de produto não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
                 txtQuantidadeItem.requestFocus();
                 jFormattedTextFieldValorTotal.setValue(null);
 
@@ -852,7 +847,7 @@ public class Form_Venda extends javax.swing.JPanel {
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
         if (this.confirmou = true) {
             v = this.getVendas();
-           
+
             controleVenda.adicionar(v);
             ControleCaixa.getCaixaAberto().addVenda(v);
 //            ControleCaixa cc = new ControleCaixa();
@@ -860,11 +855,9 @@ public class Form_Venda extends javax.swing.JPanel {
 //            c.setTotal_entradas(c.getTotal_entradas()+v.getValor_venda());
 //            c.setValor_fechamento(c.getValor_abertura()+c.getTotal_entradas()-c.getTotal_saidas());
 //            cc.fechar(c);
-            // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             for (Produtovenda item : itens) {
                 atualizarEstoque(item.getQuantidade());
             }
-            // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
             atualizarTabelaItens();
 

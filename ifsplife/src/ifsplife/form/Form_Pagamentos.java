@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControlePagamento;
 import ifsplife.model.Pagamentocompra;
 import ifsplife.model.Produtocompra;
@@ -43,14 +44,15 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         modelo.setRowCount(0);
         pagamentos.clear();
+        pagamentos.addAll(controle.getTodos());
 
-        if (inicio.getDate() == null) {
-            pagamentos.addAll(controle.getTodos());
-        } else {
-            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-        }
+//        if (inicio.getDate() == null) {
+//            pagamentos.addAll(controle.getTodos());
+//        } else {
+//            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
+//        }
         for (Pagamentocompra pagamentos : pagamentos) {
-            modelo.addRow(new Object[]{pagamentos.getParcela(), formatador.format(pagamentos.getVencimento()), pagamentos.getValor(), pagamentos.getStatus()}
+            modelo.addRow(new Object[]{pagamentos.getCodigo_compra().getCodigo_compra(), pagamentos.getParcela(), formatador.format(pagamentos.getVencimento()), pagamentos.getValor(), pagamentos.getStatus()}
             );
         }
     }
@@ -83,17 +85,17 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         tablePagamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Parcela", "Data de Vencimento", "Valor Parcela", "Status"
+                "Código da Compra", "Parcela", "Data de Vencimento", "Valor Parcela", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -125,15 +127,17 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Pagamentos");
 
+        jLabel2.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 12)); // NOI18N
         jLabel2.setText("Data de Inicio");
 
+        jLabel4.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 12)); // NOI18N
         jLabel4.setText("Data de Fim");
 
         JButtonFiltrar.setFirstColor(new java.awt.Color(153, 153, 153));
@@ -172,11 +176,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Pagar");
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout JButtonPagarLayout = new javax.swing.GroupLayout(JButtonPagar);
         JButtonPagar.setLayout(JButtonPagarLayout);
@@ -234,7 +233,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -243,7 +242,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(JButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel4)))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(17, 17, 17))
         );
@@ -278,30 +277,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JButtonPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonPagarMouseClicked
-
-        int linha = tablePagamentos.getSelectedRow();
-
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhum Pagamento. Selecione.");
-        } else {
-            ///////////////
-        }
-    }//GEN-LAST:event_JButtonPagarMouseClicked
-
-    private void JButtonFiltrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonFiltrarMouseClicked
-        if (inicio.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Inicio");
-        } else if (fim.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Fim");
-        } else {
-            pagamentos.clear();
-            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-            atualizarTabela();
-        }
-    }//GEN-LAST:event_JButtonFiltrarMouseClicked
-
     private void JButtonRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRelatorioMouseClicked
         try {
             JasperReport relatorioCompilado
@@ -319,18 +294,36 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JButtonRelatorioMouseClicked
 
-    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+    private void JButtonPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonPagarMouseClicked
+        if (!ControleCaixa.isCaixaAberto()) {
+            JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar o pagamento da parcela.");
+            return;
+        }
+
         Integer linha = tablePagamentos.getSelectedRow();
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhuma parcela para pagamento. Selecione.");
         } else {
-
-            pagamentos.get(linha);
-//            controle.realizarPagamento(pagamento);
+            Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
+            controle.realizarPagamento(pagamentoSelecionado);
+            pagamentoSelecionado.setStatus("Pago");
+            double valorParcela = pagamentoSelecionado.getValor();
         }
-    }//GEN-LAST:event_jLabel18MouseClicked
+    }//GEN-LAST:event_JButtonPagarMouseClicked
+
+    private void JButtonFiltrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonFiltrarMouseClicked
+        if (inicio.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Inicio");
+        } else if (fim.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Fim");
+        } else {
+            pagamentos.clear();
+            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
+            atualizarTabela();
+        }
+    }//GEN-LAST:event_JButtonFiltrarMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;

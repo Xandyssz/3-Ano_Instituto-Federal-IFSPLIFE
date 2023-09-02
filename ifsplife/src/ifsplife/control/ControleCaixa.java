@@ -18,8 +18,6 @@ public class ControleCaixa {
         gerente.close();
         caixaAberto = caixa;
     }
-    
-    
 
     public void fechar(Caixa caixa) {
         EntityManager gerente = GerenciadorConexao.getGerente();

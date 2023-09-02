@@ -1,6 +1,7 @@
 package ifsplife.jdialog;
 
 import ifsplife.model.Convenios;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CrudConvenio extends javax.swing.JDialog {
@@ -112,6 +113,11 @@ public class CrudConvenio extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCNPJKeyTyped(evt);
+            }
+        });
 
         JLabelContato.setText("Contato");
 
@@ -122,6 +128,11 @@ public class CrudConvenio extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtContato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContatoKeyTyped(evt);
+            }
+        });
 
         JLabelEndereco.setText("Endereco");
 
@@ -133,7 +144,6 @@ public class CrudConvenio extends javax.swing.JDialog {
         txtDesconto.setBackground(new java.awt.Color(239, 239, 239));
         txtDesconto.setBorder(null);
         txtDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtDesconto.setText("");
         txtDesconto.setToolTipText("");
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
@@ -360,6 +370,25 @@ public class CrudConvenio extends javax.swing.JDialog {
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_JButtonCancelarMouseClicked
+
+    private void txtCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCNPJKeyTyped
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else {
+            txtCNPJ.setText("");
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtCNPJKeyTyped
+
+    private void txtContatoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContatoKeyTyped
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else {
+            txtContato.setText("");
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtContatoKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;

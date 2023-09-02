@@ -305,6 +305,9 @@
                   <Format format="#,##0.00" subtype="-1" type="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="JSeparatorValor1">
             </Component>

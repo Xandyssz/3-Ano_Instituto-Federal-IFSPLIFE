@@ -1,8 +1,10 @@
 package ifsplife.jdialog;
 
 import ifsplife.model.Caixa;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
-import java.util.Date;import javax.swing.JOptionPane;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class CrudCaixa extends javax.swing.JDialog {
 
@@ -15,7 +17,7 @@ public class CrudCaixa extends javax.swing.JDialog {
     public CrudCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-       
+
         dataAbertura.setDate(hoje);
         horarioAbertura.setText(teste.format(hoje));
         txtValor.setValue(0);
@@ -144,6 +146,11 @@ public class CrudCaixa extends javax.swing.JDialog {
         txtValor.setBackground(new java.awt.Color(239, 239, 239));
         txtValor.setBorder(null);
         txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -274,6 +281,16 @@ public class CrudCaixa extends javax.swing.JDialog {
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
         dispose();
     }//GEN-LAST:event_JButtonCancelarMouseClicked
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else if (keyChar == '.' || keyChar == ',') {
+        } else {
+            txtValor.setText("");
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+        }
+    }//GEN-LAST:event_txtValorKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

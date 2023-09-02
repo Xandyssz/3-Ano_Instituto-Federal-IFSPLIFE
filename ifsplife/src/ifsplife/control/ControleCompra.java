@@ -1,6 +1,8 @@
 package ifsplife.control;
 
+import ifsplife.model.Caixa;
 import ifsplife.model.Compras;
+import ifsplife.model.Pagamentocompra;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtocompra;
 import java.util.Date;
@@ -81,6 +83,22 @@ public class ControleCompra {
 
         return consulta.getResultList();
 
+    }
+
+    public double getTotalParcelasPago(Caixa caixa) {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        double total = 0;
+
+        TypedQuery<Pagamentocompra> consulta
+                = gerente.createNamedQuery("Pagamentocompra.findByCaixaAndStatusPago", Pagamentocompra.class);
+        consulta.setParameter("caixa", caixa);
+
+        for (Pagamentocompra p : consulta.getResultList()) {
+            total += p.getValor();
+        }
+
+        return total;
     }
 
 }

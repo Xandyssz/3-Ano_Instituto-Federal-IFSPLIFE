@@ -1,6 +1,5 @@
 package ifsplife.jdialog;
 
-import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControleFuncionario;
 import ifsplife.control.FuncionarioOuSenhaIncorretaException;
 import ifsplife.model.Funcionarios;

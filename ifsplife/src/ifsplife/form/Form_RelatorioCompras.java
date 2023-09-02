@@ -314,7 +314,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
         if (linha == -1) {
             JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhuma Venda. Selecione.");
+                    "Não foi selecionado nenhuma Compra. Selecione.");
         } else {
             RelatorioCompras tela = new RelatorioCompras(null, true);
 

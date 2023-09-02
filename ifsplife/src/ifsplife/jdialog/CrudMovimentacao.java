@@ -2,6 +2,7 @@ package ifsplife.jdialog;
 
 import ifsplife.control.ControleCaixa;
 import ifsplife.model.Movimentacao;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CrudMovimentacao extends javax.swing.JDialog {
@@ -25,14 +26,6 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         return movimentacao;
     }
 
-    // apenas excluir
-//    public void setMovimentacao(Movimentacao movimentacao) {
-//        this.codigo = movimentacao.getCodigo_movimentacao();
-//        txtMotivo.setText(txtMotivo.getText());
-//        txtValor.setValue(txtValor.getValue());
-//        txtTipoMovimentacao.setSelectedItem(txtTipoMovimentacao.getSelectedItem());
-//        
-//    }
     public boolean isConfirmou() {
         return confirmou;
     }
@@ -272,8 +265,11 @@ public class CrudMovimentacao extends javax.swing.JDialog {
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else if (keyChar == '.' || keyChar == ',') {
         } else {
+            txtValor.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtValorKeyTyped

@@ -1,6 +1,7 @@
 package ifsplife.jdialog;
 
 import ifsplife.model.Fornecedores;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CrudFornecedor extends javax.swing.JDialog {
@@ -465,22 +466,28 @@ public class CrudFornecedor extends javax.swing.JDialog {
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void txtCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCNPJKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
+            txtCNPJ.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtCNPJKeyTyped
 
     private void txtContatoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContatoKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
+            txtContato.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtContatoKeyTyped
 
     private void txtCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCEPKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
+            txtCEP.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtCEPKeyTyped

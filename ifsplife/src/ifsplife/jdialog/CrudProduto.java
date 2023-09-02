@@ -1,6 +1,7 @@
 package ifsplife.jdialog;
 
 import ifsplife.model.Produto;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CrudProduto extends javax.swing.JDialog {
@@ -467,29 +468,39 @@ public class CrudProduto extends javax.swing.JDialog {
         }    }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void txtDosagemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDosagemKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else if (keyChar == 'm' || keyChar == 'g') {
         } else {
+            txtDosagem.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtDosagemKeyTyped
 
     private void txtLoteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoteKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
+            txtLote.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtLoteKeyTyped
 
     private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else if (keyChar == '.' || keyChar == ',') {
         } else {
+            txtValor.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtValorKeyTyped
 
     private void txtQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
+            txtQuantidade.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtQuantidadeKeyTyped

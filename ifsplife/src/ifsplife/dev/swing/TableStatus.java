@@ -22,7 +22,8 @@ public class TableStatus extends JLabel {
 
     public void setType(StatusType type) {
         this.type = type;
-        setText(type.toString());
+        // ERRO DA TABELA AO ADICIONAR UMA QUINTA COLUNA
+        // setText(type.toString());
         repaint();
     }
 

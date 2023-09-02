@@ -1,6 +1,7 @@
 package ifsplife.form;
 
 import ifsplife.control.ControleCaixa;
+import ifsplife.control.ControleCompra;
 import ifsplife.control.ControleMovimentacao;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.CrudCaixa;
@@ -49,6 +50,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     private void setarMovimentacoes() {
         Caixa caixa = ControleCaixa.getCaixaAberto();
         ControleVenda controlevenda = new ControleVenda();
+        ControleCompra controlecompra = new ControleCompra();
 
         JTextFieldDataDeAbertura.setEnabled(false);
         JTextFieldHorarioDeAbertura.setEnabled(false);
@@ -58,10 +60,12 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JFormattedTextFieldValorInicial.setValue(caixa.getValor_abertura());
 
         //////////
-        JFormattedTextFieldValorTotal.setValue(caixa.getTotalMovimentacao() + controlevenda.getTotalVendaPorCaixa(caixa));
+        JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura() + caixa.getSuplementacao() + controlevenda.getTotalVendaPorCaixa(caixa) - caixa.getSangria() - controlecompra.getTotalParcelasPago(caixa));
+
         JFormattedTextFieldSuplementacao.setValue(caixa.getSuplementacao());
-        JFormattedTextFieldSangria.setValue(caixa.getSangria());
         JFormattedTextFieldVendas.setValue(controlevenda.getTotalVendaPorCaixa(caixa));
+        JFormattedTextFieldCompras.setValue(controlecompra.getTotalParcelasPago(caixa));
+        JFormattedTextFieldSangria.setValue(caixa.getSangria());
         //////////
     }
 
@@ -82,7 +86,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
     public boolean isConfirmou() {
         return confirmou;
     }
-
 
     public void desabilitarTextos() {
         JTextFieldDataDeAbertura.setEnabled(false);

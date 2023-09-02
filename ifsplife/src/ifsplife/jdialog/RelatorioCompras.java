@@ -77,11 +77,7 @@ public class RelatorioCompras extends javax.swing.JDialog {
         DataVenda.setEnabled(false);
         jComboBoxFormaPagamento.setEnabled(false);
         fornecedores.setEditable(false);
-        jButton1.setVisible(false);
         JTextFieldResponsavel.setEditable(false);
-        txtDescricaoITP.setEditable(false);
-        AdicionarModoPreparo.setEnabled(false);
-        RemoverModoPreparo.setEnabled(false);
     }
 
     public Compras getCompras() {
@@ -141,7 +137,6 @@ public class RelatorioCompras extends javax.swing.JDialog {
         jSeparatorPorcentagem2 = new javax.swing.JSeparator();
         JLabelFornecedor = new javax.swing.JLabel();
         fornecedores = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         JLabelUsuario = new javax.swing.JLabel();
         JTextFieldResponsavel = new javax.swing.JTextField();
@@ -150,10 +145,6 @@ public class RelatorioCompras extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCompras = new ifsplife.dev.swing.Table();
         jPanel5 = new javax.swing.JPanel();
-        AdicionarModoPreparo = new javax.swing.JButton();
-        txtDescricaoITP = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        RemoverModoPreparo = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableParcelas = new ifsplife.dev.swing.Table();
 
@@ -205,13 +196,6 @@ public class RelatorioCompras extends javax.swing.JDialog {
 
         JLabelFornecedor.setText("Fornecedor");
 
-        jButton1.setText("Pesquisar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
         JLabelUsuario.setText("Responsável");
 
         JTextFieldResponsavel.setEditable(false);
@@ -246,27 +230,21 @@ public class RelatorioCompras extends javax.swing.JDialog {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelBorder7Layout.createSequentialGroup()
-                                .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fornecedores)
-                                    .addComponent(JLabelFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addGroup(panelBorder7Layout.createSequentialGroup()
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JTextFieldResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(73, 73, 73))))
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JLabelFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(fornecedores, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(jSeparator4))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelBorder7Layout.setVerticalGroup(
             panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder7Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(JLabelDetalhesDaCompra2)
                 .addGap(15, 15, 15)
                 .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -276,6 +254,12 @@ public class RelatorioCompras extends javax.swing.JDialog {
                         .addComponent(DataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparatorDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder7Layout.createSequentialGroup()
+                        .addComponent(JLabelUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTextFieldResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jSeparator5))
                     .addGroup(panelBorder7Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -283,21 +267,14 @@ public class RelatorioCompras extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparatorPorcentagem2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBorder7Layout.createSequentialGroup()
-                        .addComponent(JLabelFornecedor)
+                        .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLabelFornecedor)
+                            .addGroup(panelBorder7Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBorder7Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(JLabelUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTextFieldResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator5)))
-                .addGap(0, 39, Short.MAX_VALUE))
+                        .addComponent(jSeparator4)))
+                .addGap(0, 43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelBorder6Layout = new javax.swing.GroupLayout(panelBorder6);
@@ -354,19 +331,14 @@ public class RelatorioCompras extends javax.swing.JDialog {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(239, 239, 239));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Parcelas"));
-
-        AdicionarModoPreparo.setText("Adicionar");
-
-        jLabel2.setText("Descrição: *");
-
-        RemoverModoPreparo.setText("Remover ");
+        jPanel5.setPreferredSize(new java.awt.Dimension(521, 467));
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -397,38 +369,14 @@ public class RelatorioCompras extends javax.swing.JDialog {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDescricaoITP)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(AdicionarModoPreparo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RemoverModoPreparo, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(333, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(22, 22, 22)
-                .addComponent(txtDescricaoITP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AdicionarModoPreparo)
-                    .addComponent(RemoverModoPreparo))
-                .addGap(16, 16, 16))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 125, Short.MAX_VALUE)))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane4)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
@@ -478,7 +426,7 @@ public class RelatorioCompras extends javax.swing.JDialog {
             panelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorderGradient1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
+                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 1108, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBorderGradient1Layout.setVerticalGroup(
@@ -510,14 +458,6 @@ public class RelatorioCompras extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_JLabelCancelarMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        PesquisaFornecedores pesquisa = new PesquisaFornecedores(null, true);
-        pesquisa.setVisible(true);
-        fornecedorSelecionado = pesquisa.getFornecedorSelecionado();
-        fornecedores.setText(fornecedorSelecionado.getNome());
-        JTextFieldResponsavel.setText(fornecedorSelecionado.getResponsavel());
-    }//GEN-LAST:event_jButton1MouseClicked
-
     private void JTextFieldResponsavelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldResponsavelMouseClicked
         PesquisaFornecedores pesquisa = new PesquisaFornecedores(null, true);
         pesquisa.setVisible(true);
@@ -531,7 +471,6 @@ public class RelatorioCompras extends javax.swing.JDialog {
     }//GEN-LAST:event_tableComprasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AdicionarModoPreparo;
     private com.toedter.calendar.JDateChooser DataVenda;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;
     private javax.swing.JLabel JLabelCancelar;
@@ -540,13 +479,10 @@ public class RelatorioCompras extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelUsuario;
     private javax.swing.JSeparator JSeparatorCRUD;
     private javax.swing.JTextField JTextFieldResponsavel;
-    private javax.swing.JButton RemoverModoPreparo;
     private javax.swing.JTextField fornecedores;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxFormaPagamento;
     private javax.swing.JLabel jLabeDataVenda;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelItens;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -562,6 +498,5 @@ public class RelatorioCompras extends javax.swing.JDialog {
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
     private ifsplife.dev.swing.Table tableCompras;
     private ifsplife.dev.swing.Table tableParcelas;
-    private javax.swing.JTextField txtDescricaoITP;
     // End of variables declaration//GEN-END:variables
 }

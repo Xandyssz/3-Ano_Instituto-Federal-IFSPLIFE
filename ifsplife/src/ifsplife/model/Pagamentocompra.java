@@ -23,7 +23,10 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p"),
     @NamedQuery(name = "Pagamentocompra.findByVencimento", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento = :vencimento"),
     @NamedQuery(name = "Pagamentocompra.findByPeriodo", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento BETWEEN :inicio AND :fim"),
-    @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_compra = :codigoCompra")})
+    @NamedQuery(name = "Pagamentocompra.findByCaixaAndStatusPago", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_caixa = :caixa AND p.status = 'Pago'"),
+    @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_compra = :codigoCompra")
+
+})
 
 @IdClass(PagamentocompraId.class)
 public class Pagamentocompra implements Serializable {

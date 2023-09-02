@@ -204,7 +204,7 @@ public class RelatorioCaixas extends javax.swing.JDialog {
 
         jLabelItens.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabelItens.setForeground(new java.awt.Color(127, 127, 127));
-        jLabelItens.setText("Detalhes");
+        jLabelItens.setText("Gerenciamento de Caixa");
 
         tableCaixas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,6 +226,11 @@ public class RelatorioCaixas extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tableCaixas);
+        if (tableCaixas.getColumnModel().getColumnCount() > 0) {
+            tableCaixas.getColumnModel().getColumn(0).setResizable(false);
+            tableCaixas.getColumnModel().getColumn(1).setResizable(false);
+            tableCaixas.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         panelBorder7.setBackground(new java.awt.Color(255, 255, 255));
 
