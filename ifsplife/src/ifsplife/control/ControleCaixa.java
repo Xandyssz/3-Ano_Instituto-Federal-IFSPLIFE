@@ -27,6 +27,15 @@ public class ControleCaixa {
         gerente.close();
         caixaAberto = null;
     }
+    
+     public void alterar(Caixa caixa) {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        gerente.getTransaction().begin();
+        gerente.merge(caixa);
+        gerente.getTransaction().commit();
+        gerente.close();
+
+    }
 
     public List<Caixa> getTodos() {
         EntityManager gerente = GerenciadorConexao.getGerente();

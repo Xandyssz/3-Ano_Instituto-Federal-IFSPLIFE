@@ -59,9 +59,15 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JTextFieldHorarioDeAbertura.setText(format.format(caixa.getHorario_abertura()));
         JFormattedTextFieldValorInicial.setValue(caixa.getValor_abertura());
 
-        //////////
-        JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura() + caixa.getSuplementacao() + controlevenda.getTotalVendaPorCaixa(caixa) - caixa.getSangria() - controlecompra.getTotalParcelasPago(caixa));
+        ////////// PREENCHE O INPUT [VALOR TOTAL] para fechar o caixa
+        JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura() + 
+                caixa.getSuplementacao() + 
+                controlevenda.getTotalVendaPorCaixa(caixa) - 
+                caixa.getSangria() + 
+                controlecompra.getTotalParcelasPago(caixa));
 
+        
+        // PREENCHE INPUTS
         JFormattedTextFieldSuplementacao.setValue(caixa.getSuplementacao());
         JFormattedTextFieldVendas.setValue(controlevenda.getTotalVendaPorCaixa(caixa));
         JFormattedTextFieldCompras.setValue(controlecompra.getTotalParcelasPago(caixa));
@@ -332,7 +338,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         jLabelRSSuplementacao1.setText("R$");
 
         JFormattedTextFieldCompras.setBorder(null);
-        JFormattedTextFieldCompras.setForeground(new java.awt.Color(255, 0, 0));
+        JFormattedTextFieldCompras.setForeground(new java.awt.Color(0, 153, 51));
         JFormattedTextFieldCompras.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         JFormattedTextFieldCompras.setText("0");
 

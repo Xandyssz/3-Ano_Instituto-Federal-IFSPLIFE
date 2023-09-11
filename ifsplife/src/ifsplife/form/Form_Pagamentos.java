@@ -307,9 +307,9 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                     "Não foi selecionado nenhuma parcela para pagamento. Selecione.");
         } else {
             Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
-            controle.realizarPagamento(pagamentoSelecionado);
             pagamentoSelecionado.setStatus("Pago");
-            double valorParcela = pagamentoSelecionado.getValor();
+            controle.realizarPagamento(pagamentoSelecionado);
+            atualizarTabela();
         }
     }//GEN-LAST:event_JButtonPagarMouseClicked
 
