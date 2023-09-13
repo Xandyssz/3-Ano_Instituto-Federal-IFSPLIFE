@@ -692,9 +692,12 @@ public class Form_Venda extends javax.swing.JPanel {
         } else {
             PesquisaItens pesquisa = new PesquisaItens(null, true);
             pesquisa.setVisible(true);
-            itemSelecionado = pesquisa.getProdutoSelecionado();
-            txtItem.setText(itemSelecionado.getNome());
-            jFormattedTextFieldValorItem.setValue(itemSelecionado.getValor());
+
+            if (pesquisa.isSelecionou()) {
+                itemSelecionado = pesquisa.getProdutoSelecionado();
+                txtItem.setText(itemSelecionado.getNome());
+                jFormattedTextFieldValorItem.setValue(itemSelecionado.getValor());
+            }
         }
 
     }//GEN-LAST:event_jLabelPesquisarMouseClicked

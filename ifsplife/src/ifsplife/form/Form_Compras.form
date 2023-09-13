@@ -66,7 +66,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="panelDetalhesCompra" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jScrollPaneProdutos" max="32767" attributes="0"/>
+                                      <Component id="jScrollPaneProdutos" pref="413" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
@@ -611,10 +611,11 @@
                     <Component class="javax.swing.JComboBox" name="jComboBoxFormaPagamento">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="3">
-                            <StringItem index="0" value="Pix"/>
-                            <StringItem index="1" value="Cart&#xe3;o de Cr&#xe9;dito"/>
-                            <StringItem index="2" value="Cart&#xe3;o de D&#xe9;bito"/>
+                          <StringArray count="4">
+                            <StringItem index="0" value="Selecione o Pagamento..."/>
+                            <StringItem index="1" value="Pix"/>
+                            <StringItem index="2" value="Cart&#xe3;o de Cr&#xe9;dito"/>
+                            <StringItem index="3" value="Cart&#xe3;o de D&#xe9;bito"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -752,11 +753,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="490" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="559" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPaneParcelas" min="-2" pref="478" max="-2" attributes="0"/>
+                              <Component id="jScrollPaneParcelas" min="-2" pref="547" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -868,12 +869,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="comboParcelas" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <Component id="jSeparator3" min="-2" pref="99" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboParcelas" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -972,7 +971,7 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Adicionar Parcecla"/>
+                            <Property name="text" type="java.lang.String" value="Gerar Parcelas"/>
                           </Properties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel20MouseClicked"/>
@@ -997,19 +996,20 @@
                     <Component class="javax.swing.JComboBox" name="comboParcelas">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="1x"/>
-                            <StringItem index="1" value="2x"/>
-                            <StringItem index="2" value="3x"/>
-                            <StringItem index="3" value="4x"/>
-                            <StringItem index="4" value="5x"/>
-                            <StringItem index="5" value="6x"/>
-                            <StringItem index="6" value="7x"/>
-                            <StringItem index="7" value="8x"/>
-                            <StringItem index="8" value="9x"/>
-                            <StringItem index="9" value="10x"/>
-                            <StringItem index="10" value="11x"/>
-                            <StringItem index="11" value="12x"/>
+                          <StringArray count="13">
+                            <StringItem index="0" value="Selecione a Quantidade..."/>
+                            <StringItem index="1" value="1x"/>
+                            <StringItem index="2" value="2x"/>
+                            <StringItem index="3" value="3x"/>
+                            <StringItem index="4" value="4x"/>
+                            <StringItem index="5" value="5x"/>
+                            <StringItem index="6" value="6x"/>
+                            <StringItem index="7" value="7x"/>
+                            <StringItem index="8" value="8x"/>
+                            <StringItem index="9" value="9x"/>
+                            <StringItem index="10" value="10x"/>
+                            <StringItem index="11" value="11x"/>
+                            <StringItem index="12" value="12x"/>
                           </StringArray>
                         </Property>
                       </Properties>

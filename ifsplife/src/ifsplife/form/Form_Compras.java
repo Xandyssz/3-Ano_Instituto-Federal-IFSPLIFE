@@ -60,6 +60,7 @@ public class Form_Compras extends javax.swing.JPanel {
         txtValorProduto.setEditable(false);
         txtValorTotalProduto.setEditable(false);
         fornecedores.setEditable(false);
+        valorParcela.setEnabled(false);
     }
 
     public void limparTexto() {
@@ -416,7 +417,7 @@ public class Form_Compras extends javax.swing.JPanel {
 
         jLabel1.setText("Forma de pagamento:");
 
-        jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pix", "Cartão de Crédito", "Cartão de Débito" }));
+        jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o Pagamento...", "Pix", "Cartão de Crédito", "Cartão de Débito" }));
 
         javax.swing.GroupLayout panelDetalhesLayout = new javax.swing.GroupLayout(panelDetalhes);
         panelDetalhes.setLayout(panelDetalhesLayout);
@@ -622,11 +623,11 @@ public class Form_Compras extends javax.swing.JPanel {
         panelBorderParcelas.setLayout(panelBorderParcelasLayout);
         panelBorderParcelasLayout.setHorizontalGroup(
             panelBorderParcelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGap(0, 559, Short.MAX_VALUE)
             .addGroup(panelBorderParcelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelBorderParcelasLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPaneParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         panelBorderParcelasLayout.setVerticalGroup(
@@ -652,7 +653,7 @@ public class Form_Compras extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Adicionar Parcecla");
+        jLabel20.setText("Gerar Parcelas");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -676,7 +677,7 @@ public class Form_Compras extends javax.swing.JPanel {
 
         valorParcela.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        comboParcelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x", "11x", "12x" }));
+        comboParcelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a Quantidade...", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x", "11x", "12x" }));
         comboParcelas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboParcelasItemStateChanged(evt);
@@ -700,11 +701,10 @@ public class Form_Compras extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder6Layout.createSequentialGroup()
-                        .addGroup(panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(comboParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
+                        .addGroup(panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(comboParcelas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator3))
                         .addGap(18, 18, 18)
                         .addGroup(panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -785,7 +785,7 @@ public class Form_Compras extends javax.swing.JPanel {
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelDetalhesCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addComponent(jScrollPaneProdutos)
+                                .addComponent(jScrollPaneProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                                 .addGap(49, 49, 49)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -882,9 +882,12 @@ public class Form_Compras extends javax.swing.JPanel {
         } else {
             PesquisaItens pesquisa = new PesquisaItens(null, true);
             pesquisa.setVisible(true);
-            itemSelecionado = pesquisa.getProdutoSelecionado();
-            txtProduto.setText(itemSelecionado.getNome());
-            txtValorProduto.setValue(itemSelecionado.getValor());
+
+            if (pesquisa.isSelecionou()) {
+                itemSelecionado = pesquisa.getProdutoSelecionado();
+                txtProduto.setText(itemSelecionado.getNome());
+                txtValorProduto.setValue(itemSelecionado.getValor());
+            }
         }
 
     }//GEN-LAST:event_txtPesquisarProdutoMouseClicked
@@ -906,9 +909,13 @@ public class Form_Compras extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         PesquisaFornecedores pesquisa = new PesquisaFornecedores(null, true);
         pesquisa.setVisible(true);
-        fornecedorSelecionado = pesquisa.getFornecedorSelecionado();
-        fornecedores.setText(fornecedorSelecionado.getNome());
-        JTextFieldResponsavel.setText(fornecedorSelecionado.getResponsavel());
+
+        if (pesquisa.isSelecionou()) {
+
+            fornecedorSelecionado = pesquisa.getFornecedorSelecionado();
+            fornecedores.setText(fornecedorSelecionado.getNome());
+            JTextFieldResponsavel.setText(fornecedorSelecionado.getResponsavel());
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void txtValorProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorProdutoActionPerformed
@@ -1045,10 +1052,15 @@ public class Form_Compras extends javax.swing.JPanel {
     }//GEN-LAST:event_JTextFieldResponsavelMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        if (fornecedores.getText().isEmpty() || pagamentos.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Para finalizar a compra é necessário preencher todos os dados.", "Erro", JOptionPane.ERROR_MESSAGE);
-            jButton1.requestFocus();
-        } else if (this.confirmou = true) {
+        String selectedValueF = (String) jComboBoxFormaPagamento.getSelectedItem();
+
+        if ("Selecione o Pagamento...".equals(selectedValueF)) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma forma de pagamento.", "Forma de Pagamento Não Selecionada", JOptionPane.ERROR_MESSAGE);
+            comboParcelas.requestFocus();
+        } else if (fornecedores.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha o campo de fornecedor.", "Fornecedor Não Informado", JOptionPane.ERROR_MESSAGE);
+            fornecedores.requestFocus();
+        } else {
             c = this.getCompras();
             controleCompra.adicionar(c);
 
@@ -1065,7 +1077,7 @@ public class Form_Compras extends javax.swing.JPanel {
             String valorFinalFormatado = decimalFormat.format(valorFormatado); // Formata o valor
             valorFinal.setText(valorFinalFormatado);
 
-            JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.");
+            JOptionPane.showMessageDialog(null, "O Pedido foi finalizado com sucesso.", "Pedido Finalizado", JOptionPane.INFORMATION_MESSAGE);
 
             DefaultTableModel model = (DefaultTableModel) tableCompras.getModel();
             DefaultTableModel model2 = (DefaultTableModel) tableParcelas.getModel();
@@ -1073,7 +1085,6 @@ public class Form_Compras extends javax.swing.JPanel {
             model.setRowCount(0);
             model2.setRowCount(0);
         }
-
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void txtQuantidadeItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeItemKeyTyped
@@ -1089,16 +1100,22 @@ public class Form_Compras extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonAdicionarItem2MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        if (JLabelDataDeVencimento.getDate() == null) {
+
+        String selectedValue = (String) comboParcelas.getSelectedItem();
+
+        if ("Selecione a Quantidade...".equals(selectedValue)) {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar a quantidade de parcelas.");
+            comboParcelas.requestFocus();
+        } else if (JLabelDataDeVencimento.getDate() == null) {
             JOptionPane.showMessageDialog(null, "A Data de Vencimento da Parcela deve ser preenchida.");
             JLabelDataDeVencimento.requestFocus();
         } else if (valorParcela.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "O Valor da Parcela deve ser preenchido.");
             valorParcela.requestFocus();
         } else {
-
-            String selectedValue = (String) comboParcelas.getSelectedItem();
-            String numericPart = selectedValue.replaceAll("\\D+", ""); // Remove todos os caracteres não-dígitos
+            String numericPart = selectedValue.replaceAll("\\D+", "");
+            
+            pagamentos.clear();
             int sequencia = Integer.parseInt(numericPart);
 
             Calendar calendar = Calendar.getInstance();
