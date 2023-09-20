@@ -1,5 +1,6 @@
 package ifsplife.menu;
 
+import ifsplife.control.ControleFuncionario;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -27,36 +28,41 @@ public class Menu_adm extends JPanel {
         init();
     }
 
-    private void init() {
-        setBackground(Color.WHITE);
-//        setBackground(firstColor);
-        setLayout(new BorderLayout());
-        JScrollPane scroll = createScroll();
-        panelMenu = createPanelMenu();
-//        panelMenu.setBackground(secondColor);
-        scroll.setViewportView(panelMenu);
-        scroll.getViewport().setOpaque(false);
-        scroll.setViewportBorder(null);
-        add(scroll);
-        addTitle("IFSP LIFE");
+private void init() {
+    setBackground(Color.WHITE);
+    setLayout(new BorderLayout());
+    JScrollPane scroll = createScroll();
+    panelMenu = createPanelMenu();
+    scroll.setViewportView(panelMenu);
+    scroll.getViewport().setOpaque(false);
+    scroll.setViewportBorder(null);
+    add(scroll);
+    addTitle("IFSP LIFE");
+
+    // Verificar o nível de acesso do usuário
+    if (ControleFuncionario.getUsuarioLogado().getNivelacesso().equals("Funcionario")) {
+        // Se for um funcionário, adicionar apenas os itens específicos para funcionários
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Caixa"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Vendas"));
+    } else {
+        // Se for um administrador, adicionar todos os itens
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Caixa"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Compra"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Vendas"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Pagamentos"));
-
         addTitle("INTERNO");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Fornecedor"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Convênios"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Funcionários"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Produtos"));
-        
         addTitle("RELATÓRIOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Compra"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Venda"));
-        
         addTitle("MEUS DADOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Perfil"));
     }
+}
+
 
     private JScrollPane createScroll() {
         JScrollPane scroll = new JScrollPane();

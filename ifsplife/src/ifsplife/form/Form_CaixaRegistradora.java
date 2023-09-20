@@ -100,6 +100,8 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JFormattedTextFieldValorTotal.setEditable(false);
         JFormattedTextFieldSangria.setEditable(false);
         JFormattedTextFieldSuplementacao.setEditable(false);
+        JFormattedTextFieldCompras.setEditable(false);
+        JFormattedTextFieldVendas.setEditable(false);
     }
 
     public void limparTextos() {

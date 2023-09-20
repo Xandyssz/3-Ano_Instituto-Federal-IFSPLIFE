@@ -1,3 +1,4 @@
+DROP DATABASE if exists ifsplife;
 CREATE DATABASE ifsplife;
 USE ifsplife;
 
@@ -13,15 +14,6 @@ CREATE TABLE  caixa (
   valor_abertura DOUBLE NULL DEFAULT NULL,
   valor_fechamento DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (codigo_caixa));
-
-CREATE TABLE  despesas (
-  codigo_despesa INT NOT NULL,
-  data_vencimento DATE NOT NULL,
-  descricao VARCHAR(255) NOT NULL,
-  nome VARCHAR(45) NOT NULL,
-  status VARCHAR(20) NOT NULL,
-  valor DOUBLE NOT NULL,
-  PRIMARY KEY (codigo_despesa));
 
 CREATE TABLE  fornecedores (
   codigo_fornecedor INT NOT NULL AUTO_INCREMENT,
@@ -135,11 +127,9 @@ CREATE TABLE  produtovenda (
     FOREIGN KEY (codigo_venda) REFERENCES vendas (codigo_venda));
 
 # INSERTS DE FUNCIONARIOS
-INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('1', '19470-000', 'Presidente Epitácio', '527.550.908.12', 'Presidente Epitácio', 'admin', 'Administrador', 'Alexandre', '123', 'admin', '(18)98103-8758', 'SP');
-
-INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('2', '11111-111', 'Presidente Epitácio', '111.111.111.11', 'Presidente Epitácio', 'andre', 'Administrador', 'André', '111', 'andre', '(11)11111-1111', 'SP');
-
-INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('3', '22222-222', 'Presidente Epitácio', '222.222.222.22', 'Presidente Epitácio', 'vilson', 'Administrador', 'Vilson', '222', 'vilson', '(22)22222-2222', 'SP');
+INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('1', '19470-000', 'Presidente Epitácio', '527.550.908-12', 'Presidente Epitácio', 'admin', 'Administrador', 'Alexandre', '123', 'admin', '(18)98103-8758', 'SP');
+INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('2', '11111-111', 'Presidente Epitácio', '111.111.111-11', 'Presidente Epitácio', 'andre', 'Administrador', 'André', '111', 'andre', '(11)11111-1111', 'SP');
+INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login, nivelacesso, nome, salario, senha, telefone, uf) VALUES ('3', '22222-222', 'Presidente Epitácio', '222.222.222-22', 'Presidente Epitácio', 'vilson', 'Administrador', 'Vilson', '222', 'vilson', '(22)22222-2222', 'SP');
 
 #------------------------------------------------------------------------------------------------------------
 
@@ -147,7 +137,7 @@ INSERT INTO funcionarios (codigo_funcionario, cep, cidade, cpf, endereco, login,
 
 INSERT INTO produto (codigo_produto, categoria, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('1', 'Cosméticos', '2023-07-15', '2023-07-20', 'Um Comestimo', '1', 'Cosmético', '5', '13.00');
 INSERT INTO produto (codigo_produto, categoria, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('2', 'Perfumes', '2023-07-15', '2023-07-20', 'Um Perfume', '2', 'Perfume', '10', '07.00');
-INSERT INTO produto (codigo_produto, categoria, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('3', 'Medicamentos', '2023-07-15', '2023-07-20', 'Um Medicamento', '3', 'Medicamento', '12', '4.50');
+INSERT INTO produto (codigo_produto, categoria, dosagem, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('3', 'Medicamentos', '5mg', '2023-07-15', '2023-07-20', 'Um Medicamento', '3', 'Medicamento', '12', '4.50');
 INSERT INTO produto (codigo_produto, categoria, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('4', 'Higiene Pessoal', '2023-07-15', '2023-07-20', 'Um objeto de Higiene Pessoal', '4', 'Higiene Pessoal', '16', '6.59');
 INSERT INTO produto (codigo_produto, categoria, data_fabricacao, data_validade, descricao, lote, nome, quantidade, valor) VALUES ('5', 'Alimentos', '2023-07-15', '2023-07-20', 'Um Alimento', '5', 'Alimento', '3', '8.00');
 

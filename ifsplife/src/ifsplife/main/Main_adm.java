@@ -40,8 +40,19 @@ public class Main_adm extends javax.swing.JFrame {
         titleBar.initJFram(this);
         menu.addEvent(new EventMenuSelected() {
             @Override
-            public void menuSelected(int index, int indexSubMenu) {
-//                System.out.println("" + index + " " + indexSubMenu);
+       public void menuSelected(int index, int indexSubMenu) {
+            if (ControleFuncionario.getUsuarioLogado().getNivelacesso().equals("Funcionario")) {
+                // Se for um funcionário, verificar quais elementos são visíveis para ele
+                if (index == 0 && indexSubMenu == 0) {
+                    showForm(new Form_CaixaRegistradora());
+                } else if (index == 1 && indexSubMenu == 0) {
+                    showForm(new Form_Venda());
+                } else {
+                    // Ocultar outros elementos
+                    showForm(new Form_Empty(index + " " + indexSubMenu));
+                }
+            } else {
+                // Se for um administrador, mostrar todos os elementos
                 if (index == 0 && indexSubMenu == 0) {
                     showForm(new Form_CaixaRegistradora());
                 } else if (index == 1 && indexSubMenu == 0) {
@@ -68,9 +79,10 @@ public class Main_adm extends javax.swing.JFrame {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }
             }
-        });
-        menu.setSelectedIndex(0, 0);
-    }
+        }
+    });
+    menu.setSelectedIndex(0, 0);
+}
 
     public void showForm(Component com) {
         body.removeAll();
