@@ -10,6 +10,7 @@ import ifsplife.model.Produtovenda;
 import ifsplife.model.Vendas;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -411,7 +412,7 @@ public class Form_Venda extends javax.swing.JPanel {
         valorFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         valorFinal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pix", "Cartão de Crédito", "Cartão de Débito" }));
+        jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selec. O Metodo de Pagamento...", "Pix", "Cartão de Crédito", "Cartão de Débito" }));
 
         jLabel1.setText("Forma de pagamento:");
 
@@ -462,16 +463,17 @@ public class Form_Venda extends javax.swing.JPanel {
                                         .addGap(19, 19, 19)
                                         .addComponent(jSeparatorValorTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(36, 36, 36)
-                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSeparatorPorcentagem2)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jComboBoxConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelSelecioneConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparatorConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSeparatorPorcentagem2)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                                .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSelecioneConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparatorConvenios, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBoxFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder5Layout.createSequentialGroup()
                         .addGroup(panelBorder5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -812,43 +814,55 @@ public class Form_Venda extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JButtonAdicionarItemMouseClicked
     private void txtQuantidadeItemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeItemKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getKeyCode() == KeyEvent.VK_DELETE || txtQuantidadeItem.getText().isEmpty()) {
+            jFormattedTextFieldValorTotal.setValue(null);
+            return;
+        }
+
         String quantidadeItemText = txtQuantidadeItem.getText();
         String nomeItemText = txtItem.getText();
         double valorItem;
 
         if (nomeItemText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "O nome do Produto não pode estar em branco", "Erro", JOptionPane.ERROR_MESSAGE);
-            JButtonPesquisarItem.requestFocus();
+            evt.consume();
             txtQuantidadeItem.setText("");
+            JButtonPesquisarItem.requestFocus();
             jFormattedTextFieldValorTotal.setValue(null);
-
             return;
         }
 
         try {
             valorItem = ((Number) jFormattedTextFieldValorItem.getValue()).doubleValue();
             int quantidadeItem = Integer.parseInt(quantidadeItemText);
-
             double valorTotalItens = valorItem * quantidadeItem;
             jFormattedTextFieldValorTotal.setValue(valorTotalItens);
 
         } catch (NumberFormatException | ClassCastException | NullPointerException e) {
             if (e instanceof NullPointerException || e instanceof ClassCastException) {
-                JOptionPane.showMessageDialog(this, "O valor do produto não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "O valor do Produto não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                evt.consume();
+                txtQuantidadeItem.setText("");
                 jFormattedTextFieldValorItem.requestFocus();
                 jFormattedTextFieldValorTotal.setValue(null);
 
             } else if (e instanceof NumberFormatException) {
-                JOptionPane.showMessageDialog(this, "A quantidade de produto não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "A quantidade de Produtos não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                evt.consume();
+                txtQuantidadeItem.setText("");
                 txtQuantidadeItem.requestFocus();
                 jFormattedTextFieldValorTotal.setValue(null);
-
             }
         }
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
-        if (this.confirmou = true) {
+        String selectedValueF = (String) jComboBoxFormaPagamento.getSelectedItem();
+
+        if ("Selec. O Metodo de Pagamento...".equals(selectedValueF)) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma forma de pagamento.", "Forma de Pagamento Não Selecionada", JOptionPane.ERROR_MESSAGE);
+            jComboBoxFormaPagamento.requestFocus();
+        } else {
             v = this.getVendas();
 
             controleVenda.adicionar(v);
@@ -877,6 +891,7 @@ public class Form_Venda extends javax.swing.JPanel {
             model.setRowCount(0);
             desativarInputs();
         }
+
     }//GEN-LAST:event_JButtonAdicionarItem1MouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DataVenda;

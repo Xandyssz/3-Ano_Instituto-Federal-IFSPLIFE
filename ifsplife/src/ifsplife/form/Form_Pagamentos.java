@@ -303,13 +303,16 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         Integer linha = tablePagamentos.getSelectedRow();
 
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhuma parcela para pagamento. Selecione.");
+            JOptionPane.showMessageDialog(null, "Não foi selecionada nenhuma parcela para pagamento. Selecione.");
         } else {
-            Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
-            pagamentoSelecionado.setStatus("Pago");
-            controle.realizarPagamento(pagamentoSelecionado);
-            atualizarTabela();
+            int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente pagar a parcela?", "Confirmar Pagamento", JOptionPane.YES_NO_OPTION);
+
+            if (opcao == JOptionPane.YES_OPTION) {
+                Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
+                pagamentoSelecionado.setStatus("Pago");
+                controle.realizarPagamento(pagamentoSelecionado);
+                atualizarTabela();
+            }
         }
     }//GEN-LAST:event_JButtonPagarMouseClicked
 

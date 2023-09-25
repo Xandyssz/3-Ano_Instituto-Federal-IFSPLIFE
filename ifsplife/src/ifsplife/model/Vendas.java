@@ -131,6 +131,17 @@ public class Vendas implements Serializable {
         this.ProdutovendaList = ProdutovendaList;
     }
 
+    ///// ACESSAR PRODUTOVENDAS
+    public void listarProdutosVenda() {
+        for (Produtovenda produtovenda : ProdutovendaList) {
+            System.out.println("Preço Unitário: " + produtovenda.getPreco());
+            System.out.println("Quantidade Vendida: " + produtovenda.getQuantidade());
+            System.out.println("Preço Unitário: " + produtovenda.getSubtotal());
+            System.out.println("Código do Produto: " + produtovenda.getcodigo_produto());
+            System.out.println("Preço Unitário: " + produtovenda.getPreco());
+        }
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

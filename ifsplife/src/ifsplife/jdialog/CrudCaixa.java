@@ -287,8 +287,8 @@ public class CrudCaixa extends javax.swing.JDialog {
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else if (keyChar == '.' || keyChar == ',') {
         } else {
-            txtValor.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume();
         }
     }//GEN-LAST:event_txtValorKeyTyped
 

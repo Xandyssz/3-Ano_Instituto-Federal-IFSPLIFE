@@ -9,9 +9,14 @@ public class CrudConvenio extends javax.swing.JDialog {
     private boolean confirmou = false;
     private int codigo = 0;
 
-    public CrudConvenio(java.awt.Frame parent, boolean modal) {
+    private String buttonClickedText;
+
+    public CrudConvenio(java.awt.Frame parent, boolean modal, String buttonClickedText) {
         super(parent, modal);
         initComponents();
+        this.buttonClickedText = buttonClickedText;
+        JLabelCadastrar.setText(buttonClickedText);
+
     }
 
     public Convenios getConvenio() {
@@ -145,6 +150,11 @@ public class CrudConvenio extends javax.swing.JDialog {
         txtDesconto.setBorder(null);
         txtDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         txtDesconto.setToolTipText("");
+        txtDesconto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescontoKeyTyped(evt);
+            }
+        });
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -157,7 +167,6 @@ public class CrudConvenio extends javax.swing.JDialog {
         JLabelCadastrar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         JLabelCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         JLabelCadastrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCadastrar.setText("Cadastrar");
 
         javax.swing.GroupLayout JButtonCadastrarLayout = new javax.swing.GroupLayout(JButtonCadastrar);
         JButtonCadastrar.setLayout(JButtonCadastrarLayout);
@@ -375,8 +384,8 @@ public class CrudConvenio extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtCNPJ.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            txtCNPJ.setText("");
         }
     }//GEN-LAST:event_txtCNPJKeyTyped
 
@@ -384,10 +393,19 @@ public class CrudConvenio extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtContato.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            txtContato.setText("");
         }
     }//GEN-LAST:event_txtContatoKeyTyped
+
+    private void txtDescontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescontoKeyTyped
+        char keyChar = evt.getKeyChar();
+        if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume(); 
+        }
+    }//GEN-LAST:event_txtDescontoKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;

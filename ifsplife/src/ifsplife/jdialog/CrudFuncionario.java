@@ -9,9 +9,14 @@ public class CrudFuncionario extends javax.swing.JDialog {
     private boolean confirmou = false;
     private int codigo = 0;
 
-    public CrudFuncionario(java.awt.Frame parent, boolean modal) {
+    private String buttonClickedText;
+
+    public CrudFuncionario(java.awt.Frame parent, boolean modal, String buttonClickedText) {
         super(parent, modal);
         initComponents();
+        this.buttonClickedText = buttonClickedText;
+        JLabelCadastrar.setText(buttonClickedText); // Define o texto do JLabel
+
     }
 
     public Funcionarios getFuncionario() {
@@ -541,8 +546,8 @@ public class CrudFuncionario extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtCPF.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            txtCPF.setText("");
         }
     }//GEN-LAST:event_txtCPFKeyTyped
 
@@ -550,8 +555,8 @@ public class CrudFuncionario extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtContato.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            txtContato.setText("");
         }
     }//GEN-LAST:event_txtContatoKeyTyped
 
@@ -559,8 +564,8 @@ public class CrudFuncionario extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtCEP.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            txtCEP.setText("");
         }
     }//GEN-LAST:event_txtCEPKeyTyped
 
@@ -569,8 +574,8 @@ public class CrudFuncionario extends javax.swing.JDialog {
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else if (keyChar == '.' || keyChar == ',') {
         } else {
-            txtSalario.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume();
         }
     }//GEN-LAST:event_txtSalarioKeyTyped
 

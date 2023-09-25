@@ -10,6 +10,7 @@ import ifsplife.model.Compras;
 import ifsplife.model.Produto;
 import ifsplife.model.Produtocompra;
 import ifsplife.model.Pagamentocompra;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -562,9 +563,6 @@ public class Form_Compras extends javax.swing.JPanel {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtQuantidadeItemKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtQuantidadeItemKeyTyped(evt);
-            }
         });
 
         jLabelValorTotalProdutos.setText("Valor Total do Produto:");
@@ -923,40 +921,48 @@ public class Form_Compras extends javax.swing.JPanel {
     }//GEN-LAST:event_txtValorProdutoActionPerformed
 
     private void txtQuantidadeItemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeItemKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getKeyCode() == KeyEvent.VK_DELETE || txtQuantidadeItem.getText().isEmpty()) {
+            txtValorTotalProduto.setValue(null); // Apague o valor total do produto se a quantidade for apagada ou nula
+            return;
+        }
+
         String quantidadeItemText = txtQuantidadeItem.getText();
         String nomeItemText = txtProduto.getText();
         double valorItem;
 
         if (nomeItemText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "O nome do Produto não pode estar em branco", "Erro", JOptionPane.ERROR_MESSAGE);
-            txtPesquisarProduto.requestFocus();
+            evt.consume();
             txtQuantidadeItem.setText("");
+            txtPesquisarProduto.requestFocus();
             txtValorTotalProduto.setValue(null);
-
             return;
         }
 
         try {
             valorItem = ((Number) txtValorProduto.getValue()).doubleValue();
             int quantidadeItem = Integer.parseInt(quantidadeItemText);
-
             double valorTotalItens = valorItem * quantidadeItem;
             txtValorTotalProduto.setValue(valorTotalItens);
 
         } catch (NumberFormatException | ClassCastException | NullPointerException e) {
             if (e instanceof NullPointerException || e instanceof ClassCastException) {
                 JOptionPane.showMessageDialog(this, "O valor do Produto não é válido, insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                txtQuantidadeItem.setText("");
+
+                evt.consume();
                 txtValorProduto.requestFocus();
                 txtValorTotalProduto.setValue(null);
 
             } else if (e instanceof NumberFormatException) {
                 JOptionPane.showMessageDialog(this, "A quantidade de Produtos não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                evt.consume();
+                txtQuantidadeItem.setText("");
+
                 txtQuantidadeItem.requestFocus();
                 txtValorTotalProduto.setValue(null);
-
             }
         }
-
     }//GEN-LAST:event_txtQuantidadeItemKeyReleased
 
     private void JButtonAdicionarItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem1MouseClicked
@@ -1087,14 +1093,6 @@ public class Form_Compras extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabel18MouseClicked
 
-    private void txtQuantidadeItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeItemKeyTyped
-        if (Character.isDigit(evt.getKeyChar())) {
-        } else {
-            JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
-            txtQuantidadeItem.setText("");
-        }
-    }//GEN-LAST:event_txtQuantidadeItemKeyTyped
-
     private void JButtonAdicionarItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItem2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonAdicionarItem2MouseClicked
@@ -1114,7 +1112,7 @@ public class Form_Compras extends javax.swing.JPanel {
             valorParcela.requestFocus();
         } else {
             String numericPart = selectedValue.replaceAll("\\D+", "");
-            
+
             pagamentos.clear();
             int sequencia = Integer.parseInt(numericPart);
 

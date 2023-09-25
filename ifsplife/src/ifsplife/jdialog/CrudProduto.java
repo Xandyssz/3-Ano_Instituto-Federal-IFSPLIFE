@@ -8,13 +8,23 @@ public class CrudProduto extends javax.swing.JDialog {
 
     private boolean confirmou = false;
     private int codigo = 0;
+    private String buttonClickedText;
 
-    public CrudProduto(java.awt.Frame parent, boolean modal) {
+    public CrudProduto(java.awt.Frame parent, boolean modal, String buttonClickedText) {
         super(parent, modal);
         initComponents();
+        this.buttonClickedText = buttonClickedText;
+        JLabelCadastrar.setText(buttonClickedText); // Define o texto do JLabel
+
         JLabelDosagem.setVisible(false);
         txtDosagem.setVisible(false);
         JSeparatorDosagem.setVisible(false);
+        txtQuantidade.setEditable(false);
+
+        JLabelQuantidade.setVisible(false);
+        txtQuantidade.setVisible(false);
+        JSeparatorQuantidade.setVisible(false);
+
     }
 
     public Produto getProduto() {
@@ -29,7 +39,6 @@ public class CrudProduto extends javax.swing.JDialog {
         produto.setData_fabricacao(dataFabricao.getDate());
         produto.setData_validade(dataValidade.getDate());
         produto.setValor(((Number) txtValor.getValue()).doubleValue());
-        produto.setQuantidade(((Number) txtQuantidade.getValue()).intValue());
 
         return produto;
     }
@@ -44,7 +53,6 @@ public class CrudProduto extends javax.swing.JDialog {
         dataFabricao.setDate(produto.getData_fabricacao());
         dataValidade.setDate(produto.getData_validade());
         txtValor.setValue(produto.getValor());
-        txtQuantidade.setValue(produto.getQuantidade());
 
         // ^
     }
@@ -452,12 +460,6 @@ public class CrudProduto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "A Data de Validade deve ser preenchida");
             dataValidade.requestFocus();
-
-        } else if (txtQuantidade.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "A Quantidade deve ser preenchida.");
-            txtQuantidade.requestFocus();
-
         } else if (txtValor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Valor deve ser preenchido.");
@@ -472,8 +474,8 @@ public class CrudProduto extends javax.swing.JDialog {
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else if (keyChar == 'm' || keyChar == 'g') {
         } else {
-            txtDosagem.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume();
         }
     }//GEN-LAST:event_txtDosagemKeyTyped
 
@@ -481,8 +483,8 @@ public class CrudProduto extends javax.swing.JDialog {
         char keyChar = evt.getKeyChar();
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
-            txtLote.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume();
         }
     }//GEN-LAST:event_txtLoteKeyTyped
 
@@ -491,8 +493,8 @@ public class CrudProduto extends javax.swing.JDialog {
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else if (keyChar == '.' || keyChar == ',') {
         } else {
-            txtValor.setText("");
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
+            evt.consume();
         }
     }//GEN-LAST:event_txtValorKeyTyped
 

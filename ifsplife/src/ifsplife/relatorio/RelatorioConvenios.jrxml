@@ -154,7 +154,7 @@ FROM ifsplife.convenios]]>
 				<text><![CDATA[Relatório: #]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="0" width="210" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+				<reportElement x="3" y="0" width="204" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -186,7 +186,7 @@ FROM ifsplife.convenios]]>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="452" y="0" width="104" height="30" uuid="e649e37f-e6d0-4a27-9817-580bca0bddda">
+				<reportElement x="490" y="0" width="66" height="30" uuid="e649e37f-e6d0-4a27-9817-580bca0bddda">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="11a36046-3c20-49a6-96ae-4ee2b5dd1c46"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -204,7 +204,7 @@ FROM ifsplife.convenios]]>
 				<text><![CDATA[CÓDIGO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="266" y="0" width="92" height="30" uuid="9b416e3b-d349-4c43-bf14-153f5627f5af">
+				<reportElement x="266" y="0" width="124" height="30" uuid="9b416e3b-d349-4c43-bf14-153f5627f5af">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ebd585b-3bae-43a6-b0e0-6f18911236e9"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -231,7 +231,7 @@ FROM ifsplife.convenios]]>
 				<text><![CDATA[TELEFONE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="0" width="92" height="30" uuid="fa8d5510-5c02-401a-a06c-865cee076651">
+				<reportElement x="390" y="0" width="100" height="30" uuid="fa8d5510-5c02-401a-a06c-865cee076651">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b66a2fec-38d2-4d80-88f0-95bca96d56a5"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -262,13 +262,13 @@ FROM ifsplife.convenios]]>
 				<reportElement x="265" y="-41" width="1" height="63" uuid="e7d0365b-c78a-4fcf-81d7-40f2c5eea39e"/>
 			</line>
 			<line>
-				<reportElement x="358" y="-41" width="1" height="63" uuid="86624bdb-3476-44b6-ae5f-9994eba4585b"/>
+				<reportElement x="388" y="-41" width="1" height="63" uuid="86624bdb-3476-44b6-ae5f-9994eba4585b"/>
 			</line>
 			<line>
-				<reportElement x="451" y="-41" width="1" height="63" uuid="53c1372f-60cb-4626-b2e5-527851bfea95"/>
+				<reportElement x="490" y="-41" width="1" height="63" uuid="53c1372f-60cb-4626-b2e5-527851bfea95"/>
 			</line>
 			<textField>
-				<reportElement x="451" y="-7" width="104" height="30" uuid="54e021c6-f962-4a98-ae2b-6452531d65df">
+				<reportElement x="490" y="-7" width="64" height="30" uuid="54e021c6-f962-4a98-ae2b-6452531d65df">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="11a36046-3c20-49a6-96ae-4ee2b5dd1c46"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -282,7 +282,7 @@ FROM ifsplife.convenios]]>
 				<textFieldExpression><![CDATA[$F{codigo_convenio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="266" y="-7" width="92" height="30" uuid="06dca90c-fc2e-4905-ba2d-39b6e7c6a980">
+				<reportElement x="266" y="-7" width="124" height="28" uuid="06dca90c-fc2e-4905-ba2d-39b6e7c6a980">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ebd585b-3bae-43a6-b0e0-6f18911236e9"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -303,7 +303,7 @@ FROM ifsplife.convenios]]>
 				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="359" y="-7" width="92" height="30" uuid="f0421e8d-2e38-4a70-9752-98ffdcdb2513">
+				<reportElement x="391" y="-8" width="98" height="30" uuid="f0421e8d-2e38-4a70-9752-98ffdcdb2513">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b66a2fec-38d2-4d80-88f0-95bca96d56a5"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>

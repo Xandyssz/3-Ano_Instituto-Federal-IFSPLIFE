@@ -63,7 +63,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura() + 
                 caixa.getSuplementacao() + 
                 controlevenda.getTotalVendaPorCaixa(caixa) - 
-                caixa.getSangria() + 
+                caixa.getSangria() - 
                 controlecompra.getTotalParcelasPago(caixa));
 
         
@@ -340,7 +340,7 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         jLabelRSSuplementacao1.setText("R$");
 
         JFormattedTextFieldCompras.setBorder(null);
-        JFormattedTextFieldCompras.setForeground(new java.awt.Color(0, 153, 51));
+        JFormattedTextFieldCompras.setForeground(new java.awt.Color(204, 0, 0));
         JFormattedTextFieldCompras.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         JFormattedTextFieldCompras.setText("0");
 

@@ -351,7 +351,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
         atualizarTabela();
     }//GEN-LAST:event_clear1MouseClicked
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
-        CrudFornecedor crudfornecedor = new CrudFornecedor(null, true);
+        CrudFornecedor crudfornecedor = new CrudFornecedor(null, true, "Cadastrar");
 
         crudfornecedor.setVisible(true);
 
@@ -370,7 +370,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Fornecedor. Selecione.");
         } else {
-            CrudFornecedor crudfornecedor = new CrudFornecedor(null, true);
+            CrudFornecedor crudfornecedor = new CrudFornecedor(null, true, "Editar");
 
             crudfornecedor.setFornecedor(listaFornecedores.get(linha));
 
@@ -394,7 +394,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Funcionário. Selecione.");
         } else {
-            CrudFornecedor tela = new CrudFornecedor(null, true);
+            CrudFornecedor tela = new CrudFornecedor(null, true, "Visualizar");
 
             tela.setFornecedor(listaFornecedores.get(linha));
             tela.desabilitarEdicao();

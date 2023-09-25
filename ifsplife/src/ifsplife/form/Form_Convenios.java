@@ -347,8 +347,9 @@ public class Form_Convenios extends javax.swing.JPanel {
     }//GEN-LAST:event_clear1MouseClicked
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
-        CrudConvenio crudconvenio = new CrudConvenio(null, true);
+        CrudConvenio crudconvenio = new CrudConvenio(null, true, "Cadastrar"); // Passe o texto "Cadastrar"
 
+        // Define o texto com base no botão clicado
         crudconvenio.setVisible(true);
 
         if (crudconvenio.isConfirmou()) {
@@ -366,8 +367,9 @@ public class Form_Convenios extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Convênio. Selecione.");
         } else {
-            CrudConvenio crudconvenio = new CrudConvenio(null, true);
+            CrudConvenio crudconvenio = new CrudConvenio(null, true, "Editar"); // Passe o texto "Editar"
 
+            // Define o texto com base no botão clicado
             crudconvenio.setConvenio(listaConvenios.get(linha));
 
             crudconvenio.setVisible(true);
@@ -388,8 +390,9 @@ public class Form_Convenios extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Convênio. Selecione.");
         } else {
-            CrudConvenio tela = new CrudConvenio(null, true);
+            CrudConvenio tela = new CrudConvenio(null, true, "Visualizar"); // Passe o texto "Visualizar"
 
+            // Define o texto com base no botão clicado
             tela.setConvenio(listaConvenios.get(linha));
             tela.desabilitarEdicao();
 

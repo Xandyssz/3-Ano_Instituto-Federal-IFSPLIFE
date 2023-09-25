@@ -350,7 +350,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
-        CrudFuncionario crudfuncionario = new CrudFuncionario(null, true);
+        CrudFuncionario crudfuncionario = new CrudFuncionario(null, true, "Cadastrar");
 
         crudfuncionario.setVisible(true);
 
@@ -370,7 +370,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Funcionário. Selecione.");
         } else {
-            CrudFuncionario crudfuncionario = new CrudFuncionario(null, true);
+            CrudFuncionario crudfuncionario = new CrudFuncionario(null, true, "Editar");
 
             crudfuncionario.setFuncionario(listaFuncionarios.get(linha));
 
@@ -414,7 +414,7 @@ public class Form_Funcionarios extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Funcionário. Selecione.");
         } else {
-            CrudFuncionario tela = new CrudFuncionario(null, true);
+            CrudFuncionario tela = new CrudFuncionario(null, true, "Visualizar");
 
             tela.setFuncionario(listaFuncionarios.get(linha));
             tela.desabilitarEdicao();

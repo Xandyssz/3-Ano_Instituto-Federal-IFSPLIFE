@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>relatorio</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>RelatorioVendaAgrup.jasper</name>
+			<type>1</type>
+			<location>D:/3-Ano_Instituto-Federal-Farmacia/ifsplife/src/ifsplife/relatorio/RelatorioVendaAgrup.jasper</location>
+		</link>
+		<link>
+			<name>RelatorioVendaAgrup.jrxml</name>
+			<type>1</type>
+			<location>D:/3-Ano_Instituto-Federal-Farmacia/ifsplife/src/ifsplife/relatorio/RelatorioVendaAgrup.jrxml</location>
+		</link>
+	</linkedResources>
+</projectDescription>

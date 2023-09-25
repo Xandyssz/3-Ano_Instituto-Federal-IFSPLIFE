@@ -94,7 +94,7 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Relat. Teste");
+        jLabel22.setText("Relatorio");
 
         javax.swing.GroupLayout JButtonVisualizar2Layout = new javax.swing.GroupLayout(JButtonVisualizar2);
         JButtonVisualizar2.setLayout(JButtonVisualizar2Layout);

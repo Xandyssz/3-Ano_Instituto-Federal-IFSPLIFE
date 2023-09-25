@@ -349,7 +349,7 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private void JButtonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluir1MouseClicked
         try {
             JasperReport relatorioCompilado
-                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioVendas.jrxml");
+                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioVendas.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
                     new JRBeanCollectionDataSource(vendas));

@@ -9,9 +9,14 @@ public class CrudFornecedor extends javax.swing.JDialog {
     private boolean confirmou = false;
     private int codigo = 0;
 
-    public CrudFornecedor(java.awt.Frame parent, boolean modal) {
+    private String buttonClickedText;
+
+    public CrudFornecedor(java.awt.Frame parent, boolean modal, String buttonClickedText) {
         super(parent, modal);
         initComponents();
+        this.buttonClickedText = buttonClickedText;
+        JLabelCadastrar.setText(buttonClickedText); // Define o texto do JLabel
+
     }
 
     public Fornecedores getFornecedores() {

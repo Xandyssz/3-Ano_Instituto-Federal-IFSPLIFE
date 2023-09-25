@@ -350,6 +350,9 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
+                  </AuxValues>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -408,21 +411,23 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jSeparatorPorcentagem2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxFormaPagamento" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jSeparatorPorcentagem2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel1" alignment="0" pref="195" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jComboBoxConvenios" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                                  <Component id="jLabelSelecioneConvenio" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                                  <Component id="jSeparatorConvenios" min="-2" pref="195" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jComboBoxConvenios" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                              <Component id="jLabelSelecioneConvenio" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                              <Component id="jSeparatorConvenios" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jComboBoxFormaPagamento" min="-2" pref="218" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="150" max="32767" attributes="0"/>
+                              <EmptySpace pref="127" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -684,10 +689,11 @@
                     <Component class="javax.swing.JComboBox" name="jComboBoxFormaPagamento">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="3">
-                            <StringItem index="0" value="Pix"/>
-                            <StringItem index="1" value="Cart&#xe3;o de Cr&#xe9;dito"/>
-                            <StringItem index="2" value="Cart&#xe3;o de D&#xe9;bito"/>
+                          <StringArray count="4">
+                            <StringItem index="0" value="Selec. O Metodo de Pagamento..."/>
+                            <StringItem index="1" value="Pix"/>
+                            <StringItem index="2" value="Cart&#xe3;o de Cr&#xe9;dito"/>
+                            <StringItem index="3" value="Cart&#xe3;o de D&#xe9;bito"/>
                           </StringArray>
                         </Property>
                       </Properties>

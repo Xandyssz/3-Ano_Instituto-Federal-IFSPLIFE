@@ -348,7 +348,7 @@ public class Form_Produto extends javax.swing.JPanel {
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
 
-        CrudProduto crudproduto = new CrudProduto(null, true);
+        CrudProduto crudproduto = new CrudProduto(null, true, "Cadastrar");
 
         crudproduto.setVisible(true);
 
@@ -370,7 +370,7 @@ public class Form_Produto extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Produto. Selecione.");
         } else {
-            CrudProduto crudproduto = new CrudProduto(null, true);
+            CrudProduto crudproduto = new CrudProduto(null, true, "Editar");
 
             crudproduto.setProduto(listaProdutos.get(linha));
 
@@ -396,7 +396,7 @@ public class Form_Produto extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,
                     "Não foi selecionado nenhum Produto. Selecione.");
         } else {
-            CrudProduto crudproduto = new CrudProduto(null, true);
+            CrudProduto crudproduto = new CrudProduto(null, true, "Visualizar");
 
             crudproduto.setProduto(listaProdutos.get(linha));
             crudproduto.desabilitarEdicao();
