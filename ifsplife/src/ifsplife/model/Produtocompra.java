@@ -16,7 +16,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produtocompra")
 @NamedQueries({
-    @NamedQuery(name = "Produtocompra.findAll", query = "SELECT i FROM Produtocompra i"),
+    @NamedQuery(name = "Produtocompra.findAll", query = "SELECT pc FROM Produtocompra pc ORDER BY pc.codigo_compra"),
+    
+    
     @NamedQuery(name = "Produtocompra.findByPreco", query = "SELECT i FROM Produtocompra i WHERE i.preco = :preco"),
     @NamedQuery(name = "Produtocompra.findByQuantidade", query = "SELECT i FROM Produtocompra i WHERE i.quantidade = :quantidade"),
     @NamedQuery(name = "Produtocompra.findByCodigoCompra", query = "SELECT i FROM Produtocompra i WHERE i.codigo_compra = :codigo_compra"),

@@ -100,5 +100,15 @@ public class ControleCompra {
 
         return total;
     }
+    
+        public List<Produtocompra> listarTodosProdutos() {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Produtocompra> consulta 
+                = gerente.createNamedQuery("Produtocompra.findAll" , Produtocompra.class);
+        return consulta.getResultList();
+
+    }
 
 }

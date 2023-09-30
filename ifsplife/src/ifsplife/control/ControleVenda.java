@@ -101,4 +101,14 @@ public class ControleVenda {
 
     }
 
+    public List<Produtovenda> listarTodosProdutos() {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Produtovenda> consulta 
+                = gerente.createNamedQuery("Produtovenda.findAll" , Produtovenda.class);
+        return consulta.getResultList();
+
+    }
+
 }

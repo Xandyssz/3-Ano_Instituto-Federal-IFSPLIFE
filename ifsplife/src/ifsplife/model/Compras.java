@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 @Table(name = "compras")
 @NamedQueries({
     @NamedQuery(name = "Compras.findAll", query = "SELECT c FROM Compras c"),
+    
+    
     @NamedQuery(name = "Compras.findByCodigoCompra", query = "SELECT c FROM Compras c WHERE c.codigo_compra = :codigoCompra"),
     @NamedQuery(name = "Compras.findByDataCompra", query = "SELECT c FROM Compras c WHERE c.data_compra = :dataCompra"),
     @NamedQuery(name = "Compras.findByFormaPagamento", query = "SELECT c FROM Compras c WHERE c.forma_pagamento = :formaPagamento"),

@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 @Table(name = "vendas")
 @NamedQueries({
     @NamedQuery(name = "Vendas.findAll", query = "SELECT v FROM Vendas v"),
+    
+    
     @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigo_venda = :codigoVenda"),
     @NamedQuery(name = "Vendas.findByDataVenda", query = "SELECT v FROM Vendas v WHERE v.data_venda = :dataVenda"),
     @NamedQuery(name = "Vendas.findByPeriodos", query = "SELECT v FROM Vendas v WHERE v.data_venda BETWEEN :datainicio AND :datafim"),
