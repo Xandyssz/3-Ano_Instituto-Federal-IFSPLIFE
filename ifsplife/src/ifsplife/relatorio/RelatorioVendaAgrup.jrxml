@@ -3,6 +3,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProdutosPorFornecedor_Grupo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7f6c8e60-4e52-46c7-bc6e-abdc52046c07">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<![CDATA[aWZzcGxpZmUucHJvZHV0byAsMTg1LDIzNyw0ZjJhZWM2Yi0zY2ZiLTRjMDctODJiNS00MzcxMTgz
 MWYzOGY7aWZzcGxpZmUucHJvZHV0b3ZlbmRhICwxNSwxNjUsYTM2MmMzYTMtOGE2OS00ZmRiLTk1
 OGMtNTNlY2FhOTQ2YjNjO2lmc3BsaWZlLmNvbnZlbmlvcyAsMzYxLDE0MCxlNzI0MTU5Yi1hODgy
@@ -15,6 +16,13 @@ LTg5ZDk0OWQxYmE3OTtpZnNwbGlmZS5wcm9kdXRvICwxODUsMjM3LGVmYjllYzVlLWI2OGMtNGMx
 NS1hY2Y3LTVkNDg1MmNmNmNiMTtpZnNwbGlmZS5jb252ZW5pb3MgLDM2MSwxNDAsOWIxMmY4Yzct
 NzBjYy00YzhiLTkzNDgtM2JlNjIyNDY2ZDY5Ow==]]>
 >>>>>>> parent of e391c39 (.)
+=======
+		<![CDATA[aWZzcGxpZmUuY29udmVuaW9zICwyNjcsMzEzLDMwYzQwMDc1LTI4Y2EtNDYyZS05YjJlLWJiNzJm
+MWNjMTAzNTtpZnNwbGlmZS5wcm9kdXRvICwzODYsMzYsMzliYjQ1MmUtYTNmYy00NTE3LTlmOTgt
+NzAxZWM4Mzc2NjIyO2lmc3BsaWZlLnZlbmRhcyAsMjUsMjgxLDY1YjdmYWZiLTQzODgtNGVhMi1h
+ZjFjLWFlOTA2ZDEzM2RiYTtpZnNwbGlmZS5wcm9kdXRvdmVuZGEgLDE5LDc3LDEyNjk1ZWFmLTYy
+YzctNDQ1MC04NWUwLTE1OWVmNzU5ODhhNDs=]]>
+>>>>>>> parent of 3abe32f (GIT BUG)
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ifsplife"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="630"/>
@@ -30,6 +38,7 @@ NzBjYy00YzhiLTkzNDgtM2JlNjIyNDY2ZDY5Ow==]]>
 <<<<<<< HEAD
 	ifsplife.produto.categoria,
 	ifsplife.produto.lote,
+<<<<<<< HEAD
 	ifsplife.produto.codigo_produto,
 	ifsplife.vendas.codigo_venda,
 	ifsplife.convenios.codigo_convenio
@@ -37,6 +46,10 @@ NzBjYy00YzhiLTkzNDgtM2JlNjIyNDY2ZDY5Ow==]]>
 	ifsplife.produtovenda.codigo_produto,
 	ifsplife.produtovenda.codigo_venda
 >>>>>>> parent of e391c39 (.)
+=======
+	ifsplife.produtovenda.codigo_produto,
+	ifsplife.produtovenda.codigo_venda
+>>>>>>> parent of 3abe32f (GIT BUG)
 FROM ifsplife.produtovenda
 	INNER JOIN ifsplife.vendas ON 
 	 ifsplife.produtovenda.codigo_venda = ifsplife.vendas.codigo_venda 
@@ -45,6 +58,12 @@ FROM ifsplife.produtovenda
 	INNER JOIN ifsplife.produto ON 
 	 ifsplife.produtovenda.codigo_produto = ifsplife.produto.codigo_produto]]>
 	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[codigo_produto.nome]]></fieldDescription>
+	</field>
 	<field name="quantidade" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
 		<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
@@ -57,18 +76,13 @@ FROM ifsplife.produtovenda
 		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
 		<fieldDescription><![CDATA[ProdutovendaList.subtotal]]></fieldDescription>
 	</field>
-	<field name="codigo_venda" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
-		<fieldDescription><![CDATA[codigo_venda.codigo_venda]]></fieldDescription>
-	</field>
-	<field name="data_venda" class="java.util.Date">
+	<field name="data_venda" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="data_venda"/>
 		<property name="com.jaspersoft.studio.field.label" value="data_venda"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
 		<fieldDescription><![CDATA[codigo_venda.data_venda]]></fieldDescription>
 	</field>
+<<<<<<< HEAD
 	<field name="codigo_convenio" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="codigo_convenio"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_convenio"/>
@@ -94,23 +108,31 @@ FROM ifsplife.produtovenda
 		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.nome]]></fieldDescription>
 	</field>
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 3abe32f (GIT BUG)
 	<field name="telefone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
 		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.telefone]]></fieldDescription>
 	</field>
-	<field name="codigo_produto" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
-		<fieldDescription><![CDATA[codigo_produto.codigo_produto]]></fieldDescription>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
+		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.email]]></fieldDescription>
 	</field>
-	<field name="nome" class="java.lang.String">
+	<field name="cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
+		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.cnpj]]></fieldDescription>
+	</field>
+	<field name="nome_convenio" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>
-		<property name="com.jaspersoft.studio.field.label" value="nome"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
-		<fieldDescription><![CDATA[codigo_produto.nome]]></fieldDescription>
+		<property name="com.jaspersoft.studio.field.label" value="nome_convenio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
+		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.nome]]></fieldDescription>
 	</field>
 	<field name="categoria" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="categoria"/>
@@ -136,6 +158,18 @@ FROM ifsplife.produtovenda
 		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
 		<fieldDescription><![CDATA[codigo_venda]]></fieldDescription>
 >>>>>>> parent of e391c39 (.)
+	</field>
+	<field name="codigo_produto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_produto"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
+		<fieldDescription><![CDATA[codigo_produto]]></fieldDescription>
+	</field>
+	<field name="codigo_venda" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
+		<fieldDescription><![CDATA[codigo_venda]]></fieldDescription>
 	</field>
 	<variable name="codigo_produto1" class="java.lang.Integer" resetType="Group" resetGroup="AgrupamentoVenda" calculation="DistinctCount">
 		<variableExpression><![CDATA[$F{codigo_produto}]]></variableExpression>

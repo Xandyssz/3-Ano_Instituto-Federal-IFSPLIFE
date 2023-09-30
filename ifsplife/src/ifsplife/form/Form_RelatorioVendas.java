@@ -24,6 +24,7 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
     ControleVenda controle = new ControleVenda();
+
     List<Vendas> vendas = new ArrayList<>();
     List<Produtovenda> itens = new ArrayList<>();
 
@@ -348,10 +349,10 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private void JButtonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluir1MouseClicked
         try {
             JasperReport relatorioCompilado
-                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioVendaAgrup.jrxml");
+                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioVendas.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(controle.listarTodosProdutos()));
+                    new JRBeanCollectionDataSource(vendas));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

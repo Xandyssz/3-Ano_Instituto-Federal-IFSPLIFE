@@ -15,9 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produtovenda")
 @NamedQueries({
-    @NamedQuery(name = "Produtovenda.findAll", query = "SELECT pv FROM Produtovenda pv ORDER BY pv.codigo_venda"),
-
-    
+    @NamedQuery(name = "Produtovenda.findAll", query = "SELECT i FROM Produtovenda i"),
     @NamedQuery(name = "Produtovenda.findByPreco", query = "SELECT i FROM Produtovenda i WHERE i.preco = :preco"),
     @NamedQuery(name = "Produtovenda.findByQuantidade", query = "SELECT i FROM Produtovenda i WHERE i.quantidade = :quantidade"),
     @NamedQuery(name = "Produtovenda.findByCodigoItem", query = "SELECT i FROM Produtovenda i WHERE i.codigo_produto = :codigo_produto"),
