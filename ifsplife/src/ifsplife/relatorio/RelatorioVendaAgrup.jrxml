@@ -1,55 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProdutosPorFornecedor_Grupo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7f6c8e60-4e52-46c7-bc6e-abdc52046c07">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<![CDATA[aWZzcGxpZmUucHJvZHV0byAsMTg1LDIzNyw0ZjJhZWM2Yi0zY2ZiLTRjMDctODJiNS00MzcxMTgz
-MWYzOGY7aWZzcGxpZmUucHJvZHV0b3ZlbmRhICwxNSwxNjUsYTM2MmMzYTMtOGE2OS00ZmRiLTk1
-OGMtNTNlY2FhOTQ2YjNjO2lmc3BsaWZlLmNvbnZlbmlvcyAsMzYxLDE0MCxlNzI0MTU5Yi1hODgy
-LTRiNWQtYWEwMS02Y2Y1NzkyODNjNTI7aWZzcGxpZmUudmVuZGFzICwxODUsMTUsYjNjNzAzMDEt
-NTVlNy00MzM4LWFjMGQtYWM0MjVkZjc1ZmE2Ow==]]>
-=======
-		<![CDATA[aWZzcGxpZmUudmVuZGFzICwxODUsMTUsYzAxZDZjYTgtMWM1OS00MGNjLWFmNzktZmNmNzA2OWIy
-YzgxO2lmc3BsaWZlLnByb2R1dG92ZW5kYSAsMTUsMTY1LDU2YzFiNTVlLTk4YmEtNGM3OC1iOGM3
-LTg5ZDk0OWQxYmE3OTtpZnNwbGlmZS5wcm9kdXRvICwxODUsMjM3LGVmYjllYzVlLWI2OGMtNGMx
-NS1hY2Y3LTVkNDg1MmNmNmNiMTtpZnNwbGlmZS5jb252ZW5pb3MgLDM2MSwxNDAsOWIxMmY4Yzct
-NzBjYy00YzhiLTkzNDgtM2JlNjIyNDY2ZDY5Ow==]]>
->>>>>>> parent of e391c39 (.)
-=======
-		<![CDATA[aWZzcGxpZmUuY29udmVuaW9zICwyNjcsMzEzLDMwYzQwMDc1LTI4Y2EtNDYyZS05YjJlLWJiNzJm
-MWNjMTAzNTtpZnNwbGlmZS5wcm9kdXRvICwzODYsMzYsMzliYjQ1MmUtYTNmYy00NTE3LTlmOTgt
-NzAxZWM4Mzc2NjIyO2lmc3BsaWZlLnZlbmRhcyAsMjUsMjgxLDY1YjdmYWZiLTQzODgtNGVhMi1h
-ZjFjLWFlOTA2ZDEzM2RiYTtpZnNwbGlmZS5wcm9kdXRvdmVuZGEgLDE5LDc3LDEyNjk1ZWFmLTYy
-YzctNDQ1MC04NWUwLTE1OWVmNzU5ODhhNDs=]]>
->>>>>>> parent of 3abe32f (GIT BUG)
-	</property>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ifsplife"/>
-	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="630"/>
-	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="358"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="705"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="283"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="banco"/>
 	<queryString>
-		<![CDATA[SELECT ifsplife.produtovenda.quantidade,
+		<![CDATA[SELECT ifsplife.produto.nome,
+	ifsplife.produtovenda.quantidade,
 	ifsplife.produtovenda.subtotal,
 	ifsplife.vendas.data_venda,
 	ifsplife.convenios.telefone,
 	ifsplife.convenios.email,
 	ifsplife.convenios.cnpj,
 	ifsplife.convenios.nome AS nome_convenio,
-<<<<<<< HEAD
 	ifsplife.produto.categoria,
 	ifsplife.produto.lote,
-<<<<<<< HEAD
 	ifsplife.produto.codigo_produto,
 	ifsplife.vendas.codigo_venda,
 	ifsplife.convenios.codigo_convenio
-=======
-	ifsplife.produtovenda.codigo_produto,
-	ifsplife.produtovenda.codigo_venda
->>>>>>> parent of e391c39 (.)
-=======
-	ifsplife.produtovenda.codigo_produto,
-	ifsplife.produtovenda.codigo_venda
->>>>>>> parent of 3abe32f (GIT BUG)
 FROM ifsplife.produtovenda
 	INNER JOIN ifsplife.vendas ON 
 	 ifsplife.produtovenda.codigo_venda = ifsplife.vendas.codigo_venda 
@@ -58,31 +27,54 @@ FROM ifsplife.produtovenda
 	INNER JOIN ifsplife.produto ON 
 	 ifsplife.produtovenda.codigo_produto = ifsplife.produto.codigo_produto]]>
 	</queryString>
+	<field name="quantidade" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
+		<fieldDescription><![CDATA[subtotal]]></fieldDescription>
+	</field>
+	<field name="codigo_venda" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[codigo_venda.codigo_venda]]></fieldDescription>
+	</field>
+	<field name="data_venda" class="java.util.Date">
+		<property name="com.jaspersoft.studio.field.name" value="data_venda"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_venda"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
+		<fieldDescription><![CDATA[codigo_venda.data_venda]]></fieldDescription>
+	</field>
+	<field name="codigo_produto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_produto"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[codigo_produto.codigo_produto]]></fieldDescription>
+	</field>
+	<field name="categoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="categoria"/>
+		<property name="com.jaspersoft.studio.field.label" value="categoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[codigo_produto.categoria]]></fieldDescription>
+	</field>
+	<field name="lote" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="lote"/>
+		<property name="com.jaspersoft.studio.field.label" value="lote"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[codigo_produto.lote]]></fieldDescription>
+	</field>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
 		<fieldDescription><![CDATA[codigo_produto.nome]]></fieldDescription>
 	</field>
-	<field name="quantidade" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
-		<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[ProdutovendaList.quantidade]]></fieldDescription>
-	</field>
-	<field name="subtotal" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
-		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[ProdutovendaList.subtotal]]></fieldDescription>
-	</field>
-	<field name="data_venda" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.name" value="data_venda"/>
-		<property name="com.jaspersoft.studio.field.label" value="data_venda"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="vendas"/>
-		<fieldDescription><![CDATA[codigo_venda.data_venda]]></fieldDescription>
-	</field>
-<<<<<<< HEAD
 	<field name="codigo_convenio" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="codigo_convenio"/>
 		<property name="com.jaspersoft.studio.field.label" value="codigo_convenio"/>
@@ -107,69 +99,11 @@ FROM ifsplife.produtovenda
 		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
 		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.nome]]></fieldDescription>
 	</field>
-<<<<<<< HEAD
-=======
->>>>>>> parent of 3abe32f (GIT BUG)
 	<field name="telefone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
 		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.telefone]]></fieldDescription>
-	</field>
-	<field name="email" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="email"/>
-		<property name="com.jaspersoft.studio.field.label" value="email"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
-		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.email]]></fieldDescription>
-	</field>
-	<field name="cnpj" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
-		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
-		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.cnpj]]></fieldDescription>
-	</field>
-	<field name="nome_convenio" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nome"/>
-		<property name="com.jaspersoft.studio.field.label" value="nome_convenio"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="convenios"/>
-		<fieldDescription><![CDATA[codigo_venda.codigo_convenio.nome]]></fieldDescription>
-	</field>
-	<field name="categoria" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="categoria"/>
-		<property name="com.jaspersoft.studio.field.label" value="categoria"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
-		<fieldDescription><![CDATA[codigo_produto.categoria]]></fieldDescription>
-	</field>
-	<field name="lote" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="lote"/>
-		<property name="com.jaspersoft.studio.field.label" value="lote"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
-		<fieldDescription><![CDATA[codigo_produto.lote]]></fieldDescription>
-=======
-	<field name="codigo_produto" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[codigo_produto]]></fieldDescription>
-	</field>
-	<field name="codigo_venda" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[codigo_venda]]></fieldDescription>
->>>>>>> parent of e391c39 (.)
-	</field>
-	<field name="codigo_produto" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_produto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[codigo_produto]]></fieldDescription>
-	</field>
-	<field name="codigo_venda" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.label" value="codigo_venda"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="produtovenda"/>
-		<fieldDescription><![CDATA[codigo_venda]]></fieldDescription>
 	</field>
 	<variable name="codigo_produto1" class="java.lang.Integer" resetType="Group" resetGroup="AgrupamentoVenda" calculation="DistinctCount">
 		<variableExpression><![CDATA[$F{codigo_produto}]]></variableExpression>
@@ -263,6 +197,7 @@ FROM ifsplife.produtovenda
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
+					<text><![CDATA[Lote]]></text>
 				</staticText>
 				<line>
 					<reportElement x="0" y="23" width="552" height="1" uuid="70175b2b-5e4b-492d-bc66-7993948316de"/>
@@ -407,10 +342,25 @@ FROM ifsplife.produtovenda
 	<detail>
 		<band height="21" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="1" y="-10" width="136" height="19" uuid="e8bb1b00-3fa3-48db-b3de-8eb64eb0db4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="-11" width="110" height="20" uuid="0fef7e2c-cce8-42cf-87d3-c5eef8a4f256"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
 			<textField pattern="¤#,##0.##;¤-#,##0.##">
 				<reportElement x="430" y="-11" width="122" height="20" uuid="4b59ce2a-9f4d-48f5-a4c2-f65516526336"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="-10" width="99" height="19" uuid="321ced7d-3545-4caf-aae3-0ab0a15a54fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="137" y="-30" width="1" height="39" uuid="fa19e909-07c3-4c72-b16e-0b7d0c0abdd1">
@@ -442,6 +392,11 @@ FROM ifsplife.produtovenda
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 			</line>
+			<textField>
+				<reportElement x="238" y="-11" width="82" height="20" uuid="b1f99ed2-c45a-4a91-b410-6dbdecc48671"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lote}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
