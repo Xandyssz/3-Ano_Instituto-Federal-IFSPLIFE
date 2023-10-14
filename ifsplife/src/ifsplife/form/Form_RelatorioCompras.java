@@ -348,17 +348,17 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
     private void JButtonVisualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizar2MouseClicked
         try {
             JasperReport relatorioCompilado
-                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioCompras.jrxml");
+                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioCompraAgrup.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(compras));
+                    new JRBeanCollectionDataSource(controle.listarTodosProdutos()));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 
             painelRelatorio.show();
 
         } catch (JRException ex) {
-            Logger.getLogger(Form_RelatorioCompras.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Form_RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JButtonVisualizar2MouseClicked
 

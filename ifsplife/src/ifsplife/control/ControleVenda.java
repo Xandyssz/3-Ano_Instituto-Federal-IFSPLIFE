@@ -87,14 +87,6 @@ public class ControleVenda {
         return total;
     }
 
-    public List<Produtovenda> listarTodosProdutos() {
-        EntityManager gerente = GerenciadorConexao.getGerente();
-        TypedQuery<Produtovenda> consulta
-                = gerente.createNamedQuery("Produtovenda.findAll", Produtovenda.class);
-        return consulta.getResultList();
-
-    }
-
     public List<Vendas> getPorPeriodo(Date inicio, Date fim) {
 
         EntityManager gerente = GerenciadorConexao.getGerente();
@@ -105,6 +97,14 @@ public class ControleVenda {
         consulta.setParameter("datainicio", inicio);
         consulta.setParameter("datafim", fim);
 
+        return consulta.getResultList();
+
+    }
+
+    public List<Produtovenda> listarTodosProdutos() {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+        TypedQuery<Produtovenda> consulta
+                = gerente.createNamedQuery("Produtovenda.findAll", Produtovenda.class);
         return consulta.getResultList();
 
     }

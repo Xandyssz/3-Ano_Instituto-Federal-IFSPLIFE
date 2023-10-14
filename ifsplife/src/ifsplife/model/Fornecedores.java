@@ -47,7 +47,7 @@ public class Fornecedores implements Serializable {
     private String cnpj;
 
     @Column(name = "email", nullable = false, length = 45)
-    private String email;
+    private String email        ;
 
     @Column(name = "endereco", nullable = false, length = 45)
     private String endereco;
