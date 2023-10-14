@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.control.ControleVenda;
 import ifsplife.jdialog.RelatorioVendas;
 import ifsplife.model.Produtovenda;
@@ -31,6 +32,10 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     public Form_RelatorioVendas() {
         initComponents();
         atualizarTabela();
+
+        ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
+
     }
 
     private void atualizarTabela() {

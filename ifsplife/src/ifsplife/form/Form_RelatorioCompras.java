@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.control.ControleCompra;
 import ifsplife.jdialog.RelatorioCompras;
 import ifsplife.model.Compras;
@@ -35,6 +36,9 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         tableRelatCompras.getColumnModel().getColumn(0).setPreferredWidth(100);
 
         atualizarTabela();
+
+        ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
 
     }
 

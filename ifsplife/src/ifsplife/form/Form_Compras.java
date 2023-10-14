@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.control.ControleCaixa;
 import ifsplife.model.Fornecedores;
 import ifsplife.control.ControleFornecedor;
@@ -45,6 +46,9 @@ public class Form_Compras extends javax.swing.JPanel {
         desativarInputs();
         desabilitarTextos();
         DataCompra.setDate(new Date());
+        
+                ((JTextFieldDateEditor) JLabelDataDeVencimento.getDateEditor()).setEditable(false);
+
     }
 
     public void setAlterar(boolean alterar) {
@@ -681,11 +685,6 @@ public class Form_Compras extends javax.swing.JPanel {
                 comboParcelasItemStateChanged(evt);
             }
         });
-        comboParcelas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboParcelasActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Parcelas");
 
@@ -1139,17 +1138,13 @@ public class Form_Compras extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabel20MouseClicked
 
-    private void comboParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParcelasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboParcelasActionPerformed
-
     private void comboParcelasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboParcelasItemStateChanged
         String selectedParcela = comboParcelas.getSelectedItem().toString();
-        double valorTotal = Double.parseDouble(txtValorTotalProduto.getValue().toString());
+        double valorTotal = Double.parseDouble(valorFinal.getValue().toString());
 
         switch (selectedParcela) {
             case "1x" -> {
-                valorParcela.setText(txtValorTotalProduto.getValue().toString());
+                valorParcela.setText(valorFinal.getValue().toString());
             }
             case "2x" -> {
                 valorParcela.setText(Double.toString(valorTotal / 2));
@@ -1186,7 +1181,6 @@ public class Form_Compras extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_comboParcelasItemStateChanged
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient ButtonPesquisarProduto;
     private com.toedter.calendar.JDateChooser DataCompra;

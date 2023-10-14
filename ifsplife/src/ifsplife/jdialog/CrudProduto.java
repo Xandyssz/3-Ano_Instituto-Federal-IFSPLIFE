@@ -1,5 +1,6 @@
 package ifsplife.jdialog;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.model.Produto;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -15,15 +16,10 @@ public class CrudProduto extends javax.swing.JDialog {
         initComponents();
         this.buttonClickedText = buttonClickedText;
         JLabelCadastrar.setText(buttonClickedText); // Define o texto do JLabel
-
-        JLabelDosagem.setVisible(false);
-        txtDosagem.setVisible(false);
-        JSeparatorDosagem.setVisible(false);
-        txtQuantidade.setEditable(false);
-
-        JLabelQuantidade.setVisible(false);
-        txtQuantidade.setVisible(false);
-        JSeparatorQuantidade.setVisible(false);
+        desabilitarBotoes();
+        
+        ((JTextFieldDateEditor) dataFabricao.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) dataValidade.getDateEditor()).setEditable(false);
 
     }
 
@@ -71,6 +67,16 @@ public class CrudProduto extends javax.swing.JDialog {
         dataValidade.setEnabled(false);
         txtQuantidade.setEditable(false);
         txtValor.setEditable(false);
+    }
+
+    public void desabilitarBotoes() {
+        JLabelDosagem.setVisible(false);
+        txtDosagem.setVisible(false);
+        JSeparatorDosagem.setVisible(false);
+        txtQuantidade.setEditable(false);
+        JLabelQuantidade.setVisible(false);
+        txtQuantidade.setVisible(false);
+        JSeparatorQuantidade.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")

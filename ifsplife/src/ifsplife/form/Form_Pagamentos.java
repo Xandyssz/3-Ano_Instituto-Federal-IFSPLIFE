@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.control.ControleCaixa;
 import ifsplife.control.ControlePagamento;
 import ifsplife.model.Pagamentocompra;
@@ -33,6 +34,10 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         atualizarTabela();
         desabilitarTextos();
         inicio.setDate(new Date());
+
+        ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
+
     }
 
     public void desabilitarTextos() {
@@ -52,7 +57,12 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 //            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
 //        }
         for (Pagamentocompra pagamentos : pagamentos) {
-            modelo.addRow(new Object[]{pagamentos.getCodigo_compra().getCodigo_compra(), pagamentos.getParcela(), formatador.format(pagamentos.getVencimento()), pagamentos.getValor(), pagamentos.getStatus()}
+            modelo.addRow(new Object[]{
+                pagamentos.getCodigo_compra().getCodigo_fornecedor().getNome(),
+                pagamentos.getParcela(),
+                formatador.format(pagamentos.getVencimento()),
+                pagamentos.getValor(),
+                pagamentos.getStatus()}
             );
         }
     }
@@ -91,7 +101,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Código da Compra", "Parcela", "Data de Vencimento", "Valor Parcela", "Status"
+                "Fornecedor", "Parcela", "Data de Vencimento", "Valor Parcela", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {

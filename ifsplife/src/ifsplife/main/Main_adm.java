@@ -73,8 +73,6 @@ public class Main_adm extends javax.swing.JFrame {
                     showForm(new Form_RelatorioCompras());
                 } else if (index == 9 && indexSubMenu == 0) {
                     showForm(new Form_RelatorioVendas());
-                } else if (index == 10 && indexSubMenu == 0) {
-                    showForm(new Form_Profile());
                 } else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }

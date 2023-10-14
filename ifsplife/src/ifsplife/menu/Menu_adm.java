@@ -58,8 +58,6 @@ private void init() {
         addTitle("RELATÓRIOS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Compra"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Relatório de Venda"));
-        addTitle("MEUS DADOS");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.STAR, "Perfil"));
     }
 }
 
