@@ -52,6 +52,7 @@ public class RelatorioCaixas extends javax.swing.JDialog {
             modelo.addRow(new Object[]{
                 caixa.getCodigo_caixa(),
                 formatador.format(caixa.getData_abertura()),
+                formatador.format(caixa.getData_fechamento()),
                 formatadorHora.format(caixa.getHorario_abertura()),
                 caixa.getValor_abertura()});
         }
@@ -77,7 +78,7 @@ public class RelatorioCaixas extends javax.swing.JDialog {
         JLabelDetalhesDaCompra2.setVisible(visivel);
         panelBorder7.setVisible(visivel);
         panelBorder6.setVisible(visivel);
-        
+
         DataFechamento.setVisible(visivel);
         jLabeDataVenda.setVisible(visivel);
         jSeparatorDataVenda.setVisible(visivel);
@@ -208,17 +209,17 @@ public class RelatorioCaixas extends javax.swing.JDialog {
 
         tableCaixas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código do Caixa", "Data de Abertura", "Horario de Abertura", "Valor Abertura"
+                "Código do Caixa", "Data de Abertura", "Data de Fechamento", "Horario de Abertura", "Valor Abertura"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -229,7 +230,7 @@ public class RelatorioCaixas extends javax.swing.JDialog {
         if (tableCaixas.getColumnModel().getColumnCount() > 0) {
             tableCaixas.getColumnModel().getColumn(0).setResizable(false);
             tableCaixas.getColumnModel().getColumn(1).setResizable(false);
-            tableCaixas.getColumnModel().getColumn(3).setResizable(false);
+            tableCaixas.getColumnModel().getColumn(4).setResizable(false);
         }
 
         panelBorder7.setBackground(new java.awt.Color(255, 255, 255));

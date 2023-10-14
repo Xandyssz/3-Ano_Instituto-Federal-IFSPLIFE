@@ -45,9 +45,11 @@ public class Form_Compras extends javax.swing.JPanel {
         initComponents();
         desativarInputs();
         desabilitarTextos();
+
+        txtQuantidadeItem.setEditable(false);
+
         DataCompra.setDate(new Date());
-        
-                ((JTextFieldDateEditor) JLabelDataDeVencimento.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) JLabelDataDeVencimento.getDateEditor()).setEditable(false);
 
     }
 
@@ -868,6 +870,9 @@ public class Form_Compras extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPesquisarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPesquisarProdutoMouseClicked
+
+        txtQuantidadeItem.setEditable(true);
+
         if (!ControleCaixa.isCaixaAberto()) {
             JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a compra.");
             return;
@@ -1000,6 +1005,9 @@ public class Form_Compras extends javax.swing.JPanel {
     }//GEN-LAST:event_txtRemoverProdutoMouseClicked
 
     private void txtAdicionarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdicionarProdutoMouseClicked
+
+        txtQuantidadeItem.setEditable(false);
+
         if (!ControleCaixa.isCaixaAberto()) {
             JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a compra.");
             return;

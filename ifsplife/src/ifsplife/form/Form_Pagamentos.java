@@ -86,8 +86,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         JButtonPagar = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
-        JButtonRelatorio = new ifsplife.dev.swing.PanelBorderGradient();
-        jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 239, 239));
 
@@ -198,30 +196,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
-        JButtonRelatorio.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonRelatorio.setPreferredSize(new java.awt.Dimension(112, 35));
-        JButtonRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonRelatorioMouseClicked(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Relatorio");
-
-        javax.swing.GroupLayout JButtonRelatorioLayout = new javax.swing.GroupLayout(JButtonRelatorio);
-        JButtonRelatorio.setLayout(JButtonRelatorioLayout);
-        JButtonRelatorioLayout.setHorizontalGroup(
-            JButtonRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-        );
-        JButtonRelatorioLayout.setVerticalGroup(
-            JButtonRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -230,8 +204,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JButtonRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -280,29 +252,10 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JButtonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(JButtonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JButtonRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRelatorioMouseClicked
-        try {
-            JasperReport relatorioCompilado
-                    = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioVendas.jrxml");
-
-            JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(pagamentos));
-
-            JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
-
-            painelRelatorio.show();
-
-        } catch (JRException ex) {
-            Logger.getLogger(Form_Pagamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_JButtonRelatorioMouseClicked
 
     private void JButtonPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonPagarMouseClicked
         if (!ControleCaixa.isCaixaAberto()) {
@@ -341,11 +294,9 @@ public class Form_Pagamentos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonPagar;
-    private ifsplife.dev.swing.PanelBorderGradient JButtonRelatorio;
     private com.toedter.calendar.JDateChooser fim;
     private com.toedter.calendar.JDateChooser inicio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

@@ -42,6 +42,7 @@ public class Form_Venda extends javax.swing.JPanel {
         desativarInputs();
         desabilitarTextos();
         DataVenda.setDate(new Date());
+                txtQuantidadeItem.setEditable(false);
 
         for (Convenios c : controle.getTodos()) {
             jComboBoxConvenios.addItem(c);
@@ -683,6 +684,9 @@ public class Form_Venda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPesquisarMouseClicked
+
+        txtQuantidadeItem.setEditable(true);
+
         if (!ControleCaixa.isCaixaAberto()) {
             JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
             return;
@@ -753,6 +757,8 @@ public class Form_Venda extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
 
     private void JButtonAdicionarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItemMouseClicked
+
+        txtQuantidadeItem.setEditable(false);
 
         if (!ControleCaixa.isCaixaAberto()) {
             JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a venda.");
