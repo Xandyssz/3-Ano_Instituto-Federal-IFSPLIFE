@@ -437,11 +437,19 @@ public class Form_Produto extends javax.swing.JPanel {
         try {
             ControleProduto cp = new ControleProduto();
 
+            List<Produto> produtos = new ArrayList<>();
+
+            if (search1.getText().isEmpty()) {
+                produtos.addAll(cp.getTodos());
+            } else {
+                produtos.addAll(cp.getPorNome(search1.getText()));
+            }
+
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioProdutos.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(cp.getTodos()));
+                    new JRBeanCollectionDataSource(produtos));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

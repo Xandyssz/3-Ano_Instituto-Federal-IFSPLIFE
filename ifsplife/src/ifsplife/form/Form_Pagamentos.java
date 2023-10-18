@@ -32,17 +32,12 @@ public class Form_Pagamentos extends javax.swing.JPanel {
     public Form_Pagamentos() {
         initComponents();
         atualizarTabela();
-        desabilitarTextos();
-        inicio.setDate(new Date());
 
-        ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
-        ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
+//        ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
+//        ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
 
     }
 
-    public void desabilitarTextos() {
-        inicio.setEnabled(false);
-    }
 
     private void atualizarTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tablePagamentos.getModel();
@@ -76,14 +71,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         tablePagamentos = new ifsplife.dev.swing.Table();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        inicio = new com.toedter.calendar.JDateChooser();
-        fim = new com.toedter.calendar.JDateChooser();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        JButtonFiltrar = new ifsplife.dev.swing.PanelBorderGradient();
-        jLabel19 = new javax.swing.JLabel();
         JButtonPagar = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
 
@@ -142,36 +129,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Pagamentos");
 
-        jLabel2.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 12)); // NOI18N
-        jLabel2.setText("Data de Inicio");
-
-        jLabel4.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 12)); // NOI18N
-        jLabel4.setText("Data de Fim");
-
-        JButtonFiltrar.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonFiltrar.setPreferredSize(new java.awt.Dimension(112, 35));
-        JButtonFiltrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonFiltrarMouseClicked(evt);
-            }
-        });
-
-        jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Filtrar");
-
-        javax.swing.GroupLayout JButtonFiltrarLayout = new javax.swing.GroupLayout(JButtonFiltrar);
-        JButtonFiltrar.setLayout(JButtonFiltrarLayout);
-        JButtonFiltrarLayout.setHorizontalGroup(
-            JButtonFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-        );
-        JButtonFiltrarLayout.setVerticalGroup(
-            JButtonFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
-
         JButtonPagar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonPagar.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonPagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -210,46 +167,16 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fim, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(JButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(486, 486, 486))
                             .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(fim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addGap(8, 8, 8)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(JButtonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,32 +206,12 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JButtonPagarMouseClicked
 
-    private void JButtonFiltrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonFiltrarMouseClicked
-        if (inicio.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Inicio");
-        } else if (fim.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "É Necessário preencher Data de Fim");
-        } else {
-            pagamentos.clear();
-            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-            atualizarTabela();
-        }
-    }//GEN-LAST:event_JButtonFiltrarMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonPagar;
-    private com.toedter.calendar.JDateChooser fim;
-    private com.toedter.calendar.JDateChooser inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.Table tablePagamentos;
     // End of variables declaration//GEN-END:variables

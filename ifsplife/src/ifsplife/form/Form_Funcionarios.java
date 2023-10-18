@@ -436,11 +436,19 @@ public class Form_Funcionarios extends javax.swing.JPanel {
         try {
             ControleFuncionario cf = new ControleFuncionario();
 
+            List<Funcionarios> funcionarios = new ArrayList<>();
+
+            if (search1.getText().isEmpty()) {
+                funcionarios.addAll(cf.getTodos());
+            } else {
+                funcionarios.addAll(cf.getPorNome(search1.getText()));
+            }
+
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioFuncionarios.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(cf.getTodos()));
+                    new JRBeanCollectionDataSource(funcionarios));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

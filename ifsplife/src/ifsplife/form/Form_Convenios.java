@@ -428,12 +428,19 @@ public class Form_Convenios extends javax.swing.JPanel {
     private void JButtonRelatorio4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRelatorio4MouseClicked
         try {
             ControleConvenio cv = new ControleConvenio();
+            List<Convenios> convenios = new ArrayList<>();
+
+            if (search1.getText().isEmpty()) {
+                convenios.addAll(cv.getTodos());
+            } else {
+                convenios.addAll(cv.getPorNome(search1.getText()));
+            }
 
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioConvenios.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(cv.getTodos()));
+                    new JRBeanCollectionDataSource(convenios));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

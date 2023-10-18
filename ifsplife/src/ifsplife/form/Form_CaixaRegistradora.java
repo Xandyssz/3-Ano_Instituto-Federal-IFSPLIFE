@@ -60,13 +60,12 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         JFormattedTextFieldValorInicial.setValue(caixa.getValor_abertura());
 
         ////////// PREENCHE O INPUT [VALOR TOTAL] para fechar o caixa
-        JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura() + 
-                caixa.getSuplementacao() + 
-                controlevenda.getTotalVendaPorCaixa(caixa) - 
-                caixa.getSangria() - 
-                controlecompra.getTotalParcelasPago(caixa));
+        JFormattedTextFieldValorTotal.setValue(caixa.getValor_abertura()
+                + caixa.getSuplementacao()
+                + controlevenda.getTotalVendaPorCaixa(caixa)
+                - caixa.getSangria()
+                - controlecompra.getTotalParcelasPago(caixa));
 
-        
         // PREENCHE INPUTS
         JFormattedTextFieldSuplementacao.setValue(caixa.getSuplementacao());
         JFormattedTextFieldVendas.setValue(controlevenda.getTotalVendaPorCaixa(caixa));
@@ -250,11 +249,6 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         JButtonMovimentacaoCaixa1.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonMovimentacaoCaixa1.setPreferredSize(new java.awt.Dimension(90, 22));
-        JButtonMovimentacaoCaixa1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonMovimentacaoCaixa1MouseClicked(evt);
-            }
-        });
 
         GerenciamentoCaixa.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         GerenciamentoCaixa.setForeground(new java.awt.Color(255, 255, 255));
@@ -605,11 +599,11 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JButtonMovimentacaoCaixaMouseClicked
 
-    private void JButtonMovimentacaoCaixa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonMovimentacaoCaixa1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JButtonMovimentacaoCaixa1MouseClicked
-
     private void GerenciamentoCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GerenciamentoCaixaMouseClicked
+        if (ControleCaixa.isCaixaAberto()) {
+            JOptionPane.showMessageDialog(null, "Existe um caixa aberto. Feche-o antes de abrir Gerenciamento.");
+            return;
+        }
 
         RelatorioCaixas tela = new RelatorioCaixas(null, true);
 

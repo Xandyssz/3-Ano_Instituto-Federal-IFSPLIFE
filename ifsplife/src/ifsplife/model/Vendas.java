@@ -24,11 +24,12 @@ import javax.persistence.TemporalType;
 @Table(name = "vendas")
 @NamedQueries({
     @NamedQuery(name = "Vendas.findAll", query = "SELECT v FROM Vendas v"),
-    
-    
+
     @NamedQuery(name = "Vendas.findByCodigoVenda", query = "SELECT v FROM Vendas v WHERE v.codigo_venda = :codigoVenda"),
     @NamedQuery(name = "Vendas.findByDataVenda", query = "SELECT v FROM Vendas v WHERE v.data_venda = :dataVenda"),
-    @NamedQuery(name = "Vendas.itensPorPeriodos", query = "SELECT pv FROM Produtovenda pv WHERE pv.codigo_venda.data_venda BETWEEN :datainicio AND :datafim ORDER BY pv.codigo_venda"),    
+    @NamedQuery(name = "Vendas.findByPeriodo", query = "SELECT v FROM Vendas v WHERE v.data_venda BETWEEN :datainicio AND :datafim"),
+    
+    @NamedQuery(name = "Vendas.itensPorPeriodos", query = "SELECT pv FROM Produtovenda pv WHERE pv.codigo_venda.data_venda BETWEEN :datainicio AND :datafim ORDER BY pv.codigo_venda"),
     @NamedQuery(name = "Vendas.findByFormaPagamento", query = "SELECT v FROM Vendas v WHERE v.forma_pagamento = :formaPagamento"),
     @NamedQuery(name = "Vendas.findByCaixa", query = "SELECT v FROM Vendas v WHERE v.codigo_caixa = :caixa"),
     @NamedQuery(name = "Vendas.findByValorVenda", query = "SELECT v FROM Vendas v WHERE v.valor_venda = :valorVenda")})
@@ -143,7 +144,7 @@ public class Vendas implements Serializable {
             System.out.println("Preço Unitário: " + produtovenda.getPreco());
         }
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;

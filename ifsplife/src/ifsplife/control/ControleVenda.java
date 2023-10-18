@@ -92,7 +92,7 @@ public class ControleVenda {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         TypedQuery<Vendas> consulta
-                = gerente.createNamedQuery("Vendas.findByPeriodos", Vendas.class);
+                = gerente.createNamedQuery("Vendas.findByPeriodo", Vendas.class);
 
         consulta.setParameter("datainicio", inicio);
         consulta.setParameter("datafim", fim);

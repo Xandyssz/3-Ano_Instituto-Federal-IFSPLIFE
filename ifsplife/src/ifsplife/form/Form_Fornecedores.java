@@ -429,14 +429,27 @@ public class Form_Fornecedores extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void JButtonRelatorio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRelatorio2MouseClicked
+//          if (inicio.getDate() == null) {
+//            vendas.addAll(controle.getTodos());
+//        } else {
+//            vendas.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
+//        }
+
         try {
             ControleFornecedor cfo = new ControleFornecedor();
+            List<Fornecedores> fornecedores = new ArrayList<>();
+
+            if (search1.getText().isEmpty()) {
+                fornecedores.addAll(cfo.getTodos());
+            } else {
+                fornecedores.addAll(cfo.getPorNome(search1.getText()));
+            }
 
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/RelatorioFornecedores.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(cfo.getTodos()));
+                    new JRBeanCollectionDataSource(fornecedores));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 
