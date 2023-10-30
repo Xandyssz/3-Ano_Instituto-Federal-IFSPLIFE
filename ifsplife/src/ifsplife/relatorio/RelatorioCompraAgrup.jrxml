@@ -290,12 +290,6 @@ FROM ifsplife.produtocompra
 					</textElement>
 					<text><![CDATA[Total da Compra:]]></text>
 				</staticText>
-				<line>
-					<reportElement x="0" y="17" width="552" height="1" uuid="91693072-086d-479f-b556-8a8e785d3785">
-						<property name="local_mesure_unitheight" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					</reportElement>
-				</line>
 				<textField>
 					<reportElement x="153" y="-3" width="100" height="20" uuid="96ad6355-cfc4-4adb-956d-376ee1687465"/>
 					<textElement textAlignment="Justified" verticalAlignment="Middle"/>
@@ -363,30 +357,6 @@ FROM ifsplife.produtocompra
 	<detail>
 		<band height="25" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<line>
-				<reportElement x="137" y="-18" width="1" height="39" uuid="fa19e909-07c3-4c72-b16e-0b7d0c0abdd1">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="237" y="-18" width="1" height="39" uuid="2fb2ab09-ed12-470c-a9ae-a2bb1532ef65">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="430" y="-18" width="1" height="39" uuid="fda7c386-6ea7-446e-be7b-626f116bd33b">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="319" y="-18" width="1" height="39" uuid="64906f18-d358-43b3-af48-dc425db7e37e">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-			</line>
 			<textField>
 				<reportElement x="0" y="0" width="138" height="20" uuid="7facb8b5-7cda-4514-ab82-4b2d71e41720"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>

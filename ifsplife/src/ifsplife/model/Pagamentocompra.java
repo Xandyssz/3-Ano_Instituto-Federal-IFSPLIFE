@@ -21,8 +21,10 @@ import javax.persistence.TemporalType;
 @Table(name = "pagamentocompra")
 @NamedQueries({
     @NamedQuery(name = "Pagamentocompra.findAll", query = "SELECT p FROM Pagamentocompra p"),
+    @NamedQuery(name = "Pagamentocompra.findByNomeFornecedor", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_compra.codigo_fornecedor.nome like :nome"),
     @NamedQuery(name = "Pagamentocompra.findByVencimento", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento = :vencimento"),
     @NamedQuery(name = "Pagamentocompra.findByPeriodo", query = "SELECT p FROM Pagamentocompra p WHERE p.vencimento BETWEEN :inicio AND :fim"),
+    @NamedQuery(name = "Pagamentocompra.findByStatus", query = "SELECT p FROM Pagamentocompra p WHERE p.status = :status"),
     @NamedQuery(name = "Pagamentocompra.findByCaixaAndStatusPago", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_caixa = :caixa AND p.status = 'Pago'"),
     @NamedQuery(name = "Pagamentocompra.findByCodigoCompra", query = "SELECT p FROM Pagamentocompra p WHERE p.codigo_compra = :codigoCompra")
 

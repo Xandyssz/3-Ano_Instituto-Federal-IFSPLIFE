@@ -1,6 +1,7 @@
 package ifsplife.control;
 
 import ifsplife.model.Pagamentocompra;
+import ifsplife.model.Produto;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -32,6 +33,19 @@ public class ControlePagamento {
 
     }
 
+    public List<Pagamentocompra> getPorNome(String nomePesquisar) {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Pagamentocompra> consulta
+                = gerente.createNamedQuery("Pagamentocompra.findByNomeFornecedor", Pagamentocompra.class);
+
+        consulta.setParameter("nome", "%" + nomePesquisar + "%");
+
+        return consulta.getResultList();
+
+    }
+
     public List<Pagamentocompra> getPorPeriodo(Date inicio, Date fim) {
         EntityManager gerente = GerenciadorConexao.getGerente();
         TypedQuery<Pagamentocompra> consulta
@@ -39,6 +53,16 @@ public class ControlePagamento {
 
         consulta.setParameter("inicio", inicio);
         consulta.setParameter("fim", fim);
+        return consulta.getResultList();
+    }
+
+    public List<Pagamentocompra> getPorStatus(String status) {
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Pagamentocompra> consulta = gerente.createNamedQuery("Pagamentocompra.findByStatus", Pagamentocompra.class);
+
+        consulta.setParameter("status", status);
+
         return consulta.getResultList();
     }
 
