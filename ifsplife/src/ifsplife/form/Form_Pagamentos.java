@@ -22,21 +22,32 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
     public Form_Pagamentos() {
         initComponents();
-        atualizarTabelaPorNome();
+        atualizarTabelaPrincipal();
 
-        inicio.setDate(new Date());
-        fim.setDate(new Date());
-        
         ((JTextFieldDateEditor) inicio.getDateEditor()).setEditable(false);
         ((JTextFieldDateEditor) fim.getDateEditor()).setEditable(false);
     }
 
-    private void atualizarTabelaPorNome() {
+    // Atualiza a tabela de pagamentos com base nos critérios de pesquisa
+    private void atualizarTabelaPrincipal() {
         DefaultTableModel modelo = (DefaultTableModel) tablePagamentos.getModel();
+        modelo.setRowCount(0); // Limpa a tabela
 
-        modelo.setRowCount(0);
-        pagamentos.clear();
-        pagamentos.addAll(controle.getPorNome(search1.getText()));
+        String searchTerm = search1.getText();
+        String status = (String) comboStatus.getSelectedItem();
+
+        if (searchTerm.isEmpty()) {
+            if (status.equals("Todos Pagamentos")) {
+                pagamentos.clear();
+                pagamentos.addAll(controle.getTodos());
+            } else {
+                pagamentos.clear();
+                pagamentos.addAll(controle.getPorStatus(status));
+            }
+        } else {
+            pagamentos.clear();
+            pagamentos.addAll(controle.getPorNome(searchTerm));
+        }
 
         for (Pagamentocompra pagamentos : pagamentos) {
             modelo.addRow(new Object[]{
@@ -48,54 +59,28 @@ public class Form_Pagamentos extends javax.swing.JPanel {
             );
         }
     }
-///////////////////////////////////////////////////////////
 
-    private void atualizarTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) tablePagamentos.getModel();
-
-        modelo.setRowCount(0);
-        String status = (String) jComboBox1.getSelectedItem(); // Obtenha o status selecionado no ComboBox
-
-        if (status.equals("Todos Pagamentos")) {
-            atualizarTabelaPorNome();
-        }
-
-        pagamentos.clear();
-        pagamentos.addAll(controle.getPorStatus(status));
-
-        for (Pagamentocompra pagamento : pagamentos) {
-            modelo.addRow(new Object[]{
-                pagamento.getCodigo_compra().getCodigo_fornecedor().getNome(),
-                pagamento.getParcela(),
-                formatador.format(pagamento.getVencimento()),
-                pagamento.getValor(),
-                pagamento.getStatus()
-            });
-        }
-    }
-
-    ///////////////////////////////////////////////////////////
-    
     private void atualizarTabelaData() {
         DefaultTableModel modelo = (DefaultTableModel) tablePagamentos.getModel();
 
         modelo.setRowCount(0);
-        String status = (String) jComboBox1.getSelectedItem(); // Obtenha o status selecionado no ComboBox
-
-        if (status.equals("Todos Pagamentos")) {
-            atualizarTabelaPorNome();
-        }
 
         pagamentos.clear();
-        pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-        for (Pagamentocompra pagamento : pagamentos) {
+
+        if (inicio.getDate() == null) {
+            pagamentos.addAll(controle.getTodos());
+        } else {
+            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
+        }
+
+        for (Pagamentocompra pagamentos : pagamentos) {
             modelo.addRow(new Object[]{
-                pagamento.getCodigo_compra().getCodigo_fornecedor().getNome(),
-                pagamento.getParcela(),
-                formatador.format(pagamento.getVencimento()),
-                pagamento.getValor(),
-                pagamento.getStatus()
-            });
+                pagamentos.getCodigo_compra().getCodigo_fornecedor().getNome(),
+                pagamentos.getParcela(),
+                formatador.format(pagamentos.getVencimento()),
+                pagamentos.getValor(),
+                pagamentos.getStatus()}
+            );
         }
     }
 
@@ -122,7 +107,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         inicio = new com.toedter.calendar.JDateChooser();
         jSeparator4 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboStatus = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
 
@@ -261,11 +246,6 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         jLabel6.setText("Data de Fim:");
 
-        fim.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fimMouseClicked(evt);
-            }
-        });
         fim.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 fimPropertyChange(evt);
@@ -274,10 +254,10 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         jLabel7.setText("Data de Inicio:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Pagamentos", "Pendente", "Pago" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Pagamentos", "Pendente", "Pago" }));
+        comboStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboStatusActionPerformed(evt);
             }
         });
 
@@ -319,7 +299,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                                             .addComponent(jLabel6))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
                             .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -349,7 +329,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -384,50 +364,44 @@ public class Form_Pagamentos extends javax.swing.JPanel {
                 Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
                 pagamentoSelecionado.setStatus("Pago");
                 controle.realizarPagamento(pagamentoSelecionado);
-                atualizarTabelaPorNome();
+                atualizarTabelaPrincipal();
             }
         }
     }//GEN-LAST:event_JButtonPagarMouseClicked
 
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
-        atualizarTabelaPorNome();
+        atualizarTabelaPrincipal();
     }//GEN-LAST:event_search1KeyTyped
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        atualizarTabelaPorNome();
+        atualizarTabelaPrincipal();
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void clear1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clear1MouseClicked
         search1.setText("");
-        atualizarTabelaPorNome();
+        atualizarTabelaPrincipal();
     }//GEN-LAST:event_clear1MouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        atualizarTabela();
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void fimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fimMouseClicked
-
-    }//GEN-LAST:event_fimMouseClicked
+    private void comboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatusActionPerformed
+        atualizarTabelaPrincipal();
+    }//GEN-LAST:event_comboStatusActionPerformed
 
     private void fimPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fimPropertyChange
-        if (inicio.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "");
-        } else if (evt.getPropertyName().equals("date"));
-        {
-            pagamentos.clear();
-            pagamentos.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-            atualizarTabelaData();
+        if (evt.getPropertyName().equals("date")) {
+            {
+                System.out.println("Data" + evt.getPropertyName());
+                System.out.println("Entrou no getPorPeriodo");
+                atualizarTabelaData();
+            }
         }
-
     }//GEN-LAST:event_fimPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonPagar;
     private javax.swing.JLabel clear1;
+    private javax.swing.JComboBox<String> comboStatus;
     private com.toedter.calendar.JDateChooser fim;
     private com.toedter.calendar.JDateChooser inicio;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
