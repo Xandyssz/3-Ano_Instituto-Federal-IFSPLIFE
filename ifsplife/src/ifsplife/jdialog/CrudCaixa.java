@@ -91,6 +91,8 @@ public class CrudCaixa extends javax.swing.JDialog {
 
         JLabelValor.setText("Horário de Abertura:");
 
+        dataAbertura.setDateFormatString("dd/MM/yyyy");
+
         horarioAbertura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));

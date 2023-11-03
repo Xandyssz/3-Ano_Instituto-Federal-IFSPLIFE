@@ -403,6 +403,9 @@
                     <Component class="javax.swing.JSeparator" name="jSeparatorDataVenda">
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="DataFechamento">
+                      <Properties>
+                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabeDataVenda">
                       <Properties>

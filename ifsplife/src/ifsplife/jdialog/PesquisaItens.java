@@ -23,7 +23,7 @@ public class PesquisaItens extends javax.swing.JDialog {
         tableItens.getColumnModel().getColumn(1).setPreferredWidth(250);
         tableItens.getColumnModel().getColumn(0).setPreferredWidth(100);
 
-        atualizarTabela();
+        atualizarTabelaTodos();
 
     }
 
@@ -40,6 +40,21 @@ public class PesquisaItens extends javax.swing.JDialog {
             );
         }
     }
+    
+        private void atualizarTabelaTodos() {
+        DefaultTableModel modelo = (DefaultTableModel) tableItens.getModel();
+
+        modelo.setRowCount(0);
+
+        listaItems.clear();
+        listaItems.addAll(controle.getTodos());
+
+        for (Produto produto : listaItems) {
+            modelo.addRow(new Object[]{produto.getNome(), produto.getCategoria(), produto.getValor(), produto.getQuantidade()}
+            );
+        }
+    }
+
 
     @SuppressWarnings("unchecked")
 
@@ -85,7 +100,7 @@ public class PesquisaItens extends javax.swing.JDialog {
         jLabelCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCategoria.setText("Categoria");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Medicamentos", "Cosméticos", "Perfumes", "Higiene Pessoal", "Alimentos" }));
         comboFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboFiltroActionPerformed(evt);
@@ -274,10 +289,14 @@ public class PesquisaItens extends javax.swing.JDialog {
     }//GEN-LAST:event_JButtonCancelarMouseClicked
 
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
-        String filtro = comboFiltro.getSelectedItem().toString();
+      String filtro = comboFiltro.getSelectedItem().toString();
+    
+    if ("Todos".equals(filtro)) {
+        atualizarTabelaTodos();
+    } else {
         listaItems = controle.buscarPorCategoria(filtro);
         atualizarTabela();
-
+    }
     }//GEN-LAST:event_comboFiltroActionPerformed
 
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked

@@ -196,6 +196,8 @@ public class RelatorioVendas extends javax.swing.JDialog {
 
         jLabel1.setText("Forma de pagamento:");
 
+        DataVenda.setDateFormatString("dd/MM/yyyy");
+
         jLabeDataVenda.setText("Data da Venda:");
 
         jComboBoxConvenios1.addItemListener(new java.awt.event.ItemListener() {

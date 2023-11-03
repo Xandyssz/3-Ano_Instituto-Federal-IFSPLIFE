@@ -273,9 +273,6 @@
                   <Dimension value="[90, 22]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JButtonRemoverProdutoMouseClicked"/>
-              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -497,6 +494,9 @@
                       </Properties>
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="DataCompra">
+                      <Properties>
+                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="JLabelFornecedor">
                       <Properties>
@@ -1032,6 +1032,9 @@
                       </Properties>
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="JLabelDataDeVencimento">
+                      <Properties>
+                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparatorDataVencimento">
                     </Component>

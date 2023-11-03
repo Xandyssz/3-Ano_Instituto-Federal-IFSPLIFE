@@ -209,6 +209,8 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
         jLabelDataDeAbertura.setText("Data de Abertura");
 
+        JTextFieldDataDeAbertura.setDateFormatString("dd/MM/yyyy");
+
         jLabelHorarioDeAbertura.setText("Horário de Abertura");
 
         JTextFieldHorarioDeAbertura.setBorder(null);

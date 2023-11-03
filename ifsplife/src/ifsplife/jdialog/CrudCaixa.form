@@ -200,6 +200,9 @@
             <Component class="javax.swing.JSeparator" name="JSeparatorValor">
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="dataAbertura">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="horarioAbertura">
               <Properties>

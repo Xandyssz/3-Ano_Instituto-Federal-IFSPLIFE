@@ -1,5 +1,6 @@
 package ifsplife.form;
 
+import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
 import ifsplife.control.ControleCaixa;
 import ifsplife.model.Fornecedores;
@@ -50,7 +51,7 @@ public class Form_Compras extends javax.swing.JPanel {
 
         DataCompra.setDate(new Date());
         ((JTextFieldDateEditor) JLabelDataDeVencimento.getDateEditor()).setEditable(false);
-
+        JLabelDataDeVencimento.setMinSelectableDate(new Date());
     }
 
     public void setAlterar(boolean alterar) {
@@ -327,11 +328,6 @@ public class Form_Compras extends javax.swing.JPanel {
 
         JButtonRemoverProduto.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonRemoverProduto.setPreferredSize(new java.awt.Dimension(90, 22));
-        JButtonRemoverProduto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonRemoverProdutoMouseClicked(evt);
-            }
-        });
 
         txtRemoverProduto.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtRemoverProduto.setForeground(new java.awt.Color(255, 255, 255));
@@ -361,6 +357,8 @@ public class Form_Compras extends javax.swing.JPanel {
         JLabelDetalhesDaCompra.setText("Detalhes da Compra");
 
         JLabelDataDaCompra.setText("Data da Compra");
+
+        DataCompra.setDateFormatString("dd/MM/yyyy");
 
         JLabelFornecedor.setText("Fornecedor");
 
@@ -692,6 +690,8 @@ public class Form_Compras extends javax.swing.JPanel {
 
         jLabelDataVencimento.setText("Data de Vencimento");
 
+        JLabelDataDeVencimento.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout panelBorder6Layout = new javax.swing.GroupLayout(panelBorder6);
         panelBorder6.setLayout(panelBorder6Layout);
         panelBorder6Layout.setHorizontalGroup(
@@ -894,20 +894,6 @@ public class Form_Compras extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtPesquisarProdutoMouseClicked
 
-    private void JButtonRemoverProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRemoverProdutoMouseClicked
-        if (!ControleCaixa.isCaixaAberto()) {
-            JOptionPane.showMessageDialog(null, "Não existe um caixa aberto. Abra um caixa antes de realizar a compra.");
-            return;
-        }
-
-        int linha = tableCompras.getSelectedRow();
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione o Produto para remover.");
-        } else {
-            itens.remove(linha);
-        }
-    }//GEN-LAST:event_JButtonRemoverProdutoMouseClicked
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         PesquisaFornecedores pesquisa = new PesquisaFornecedores(null, true);
         pesquisa.setVisible(true);
@@ -992,14 +978,23 @@ public class Form_Compras extends javax.swing.JPanel {
                 somaTabela -= valorRemovido;
             }
 
-            itens.remove(linha);
-            atualizarTabelaItens();
-            limparTexto();
+            int opcao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o produto da lista?", "Confirmação", JOptionPane.YES_NO_OPTION);
 
-            double soma = somarValoresTabela();
-            valorFinal.setText("");
-            valorFinal.setValue(soma);
+            if (opcao == JOptionPane.YES_OPTION) {
+                itens.remove(linha);
+                atualizarTabelaItens();
+                limparTexto();
 
+                double soma = somarValoresTabela();
+                valorFinal.setText("");
+                valorFinal.setValue(soma);
+
+                // Verifique se a tabela está vazia após a remoção e adicione um comentário
+                if (itens.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "A Tabela está vazia após a remoção, logo os dados serão invalidados. Preencha Novamente");
+                    desativarInputs();
+                }
+            }
         }
 
     }//GEN-LAST:event_txtRemoverProdutoMouseClicked
@@ -1073,6 +1068,9 @@ public class Form_Compras extends javax.swing.JPanel {
         } else if (fornecedores.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, preencha o campo de fornecedor.", "Fornecedor Não Informado", JOptionPane.ERROR_MESSAGE);
             fornecedores.requestFocus();
+        } else if (pagamentos.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha os dados das Parcelas.", "Parcelas Não Informada", JOptionPane.ERROR_MESSAGE);
+
         } else {
             c = this.getCompras();
             controleCompra.adicionar(c);
@@ -1094,9 +1092,15 @@ public class Form_Compras extends javax.swing.JPanel {
 
             DefaultTableModel model = (DefaultTableModel) tableCompras.getModel();
             DefaultTableModel model2 = (DefaultTableModel) tableParcelas.getModel();
-
             model.setRowCount(0);
             model2.setRowCount(0);
+            desativarInputs();
+            comboParcelas.setSelectedIndex(0);
+            jComboBoxFormaPagamento.setSelectedIndex(0);
+            valorParcela.setText("");
+            fornecedores.setText("");
+            JTextFieldResponsavel.setText("");
+            JLabelDataDeVencimento.setDate(null);
         }
     }//GEN-LAST:event_jLabel18MouseClicked
 
@@ -1141,8 +1145,6 @@ public class Form_Compras extends javax.swing.JPanel {
             }
             atualizarTabelaParcelas();
 
-            JLabelDataDeVencimento.setDate(null);
-            valorParcela.setText("");
         }
     }//GEN-LAST:event_jLabel20MouseClicked
 

@@ -243,6 +243,8 @@ public class RelatorioCaixas extends javax.swing.JDialog {
 
         jLabelRSSTotalDesconto1.setText("R$");
 
+        DataFechamento.setDateFormatString("dd/MM/yyyy");
+
         jLabeDataVenda.setText("Data de Fechamento");
 
         jLabeDataVenda1.setText("Horario de Fechamento");

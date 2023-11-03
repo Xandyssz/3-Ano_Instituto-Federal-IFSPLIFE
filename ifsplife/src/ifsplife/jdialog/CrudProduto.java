@@ -17,7 +17,7 @@ public class CrudProduto extends javax.swing.JDialog {
         this.buttonClickedText = buttonClickedText;
         JLabelCadastrar.setText(buttonClickedText); // Define o texto do JLabel
         desabilitarBotoes();
-        
+
         ((JTextFieldDateEditor) dataFabricao.getDateEditor()).setEditable(false);
         ((JTextFieldDateEditor) dataValidade.getDateEditor()).setEditable(false);
 
@@ -164,6 +164,7 @@ public class CrudProduto extends javax.swing.JDialog {
         JLabelCategoria.setText("Categoria do Produto");
 
         comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cosméticos", "Perfumes", "Medicamentos", "Higiene Pessoal", "Alimentos" }));
+        comboCategoria.setSelectedIndex(-1);
         comboCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCategoriaActionPerformed(evt);
@@ -172,7 +173,11 @@ public class CrudProduto extends javax.swing.JDialog {
 
         JLabelDataFabricacao.setText("Data de Fabricação");
 
+        dataFabricao.setDateFormatString("dd/MM/yyyy");
+
         JLabelDataValidade1.setText("Data de Validade");
+
+        dataValidade.setDateFormatString("dd/MM/yyyy");
 
         JLabelValor.setText("Valor");
 
@@ -444,19 +449,25 @@ public class CrudProduto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
             txtNome.requestFocus();
+        } else if (comboCategoria.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null,
+                    "Alguma categoria deve ser selecionada.");
+            comboCategoria.requestFocus();
+        } else if (txtLote.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "O Lote deve ser preenchido");
+            txtLote.requestFocus();
+
+        } else if (comboCategoria.getSelectedItem().toString().equals("Medicamentos") && txtDosagem.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "A Dosagem deve ser preenchida");
+            txtDosagem.requestFocus();
+
         } else if (txtDescricao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Descrição deve ser preenchida.");
             txtDescricao.requestFocus();
 
-        } else if (txtLote.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "O Lote deve ser preenchido");
-            txtLote.requestFocus();
-        } else if (comboCategoria.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null,
-                    "Alguma categoria deve ser selecionada.");
-            comboCategoria.requestFocus();
         } else if (dataFabricao.getDate() == (null)) {
             JOptionPane.showMessageDialog(null,
                     "A Data de Fabricação deve ser preenchida.");
@@ -466,13 +477,14 @@ public class CrudProduto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "A Data de Validade deve ser preenchida");
             dataValidade.requestFocus();
-        } else if (txtValor.getText().isEmpty()) {
+        } else if (txtValor.getValue() == null) {
             JOptionPane.showMessageDialog(null,
                     "O Valor deve ser preenchido.");
-            txtValor.requestFocus();
+            JButtonCadastrar.requestFocus();
         } else {
             this.confirmou = true;
             this.setVisible(false);
+            
         }    }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
     private void txtDosagemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDosagemKeyTyped

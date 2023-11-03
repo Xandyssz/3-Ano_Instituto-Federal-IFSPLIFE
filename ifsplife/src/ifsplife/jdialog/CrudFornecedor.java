@@ -64,7 +64,6 @@ public class CrudFornecedor extends javax.swing.JDialog {
         txtCEP.setEditable(false);
         comboEstado.setEnabled(false);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -189,6 +188,7 @@ public class CrudFornecedor extends javax.swing.JDialog {
         JLabelEstado.setText("Estado");
 
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        comboEstado.setSelectedIndex(-1);
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -427,7 +427,6 @@ public class CrudFornecedor extends javax.swing.JDialog {
     private void JButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCancelarMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_JButtonCancelarMouseClicked
-
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
         if (txtNomeEmpresa.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
@@ -436,11 +435,11 @@ public class CrudFornecedor extends javax.swing.JDialog {
         } else if (txtResponsavel.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "O Nome do Responsavel deve estar preenchido.");
             txtResponsavel.requestFocus();
-        } else if (txtCNPJ.getText().isEmpty()) {
+        } else if (txtCNPJ.getText().equals("  .   .   /    .  ")) {
             JOptionPane.showMessageDialog(null,
                     "O CNPJ deve ser preenchido.");
             txtCNPJ.requestFocus();
-        } else if (txtContato.getText().isEmpty()) {
+        } else if (txtContato.getText().equals("(  )      -    ")) {
             JOptionPane.showMessageDialog(null,
                     "O Contato deve ser preenchido.");
             txtContato.requestFocus();
@@ -448,22 +447,22 @@ public class CrudFornecedor extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "O Email deve ser preenchido.");
             txtEmail.requestFocus();
-        } else if (txtEndereco.getText().isEmpty()) {
+        } else if (comboEstado.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
-                    "O Endereço deve ser preenchido.");
-            txtEndereco.requestFocus();
+                    "O Estado deve ser selecionado.");
+            comboEstado.requestFocus();
         } else if (txtCidade.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "A Cidade deve ser preenchida.");
             txtCidade.requestFocus();
-        } else if (txtCEP.getText().isEmpty()) {
+        } else if (txtCEP.getText().equals("  .   -   ")) {
             JOptionPane.showMessageDialog(null,
                     "O CEP deve ser preenchido.");
             txtCEP.requestFocus();
-        } else if (comboEstado.getSelectedItem() == null) {
+        } else if (txtEndereco.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
-                    "Algum item deve ser selecionado.");
-            comboEstado.requestFocus();
+                    "O Endereço deve ser preenchido.");
+            txtEndereco.requestFocus();
         } else {
             this.confirmou = true;
             this.setVisible(false);
@@ -496,8 +495,6 @@ public class CrudFornecedor extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
         }
     }//GEN-LAST:event_txtCEPKeyTyped
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonCancelar;

@@ -246,6 +246,7 @@ public class Form_Pagamentos extends javax.swing.JPanel {
 
         jLabel6.setText("Data de Fim:");
 
+        fim.setDateFormatString("dd/MM/yyyy");
         fim.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 fimPropertyChange(evt);
@@ -253,6 +254,8 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         });
 
         jLabel7.setText("Data de Inicio:");
+
+        inicio.setDateFormatString("dd/MM/yyyy");
 
         comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Pagamentos", "Pendente", "Pago" }));
         comboStatus.addActionListener(new java.awt.event.ActionListener() {

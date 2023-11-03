@@ -179,6 +179,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         JLabelEstado.setText("Estado");
 
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        comboEstado.setSelectedIndex(-1);
 
         JLabelSalario.setText("Salario");
 
@@ -192,6 +193,7 @@ public class CrudFuncionario extends javax.swing.JDialog {
         });
 
         comboNivelAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Atendente" }));
+        comboNivelAcesso.setSelectedIndex(-1);
         comboNivelAcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNivelAcessoActionPerformed(evt);
@@ -497,15 +499,15 @@ public class CrudFuncionario extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
             txtNome.requestFocus();
-        } else if (txtCPF.getText().isEmpty()) {
+        } else if (txtCPF.getText().equals("   .   .   -  ")) {
             JOptionPane.showMessageDialog(null,
                     "O CPF deve ser preenchido.");
             txtCPF.requestFocus();
         } else if (comboNivelAcesso.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
-                    "Algum item deve ser selecionado.");
+                    "O Cargo deve ser selecionado.");
             comboNivelAcesso.requestFocus();
-        } else if (txtContato.getText().isEmpty()) {
+        } else if (txtContato.getText().equals("(  )      -    ")) {
             JOptionPane.showMessageDialog(null,
                     "O Contato deve ser preenchido.");
             txtContato.requestFocus();
@@ -517,18 +519,18 @@ public class CrudFuncionario extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "A Cidade deve ser preenchida.");
             txtCidade.requestFocus();
-        } else if (txtCEP.getText().isEmpty()) {
+        } else if (txtCEP.getText().equals("     -   ")) {
             JOptionPane.showMessageDialog(null,
                     "O CEP deve ser preenchido.");
             txtCEP.requestFocus();
         } else if (comboEstado.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
-                    "Algum item deve ser selecionado.");
+                    "O Estado deve ser selecionado.");
             comboEstado.requestFocus();
-        } else if (txtSalario.getText().isEmpty()) {
+        } else if (txtSalario.getValue() == null) {
             JOptionPane.showMessageDialog(null,
                     "O Salário deve ser preenchido.");
-            txtSalario.requestFocus();
+            JButtonCadastrar.requestFocus();
         } else if (txtLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "O Login deve ser preenchido.");

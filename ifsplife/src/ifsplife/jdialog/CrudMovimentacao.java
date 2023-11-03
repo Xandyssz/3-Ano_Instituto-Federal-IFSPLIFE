@@ -84,6 +84,7 @@ public class CrudMovimentacao extends javax.swing.JDialog {
         JLabelTipoDeMovimentacao.setText("Tipo de Movimentação");
 
         txtTipoMovimentacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sangria", "Suplementação" }));
+        txtTipoMovimentacao.setSelectedIndex(-1);
 
         JButtonCadastrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonCadastrar.setPreferredSize(new java.awt.Dimension(90, 22));
@@ -246,16 +247,16 @@ public class CrudMovimentacao extends javax.swing.JDialog {
     private void JButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonCadastrarMouseClicked
         if (txtMotivo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,
-                    "O nome deve ser preenchido.");
+                    "O Motivo da Movimentação deve ser preenchido.");
             txtMotivo.requestFocus();
-        } else if (txtValor.getText().isEmpty()) {
+        } else if (txtValor.getValue() == null) {
             JOptionPane.showMessageDialog(null,
-                    "A Descrição deve ser preenchida.");
-            txtValor.requestFocus();
+                    "O Valor da Movimentação deve ser preenchida.");
+            JButtonCadastrar.requestFocus();
 
         } else if (txtTipoMovimentacao.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null,
-                    "O Lote deve ser preenchido");
+                    "O Tipo de Movimentação deve ser selecionado");
             txtTipoMovimentacao.requestFocus();
 
         } else {

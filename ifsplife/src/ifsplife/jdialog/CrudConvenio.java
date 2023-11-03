@@ -241,10 +241,11 @@ public class CrudConvenio extends javax.swing.JDialog {
                                     .addComponent(JLabelContato, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JSeparatorContato, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                                     .addComponent(txtContato)))
-                            .addComponent(JLabelDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(JSeparatorDesconto, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtDesconto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JLabelDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(JSeparatorDesconto, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDesconto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
                         .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
@@ -351,11 +352,15 @@ public class CrudConvenio extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "O nome deve ser preenchido.");
             txtNome.requestFocus();
-        } else if (txtCNPJ.getText().isEmpty()) {
+        } else if (txtEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "O Email deve ser preenchido.");
+            txtEmail.requestFocus();
+        } else if (txtCNPJ.getText().equals("  .   .   /    .  ")) {
             JOptionPane.showMessageDialog(null,
                     "O CNPJ deve ser preenchido.");
             txtCNPJ.requestFocus();
-        } else if (txtContato.getText().isEmpty()) {
+        } else if (txtContato.getText().equals("(  )      -    ")) {
             JOptionPane.showMessageDialog(null,
                     "O Contato deve ser preenchido.");
             txtContato.requestFocus();
@@ -363,14 +368,10 @@ public class CrudConvenio extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,
                     "O Endereço deve ser preenchido.");
             txtEndereco.requestFocus();
-        } else if (txtEmail.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "O Email deve ser preenchido.");
-            txtEmail.requestFocus();
-        } else if (txtDesconto.getText().isEmpty()) {
+        } else if (txtDesconto.getValue() == null) {
             JOptionPane.showMessageDialog(null,
                     "O Desconto deve ser preenchido.");
-            txtDesconto.requestFocus();
+            JButtonCadastrar.requestFocus();
         } else {
             this.confirmou = true;
             this.setVisible(false);
@@ -403,7 +404,7 @@ public class CrudConvenio extends javax.swing.JDialog {
         if (Character.isDigit(keyChar) || keyChar == KeyEvent.VK_BACK_SPACE || keyChar == KeyEvent.VK_DELETE) {
         } else {
             JOptionPane.showMessageDialog(null, "Insira apenas números no campo.");
-            evt.consume(); 
+            evt.consume();
         }
     }//GEN-LAST:event_txtDescontoKeyTyped
 

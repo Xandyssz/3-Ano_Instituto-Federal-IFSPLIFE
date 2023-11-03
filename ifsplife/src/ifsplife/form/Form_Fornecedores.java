@@ -233,7 +233,7 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "CNPJ", "Responsavel", "Contato"
+                "Nome", "Responsavel", "CNPJ", "Contato"
             }
         ) {
             boolean[] canEdit = new boolean [] {

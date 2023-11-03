@@ -233,6 +233,10 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
             .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
+        inicio.setDateFormatString("dd/MM/yyyy");
+
+        fim.setDateFormatString("dd/MM/yyyy");
+
         jLabel2.setText("Data de Inicio");
 
         jLabel4.setText("Data de Fim");

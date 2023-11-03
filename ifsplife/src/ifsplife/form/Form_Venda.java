@@ -42,7 +42,7 @@ public class Form_Venda extends javax.swing.JPanel {
         desativarInputs();
         desabilitarTextos();
         DataVenda.setDate(new Date());
-                txtQuantidadeItem.setEditable(false);
+        txtQuantidadeItem.setEditable(false);
 
         for (Convenios c : controle.getTodos()) {
             jComboBoxConvenios.addItem(c);
@@ -156,7 +156,7 @@ public class Form_Venda extends javax.swing.JPanel {
                 DescontoDecimal,
                 valorDesconto;
 
-        ValorTotalItem = ((Number) jFormattedTextFieldValorTotal.getValue()).doubleValue();
+        ValorTotalItem = ((Number) txtValorTabela.getValue()).doubleValue();
         DescontoPercentual = ((Number) jFormattedTextFieldPorcentagem.getValue()).doubleValue();
 
         DescontoDecimal = DescontoPercentual / 100;
@@ -416,6 +416,8 @@ public class Form_Venda extends javax.swing.JPanel {
         jComboBoxFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selec. O Metodo de Pagamento...", "Pix", "Cartão de Crédito", "Cartão de Débito" }));
 
         jLabel1.setText("Forma de pagamento:");
+
+        DataVenda.setDateFormatString("dd/MM/yyyy");
 
         jLabeDataVenda.setText("Data da Venda:");
 
@@ -744,16 +746,24 @@ public class Form_Venda extends javax.swing.JPanel {
                 somaTabela -= valorRemovido;
             }
 
-            itens.remove(linha);
-            atualizarTabelaItens();
-            limparTexto();
+            int opcao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o produto da lista?", "Confirmação", JOptionPane.YES_NO_OPTION);
 
-            double soma = somarValoresTabela();
-            txtValorTabela.setText("");
-            txtValorTabela.setValue(soma);
+            if (opcao == JOptionPane.YES_OPTION) {
+                itens.remove(linha);
+                atualizarTabelaItens();
+                limparTexto();
 
+                double soma = somarValoresTabela();
+                txtValorTabela.setText("");
+                txtValorTabela.setValue(soma);
+
+                // Verifique se a tabela está vazia após a remoção e adicione um comentário
+                if (itens.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "A Tabela está vazia após a remoção, logo os dados serão invalidados. Preencha Novamente");
+                    desativarInputs();
+                }
+            }
         }
-
     }//GEN-LAST:event_JButtonRemoverItemMouseClicked
 
     private void JButtonAdicionarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonAdicionarItemMouseClicked

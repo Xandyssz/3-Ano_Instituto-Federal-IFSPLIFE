@@ -33,10 +33,10 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
         modelo.setRowCount(0);
 
         listaFornecedores.clear();
-        listaFornecedores.addAll(controle.getTodos());
+        listaFornecedores.addAll(controle.getPorNome(search1.getText()));
 
-        for (Fornecedores fornecedores : listaFornecedores) {
-            modelo.addRow(new Object[]{fornecedores.getNome(), fornecedores.getResponsavel(), fornecedores.getCnpj(), fornecedores.getTelefone()}
+        for (Fornecedores fornecedor : listaFornecedores) {
+            modelo.addRow(new Object[]{fornecedor.getNome(), fornecedor.getCnpj(), fornecedor.getResponsavel(), fornecedor.getTelefone()}
             );
         }
     }
@@ -67,6 +67,10 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
         jLabelItens1 = new javax.swing.JLabel();
         JSeparatorCRUD = new javax.swing.JSeparator();
         jLabelItens = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        search1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        clear1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -169,12 +173,66 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
                 .addComponent(jLabelItens1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jLabelItens.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabelItens.setForeground(new java.awt.Color(127, 127, 127));
         jLabelItens.setText("Pesquisa de Fornecedores");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        search1.setForeground(new java.awt.Color(153, 153, 153));
+        search1.setBorder(null);
+        search1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search1ActionPerformed(evt);
+            }
+        });
+        search1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                search1KeyTyped(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/search.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        clear1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ifsplife/view/icon/x.png"))); // NOI18N
+        clear1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clear1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(clear1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(search1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clear1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(search1))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -187,7 +245,9 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabelItens)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(JButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,7 +262,8 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
                     .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelItens))
+                    .addComponent(jLabelItens)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(JSeparatorCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,6 +321,23 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
 
     }//GEN-LAST:event_JButtonCadastrarMouseClicked
 
+    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search1ActionPerformed
+
+    private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
+        atualizarTabela();
+    }//GEN-LAST:event_search1KeyTyped
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        atualizarTabela();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void clear1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clear1MouseClicked
+        search1.setText("");
+        atualizarTabela();
+    }//GEN-LAST:event_clear1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ifsplife.dev.swing.PanelBorderGradient JButtonCadastrar;
@@ -267,12 +345,16 @@ public class PesquisaFornecedores extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelCancelar;
     private javax.swing.JLabel JLabelSelecionar;
     private javax.swing.JSeparator JSeparatorCRUD;
+    private javax.swing.JLabel clear1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelItens;
     private javax.swing.JLabel jLabelItens1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private ifsplife.dev.swing.PanelBorder panelBorder1;
     private ifsplife.dev.swing.PanelBorder panelBorder2;
     private ifsplife.dev.swing.PanelBorderGradient panelBorderGradient1;
+    private javax.swing.JTextField search1;
     private ifsplife.dev.swing.Table tableFornecedores;
     // End of variables declaration//GEN-END:variables
 }

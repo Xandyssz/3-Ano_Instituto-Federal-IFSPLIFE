@@ -187,6 +187,10 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
 
         jLabel4.setText("Data de Fim");
 
+        inicio.setDateFormatString("dd/MM/yyyy");
+
+        fim.setDateFormatString("dd/MM/yyyy");
+
         JButtonFiltrar.setFirstColor(new java.awt.Color(153, 153, 153));
         JButtonFiltrar.setPreferredSize(new java.awt.Dimension(112, 35));
         JButtonFiltrar.addMouseListener(new java.awt.event.MouseAdapter() {

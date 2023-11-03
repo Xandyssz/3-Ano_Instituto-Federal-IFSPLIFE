@@ -188,6 +188,8 @@ public class RelatorioCompras extends javax.swing.JDialog {
         JLabelDetalhesDaCompra2.setForeground(new java.awt.Color(127, 127, 127));
         JLabelDetalhesDaCompra2.setText("Detalhes da Compra");
 
+        DataVenda.setDateFormatString("dd/MM/yyyy");
+
         jLabeDataVenda.setText("Data da Venda:");
 
         jLabel1.setText("Forma de pagamento:");
