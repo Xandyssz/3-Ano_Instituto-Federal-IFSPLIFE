@@ -358,20 +358,20 @@ public class Form_RelatorioVendas extends javax.swing.JPanel {
     private void JButtonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluir1MouseClicked
         try {
             
-//            ControleVenda controle = new ControleVenda();
-//            List<Produtovenda> itens = new ArrayList<>();
-//
-//            if (inicio.getDate() == null || fim.getDate() == null) {
-//                itens.addAll(controle.listarTodosProdutos());
-//            } else {
-//                itens.addAll(controle.getPorPeriodo(inicio.getDate(), fim.getDate()));
-//            }
+            ControleVenda controle = new ControleVenda();
+            List<Produtovenda> itens = new ArrayList<>();
+
+            if (inicio.getDate() == null || fim.getDate() == null) {
+                itens.addAll(controle.listarTodosProdutos());
+            } else {
+                itens.addAll(controle.getItensPorPeriodo(inicio.getDate(), fim.getDate()));
+            }
 
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioVendaAgrup.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(controle.listarTodosProdutos()));
+                    new JRBeanCollectionDataSource(itens));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

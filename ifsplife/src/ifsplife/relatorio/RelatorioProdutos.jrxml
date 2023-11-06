@@ -263,7 +263,7 @@ FROM ifsplife.produto]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30">
+		<band height="25">
 			<line>
 				<reportElement x="0" y="22" width="556" height="1" uuid="6226597f-a403-4cc9-8083-b742ad14cf87">
 					<property name="local_mesure_unitheight" value="pixel"/>

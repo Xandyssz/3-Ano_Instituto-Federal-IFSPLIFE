@@ -219,7 +219,7 @@ FROM ifsplife.produtocompra
 					<text><![CDATA[CNPJ:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="420" y="0" width="92" height="22" uuid="a0998d07-3cd0-4f3f-9f9f-c20d92112621">
+					<reportElement x="378" y="0" width="92" height="22" uuid="a0998d07-3cd0-4f3f-9f9f-c20d92112621">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -269,7 +269,7 @@ FROM ifsplife.produtocompra
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50">
+			<band height="18">
 				<rectangle>
 					<reportElement x="0" y="-2" width="552" height="20" backcolor="#E8E8E8" uuid="93913cb3-8e4a-4672-a23b-212427a8fe3b"/>
 					<graphicElement>
@@ -284,7 +284,7 @@ FROM ifsplife.produtocompra
 					<text><![CDATA[Total de Produtos da compra:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="400" y="-4" width="100" height="22" uuid="6c703316-fb1f-4967-863d-eabf83803f72"/>
+					<reportElement x="374" y="-4" width="100" height="22" uuid="6c703316-fb1f-4967-863d-eabf83803f72"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
@@ -296,7 +296,7 @@ FROM ifsplife.produtocompra
 					<textFieldExpression><![CDATA[$V{codigo_produto1}]]></textFieldExpression>
 				</textField>
 				<textField pattern="¤#,##0.##;¤-#,##0.##">
-					<reportElement x="440" y="-3" width="76" height="20" uuid="5dce7dd3-7d18-432c-a501-5d1961a39508"/>
+					<reportElement x="456" y="-3" width="76" height="20" uuid="5dce7dd3-7d18-432c-a501-5d1961a39508"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle"/>
 					<textFieldExpression><![CDATA[$V{subtotal1}]]></textFieldExpression>
 				</textField>

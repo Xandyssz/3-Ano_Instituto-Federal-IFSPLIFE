@@ -109,4 +109,18 @@ public class ControleVenda {
 
     }
 
+        public List<Produtovenda> getItensPorPeriodo(Date inicio, Date fim) {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Produtovenda> consulta
+                = gerente.createNamedQuery("Vendas.itensPorPeriodos", Produtovenda.class);
+
+        consulta.setParameter("datainicio", inicio);
+        consulta.setParameter("datafim", fim);
+
+        return consulta.getResultList();
+
+    }
+    
 }

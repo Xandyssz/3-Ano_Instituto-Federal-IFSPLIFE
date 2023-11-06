@@ -101,12 +101,25 @@ public class ControleCompra {
         return total;
     }
 
-        public List<Produtocompra> listarTodosProdutos() {
+    public List<Produtocompra> listarTodosProdutos() {
         EntityManager gerente = GerenciadorConexao.getGerente();
         TypedQuery<Produtocompra> consulta
                 = gerente.createNamedQuery("Produtocompra.findAll", Produtocompra.class);
         return consulta.getResultList();
 
     }
-    
+
+    public List<Produtocompra> getItensPorPeriodo(Date inicio, Date fim) {
+
+        EntityManager gerente = GerenciadorConexao.getGerente();
+
+        TypedQuery<Produtocompra> consulta
+                = gerente.createNamedQuery("Compras.itensPorPeriodos", Produtocompra.class);
+
+        consulta.setParameter("datainicio", inicio);
+        consulta.setParameter("datafim", fim);
+
+        return consulta.getResultList();
+
+    }
 }

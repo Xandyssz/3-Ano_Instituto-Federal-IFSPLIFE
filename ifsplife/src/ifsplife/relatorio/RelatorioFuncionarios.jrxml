@@ -277,7 +277,7 @@ FROM ifsplife.funcionarios]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30">
+		<band height="23">
 			<textField>
 				<reportElement x="0" y="-7" width="59" height="30" uuid="34f29a1e-ea9e-4281-90a2-29061aa827d2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a217157f-1692-4dcf-93b3-8be4ef1c673a"/>

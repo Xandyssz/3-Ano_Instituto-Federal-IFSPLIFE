@@ -28,6 +28,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Compras.findByDataCompra", query = "SELECT c FROM Compras c WHERE c.data_compra = :dataCompra"),
     @NamedQuery(name = "Compras.findByFormaPagamento", query = "SELECT c FROM Compras c WHERE c.forma_pagamento = :formaPagamento"),
     @NamedQuery(name = "Compras.findByPeriodo", query = "SELECT c FROM Compras c WHERE c.data_compra BETWEEN :datainicio AND :datafim"),
+    @NamedQuery(name = "Compras.itensPorPeriodos", query = "SELECT pc FROM Produtocompra pc WHERE pc.codigo_compra.data_compra BETWEEN :datainicio AND :datafim ORDER BY pc.codigo_compra"),
     @NamedQuery(name = "Compras.findByValortotal", query = "SELECT c FROM Compras c WHERE c.valortotal = :valortotal")})
 
 public class Compras implements Serializable {

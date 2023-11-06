@@ -355,11 +355,21 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
     private void JButtonVisualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizar2MouseClicked
         try {
+
+            ControleCompra controle = new ControleCompra();
+            List<Produtocompra> itens = new ArrayList<>();
+
+            if (inicio.getDate() == null || fim.getDate() == null) {
+                itens.addAll(controle.listarTodosProdutos());
+            } else {
+                itens.addAll(controle.getItensPorPeriodo(inicio.getDate(), fim.getDate()));
+            }
+
             JasperReport relatorioCompilado
                     = JasperCompileManager.compileReport("src/ifsplife/relatorio/\\RelatorioCompraAgrup.jrxml");
 
             JasperPrint relatorioPreenchido = JasperFillManager.fillReport(relatorioCompilado, null,
-                    new JRBeanCollectionDataSource(controle.listarTodosProdutos()));
+                    new JRBeanCollectionDataSource(itens));
 
             JasperViewer painelRelatorio = new JasperViewer(relatorioPreenchido, false);
 

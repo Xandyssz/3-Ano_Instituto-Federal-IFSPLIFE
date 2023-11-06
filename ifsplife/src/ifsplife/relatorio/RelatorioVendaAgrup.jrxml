@@ -248,7 +248,7 @@ FROM ifsplife.produtovenda
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="35">
+			<band height="15">
 				<rectangle>
 					<reportElement x="0" y="-10" width="552" height="20" backcolor="#E8E8E8" uuid="bf8c4039-8d4f-412f-b9fa-5f24c4b2878d"/>
 					<graphicElement>
@@ -263,7 +263,7 @@ FROM ifsplife.produtovenda
 					<text><![CDATA[Total de Produtos da venda:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="376" y="-12" width="100" height="22" uuid="9c4f71b8-36d7-4d1a-91dd-64d44fe5795e"/>
+					<reportElement x="366" y="-12" width="100" height="22" uuid="9c4f71b8-36d7-4d1a-91dd-64d44fe5795e"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
