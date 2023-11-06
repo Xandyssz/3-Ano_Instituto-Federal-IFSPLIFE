@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ifsplife"/>
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[aWZzcGxpZmUucHJvZHV0byBBUyAsNjEsNDYsNmI0NjdhMTEtM2QzYy00ZmYwLWEwZDItNTUwMzU1
-NTAxNGM1Ow==]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="banco"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -207,28 +204,19 @@ FROM ifsplife.produto]]>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="0" y="0" width="60" height="30" uuid="d6f057ba-4649-4836-aa8a-d90126c28126">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5c6bc7a1-9bcb-41a0-a6fd-e4301b3434e7"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[CÓDIGO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="0" width="112" height="30" uuid="dc06ba9a-a4f1-4a13-b2ac-3423e4ba7e35">
+				<reportElement x="148" y="0" width="114" height="30" uuid="dc06ba9a-a4f1-4a13-b2ac-3423e4ba7e35">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e11420d-95a5-40b1-af23-1d467a6d7fa3"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[CATEGORIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="173" y="0" width="92" height="30" uuid="1f96feb6-2f10-4063-b5be-896a178b181f">
+				<reportElement x="3" y="0" width="145" height="30" uuid="1f96feb6-2f10-4063-b5be-896a178b181f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3d5084f-2edc-408c-938c-b3d3285de560"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOME]]></text>
@@ -246,7 +234,7 @@ FROM ifsplife.produto]]>
 				<reportElement x="450" y="0" width="106" height="30" uuid="7fa7c335-17dd-48b6-96ec-08f8f10dbda8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="078d4789-05b1-4f8a-a002-1551163de597"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[VALOR]]></text>
@@ -271,24 +259,17 @@ FROM ifsplife.produto]]>
 				</reportElement>
 			</line>
 			<textField>
-				<reportElement x="0" y="-7" width="60" height="30" uuid="874f9928-1ead-4432-ae16-67750124e1d1">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5c6bc7a1-9bcb-41a0-a6fd-e4301b3434e7"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{codigo_produto}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="58" y="-7" width="114" height="30" uuid="419c47c2-acba-4524-893b-845f8cc1898e">
+				<reportElement x="148" y="-7" width="114" height="30" uuid="419c47c2-acba-4524-893b-845f8cc1898e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e11420d-95a5-40b1-af23-1d467a6d7fa3"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="170" y="-7" width="95" height="30" uuid="68e47f4e-0fb2-420a-94a0-521443a0d825">
+				<reportElement x="0" y="-7" width="148" height="30" uuid="68e47f4e-0fb2-420a-94a0-521443a0d825">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3d5084f-2edc-408c-938c-b3d3285de560"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -302,8 +283,8 @@ FROM ifsplife.produto]]>
 				<reportElement x="451" y="-7" width="104" height="30" uuid="68b6fcff-9f8e-43c7-bc0b-7ece64b98fe1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="078d4789-05b1-4f8a-a002-1551163de597"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["R$" + $F{valor}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="266" y="-7" width="92" height="30" uuid="da18e80f-bedd-47d6-9b69-dac2f8b2d1d5">

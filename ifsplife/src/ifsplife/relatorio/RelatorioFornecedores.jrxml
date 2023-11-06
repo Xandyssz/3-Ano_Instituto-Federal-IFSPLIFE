@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ifsplife"/>
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[aWZzcGxpZmUuZm9ybmVjZWRvcmVzICwxNSwxNSwyNzg0ZjVlMC0yZjJlLTQzYjMtYjlkMi0yNWQ5
-YWI0NzU5ZDk7]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="banco"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -207,55 +204,46 @@ FROM ifsplife.fornecedores]]>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="-1" y="0" width="60" height="30" uuid="0cde4a83-b9ab-4a67-9247-1c547358a486">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3d58641-6251-4795-a439-bfd25a9cedc5"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[CÓDIGO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="172" y="0" width="92" height="30" uuid="fbb6c0d8-9809-4396-9a9a-60ed01b35fcb">
+				<reportElement x="101" y="1" width="114" height="30" uuid="fbb6c0d8-9809-4396-9a9a-60ed01b35fcb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3143f16-79e7-47e7-9b6d-b3a45e9820ce"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOME]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="60" y="0" width="112" height="30" uuid="c4288a07-dc7e-4acd-b017-492bc512d2e0">
+				<reportElement x="4" y="0" width="96" height="30" uuid="c4288a07-dc7e-4acd-b017-492bc512d2e0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6222c4c7-036b-4ea4-b7b6-632b5a68214f"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[RESPONSÁVEL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="452" y="1" width="104" height="30" uuid="32975fb7-97a7-4c5e-960c-1f18cc33de64">
+				<reportElement x="400" y="1" width="156" height="30" uuid="32975fb7-97a7-4c5e-960c-1f18cc33de64">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4c77bf0-a13c-4099-8df0-c10fe9932cac"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[ENDEREÇO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="266" y="0" width="92" height="30" uuid="c7ef521e-973c-4071-836f-b8bed8149dd4">
+				<reportElement x="216" y="0" width="79" height="30" uuid="c7ef521e-973c-4071-836f-b8bed8149dd4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4da3af3-2db1-47cd-9aff-7c15e2014041"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[TELEFONE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="358" y="1" width="92" height="30" uuid="b6e928fd-e254-46fa-b52e-90b0a59f9969">
+				<reportElement x="305" y="0" width="92" height="30" uuid="b6e928fd-e254-46fa-b52e-90b0a59f9969">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="834cd9e4-1d11-4a4a-b60c-17d50d064ffd"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIDADE]]></text>
@@ -271,45 +259,38 @@ FROM ifsplife.fornecedores]]>
 				</reportElement>
 			</line>
 			<textField>
-				<reportElement x="-1" y="-7" width="60" height="30" uuid="1616483a-acc2-4aba-997d-7d7f2c201172">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3d58641-6251-4795-a439-bfd25a9cedc5"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{codigo_fornecedor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="172" y="-7" width="92" height="30" uuid="75633515-a05b-478d-ac19-16324776f653">
+				<reportElement x="101" y="-7" width="114" height="30" uuid="75633515-a05b-478d-ac19-16324776f653">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3143f16-79e7-47e7-9b6d-b3a45e9820ce"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="-7" width="112" height="30" uuid="1b6d6404-02a6-40cb-80a8-50449f18fd43">
+				<reportElement x="4" y="-7" width="96" height="30" uuid="1b6d6404-02a6-40cb-80a8-50449f18fd43">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6222c4c7-036b-4ea4-b7b6-632b5a68214f"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{responsavel}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="451" y="-7" width="104" height="30" uuid="728a9f65-a61d-49d4-a5c8-1fa9340d43bb">
+				<reportElement x="400" y="-7" width="155" height="30" uuid="728a9f65-a61d-49d4-a5c8-1fa9340d43bb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4c77bf0-a13c-4099-8df0-c10fe9932cac"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="266" y="-7" width="92" height="28" uuid="5c8a43ee-a576-4fac-974e-55da69355de3">
+				<reportElement x="216" y="-7" width="79" height="28" uuid="5c8a43ee-a576-4fac-974e-55da69355de3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4da3af3-2db1-47cd-9aff-7c15e2014041"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="358" y="-8" width="92" height="30" uuid="bcd8ddb8-7c9b-451f-98b2-b4954442a8a0">
+				<reportElement x="304" y="-8" width="92" height="30" uuid="bcd8ddb8-7c9b-451f-98b2-b4954442a8a0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="834cd9e4-1d11-4a4a-b60c-17d50d064ffd"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
 			</textField>
 		</band>
