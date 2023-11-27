@@ -1,9 +1,11 @@
 package ifsplife.control;
 
 import ifsplife.model.Convenios;
+import ifsplife.model.exceptions.ConvenioException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.swing.JOptionPane;
 
 public class ControleConvenio {
 
@@ -20,20 +22,26 @@ public class ControleConvenio {
         gerente.close();
     }
 
-    public void remover(Convenios Convenios) {
-
+    public void remover(Convenios convenios) throws ConvenioException {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Convenios convenioExcluir = gerente.find(Convenios.class,
-                Convenios.getCodigo_convenio());
+        try {
+            Convenios convenioExcluir = gerente.find(Convenios.class, convenios.getCodigo_convenio());
 
-        gerente.getTransaction().begin();
-
-        gerente.remove(convenioExcluir);
-
-        gerente.getTransaction().commit();
-
-        gerente.close();
+            if (convenioExcluir != null) {
+                if (convenioExcluir.getVendas()!= null && !convenioExcluir.getVendas().isEmpty()) {
+                    throw new ConvenioException("Não é possível excluir o convênio, pois existem vendas relacionadas.");
+                } else {
+                    gerente.getTransaction().begin();
+                    gerente.remove(convenioExcluir);
+                    gerente.getTransaction().commit();
+                }
+            } else {
+                throw new ConvenioException("Convênio não encontrado para exclusão.");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Este Convênio está relacionado à alguma venda. Não é possível excluí-lo.");
+        }
     }
 
     public void alterar(Convenios convenios) {

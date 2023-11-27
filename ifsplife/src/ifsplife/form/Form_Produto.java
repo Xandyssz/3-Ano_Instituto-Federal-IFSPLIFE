@@ -3,6 +3,7 @@ package ifsplife.form;
 import ifsplife.control.ControleProduto;
 import ifsplife.jdialog.CrudProduto;
 import ifsplife.model.Produto;
+import ifsplife.model.exceptions.ProdutoException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -419,7 +420,13 @@ public class Form_Produto extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
 
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaProdutos.get(linha));
+                try {
+                    controle.remover(listaProdutos.get(linha));
+                } catch (ProdutoException ex) {
+                    Logger.getLogger(Form_Produto.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Não é possível excluí-lo.");
+
+                }
                 atualizarTabela();
             }
         }

@@ -1,6 +1,7 @@
 package ifsplife.control;
 
 import ifsplife.model.Funcionarios;
+import ifsplife.model.exceptions.FuncionarioException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -22,21 +23,26 @@ public class ControleFuncionario {
         gerente.close();
     }
 
-    public void remover(Funcionarios Funcionarios) {
-
+ public void remover(Funcionarios funcionarios) throws FuncionarioException {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Funcionarios funcionarioExcluir = gerente.find(Funcionarios.class,
-                Funcionarios.getCodigo_funcionario());
+        try {
+            Funcionarios funcionarioExcluir = gerente.find(Funcionarios.class, funcionarios.getCodigo_funcionario());
 
-        gerente.getTransaction().begin();
-
-        gerente.remove(funcionarioExcluir);
-
-        gerente.getTransaction().commit();
-
-        gerente.close();
-    }
+            if (funcionarioExcluir != null) {
+                gerente.getTransaction().begin();
+                gerente.remove(funcionarioExcluir);
+                gerente.getTransaction().commit();
+            } else {
+                throw new FuncionarioException("Funcionário não encontrado para exclusão.");
+            }
+        } catch (Exception e) {
+            gerente.getTransaction().rollback();
+            throw new FuncionarioException("Erro ao excluir o funcionário: " + e.getMessage());
+        } finally {
+            gerente.close();
+        }
+    } 
 
     public void alterar(Funcionarios funcionarios) {
 

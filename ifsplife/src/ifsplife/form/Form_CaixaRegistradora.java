@@ -10,10 +10,12 @@ import ifsplife.jdialog.RelatorioCaixas;
 import ifsplife.model.Caixa;
 import ifsplife.model.Movimentacao;
 import java.awt.Color;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

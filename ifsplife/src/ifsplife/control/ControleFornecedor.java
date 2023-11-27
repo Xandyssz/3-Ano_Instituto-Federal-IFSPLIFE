@@ -1,9 +1,13 @@
 package ifsplife.control;
 
 import ifsplife.model.Fornecedores;
+import ifsplife.model.exceptions.FornecedorException;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.swing.JOptionPane;
 
 public class ControleFornecedor {
 
@@ -20,20 +24,26 @@ public class ControleFornecedor {
         gerente.close();
     }
 
-    public void remover(Fornecedores Fornecedor) {
-
+    public void remover(Fornecedores fornecedores) throws FornecedorException {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
-        Fornecedores fornecedorExcluir = gerente.find(Fornecedores.class,
-                Fornecedor.getCodigo_fornecedor());
+        try {
+            Fornecedores fornecedorExcluir = gerente.find(Fornecedores.class, fornecedores.getCodigo_fornecedor());
 
-        gerente.getTransaction().begin();
-
-        gerente.remove(fornecedorExcluir);
-
-        gerente.getTransaction().commit();
-
-        gerente.close();
+            if (fornecedorExcluir != null) {
+                if (fornecedorExcluir.getCompras() != null && !fornecedorExcluir.getCompras().isEmpty()) {
+                    throw new FornecedorException("Não é possível excluir o fornecedor, pois existem compras relacionadas.");
+                } else {
+                    gerente.getTransaction().begin();
+                    gerente.remove(fornecedorExcluir);
+                    gerente.getTransaction().commit();
+                }
+            } else {
+                throw new FornecedorException("Fornecedor não encontrado para exclusão.");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Este Fornecedor está relacionado à alguma compra. Não é possível excluí-lo.");
+        }
     }
 
     public void alterar(Fornecedores fornecedores) {
@@ -54,7 +64,8 @@ public class ControleFornecedor {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         TypedQuery<Fornecedores> consulta
-                = gerente.createNamedQuery("Fornecedores.findAll", Fornecedores.class);
+                = gerente.createNamedQuery("Fornecedores.findAll", Fornecedores.class
+                );
 
         return consulta.getResultList();
 
@@ -65,7 +76,8 @@ public class ControleFornecedor {
         EntityManager gerente = GerenciadorConexao.getGerente();
 
         TypedQuery<Fornecedores> consulta
-                = gerente.createNamedQuery("Fornecedores.findByNome", Fornecedores.class);
+                = gerente.createNamedQuery("Fornecedores.findByNome", Fornecedores.class
+                );
 
         consulta.setParameter("nome", "%" + nomePesquisar + "%");
 

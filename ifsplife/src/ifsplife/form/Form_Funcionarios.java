@@ -3,6 +3,7 @@ package ifsplife.form;
 import ifsplife.control.ControleFuncionario;
 import ifsplife.jdialog.CrudFuncionario;
 import ifsplife.model.Funcionarios;
+import ifsplife.model.exceptions.FuncionarioException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -400,7 +401,13 @@ public class Form_Funcionarios extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
 
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaFuncionarios.get(linha));
+                try {
+                    controle.remover(listaFuncionarios.get(linha));
+                } catch (FuncionarioException ex) {
+                    Logger.getLogger(Form_Funcionarios.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Não é possível excluí-lo.");
+
+                }
                 atualizarTabela();
             }
         }

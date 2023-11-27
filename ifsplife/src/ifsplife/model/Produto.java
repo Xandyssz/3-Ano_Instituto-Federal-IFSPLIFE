@@ -2,7 +2,9 @@ package ifsplife.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -70,6 +73,38 @@ public class Produto implements Serializable {
     @Column(name = "valor", nullable = false, length = 45)
     private double valor;
 
+    
+        @OneToMany(mappedBy = "codigo_produto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produtocompra> produtosCompra;
+
+    @OneToMany(mappedBy = "codigo_produto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produtovenda> produtosVenda;
+
+    public int getCodigo_produto() {
+        return codigo_produto;
+    }
+
+    public void setCodigo_produto(int codigo_produto) {
+        this.codigo_produto = codigo_produto;
+    }
+
+    public List<Produtocompra> getProdutosCompra() {
+        return produtosCompra;
+    }
+
+    public void setProdutosCompra(List<Produtocompra> produtosCompra) {
+        this.produtosCompra = produtosCompra;
+    }
+
+    public List<Produtovenda> getProdutosVenda() {
+        return produtosVenda;
+    }
+
+    public void setProdutosVenda(List<Produtovenda> produtosVenda) {
+        this.produtosVenda = produtosVenda;
+    }
+    
+    
     public Produto() {
     }
 

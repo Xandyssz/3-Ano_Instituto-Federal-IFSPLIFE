@@ -3,6 +3,7 @@ package ifsplife.form;
 import ifsplife.control.ControleFornecedor;
 import ifsplife.jdialog.CrudFornecedor;
 import ifsplife.model.Fornecedores;
+import ifsplife.model.exceptions.FornecedorException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -416,7 +417,13 @@ public class Form_Fornecedores extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
 
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaFornecedores.get(linha));
+                try {
+                    controle.remover(listaFornecedores.get(linha));
+                } catch (FornecedorException ex) {
+                    Logger.getLogger(Form_Fornecedores.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Não é possível excluí-lo.");
+
+                }
                 atualizarTabela();
             }
         }

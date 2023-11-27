@@ -3,6 +3,7 @@ package ifsplife.form;
 import ifsplife.control.ControleConvenio;
 import ifsplife.jdialog.CrudConvenio;
 import ifsplife.model.Convenios;
+import ifsplife.model.exceptions.ConvenioException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -413,7 +414,13 @@ public class Form_Convenios extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
 
             if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(listaConvenios.get(linha));
+                try {
+                    controle.remover(listaConvenios.get(linha));
+                } catch (ConvenioException ex) {
+                    Logger.getLogger(Form_Convenios.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Não é possível excluí-lo.");
+
+                }
                 atualizarTabela();
             }
         }
