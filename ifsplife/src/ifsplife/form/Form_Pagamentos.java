@@ -50,11 +50,14 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         }
 
         for (Pagamentocompra pagamentos : pagamentos) {
+            double valor = pagamentos.getValor();
+            String valorFormatado = String.format("R$ %.2f", valor);
+
             modelo.addRow(new Object[]{
                 pagamentos.getCodigo_compra().getCodigo_fornecedor().getNome(),
                 pagamentos.getParcela(),
                 formatador.format(pagamentos.getVencimento()),
-                pagamentos.getValor(),
+                valorFormatado,
                 pagamentos.getStatus()}
             );
         }
@@ -361,10 +364,17 @@ public class Form_Pagamentos extends javax.swing.JPanel {
         if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Não foi selecionada nenhuma parcela para pagamento. Selecione.");
         } else {
+            Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
+
+            // Verificar se a parcela já foi paga
+            if ("Pago".equals(pagamentoSelecionado.getStatus())) {
+                JOptionPane.showMessageDialog(null, "Esta parcela já foi paga anteriormente.");
+                return;
+            }
+
             int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente pagar a parcela?", "Confirmar Pagamento", JOptionPane.YES_NO_OPTION);
 
             if (opcao == JOptionPane.YES_OPTION) {
-                Pagamentocompra pagamentoSelecionado = pagamentos.get(linha);
                 pagamentoSelecionado.setStatus("Pago");
                 controle.realizarPagamento(pagamentoSelecionado);
                 atualizarTabelaPrincipal();

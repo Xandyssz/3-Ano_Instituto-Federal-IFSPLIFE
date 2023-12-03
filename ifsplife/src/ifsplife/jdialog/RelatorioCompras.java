@@ -45,11 +45,18 @@ public class RelatorioCompras extends javax.swing.JDialog {
 
         // varre todos os produtos que estão no controle
         for (Produtocompra item : itens) {
+
+            double valor = item.getcodigo_produto().getValor();
+            double subtotal = item.getSubtotal();
+
+            String valorFormatado = String.format("R$ %.2f", valor);
+            String subtotalFormatado = String.format("R$ %.2f", subtotal);
+
             modelo.addRow(new Object[]{
                 item.getcodigo_produto().getNome(),
-                item.getcodigo_produto().getValor(),
+                valorFormatado,
                 item.getQuantidade(), // Obtém a quantidade do item individualmente
-                item.getSubtotal()});
+                subtotalFormatado});
         }
     }
 
@@ -61,9 +68,11 @@ public class RelatorioCompras extends javax.swing.JDialog {
 
         // varre todos os produtos que estão no controle
         for (Pagamentocompra pagamento : pagamentos) {
+            double subtotal = pagamento.getValor();
+            String valorFormatado = String.format("R$ %.2f", subtotal);
             modelo.addRow(new Object[]{pagamento.getParcela(),
                 formatador.format(pagamento.getVencimento()),
-                pagamento.getValor(),
+                valorFormatado,
                 pagamento.getStatus()});
         }
     }

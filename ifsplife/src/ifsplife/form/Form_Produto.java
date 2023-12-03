@@ -43,7 +43,9 @@ public class Form_Produto extends javax.swing.JPanel {
         listaProdutos.addAll(controle.getPorNome(search1.getText()));
 
         for (Produto produto : listaProdutos) {
-            modelo.addRow(new Object[]{produto.getNome(), produto.getCategoria(), produto.getValor(), produto.getQuantidade()}
+            double valor = produto.getValor();
+            String valorFormatado = String.format("R$ %.2f", valor);
+            modelo.addRow(new Object[]{produto.getNome(), produto.getCategoria(), valorFormatado, produto.getQuantidade()}
             );
         }
     }

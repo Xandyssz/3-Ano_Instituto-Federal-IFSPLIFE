@@ -150,18 +150,28 @@ public class Form_Compras extends javax.swing.JPanel {
 
         modelo.setRowCount(0);
 
-        total = 0;
+        double total = 0;
         // varre todos os produtos que estão no controle
         for (Produtocompra ic : itens) {
+            double valor = ic.getcodigo_produto().getValor();
+            double subtotal = ic.getSubtotal();
+
+            String valorFormatado = String.format("R$ %.2f", valor);
+            String subtotalFormatado = String.format("R$ %.2f", subtotal);
+
             modelo.addRow(new Object[]{
                 ic.getcodigo_produto().getNome(),
-                ic.getcodigo_produto().getValor(),
+                valorFormatado,
                 ic.getQuantidade(),
-                ic.getSubtotal()});
-            total += ic.getSubtotal();
+                subtotalFormatado});
+
+            // Substitui a vírgula por ponto e converte subtotalFormatado para double
+            total += Double.parseDouble(subtotalFormatado.replace("R$ ", "").replace(",", "."));
         }
-        String totalString = String.valueOf(total);
-        valorFinal.setText(totalString);
+
+        // Formata o total como uma string sem "R$"
+        String totalString = String.format("%.2f", total);
+        valorFinal.setValue(totalString);
     }
 
     private void atualizarTabelaParcelas() {
@@ -172,24 +182,39 @@ public class Form_Compras extends javax.swing.JPanel {
 
         // varre todos os produtos que estão no controle
         for (Pagamentocompra pagamento : pagamentos) {
+            double subtotal = pagamento.getValor();
+            String valorFormatado = String.format("R$ %.2f", subtotal);
             modelo.addRow(new Object[]{pagamento.getParcela(),
                 formatador.format(pagamento.getVencimento()),
-                pagamento.getValor(),
+                valorFormatado,
                 pagamento.getStatus()});
         }
     }
 
     public double somarValoresTabela() {
         int numRows = tableCompras.getRowCount();
-        int valorColumnIndex = 3;
-        // Índice da coluna "Valor" (começando em 0)
+        int valorColumnIndex = 3; // Índice da coluna "Subtotal" (começando em 0)
         double somaTabela = 0;
+
         for (int i = 0; i < numRows; i++) {
             Object valorCelula = tableCompras.getValueAt(i, valorColumnIndex);
-            if (valorCelula instanceof Number) {
-                somaTabela += ((Number) valorCelula).doubleValue();
+
+            if (valorCelula instanceof String) {
+                String valorString = (String) valorCelula;
+
+                // Remove o "R$" e substitui a vírgula por ponto
+                valorString = valorString.replace("R$", "").replace(",", ".");
+
+                // Verifica se a string resultante é um número válido
+                try {
+                    somaTabela += Double.parseDouble(valorString);
+                } catch (NumberFormatException e) {
+                    // Lidar com exceção, se necessário
+                    e.printStackTrace();
+                }
             }
         }
+
         return somaTabela;
     }
 
@@ -1020,7 +1045,11 @@ public class Form_Compras extends javax.swing.JPanel {
 
             novo.setcodigo_produto(itemSelecionado);
             novo.setQuantidade(Integer.parseInt(txtQuantidadeItem.getText()));
-            novo.setPreco(((Number) txtValorProduto.getValue()).doubleValue());
+
+            // Substitua a vírgula por ponto antes de converter para double
+            String valorProdutoString = txtValorProduto.getText().replace(",", ".");
+            novo.setPreco(Double.parseDouble(valorProdutoString));
+
             novo.setSubtotal(((Number) txtValorTotalProduto.getValue()).doubleValue());
 
             boolean flag = false;
@@ -1082,6 +1111,8 @@ public class Form_Compras extends javax.swing.JPanel {
             atualizarTabelaItens();
 
             String totalString = String.valueOf(total);
+            totalString = totalString.replace(",", ".");
+
             double valorFormatado = Double.parseDouble(totalString);
 
             DecimalFormat decimalFormat = new DecimalFormat("#.##"); // Define o formato desejado
@@ -1150,45 +1181,55 @@ public class Form_Compras extends javax.swing.JPanel {
 
     private void comboParcelasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboParcelasItemStateChanged
         String selectedParcela = comboParcelas.getSelectedItem().toString();
-        double valorTotal = Double.parseDouble(valorFinal.getValue().toString());
+        String valorTotalString = valorFinal.getValue().toString();
 
-        switch (selectedParcela) {
-            case "1x" -> {
-                valorParcela.setText(valorFinal.getValue().toString());
+        // Substitua vírgulas por pontos
+        valorTotalString = valorTotalString.replace(",", ".");
+
+        try {
+            double valorTotal = Double.parseDouble(valorTotalString);
+
+            switch (selectedParcela) {
+                case "1x" -> {
+                    valorParcela.setText(Double.toString(valorTotal));
+                }
+                case "2x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 2));
+                }
+                case "3x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 3));
+                }
+                case "4x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 4));
+                }
+                case "5x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 5));
+                }
+                case "6x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 6));
+                }
+                case "7x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 7));
+                }
+                case "8x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 8));
+                }
+                case "9x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 9));
+                }
+                case "10x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 10));
+                }
+                case "11x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 11));
+                }
+                case "12x" -> {
+                    valorParcela.setText(Double.toString(valorTotal / 12));
+                }
             }
-            case "2x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 2));
-            }
-            case "3x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 3));
-            }
-            case "4x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 4));
-            }
-            case "5x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 5));
-            }
-            case "6x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 6));
-            }
-            case "7x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 7));
-            }
-            case "8x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 8));
-            }
-            case "9x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 9));
-            }
-            case "10x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 10));
-            }
-            case "11x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 11));
-            }
-            case "12x" -> {
-                valorParcela.setText(Double.toString(valorTotal / 12));
-            }
+        } catch (NumberFormatException e) {
+            // Trate a exceção, por exemplo, exibindo uma mensagem de erro
+            JOptionPane.showMessageDialog(this, "Valor Total inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_comboParcelasItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables

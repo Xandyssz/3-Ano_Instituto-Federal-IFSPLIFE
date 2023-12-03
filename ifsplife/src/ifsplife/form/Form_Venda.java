@@ -82,14 +82,23 @@ public class Form_Venda extends javax.swing.JPanel {
 
         total = 0;
         for (Produtovenda pv : itens) {
+            double valor = pv.getcodigo_produto().getValor();
+            double subtotal = pv.getSubtotal();
+            String valorFormatado = String.format("R$ %.2f", valor);
+            String subtotalFormatado = String.format("R$ %.2f", subtotal);
+
             modelo.addRow(new Object[]{
                 pv.getcodigo_produto().getNome(),
-                pv.getcodigo_produto().getValor(),
+                valorFormatado,
                 pv.getQuantidade(), // Obtém a quantidade do item individualmente
-                pv.getSubtotal()});
-            total += pv.getSubtotal();
+                subtotalFormatado});
+
+            total += Double.parseDouble(subtotalFormatado.replace("R$ ", "").replace(",", "."));
         }
-        valorFinal.setText(String.valueOf(total));
+        // Formata o total como uma string sem "R$"
+        String totalString = String.format("%.2f", total);
+        System.out.println("" + totalString);
+        valorFinal.setText(totalString);
     }
 
     public void desabilitarTextos() {
@@ -168,15 +177,28 @@ public class Form_Venda extends javax.swing.JPanel {
 
     public double somarValoresTabela() {
         int numRows = tableVendas.getRowCount();
-        int valorColumnIndex = 3;
-        // Índice da coluna "Valor" (começando em 0)
+        int valorColumnIndex = 3; // Índice da coluna "Subtotal" (começando em 0)
         double somaTabela = 0;
+
         for (int i = 0; i < numRows; i++) {
             Object valorCelula = tableVendas.getValueAt(i, valorColumnIndex);
-            if (valorCelula instanceof Number) {
-                somaTabela += ((Number) valorCelula).doubleValue();
+
+            if (valorCelula instanceof String) {
+                String valorString = (String) valorCelula;
+
+                // Remove o "R$" e substitui a vírgula por ponto
+                valorString = valorString.replace("R$", "").replace(",", ".");
+
+                // Verifica se a string resultante é um número válido
+                try {
+                    somaTabela += Double.parseDouble(valorString);
+                } catch (NumberFormatException e) {
+                    // Lidar com exceção, se necessário
+                    e.printStackTrace();
+                }
             }
         }
+
         return somaTabela;
     }
 
@@ -801,7 +823,11 @@ public class Form_Venda extends javax.swing.JPanel {
 
             novo.setcodigo_produto(itemSelecionado);
             novo.setQuantidade(Integer.parseInt(txtQuantidadeItem.getText()));
-            novo.setPreco(((Number) jFormattedTextFieldValorItem.getValue()).doubleValue());
+
+            // Substitua a vírgula por ponto antes de converter para double
+            String valorProdutoString = jFormattedTextFieldValorItem.getText().replace(",", ".");
+            novo.setPreco(Double.parseDouble(valorProdutoString));
+
             novo.setSubtotal(((Number) jFormattedTextFieldValorTotal.getValue()).doubleValue());
 
             boolean flag = false;
@@ -810,6 +836,7 @@ public class Form_Venda extends javax.swing.JPanel {
                 if (produto.getcodigo_produto() == itemSelecionado.getcodigo_produto()) {
                     flag = true;
                     int quantidadeAdicional = Integer.parseInt(txtQuantidadeItem.getText());
+
                     double valorAdicional = (double) jFormattedTextFieldValorTotal.getValue();
 
                     item.setQuantidade(item.getQuantidade() + quantidadeAdicional);
@@ -895,6 +922,7 @@ public class Form_Venda extends javax.swing.JPanel {
             atualizarTabelaItens();
 
             String totalString = String.valueOf(total);
+            totalString = totalString.replace(",", ".");
             double valorFormatado = Double.parseDouble(totalString);
 
             DecimalFormat decimalFormat = new DecimalFormat("#.##"); // Define o formato desejado

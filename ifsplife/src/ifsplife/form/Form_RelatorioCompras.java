@@ -56,7 +56,9 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         }
 
         for (Compras compras : compras) {
-            modelo.addRow(new Object[]{formatador.format(compras.getData_compra()), compras.getCodigo_fornecedor().getNome(), compras.getValortotal(), compras.getForma_pagamento()}
+            double subtotal = compras.getValortotal();
+            String valorFormatado = String.format("R$ %.2f", subtotal);
+            modelo.addRow(new Object[]{formatador.format(compras.getData_compra()), compras.getCodigo_fornecedor().getNome(), valorFormatado, compras.getForma_pagamento()}
             );
         }
     }
@@ -69,8 +71,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         JButtonVisualizar = new ifsplife.dev.swing.PanelBorderGradient();
         jLabel18 = new javax.swing.JLabel();
-        JButtonExcluir = new ifsplife.dev.swing.PanelBorderGradient();
-        jLabel15 = new javax.swing.JLabel();
         panelBorder1 = new ifsplife.dev.swing.PanelBorder();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRelatCompras = new ifsplife.dev.swing.Table();
@@ -133,30 +133,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         JButtonVisualizarLayout.setVerticalGroup(
             JButtonVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
-
-        JButtonExcluir.setFirstColor(new java.awt.Color(153, 153, 153));
-        JButtonExcluir.setPreferredSize(new java.awt.Dimension(112, 35));
-        JButtonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonExcluirMouseClicked(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Excluir");
-
-        javax.swing.GroupLayout JButtonExcluirLayout = new javax.swing.GroupLayout(JButtonExcluir);
-        JButtonExcluir.setLayout(JButtonExcluirLayout);
-        JButtonExcluirLayout.setHorizontalGroup(
-            JButtonExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-        );
-        JButtonExcluirLayout.setVerticalGroup(
-            JButtonExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
@@ -248,14 +224,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JButtonVisualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,8 +245,14 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                                 .addComponent(JButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel4))
                         .addGap(36, 36, 36))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(JButtonVisualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(17, 17, 17))))
         );
         layout.setVerticalGroup(
@@ -309,7 +283,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonVisualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
@@ -333,25 +306,6 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_JButtonVisualizarMouseClicked
-
-    private void JButtonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonExcluirMouseClicked
-        Integer linha = tableRelatCompras.getSelectedRow();
-
-        if (linha == -1) {
-            JOptionPane.showMessageDialog(null,
-                    "Não foi selecionado nenhuma Compra. Selecione.");
-        } else {
-            Integer resposta = JOptionPane.showConfirmDialog(null,
-                    "Deseja excluir essa Compra?",
-                    "Exclusão da Compra",
-                    JOptionPane.YES_NO_OPTION);
-
-            if (resposta == JOptionPane.YES_OPTION) {
-                controle.remover(compras.get(linha));
-                atualizarTabela();
-            }
-        }
-    }//GEN-LAST:event_JButtonExcluirMouseClicked
 
     private void JButtonVisualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonVisualizar2MouseClicked
         try {
@@ -393,14 +347,12 @@ public class Form_RelatorioCompras extends javax.swing.JPanel {
     }//GEN-LAST:event_JButtonFiltrarMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ifsplife.dev.swing.PanelBorderGradient JButtonExcluir;
     private ifsplife.dev.swing.PanelBorderGradient JButtonFiltrar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar;
     private ifsplife.dev.swing.PanelBorderGradient JButtonVisualizar2;
     private com.toedter.calendar.JDateChooser fim;
     private com.toedter.calendar.JDateChooser inicio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

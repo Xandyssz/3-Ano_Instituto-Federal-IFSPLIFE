@@ -40,11 +40,16 @@ public class RelatorioVendas extends javax.swing.JDialog {
 
         // varre todos os produtos que estão no controle
         for (Produtovenda item : itens) {
+            double valor = item.getcodigo_produto().getValor();
+            double subtotal = item.getSubtotal();
+            String valorFormatado = String.format("R$ %.2f", valor);
+            String subtotalFormatado = String.format("R$ %.2f", subtotal);
+
             modelo.addRow(new Object[]{
                 item.getcodigo_produto().getNome(),
-                item.getcodigo_produto().getValor(),
+                valorFormatado,
                 item.getQuantidade(), // Obtém a quantidade do item individualmente
-                item.getSubtotal()});
+                subtotalFormatado});
         }
     }
 

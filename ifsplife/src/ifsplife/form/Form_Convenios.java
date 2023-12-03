@@ -43,7 +43,9 @@ public class Form_Convenios extends javax.swing.JPanel {
         listaConvenios.addAll(controle.getPorNome(search1.getText()));
 
         for (Convenios c : listaConvenios) {
-            modelo.addRow(new Object[]{c.getNome(), c.getTelefone(), c.getDesconto()}
+            double porcentagem = c.getDesconto();
+            String valorFormatado = String.format("%.2f%%", porcentagem);
+            modelo.addRow(new Object[]{c.getNome(), c.getTelefone(), valorFormatado}
             );
         }
     }

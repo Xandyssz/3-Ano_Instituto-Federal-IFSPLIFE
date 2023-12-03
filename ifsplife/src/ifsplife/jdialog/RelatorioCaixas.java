@@ -49,12 +49,15 @@ public class RelatorioCaixas extends javax.swing.JDialog {
         caixa.addAll(controle.getTodos());
 
         for (Caixa caixa : caixa) {
+            double valor = caixa.getValor_abertura();
+            String valorFormatado = String.format("R$ %.2f", valor);
+
             modelo.addRow(new Object[]{
                 caixa.getCodigo_caixa(),
                 formatador.format(caixa.getData_abertura()),
                 formatador.format(caixa.getData_fechamento()),
                 formatadorHora.format(caixa.getHorario_abertura()),
-                caixa.getValor_abertura()});
+                valorFormatado});
         }
 
         modelo.fireTableDataChanged(); // Notifica a tabela sobre as mudanças nos dados

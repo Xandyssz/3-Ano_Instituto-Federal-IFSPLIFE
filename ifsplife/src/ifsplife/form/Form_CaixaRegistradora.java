@@ -85,7 +85,9 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         movimentacao.addAll(controlemovimentacao.getMovPorCaixa(controlecaixa.getCaixaAberto()));
 
         for (Movimentacao movimentacao : movimentacao) {
-            modelo.addRow(new Object[]{movimentacao.getMotivo(), movimentacao.getValor(), movimentacao.getTipo()});
+            double valor = movimentacao.getValor();
+            String valorFormatado = String.format("R$ %.2f", valor);
+            modelo.addRow(new Object[]{movimentacao.getMotivo(), valorFormatado, movimentacao.getTipo()});
 
         }
     }
@@ -167,6 +169,11 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         jLabelValorSangria1 = new javax.swing.JLabel();
         jLabelRSSangria1 = new javax.swing.JLabel();
 
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setBackground(new java.awt.Color(239, 239, 239));
@@ -198,6 +205,11 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tableMovimentacoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
             }
         });
         JScrollPaneMovimentacao.setViewportView(tableMovimentacoes);
@@ -616,6 +628,10 @@ public class Form_CaixaRegistradora extends javax.swing.JPanel {
         tela.setVisible(true);
 
     }//GEN-LAST:event_GerenciamentoCaixaMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AbrirFecharCaixa;
